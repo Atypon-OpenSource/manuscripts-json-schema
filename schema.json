@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "manuscript": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "additionalItems": false
+    }
+  },
+  "required": [
+    "manuscript",
+    "annotations",
+    "bibliography",
+    "analysis",
+    "sections",
+    "snapshots"
+  ]
+}
