@@ -1,8 +1,12 @@
 const fs = require('fs');
 const Ajv = require('ajv');
 const schema = JSON.parse(fs.readFileSync('schema.json', 'utf8'));
+const sectionSchema = JSON.parse(fs.readFileSync('definitions/section.json', 'utf8'));
 
-const ajv = new Ajv({schemaId: 'id'});
+const ajv = new Ajv({
+  schemaId: 'id',
+  schemas: [schema, sectionSchema]
+});
 
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 
