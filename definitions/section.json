@@ -1,0 +1,12 @@
+{
+  "id": "http://manuscripts.io/schemas/definitions/section.json",
+  "type": "object",
+  "properties": {
+    "sessionID": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sessionID"
+  ]
+}
