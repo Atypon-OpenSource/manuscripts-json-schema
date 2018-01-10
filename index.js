@@ -5,13 +5,14 @@ const sectionSchema = JSON.parse(fs.readFileSync('definitions/section.json', 'ut
 
 const ajv = new Ajv({
   schemaId: 'id',
-  schemas: [schema, sectionSchema]
+  schemas: [ schema, sectionSchema ]
 });
 
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 
 const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
-const valid = ajv.validate(schema, data);
+
+const valid = ajv.validate('base', data);
 
 if (!valid) {
   console.log(ajv.errors);

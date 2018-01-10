@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "$id": "http://manuscripts.io/schemas/schema.json",
+  "id": "base",
   "type": "object",
   "properties": {
     "manuscript": {
