@@ -1,10 +1,5 @@
 # manuscripts-json-schema
 
-### Using json-schema draft 4
-
-Core: https://tools.ietf.org/html/draft-zyp-json-schema-04
-Validation: https://tools.ietf.org/html/draft-wright-json-schema-validation-00
-
 ### Development
 
 ```
@@ -34,3 +29,10 @@ if (!valid) {
 
 As you may have notiiced, we look up schemas that we added to `ajv` by the `id`
 property in the schema.
+
+
+### Uses json-schema draft 4
+
+Core: https://tools.ietf.org/html/draft-zyp-json-schema-04
+
+Validation: https://tools.ietf.org/html/draft-wright-json-schema-validation-00
