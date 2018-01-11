@@ -1,0 +1,7 @@
+- schema.json
+
+- definitions/
+  - scalars.json
+    - timestamp
+      - FIX: arbitrary minimum and maximum values.
+  - section.json

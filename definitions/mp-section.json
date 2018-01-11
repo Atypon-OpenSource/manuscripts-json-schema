@@ -1,0 +1,13 @@
+{
+  "id": "mp-section.json",
+  "type": "object",
+  "allOf": [{ "$ref": "mp-managed-object.json#" }],
+  "properties": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

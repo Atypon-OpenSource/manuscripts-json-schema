@@ -1,0 +1,13 @@
+{
+  "id": "strings.json",
+  "definitions": {
+    "objectType": {
+      "type": "string",
+      "pattern": "^MP[a-zA-Z]+"
+    },
+    "_id": {
+      "type": "string",
+      "pattern": "^MP[a-zA-Z]+:[0-9A-F\\-]+"
+    }
+  }
+}

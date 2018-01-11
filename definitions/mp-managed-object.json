@@ -1,0 +1,24 @@
+{
+  "id": "mp-managed-object.json",
+  "type": "object",
+  "properties": {
+    "sessionID": {
+      "type": "string"
+    },
+    "objectType": {
+      "$ref": "strings.json#/definitions/objectType"
+    },
+    "createdAt": {
+      "$ref": "scalars.json#/definitions/timestamp"
+    },
+    "updatedAt": {
+      "$ref": "scalars.json#/definitions/timestamp"
+    }
+  },
+  "required": [
+    "sessionID",
+    "objectType",
+    "createdAt",
+    "updatedAt"
+  ]
+}

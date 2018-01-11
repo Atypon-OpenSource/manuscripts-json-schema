@@ -1,0 +1,10 @@
+{
+  "id": "scalars.json",
+  "definitions": {
+    "timestamp": {
+      "type": "number",
+      "minimum": 1500000000,
+      "maximum": 2000000000
+    }
+  }
+}
