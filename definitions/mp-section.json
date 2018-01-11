@@ -5,6 +5,13 @@
   "properties": {
     "title": {
       "type": "string"
+    },
+    "path": {
+      "type": "array",
+      "items": [
+        { "$ref": "strings.json#/definitions/_id" }
+      ],
+      "additionalItems": false
     }
   },
   "required": [

@@ -9,6 +9,7 @@ const definitions = fs.readdirSync(DEFINITION_DIR).map(path => {
 });
 
 const ajv = new Ajv({
+  logger: false,
   schemaId: 'id',
   schemas: definitions
 });
@@ -17,14 +18,20 @@ ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 
 const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
 
-const getOfType = type => data.sections.find(x => x.objectType === type);
+function testType(schema, type) {
+  const valid = ajv.validate(
+    schema,
+    data.sections.find(x => x.objectType === type)
+  );
 
-const section = getOfType('MPSection');
-
-const valid = ajv.validate('mp-section.json', section);
-
-if (!valid) {
-  console.log(ajv.errors);
-} else {
-  console.log('Supposedly fine');
+  if (!valid) {
+    console.log(ajv.errors);
+  } else {
+    console.log(type + ': ✓');
+  }
 }
+
+[
+  ['mp-section.json', 'MPSection'],
+  ['mp-paragraph-element.json', 'MPParagraphElement'],
+].forEach(args => testType(...args));

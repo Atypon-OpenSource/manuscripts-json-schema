@@ -1,13 +1,5 @@
 {
   "id": "mp-paragraph-element.json",
   "type": "object",
-  "allOf": [{ "$ref": "mp-managed-object.json#" }],
-  "properties": {
-    "title": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "title"
-  ]
+  "allOf": [{ "$ref": "mp-managed-object.json#" }]
 }

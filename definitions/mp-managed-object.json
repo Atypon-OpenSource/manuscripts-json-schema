@@ -5,6 +5,9 @@
     "sessionID": {
       "type": "string"
     },
+    "_id": {
+      "$ref": "strings.json#/definitions/_id"
+    },
     "objectType": {
       "$ref": "strings.json#/definitions/objectType"
     },
@@ -17,6 +20,7 @@
   },
   "required": [
     "sessionID",
+    "_id",
     "objectType",
     "createdAt",
     "updatedAt"
