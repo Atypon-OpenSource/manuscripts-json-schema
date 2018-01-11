@@ -25,6 +25,7 @@ function testType(schema, type) {
   );
 
   if (!valid) {
+    console.log(type + ': ✗');
     console.log(ajv.errors);
   } else {
     console.log(type + ': ✓');
