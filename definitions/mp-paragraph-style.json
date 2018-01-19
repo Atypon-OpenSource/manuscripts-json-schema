@@ -1,5 +1,5 @@
 {
-  "$id": "mp-section.json",
+  "$id": "mp-paragraph-style.json",
   "type": "object",
   "allOf": [{ "$ref": "mp-managed-object.json#" }],
   "properties": {

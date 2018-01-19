@@ -1,5 +1,5 @@
 {
-  "id": "strings.json",
+  "$id": "strings.json",
   "definitions": {
     "objectType": {
       "type": "string",

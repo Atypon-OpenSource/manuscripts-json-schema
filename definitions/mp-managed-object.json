@@ -1,5 +1,5 @@
 {
-  "id": "mp-managed-object.json",
+  "$id": "mp-managed-object.json",
   "type": "object",
   "properties": {
     "sessionID": {

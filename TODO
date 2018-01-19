@@ -1,5 +1,7 @@
-No comments in JSON :)
+# General
+- the ids should probably be fully resolved (http://manuscripts.io/schema/mp-section.json)
 
+# Specific files
 - definitions/
   - scalars.json
     - timestamp
