@@ -1,20 +1,28 @@
 {
   "$id": "mp-paragraph-style.json",
   "type": "object",
-  "allOf": [{ "$ref": "mp-managed-object.json#" }],
-  "properties": {
-    "title": {
-      "type": "string"
+  "$merge": {
+    "source": {
+      "$ref": "mp-managed-object.json#",
+      "additionalProperties": false
     },
-    "path": {
-      "type": "array",
-      "items": [
-        { "$ref": "strings.json#/definitions/_id" }
-      ],
-      "additionalItems": false
+    "with": {
+      "additionalProperties": false,
+      "properties": {
+        "firstLineIndent": {
+          "type": "number"
+        },
+        "path": {
+          "type": "array",
+          "additionalItems": false,
+          "items": [
+            { "$ref": "strings.json#/definitions/_id" }
+          ]
+        }
+      },
+      "required": [
+        "title"
+      ]
     }
-  },
-  "required": [
-    "title"
-  ]
+  }
 }
