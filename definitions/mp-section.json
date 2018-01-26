@@ -1,20 +1,38 @@
 {
   "$id": "mp-section.json",
   "type": "object",
-  "allOf": [{ "$ref": "mp-managed-object.json#" }],
-  "properties": {
-    "title": {
-      "type": "string"
+  "$merge": {
+    "source": {
+      "$ref": "mp-managed-object.json#",
+      "additionalProperties": false
     },
-    "path": {
-      "type": "array",
-      "items": [
-        { "$ref": "strings.json#/definitions/_id" }
-      ],
-      "additionalItems": false
+    "with": {
+      "additionalProperties": false,
+      "properties": {
+        "placeholderTitle": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "elementIDs": {
+          "type": "array",
+          "items": [
+            { "$ref": "strings.json#/definitions/_id" }
+          ],
+          "additionalItems": false
+        },
+        "path": {
+          "type": "array",
+          "items": [
+            { "$ref": "strings.json#/definitions/_id" }
+          ],
+          "additionalItems": false
+        }
+      }
     }
-  },
-  "required": [
-    "title"
-  ]
+  }
 }

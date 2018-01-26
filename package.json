@@ -12,6 +12,7 @@
   "devDependencies": {
     "ajv": "^6.0.0",
     "ajv-merge-patch": "^3.0.0",
-    "ajv-pack": "^0.3.1"
+    "ajv-pack": "^0.3.1",
+    "json-schema-deref-sync": "^0.4.0"
   }
 }

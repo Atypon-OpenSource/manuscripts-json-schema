@@ -1,16 +1,17 @@
 {
-  "$id": "mp-paragraph-element.json",
+  "$id": "mp-element.json",
   "type": "object",
   "$merge": {
     "source": {
-      "$ref": "mp-block-element.json#",
+      "$ref": "mp-managed-object.json#",
       "additionalProperties": false
     },
     "with": {
       "additionalProperties": false,
       "properties": {
-        "paragraphStyle": {
-          "type": "string"
+        "elementType": {
+          "type": "string",
+          "enum": ["p"]
         }
       }
     }

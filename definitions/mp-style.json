@@ -1,15 +1,15 @@
 {
-  "$id": "mp-paragraph-element.json",
+  "$id": "mp-style.json",
   "type": "object",
   "$merge": {
     "source": {
-      "$ref": "mp-block-element.json#",
+      "$ref": "mp-managed-object.json#",
       "additionalProperties": false
     },
     "with": {
       "additionalProperties": false,
       "properties": {
-        "paragraphStyle": {
+        "title": {
           "type": "string"
         }
       }

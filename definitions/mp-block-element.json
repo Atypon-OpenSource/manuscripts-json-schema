@@ -1,0 +1,13 @@
+{
+  "$id": "mp-block-element.json",
+  "type": "object",
+  "$merge": {
+    "source": {
+      "$ref": "mp-element.json#",
+      "additionalProperties": false
+    },
+    "with": {
+      "additionalProperties": false
+    }
+  }
+}
