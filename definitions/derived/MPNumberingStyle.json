@@ -6,8 +6,37 @@
     ],
     "with": {
       "properties": {
+        "numberingScheme": {
+          "type": "string",
+          "enum": [
+            "none",
+            "decimal",
+            "decimal-with-leading-zero",
+            "uppercase-latin",
+            "lowercase-latin",
+            "uppercase-roman",
+            "lowercase-roman",
+            "lowercase-greek"
+
+          ]
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPNumberingStyle" ]
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "startIndex": {
+          "type": "number"
+        }
       },
       "required": [
+        "startIndex",
+        "objectType"
       ]
     }
   }

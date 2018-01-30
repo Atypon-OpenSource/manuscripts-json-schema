@@ -7,20 +7,15 @@
     ],
     "with": {
       "properties": {
-        "firstLineIndent": {
-          "type": "number"
-        },
-        "path": {
+        "pattern": {
           "type": "array",
-          "additionalItems": false,
           "items": [
-            { "$ref": "strings.json#/definitions/_id" }
+            { "type": "number" }
           ]
         }
       },
       "required": [
-        "firstLineIndent",
-        "path"
+        "pattern"
       ]
     }
   }

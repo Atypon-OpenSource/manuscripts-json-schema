@@ -10,7 +10,8 @@ const hax = (obj) => {
   [
     'bundled',
     'locked',
-    'collection'
+    'collection',
+    'prototype' // this one seems to be an id
   ].forEach(key => {
     delete obj[key];
   });

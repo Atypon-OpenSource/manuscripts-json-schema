@@ -7,12 +7,34 @@
     ],
     "with": {
       "properties": {
+        "bold": {
+          "type": "boolean"
+        },
+        "capitalized": {
+          "type": "boolean"
+        },
+        "color": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "fontFamily": {
+          "type": "string"
+        },
         "fontSize": {
           "type": "number"
+        },
+        "italic": {
+          "type": "boolean"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPTextStyling" ]
         }
       },
       "required": [
-        "fontSize"
+        "bold",
+        "fontSize",
+        "italic",
+        "objectType"
       ]
     }
   }

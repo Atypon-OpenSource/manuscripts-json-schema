@@ -7,10 +7,16 @@
     ],
     "with": {
       "properties": {
+        "alignment": {
+          "type": "string"
+        },
         "bottomSpacing": {
           "type": "number"
         },
         "firstLineIndent": {
+          "type": "number"
+        },
+        "headIndent": {
           "type": "number"
         },
         "kind": {
@@ -25,18 +31,14 @@
         "partOfTOC": {
           "type": "boolean"
         },
-        "path": {
-          "type": "array",
-          "additionalItems": false,
-          "items": [
-            { "$ref": "strings.json#/definitions/_id" }
-          ]
-        },
         "preferredXHTMLElement": {
           "type": "string"
         },
         "sectionNumberingStyle": {
           "$ref": "MPNumberingStyle.json#"
+        },
+        "tailIndent": {
+          "type": "number"
         },
         "textStyling": {
           "$ref": "MPTextStyling.json#"
@@ -46,12 +48,14 @@
         }
       },
       "required": [
+        "alignment",
         "firstLineIndent",
+        "headIndent",
         "kind",
         "lineSpacing",
         "partOfTOC",
-        "path",
         "preferredXHTMLElement",
+        "tailIndent",
         "topSpacing"
       ]
     }
