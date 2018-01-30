@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { ajv, validate } = require('./validate');
+const { validate } = require('./validate');
 
 const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
 
@@ -9,21 +9,21 @@ const hax = (obj) => {
   [ 'locked', 'collection' ].forEach(key => {
     delete obj[key];
   });
-
   return obj;
 };
 
-const tests = [
+[
   hax(findType(data.sections, 'MPSection')),
   hax(findType(data.sections, 'MPParagraphElement')),
-  // hax(findType(data.manuscript, 'MPParagraphStyle'))
-];
+  hax(findType(data.manuscript, 'MPParagraphStyle'))
+].forEach(obj => {
+  const valid = validate(obj);
 
-const valid = validate(tests);
+  if (valid) {
+    console.log('PASS ✓');
+  } else {
+    console.log('FAIL ✗');
+    console.log(valid);
+  }
+});
 
-if (!valid) {
-  console.log('FAIL ✗');
-  console.log(validate.errors);
-} else {
-  console.log('PASS ✓');
-}

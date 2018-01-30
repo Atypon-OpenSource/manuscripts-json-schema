@@ -12,18 +12,37 @@ getSchemas('scalars').forEach(schema => ajv.addSchema(schema));
 // Get all the schemas we actually care about.
 const derivedSchemas = getSchemas('derived');
 
+// Fast way to ascertain if we support this objectType.
+const supportedObjectTypes = new Set();
+
 // Add them (after a MASH).
-derivedSchemas.forEach(schema => ajv.addSchema(mash(schema)));
+derivedSchemas.forEach(schema => {
+  ajv.addSchema(mash(schema));
+  supportedObjectTypes.add(schema.$id);
+});
 
-// Lets build a master schema which accepts any of the derived schemas.
-const mainSchema = {
-  $id: 'schema.json',
-  type: 'array',
-  items: {
-    anyOf: derivedSchemas.map(name => ({ $ref: `${name.$id}#` }))
+// TODO: the return value of this is currently: true | Array<Error>
+function validate(obj) {
+  if (!obj || !obj.objectType) {
+    throw 'InvalidOperation';
   }
-};
 
-const validate = ajv.compile(mainSchema);
+  const schemaId = obj.objectType + '.json';
 
-module.exports = { ajv, validate };
+  // Quick lookup
+  if (!supportedObjectTypes.has(schemaId)) {
+    console.error('Unsupported schema:', schemaId);
+    throw 'InvalidOperation';
+  }
+
+  // Run obj against schema in ajv.
+  const valid = ajv.validate(schemaId, obj);
+
+  if (valid) {
+    return true;
+  } else {
+    return ajv.errors;
+  }
+}
+
+module.exports = { validate };
