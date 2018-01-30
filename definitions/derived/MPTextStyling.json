@@ -1,0 +1,17 @@
+{
+  "$id": "MPTextStyling.json",
+  "type": "object",
+  "$mash": {
+    "source": { "$ref": "MPEmbeddedObject.json#" },
+    "with": {
+      "properties": {
+        "fontSize": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "fontSize"
+      ]
+    }
+  }
+}

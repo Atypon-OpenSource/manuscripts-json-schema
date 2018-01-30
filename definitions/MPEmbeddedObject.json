@@ -1,0 +1,13 @@
+{
+  "$id": "MPEmbeddedObject.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "_id": {
+      "$ref": "strings.json#/definitions/_id"
+    }
+  },
+  "required": [
+    "_id"
+  ]
+}

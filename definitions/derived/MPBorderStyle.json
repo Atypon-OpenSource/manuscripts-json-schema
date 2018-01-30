@@ -1,18 +1,12 @@
 {
-  "$id": "MPParagraphStyle.json",
+  "$id": "MPBorderStyle.json",
   "type": "object",
   "$mash": {
     "source": { "$ref": "MPStyle.json#" },
     "with": {
       "properties": {
-        "bottomSpacing": {
-          "type": "number"
-        },
         "firstLineIndent": {
           "type": "number"
-        },
-        "kind": {
-          "type": "string"
         },
         "path": {
           "type": "array",
@@ -20,19 +14,11 @@
           "items": [
             { "$ref": "strings.json#/definitions/_id" }
           ]
-        },
-        "preferredXHTMLElement": {
-          "type": "string"
-        },
-        "textStyling": {
-          "$ref": "MPTextStyling.json#"
         }
       },
       "required": [
         "firstLineIndent",
-        "kind",
-        "path",
-        "preferredXHTMLElement"
+        "path"
       ]
     }
   }

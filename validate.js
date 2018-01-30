@@ -17,11 +17,13 @@ const supportedObjectTypes = new Set();
 
 // Add them (after a MASH).
 derivedSchemas.forEach(schema => {
-  ajv.addSchema(mash(schema));
+  const mashedSchema = mash(schema);
+  ajv.addSchema(mashedSchema);
   supportedObjectTypes.add(schema.$id);
 });
 
-// TODO: the return value of this is currently: true | Array<Error>
+// TODO: the return value of this is currently: Option<Array<Error>>
+// I'm pretty sure this is confusing.
 function validate(obj) {
   if (!obj || !obj.objectType) {
     throw 'InvalidOperation';
@@ -31,15 +33,14 @@ function validate(obj) {
 
   // Quick lookup
   if (!supportedObjectTypes.has(schemaId)) {
-    console.error('Unsupported schema:', schemaId);
-    throw 'InvalidOperation';
+    throw 'Unsupported schema: ' + schemaId;
   }
 
   // Run obj against schema in ajv.
   const valid = ajv.validate(schemaId, obj);
 
   if (valid) {
-    return true;
+    return null;
   } else {
     return ajv.errors;
   }
