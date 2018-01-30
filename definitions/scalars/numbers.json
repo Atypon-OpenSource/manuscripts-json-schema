@@ -1,5 +1,5 @@
 {
-  "$id": "scalars.json",
+  "$id": "numbers.json",
   "definitions": {
     "timestamp": {
       "type": "number",

@@ -1,5 +1,5 @@
 const merge = require('deepmerge')
-const getSchema = require('./getSchema');
+const { getSchema } = require('./getSchema');
 
 function mash(obj) {
   if (obj.$mash) {

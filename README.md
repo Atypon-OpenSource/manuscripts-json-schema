@@ -4,7 +4,7 @@
 
 ```
 ~/manuscripts-json-schema master*
-❯ node index.js
+❯ node test.js
 MPSection: ✓
 MPParagraphElement: ✓
 ```

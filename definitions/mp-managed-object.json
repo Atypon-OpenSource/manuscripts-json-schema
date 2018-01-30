@@ -16,10 +16,10 @@
       "$ref": "strings.json#/definitions/objectType"
     },
     "createdAt": {
-      "$ref": "scalars.json#/definitions/timestamp"
+      "$ref": "numbers.json#/definitions/timestamp"
     },
     "updatedAt": {
-      "$ref": "scalars.json#/definitions/timestamp"
+      "$ref": "numbers.json#/definitions/timestamp"
     }
   },
   "required": [

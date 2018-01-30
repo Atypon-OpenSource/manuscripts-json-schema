@@ -1,9 +1,0 @@
-{
-  "$id": "schema.json",
-  "type": "array",
-  "items": {
-    "anyOf": [
-      { "$ref": "mp-paragraph-element.json#" }
-    ]
-  }
-}
