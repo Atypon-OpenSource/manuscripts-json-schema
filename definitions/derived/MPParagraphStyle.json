@@ -2,7 +2,9 @@
   "$id": "MPParagraphStyle.json",
   "type": "object",
   "$mash": {
-    "source": { "$ref": "MPStyle.json#" },
+    "sources": [
+      { "$ref": "MPStyle.json#" }
+    ],
     "with": {
       "properties": {
         "bottomSpacing": {
@@ -14,6 +16,15 @@
         "kind": {
           "type": "string"
         },
+        "lineSpacing": {
+          "type": "number"
+        },
+        "nextStyle": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "partOfTOC": {
+          "type": "boolean"
+        },
         "path": {
           "type": "array",
           "additionalItems": false,
@@ -24,15 +35,24 @@
         "preferredXHTMLElement": {
           "type": "string"
         },
+        "sectionNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
+        },
         "textStyling": {
           "$ref": "MPTextStyling.json#"
+        },
+        "topSpacing": {
+          "type": "number"
         }
       },
       "required": [
         "firstLineIndent",
         "kind",
+        "lineSpacing",
+        "partOfTOC",
         "path",
-        "preferredXHTMLElement"
+        "preferredXHTMLElement",
+        "topSpacing"
       ]
     }
   }

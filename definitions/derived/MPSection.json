@@ -2,9 +2,9 @@
   "$id": "MPSection.json",
   "type": "object",
   "$mash": {
-    "source": {
-      "$ref": "MPManagedObject.json#"
-    },
+    "sources": [
+      { "$ref": "base/MPManagedObject.json#" }
+    ],
     "with": {
       "properties": {
         "placeholderTitle": {

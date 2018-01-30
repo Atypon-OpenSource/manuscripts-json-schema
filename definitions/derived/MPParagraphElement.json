@@ -1,7 +1,9 @@
 {
   "$id": "MPParagraphElement.json",
   "$mash": {
-    "source": { "$ref": "MPBlockElement.json#" },
+    "sources": [
+      { "$ref": "MPBlockElement.json#" }
+    ],
     "with": {
       "properties": {
         "paragraphStyle": {

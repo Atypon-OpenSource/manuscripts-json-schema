@@ -1,0 +1,17 @@
+{
+  "$id": "MPCategorizable.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "priority": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

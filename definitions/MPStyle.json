@@ -2,7 +2,10 @@
   "$id": "MPStyle.json",
   "type": "object",
   "$mash": {
-    "source": { "$ref": "MPManagedObject.json#" },
+    "sources": [
+      { "$ref": "base/MPManagedObject.json#" },
+      { "$ref": "mixins/MPCategorizable.json#" }
+    ],
     "with": {
       "properties": {
         "title": {

@@ -1,18 +1,13 @@
 {
-  "$id": "MPTextStyling.json",
-  "type": "object",
+  "$id": "MPNumberingStyle.json",
   "$mash": {
     "sources": [
       { "$ref": "base/MPEmbeddedObject.json#" }
     ],
     "with": {
       "properties": {
-        "fontSize": {
-          "type": "number"
-        }
       },
       "required": [
-        "fontSize"
       ]
     }
   }

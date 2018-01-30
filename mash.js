@@ -3,10 +3,13 @@ const { getSchema } = require('./getSchema');
 
 function mash(obj) {
   if (obj.$mash) {
-    const sourceRef = obj.$mash.source.$ref;
-    const source = mash(getSchema(sourceRef.slice(0, -1)));
-    const withProperties = obj.$mash.with;
-    const merged = merge(source, withProperties);
+    const { sources } = obj.$mash;
+    const merged = sources.reduce((acc, source) => {
+      const schemaId = source.$ref.slice(0, -1);
+      const schema = getSchema(schemaId);
+      const mashed = mash(schema);
+      return merge(acc, mashed);
+    }, obj.$mash.with);
     merged.$id = obj.$id;
     return merged;
   }

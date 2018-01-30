@@ -2,7 +2,9 @@
   "$id": "MPBorderStyle.json",
   "type": "object",
   "$mash": {
-    "source": { "$ref": "MPStyle.json#" },
+    "sources": [
+      { "$ref": "MPStyle.json#" }
+    ],
     "with": {
       "properties": {
         "firstLineIndent": {
