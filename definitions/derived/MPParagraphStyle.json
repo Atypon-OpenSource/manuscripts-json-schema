@@ -1,8 +1,8 @@
 {
-  "$id": "mp-paragraph-style.json",
+  "$id": "MPParagraphStyle.json",
   "type": "object",
   "$mash": {
-    "source": { "$ref": "mp-style.json#" },
+    "source": { "$ref": "MPStyle.json#" },
     "with": {
       "properties": {
         "firstLineIndent": {

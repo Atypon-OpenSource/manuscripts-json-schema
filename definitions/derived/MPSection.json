@@ -1,9 +1,9 @@
 {
-  "$id": "mp-section.json",
+  "$id": "MPSection.json",
   "type": "object",
   "$mash": {
     "source": {
-      "$ref": "mp-managed-object.json#"
+      "$ref": "MPManagedObject.json#"
     },
     "with": {
       "properties": {

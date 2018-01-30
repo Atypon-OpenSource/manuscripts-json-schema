@@ -1,16 +1,14 @@
 {
-  "$id": "mp-style.json",
-  "type": "object",
+  "$id": "MPParagraphElement.json",
   "$mash": {
-    "source": { "$ref": "mp-managed-object.json#" },
+    "source": { "$ref": "MPBlockElement.json#" },
     "with": {
       "properties": {
-        "title": {
+        "paragraphStyle": {
           "type": "string"
         }
       },
       "required": [
-        "title"
       ]
     }
   }

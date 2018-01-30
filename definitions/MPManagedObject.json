@@ -1,5 +1,5 @@
 {
-  "$id": "mp-managed-object.json",
+  "$id": "MPManagedObject.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
