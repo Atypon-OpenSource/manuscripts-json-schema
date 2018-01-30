@@ -6,6 +6,9 @@
       "properties": {
         "contents": {
           "type": "string"
+        },
+        "placeholderInnerHTML": {
+          "type": "string"
         }
       },
       "required": [
