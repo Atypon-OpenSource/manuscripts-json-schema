@@ -3,7 +3,6 @@
   "type": "array",
   "items": {
     "anyOf": [
-      { "$ref": "mp-section.json#" },
       { "$ref": "mp-paragraph-element.json#" }
     ]
   }

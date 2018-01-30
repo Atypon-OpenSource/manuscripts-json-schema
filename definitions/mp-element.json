@@ -1,19 +1,17 @@
 {
   "$id": "mp-element.json",
-  "type": "object",
-  "$merge": {
-    "source": {
-      "$ref": "mp-managed-object.json#",
-      "additionalProperties": false
-    },
+  "$mash": {
+    "source": { "$ref": "mp-managed-object.json#" },
     "with": {
-      "additionalProperties": false,
       "properties": {
         "elementType": {
           "type": "string",
           "enum": ["p"]
         }
-      }
+      },
+      "required": [
+        "elementType"
+      ]
     }
   }
 }

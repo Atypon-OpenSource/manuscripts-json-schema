@@ -1,13 +1,15 @@
 {
   "$id": "mp-block-element.json",
-  "type": "object",
-  "$merge": {
-    "source": {
-      "$ref": "mp-element.json#",
-      "additionalProperties": false
-    },
+  "$mash": {
+    "source": { "$ref": "mp-element.json#" },
     "with": {
-      "additionalProperties": false
+      "properties": {
+        "contents": {
+          "type": "string"
+        }
+      },
+      "required": [
+      ]
     }
   }
 }

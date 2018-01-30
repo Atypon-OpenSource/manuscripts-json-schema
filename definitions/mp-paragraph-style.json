@@ -1,13 +1,9 @@
 {
   "$id": "mp-paragraph-style.json",
   "type": "object",
-  "$merge": {
-    "source": {
-      "$ref": "mp-style.json#",
-      "additionalProperties": false
-    },
+  "$mash": {
+    "source": { "$ref": "mp-style.json#" },
     "with": {
-      "additionalProperties": false,
       "properties": {
         "firstLineIndent": {
           "type": "number"
@@ -19,7 +15,11 @@
             { "$ref": "strings.json#/definitions/_id" }
           ]
         }
-      }
+      },
+      "required": [
+        "firstLineIndent",
+        "path"
+      ]
     }
   }
 }

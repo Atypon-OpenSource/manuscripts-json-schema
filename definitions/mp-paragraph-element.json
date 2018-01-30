@@ -1,18 +1,15 @@
 {
   "$id": "mp-paragraph-element.json",
-  "type": "object",
-  "$merge": {
-    "source": {
-      "$ref": "mp-block-element.json#",
-      "additionalProperties": false
-    },
+  "$mash": {
+    "source": { "$ref": "mp-block-element.json#" },
     "with": {
-      "additionalProperties": false,
       "properties": {
         "paragraphStyle": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+      ]
     }
   }
 }

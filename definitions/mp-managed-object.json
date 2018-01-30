@@ -1,6 +1,7 @@
 {
   "$id": "mp-managed-object.json",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "sessionID": {
       "type": "string"

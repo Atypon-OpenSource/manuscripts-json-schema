@@ -1,13 +1,11 @@
 {
   "$id": "mp-section.json",
   "type": "object",
-  "$merge": {
+  "$mash": {
     "source": {
-      "$ref": "mp-managed-object.json#",
-      "additionalProperties": false
+      "$ref": "mp-managed-object.json#"
     },
     "with": {
-      "additionalProperties": false,
       "properties": {
         "placeholderTitle": {
           "type": "string"
@@ -32,7 +30,11 @@
           ],
           "additionalItems": false
         }
-      }
+      },
+      "required": [
+        "priority",
+        "path"
+      ]
     }
   }
 }
