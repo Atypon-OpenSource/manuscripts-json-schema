@@ -1,10 +1,6 @@
 const fs = require('fs');
 const { validate } = require('./validate');
 
-const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
-
-const findType = (objects, type) => objects.find(x => x.objectType === type);
-
 // These are properties I couldn't immediately make sense of:
 const hax = (obj) => {
   [
@@ -23,6 +19,9 @@ const hax = (obj) => {
   });
   return obj;
 };
+
+const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
+const findType = (objects, type) => objects.find(x => x.objectType === type);
 
 [
   hax(findType(data.sections, 'MPSection')),

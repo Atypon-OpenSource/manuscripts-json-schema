@@ -15,8 +15,11 @@ const argv = require('yargs')
 
 console.log('Writing file to:', argv.output);
 
+const sortObject = o =>
+  Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
+
 writeFileSync(
   argv.output,
-  JSON.stringify(schemasInUse, null, 2),
+  JSON.stringify(schemasInUse.map(sortObject), null, 2),
   'utf8'
 );
