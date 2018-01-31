@@ -1,0 +1,23 @@
+{
+  "$id": "MPFigureLayout.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "columns": {
+          "type": "number"
+        },
+        "rows": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "columns",
+        "rows"
+      ]
+    }
+  }
+}
