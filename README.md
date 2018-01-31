@@ -23,20 +23,24 @@ A good example is `MPStyle`:
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPManagedObject.json#" },
-      { "$ref": "mixins/MPCategorizable.json#" }
+      { "$ref": "abstract/MPManagedObject.json#" }
     ],
     "with": {
       "properties": {
-        "title": {
+        "desc": {
           "type": "string"
         },
         "name": {
           "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
         }
       },
       "required": [
-        "title"
       ]
     }
   }
@@ -86,10 +90,16 @@ library we are using) looks like this:
         null
       ]
     },
-    "title": {
+    "desc": {
       "type": "string"
     },
     "name": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "title": {
       "type": "string"
     },
     "sessionID": {
@@ -109,16 +119,9 @@ library we are using) looks like this:
     },
     "updatedAt": {
       "$ref": "numbers.json#/definitions/timestamp"
-    },
-    "priority": {
-      "type": "number"
-    },
-    "desc": {
-      "type": "string"
     }
   },
   "required": [
-    "title",
     "_id",
     "_rev",
     "objectType",
@@ -138,18 +141,16 @@ there is some reuse.
 
 It is largely a copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
 
-The major difference is I can merge many schemas (helps with mimicking protocols).
+I struggled for days trying to get `ajv-merge-patch` to work with more than 1
+layer. e.g. an immediate subclass of `MPManagedObject` would get all it's
+properties, but if you subclassed that it wouldn't have them. The way it worked
+was pretty confusing and hard to debug.
 
-Additionally I struggled for days trying to get `ajv-merge-patch` to work with
-more than 1 layer. e.g. an immediate subclass of `MPManagedObject` would get
-all it's properties, but if you subclassed that it wouldn't have them. The way
-it worked was pretty confusing and hard to debug.
+I can also merge many schemas, although there aren't any examples of this any
+more.
 
 My solution is `mash.js` which is an incredibly simple and boring recursive
 merger.
-
-I'm not at all sold on my whole protocol/mixin approach, as protocols mean the
-class has to implement it (afaik). This is most likely going to go/change.
 
 ## Run it
 
