@@ -146,16 +146,16 @@ layer. e.g. an immediate subclass of `MPManagedObject` would get all it's
 properties, but if you subclassed that it wouldn't have them. The way it worked
 was pretty confusing and hard to debug.
 
-I can also merge many schemas, although there aren't any examples of this any
-more.
-
 My solution is `mash.js` which is an incredibly simple and boring recursive
 merger.
+
+I can also merge many schemas, although there aren't any examples of this any
+more.
 
 ## Run it
 
 ```
-~/manuscripts-json-schema master ⇡
+~/manuscripts-json-schema master
 ❯ node test.js
 PASS(MPSection) ✓
 PASS(MPParagraphElement) ✓
@@ -166,4 +166,5 @@ PASS(MPCaptionStyle) ✓
 PASS(MPColor) ✓
 PASS(MPFigureLayout) ✓
 PASS(MPFigureStyle) ✓
+PASS(MPPageLayout) ✓
 ```
