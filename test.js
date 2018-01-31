@@ -23,7 +23,8 @@ const hax = (obj) => {
   hax(findType(data.sections, 'MPParagraphElement')),
   hax(findType(data.manuscript, 'MPParagraphStyle')),
   hax(findType(data.manuscript, 'MPBorderStyle')),
-  hax(findType(data.manuscript, 'MPAuxiliaryObjectReferenceStyle'))
+  hax(findType(data.manuscript, 'MPAuxiliaryObjectReferenceStyle')),
+  hax(findType(data.manuscript, 'MPCaptionStyle'))
 ].forEach(obj => {
   const valid = validate(obj);
 

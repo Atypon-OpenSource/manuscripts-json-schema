@@ -1,0 +1,34 @@
+{
+  "$id": "MPCaptionStyle.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "embeddedCaptionComponents": {
+          "type": "array",
+          "items": [
+            { "$ref": "MPStyleableStringComponent.json#" }
+          ]
+        },
+        "embeddedFigureTitleComponents": {
+          "type": "array",
+          "items": [
+            { "$ref": "MPStyleableStringComponent.json#" }
+          ]
+        },
+        "figureTitleNumberingScheme": {
+          "type": "string",
+          "enum": [
+            "decimal"
+          ]
+        }
+      },
+      "required": [
+        "embeddedCaptionComponents"
+      ]
+    }
+  }
+}
