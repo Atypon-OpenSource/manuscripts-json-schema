@@ -17,8 +17,7 @@
           "type": "string"
         },
         "value": {
-          "type": "string",
-          "pattern": "^#[a-fA-F0-9]{6}"
+          "$ref": "strings.json#/definitions/hexColor"
         }
       },
       "required": [
