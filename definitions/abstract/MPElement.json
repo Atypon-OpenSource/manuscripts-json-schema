@@ -2,7 +2,7 @@
   "$id": "MPElement.json",
   "$mash": {
     "sources": [
-      { "$ref": "base/MPManagedObject.json#" }
+      { "$ref": "abstract/MPManagedObject.json#" }
     ],
     "with": {
       "properties": {

@@ -2,7 +2,7 @@
   "$id": "MPParagraphElement.json",
   "$mash": {
     "sources": [
-      { "$ref": "base/MPBlockElement.json#" }
+      { "$ref": "abstract/MPBlockElement.json#" }
     ],
     "with": {
       "properties": {

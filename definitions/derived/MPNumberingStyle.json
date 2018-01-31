@@ -2,7 +2,7 @@
   "$id": "MPNumberingStyle.json",
   "$mash": {
     "sources": [
-      { "$ref": "base/MPEmbeddedObject.json#" }
+      { "$ref": "abstract/MPEmbeddedObject.json#" }
     ],
     "with": {
       "properties": {
