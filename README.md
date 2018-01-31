@@ -154,9 +154,19 @@ more.
 
 ## Run it
 
+Export the schemas to an array (useful for reviewing).
 ```
-~/manuscripts-json-schema master
-❯ node test.js
+node index -o all-the-expanded-schemas.json
+```
+
+Run the basic test script.
+```
+~/manuscripts-json-schema master*
+❯ npm t
+
+> manuscripts-json-schema@1.0.0 test /home/will/manuscripts-json-schema
+> node test.js
+
 PASS(MPSection) ✓
 PASS(MPParagraphElement) ✓
 PASS(MPParagraphStyle) ✓

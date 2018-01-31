@@ -14,6 +14,7 @@ const argv = require('yargs')
   .argv;
 
 console.log('Writing file to:', argv.output);
+
 writeFileSync(
   argv.output,
   JSON.stringify(expandedConcreteSchemas, null, 2),
