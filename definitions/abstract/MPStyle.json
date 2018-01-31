@@ -3,20 +3,24 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPManagedObject.json#" },
-      { "$ref": "mixins/MPCategorizable.json#" }
+      { "$ref": "abstract/MPManagedObject.json#" }
     ],
     "with": {
       "properties": {
-        "title": {
+        "desc": {
           "type": "string"
         },
         "name": {
           "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
         }
       },
       "required": [
-        "title"
       ]
     }
   }

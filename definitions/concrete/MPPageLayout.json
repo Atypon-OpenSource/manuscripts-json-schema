@@ -26,7 +26,7 @@
           "type": "boolean"
         },
         "pageSize": {
-          "type": "number"
+          "type": "string"
         },
         "rightMargin": {
           "type": "number"
