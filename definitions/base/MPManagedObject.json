@@ -23,7 +23,6 @@
     }
   },
   "required": [
-    "sessionID",
     "_id",
     "_rev",
     "objectType",

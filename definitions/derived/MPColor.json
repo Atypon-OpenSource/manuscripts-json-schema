@@ -1,0 +1,28 @@
+{
+  "$id": "MPColor.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "deviceColor": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}"
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
