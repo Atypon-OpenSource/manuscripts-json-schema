@@ -136,7 +136,7 @@ there is some reuse.
 
 ### n.b.
 
-It is an exact copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
+It is largely a copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
 
 The major difference is I can merge many schemas (helps with mimicking protocols).
 
