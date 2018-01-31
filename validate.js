@@ -10,13 +10,13 @@ ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 getSchemas('scalars').forEach(schema => ajv.addSchema(schema));
 
 // Get all the schemas we actually care about.
-const derivedSchemas = getSchemas('derived');
+const concreteSchemas = getSchemas('concrete');
 
 // Fast way to ascertain if we support this objectType.
 const supportedObjectTypes = new Set();
 
 // Add them (after a MASH).
-derivedSchemas.forEach(schema => {
+concreteSchemas.forEach(schema => {
   const mashedSchema = mash(schema);
   ajv.addSchema(mashedSchema);
   supportedObjectTypes.add(schema.$id);

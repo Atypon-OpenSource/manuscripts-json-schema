@@ -13,7 +13,7 @@ These are simple/boring schemas that just define some things like:
 - `_id` matching the pattern `^MP[a-zA-Z]+:[0-9a-zA-Z\\-]+`
 - `hexColor` matching the pattern `^#[a-fA-F0-9]{6}`
 
-The next step is to grab all the schemas in `definitions/derived`. These have a
+The next step is to grab all the schemas in `definitions/concrete`. These have a
 bit of "magic", in the form of a custom keyword (`$mash` currently).
 
 A good example is `MPStyle`:
@@ -46,7 +46,7 @@ A good example is `MPStyle`:
 We _recursively_ merge the schemas in `$mash.sources`, and the
 schema defined in `$mash.with`. It is very straightforward and it works well.
 
-A `derived` type `MPAuxiliaryObjectReferenceStyle` is a subclass of `MPStyle`
+A `concrete` type `MPAuxiliaryObjectReferenceStyle` is a subclass of `MPStyle`
 and is defined as follows:
 ```json
 {
