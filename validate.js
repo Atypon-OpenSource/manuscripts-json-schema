@@ -15,9 +15,12 @@ const concreteSchemas = getSchemas('concrete');
 // Fast way to ascertain if we support this objectType.
 const supportedObjectTypes = new Set();
 
+const expandedConcreteSchemas = [];
+
 // Add them (after a MASH).
 concreteSchemas.forEach(schema => {
   const mashedSchema = mash(schema);
+  expandedConcreteSchemas.push(mashedSchema);
   ajv.addSchema(mashedSchema);
   supportedObjectTypes.add(schema.$id);
 });
@@ -46,4 +49,4 @@ function validate(obj) {
   }
 }
 
-module.exports = { validate };
+module.exports = { validate, expandedConcreteSchemas };
