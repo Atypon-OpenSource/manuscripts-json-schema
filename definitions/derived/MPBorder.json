@@ -1,0 +1,30 @@
+{
+  "$id": "MPBorder.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "base/MPEmbeddedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "color": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPBorder" ]
+        },
+        "style": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "width": {
+          "$ref": "numbers.json#/definitions/borderWidth"
+        }
+      },
+      "required": [
+        "objectType",
+        "width"
+      ]
+    }
+  }
+}

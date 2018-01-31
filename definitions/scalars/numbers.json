@@ -5,6 +5,11 @@
       "type": "number",
       "minimum": 1500000000,
       "maximum": 2000000000
+    },
+    "borderWidth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5
     }
   }
 }

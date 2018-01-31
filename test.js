@@ -26,7 +26,8 @@ const hax = (obj) => {
   hax(findType(data.manuscript, 'MPAuxiliaryObjectReferenceStyle')),
   hax(findType(data.manuscript, 'MPCaptionStyle')),
   hax(findType(data.manuscript, 'MPColor')),
-  hax(findType(data.manuscript, 'MPFigureLayout'))
+  hax(findType(data.manuscript, 'MPFigureLayout')),
+  hax(findType(data.manuscript, 'MPFigureStyle'))
 ].forEach(obj => {
   const valid = validate(obj);
 
