@@ -1,0 +1,21 @@
+{
+  "$id": "MPAuxiliaryObjectReferenceStyle.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "embeddedReferenceStringComponents": {
+          "type": "array",
+          "items": [
+            { "$ref": "MPStyleableStringComponent.json#" }
+          ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}

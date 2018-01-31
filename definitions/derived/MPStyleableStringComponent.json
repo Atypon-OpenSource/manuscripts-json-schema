@@ -1,0 +1,34 @@
+{
+  "$id": "MPStyleableStringComponent.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "base/MPEmbeddedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "bold": {
+          "type": "boolean"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "italic": {
+          "type": "boolean"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPStyleableStringComponent" ]
+        },
+        "placeholderString": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bold",
+        "italic",
+        "objectType"
+      ]
+    }
+  }
+}
