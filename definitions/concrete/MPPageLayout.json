@@ -1,0 +1,54 @@
+{
+  "$id": "MPPageLayout.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "beginChaptersOnRightHandPages": {
+          "type": "boolean"
+        },
+        "bottomMargin": {
+          "type": "number"
+        },
+        "displayUnits": {
+          "type": "string"
+        },
+        "embeddedNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
+        },
+        "leftMargin": {
+          "type": "number"
+        },
+        "mirrorPagesHorizontally": {
+          "type": "boolean"
+        },
+        "pageSize": {
+          "type": "number"
+        },
+        "rightMargin": {
+          "type": "number"
+        },
+        "topMargin": {
+          "type": "number"
+        },
+        "defaultParagraphStyle": {
+          "$ref": "strings.json#/definitions/_id"
+        }
+      },
+      "required": [
+        "beginChaptersOnRightHandPages",
+        "bottomMargin",
+        "displayUnits",
+        "defaultParagraphStyle",
+        "leftMargin",
+        "mirrorPagesHorizontally",
+        "pageSize",
+        "rightMargin",
+        "topMargin"
+      ]
+    }
+  }
+}

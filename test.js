@@ -11,9 +11,15 @@ const hax = (obj) => {
     'bundled',
     'locked',
     'collection',
+    'priority',
     'prototype' // this one seems to be an id
   ].forEach(key => {
     delete obj[key];
+    for (const k in obj) {
+      if (typeof obj[k] === 'object') {
+        hax(obj[k]);
+      }
+    }
   });
   return obj;
 };
@@ -27,13 +33,16 @@ const hax = (obj) => {
   hax(findType(data.manuscript, 'MPCaptionStyle')),
   hax(findType(data.manuscript, 'MPColor')),
   hax(findType(data.manuscript, 'MPFigureLayout')),
-  hax(findType(data.manuscript, 'MPFigureStyle'))
+  hax(findType(data.manuscript, 'MPFigureStyle')),
+  hax(findType(data.manuscript, 'MPPageLayout'))
 ].forEach(obj => {
   const valid = validate(obj);
 
   if (Array.isArray(valid)) {
+    console.log('');
     console.log(`FAIL(${obj.objectType}) ✗`);
     console.log(valid);
+    console.log('');
   } else {
     console.log(`PASS(${obj.objectType}) ✓`);
   }

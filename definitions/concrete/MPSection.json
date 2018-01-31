@@ -13,9 +13,6 @@
         "title": {
           "type": "string"
         },
-        "priority": {
-          "type": "number"
-        },
         "elementIDs": {
           "type": "array",
           "items": [
@@ -32,7 +29,6 @@
         }
       },
       "required": [
-        "priority",
         "path"
       ]
     }
