@@ -76,47 +76,54 @@ The resulting JSON Schema that we add to `ajv` (the JSON schema validator
 library we are using) looks like this:
 ```json
 {
-  '$id': 'MPAuxiliaryObjectReferenceStyle.json',
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    embeddedReferenceStringComponents: {
-      type: 'array',
-      items: [Array]
+  "$id": "MPAuxiliaryObjectReferenceStyle.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "embeddedReferenceStringComponents": {
+      "type": "array",
+      "items": [
+        null
+      ]
     },
-    title: {
-      type: 'string'
+    "title": {
+      "type": "string"
     },
-    name: {
-      type: 'string'
+    "name": {
+      "type": "string"
     },
-    sessionID: {
-      type: 'string'
+    "sessionID": {
+      "type": "string"
     },
-    _id: {
-      '$ref': 'strings.json#/definitions/_id'
+    "_id": {
+      "$ref": "strings.json#/definitions/_id"
     },
-    _rev: {
-      type: 'string'
+    "_rev": {
+      "type": "string"
     },
-    objectType: {
-      '$ref': 'strings.json#/definitions/objectType'
+    "objectType": {
+      "$ref": "strings.json#/definitions/objectType"
     },
-    createdAt: {
-      '$ref': 'numbers.json#/definitions/timestamp'
+    "createdAt": {
+      "$ref": "numbers.json#/definitions/timestamp"
     },
-    updatedAt: {
-      '$ref': 'numbers.json#/definitions/timestamp'
+    "updatedAt": {
+      "$ref": "numbers.json#/definitions/timestamp"
     },
-    priority: {
-      type: 'number'
+    "priority": {
+      "type": "number"
     },
-    desc: {
-      type: 'string'
+    "desc": {
+      "type": "string"
     }
   },
-  required: [
-    'title', '_id', '_rev', 'objectType', 'createdAt', 'updatedAt'
+  "required": [
+    "title",
+    "_id",
+    "_rev",
+    "objectType",
+    "createdAt",
+    "updatedAt"
   ]
 }
 ```
