@@ -37,5 +37,4 @@ const hax = (obj) => {
   } else {
     console.log(`PASS(${obj.objectType}) ✓`);
   }
-  console.log('\n');
 });
