@@ -148,6 +148,9 @@ it worked was pretty confusing and hard to debug.
 My solution is `mash.js` which is an incredibly simple and boring recursive
 merger.
 
+I'm not at all sold on my whole protocol/mixin approach, as protocols mean the
+class has to implement it (afaik). This is most likely going to go/change.
+
 ## Run it
 
 ```
