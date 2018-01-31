@@ -6,8 +6,14 @@ const { getSchema, getSchemas } = require('./getSchema');
 const ajv = new Ajv({ sourceCode: true });
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 
+// Collect up the actual schemas we use.
+const schemasInUse = [];
+
 // We can just add scalar schemas to ajv.
-getSchemas('scalars').forEach(schema => ajv.addSchema(schema));
+getSchemas('scalars').forEach(schema => {
+  schemasInUse.push(schema);
+  ajv.addSchema(schema);
+});
 
 // Get all the schemas we actually care about.
 const concreteSchemas = getSchemas('concrete');
@@ -15,12 +21,10 @@ const concreteSchemas = getSchemas('concrete');
 // Fast way to ascertain if we support this objectType.
 const supportedObjectTypes = new Set();
 
-const expandedConcreteSchemas = [];
-
 // Add them (after a MASH).
 concreteSchemas.forEach(schema => {
   const mashedSchema = mash(schema);
-  expandedConcreteSchemas.push(mashedSchema);
+  schemasInUse.push(mashedSchema);
   ajv.addSchema(mashedSchema);
   supportedObjectTypes.add(schema.$id);
 });
@@ -49,4 +53,4 @@ function validate(obj) {
   }
 }
 
-module.exports = { validate, expandedConcreteSchemas };
+module.exports = { validate, schemasInUse };

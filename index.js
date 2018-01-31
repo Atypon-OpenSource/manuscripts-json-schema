@@ -1,5 +1,5 @@
 const { writeFileSync } = require('fs');
-const { validate, expandedConcreteSchemas } = require('./validate');
+const { validate, schemasInUse } = require('./validate');
 
 const argv = require('yargs')
   .usage('Usage: $0 <command> [options]')
@@ -17,6 +17,6 @@ console.log('Writing file to:', argv.output);
 
 writeFileSync(
   argv.output,
-  JSON.stringify(expandedConcreteSchemas, null, 2),
+  JSON.stringify(schemasInUse, null, 2),
   'utf8'
 );
