@@ -43,8 +43,10 @@ function validate(obj) {
     throw 'Unsupported schema: ' + schemaId;
   }
 
+  // Get schema from ajv.
+  const validate = ajv.getSchema(schemaId);
   // Run obj against schema in ajv.
-  const valid = ajv.validate(schemaId, obj);
+  const valid = validate(obj);
 
   if (valid) {
     return null;
@@ -53,4 +55,4 @@ function validate(obj) {
   }
 }
 
-module.exports = { validate, schemasInUse };
+module.exports = { validate, schemasInUse, supportedObjectTypes, ajv };
