@@ -21,26 +21,28 @@ const hax = (obj) => {
 };
 
 const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
+// const data = JSON.parse(fs.readFileSync('rnap.json', 'utf8'));
 
-const getTypes = (objects, type) => {
+const getTypes = (type, objects) => {
   return objects
     .filter(x => x.objectType === type)
     .map(hax);
 }
 
 [].concat(
-  getTypes(data.sections, 'MPSection'),
-  getTypes(data.sections, 'MPParagraphElement'),
-  getTypes(data.manuscript, 'MPParagraphStyle'),
-  getTypes(data.manuscript, 'MPBorderStyle'),
-  getTypes(data.manuscript, 'MPAuxiliaryObjectReferenceStyle'),
-  getTypes(data.manuscript, 'MPCaptionStyle'),
-  getTypes(data.manuscript, 'MPColor'),
-  getTypes(data.manuscript, 'MPFigureLayout'),
-  getTypes(data.manuscript, 'MPFigureStyle'),
-  getTypes(data.manuscript, 'MPPageLayout'),
-  getTypes(data.manuscript, 'MPColorScheme'),
-  getTypes(data.manuscript, 'MPAffiliation')
+  getTypes('MPAffiliation', data.manuscript),
+  getTypes('MPAuxiliaryObjectReference', data.manuscript),
+  getTypes('MPAuxiliaryObjectReferenceStyle', data.manuscript),
+  getTypes('MPBorderStyle', data.manuscript),
+  getTypes('MPCaptionStyle', data.manuscript),
+  getTypes('MPColor', data.manuscript),
+  getTypes('MPColorScheme', data.manuscript),
+  getTypes('MPFigureLayout', data.manuscript),
+  getTypes('MPFigureStyle', data.manuscript),
+  getTypes('MPPageLayout', data.manuscript),
+  getTypes('MPParagraphElement', data.sections),
+  getTypes('MPParagraphStyle', data.manuscript),
+  getTypes('MPSection', data.sections)
 ).forEach(obj => {
   const valid = validate(obj);
 
