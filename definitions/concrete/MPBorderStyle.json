@@ -7,6 +7,9 @@
     ],
     "with": {
       "properties": {
+        "doubleLines": {
+          "type": "boolean"
+        },
         "pattern": {
           "type": "array",
           "items": [
@@ -15,7 +18,6 @@
         }
       },
       "required": [
-        "pattern"
       ]
     }
   }
