@@ -6,6 +6,10 @@
     ],
     "with": {
       "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPParagraphElement" ]
+        },
         "paragraphStyle": {
           "type": "string"
         }

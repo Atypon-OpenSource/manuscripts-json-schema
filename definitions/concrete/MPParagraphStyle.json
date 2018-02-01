@@ -57,6 +57,10 @@
         "nextStyle": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPParagraphStyle" ]
+        },
         "partOfTOC": {
           "type": "boolean"
         },

@@ -8,6 +8,7 @@
     }
   },
   "required": [
-    "_id"
+    "_id",
+    "objectType"
   ]
 }

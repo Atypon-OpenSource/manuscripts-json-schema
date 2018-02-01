@@ -12,6 +12,10 @@
           "items": [
             { "$ref": "MPStyleableStringComponent.json#" }
           ]
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPAuxiliaryObjectReferenceStyle" ]
         }
       },
       "required": [

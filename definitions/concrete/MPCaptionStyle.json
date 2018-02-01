@@ -24,6 +24,10 @@
           "enum": [
             "decimal"
           ]
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPCaptionStyle" ]
         }
       },
       "required": [

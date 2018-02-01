@@ -12,9 +12,6 @@
     "_rev": {
       "type": "string"
     },
-    "objectType": {
-      "$ref": "strings.json#/definitions/objectType"
-    },
     "createdAt": {
       "$ref": "numbers.json#/definitions/timestamp"
     },

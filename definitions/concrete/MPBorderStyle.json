@@ -10,6 +10,10 @@
         "doubleLines": {
           "type": "boolean"
         },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPBorderStyle" ]
+        },
         "pattern": {
           "type": "array",
           "items": [

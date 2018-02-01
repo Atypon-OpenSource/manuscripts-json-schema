@@ -33,8 +33,7 @@
       "required": [
         "bold",
         "fontSize",
-        "italic",
-        "objectType"
+        "italic"
       ]
     }
   }

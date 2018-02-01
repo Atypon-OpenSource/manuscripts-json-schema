@@ -17,6 +17,10 @@
         "innerSpacing": {
           "type": "number"
         },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPFigureStyle" ]
+        },
         "outerBorder": {
           "$ref": "MPBorder.json#"
         },

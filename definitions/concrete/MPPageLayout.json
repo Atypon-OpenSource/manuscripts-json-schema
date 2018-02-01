@@ -13,6 +13,9 @@
         "bottomMargin": {
           "type": "number"
         },
+        "defaultParagraphStyle": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "displayUnits": {
           "type": "string"
         },
@@ -25,17 +28,21 @@
         "mirrorPagesHorizontally": {
           "type": "boolean"
         },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPPageLayout" ]
+        },
         "pageSize": {
           "type": "string"
         },
         "rightMargin": {
           "type": "number"
         },
+        "showManuscriptTitle": {
+          "type": "boolean"
+        },
         "topMargin": {
           "type": "number"
-        },
-        "defaultParagraphStyle": {
-          "$ref": "strings.json#/definitions/_id"
         }
       },
       "required": [

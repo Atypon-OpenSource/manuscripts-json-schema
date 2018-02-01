@@ -12,6 +12,10 @@
           "items": [
             { "$ref": "strings.json#/definitions/_id" }
           ]
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPColorScheme" ]
         }
       },
       "required": [

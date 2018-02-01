@@ -13,6 +13,10 @@
         "name": {
           "type": "string"
         },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPColor" ]
+        },
         "title": {
           "type": "string"
         },

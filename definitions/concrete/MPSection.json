@@ -20,6 +20,10 @@
           ],
           "additionalItems": false
         },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPSection" ]
+        },
         "path": {
           "type": "array",
           "items": [
