@@ -9,13 +9,19 @@
       "properties": {
         "captionPosition": {
           "type": "string",
-          "enum": [ "below" ]
+          "enum": [ "above", "top", "bottom",  "below" ]
         },
         "innerBorder": {
           "$ref": "MPBorder.json#"
         },
+        "innerSpacing": {
+          "type": "number"
+        },
         "outerBorder": {
           "$ref": "MPBorder.json#"
+        },
+        "outerSpacing": {
+          "type": "number"
         },
         "preferredXHTMLElement": {
           "type": "string"

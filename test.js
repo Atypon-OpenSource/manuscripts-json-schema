@@ -33,13 +33,13 @@ const getTypes = (objects, type) => {
   getTypes(data.sections, 'MPParagraphElement'),
   getTypes(data.manuscript, 'MPParagraphStyle'),
   getTypes(data.manuscript, 'MPBorderStyle'),
-  // getTypes(data.manuscript, 'MPAuxiliaryObjectReferenceStyle'),
-  // getTypes(data.manuscript, 'MPCaptionStyle'),
-  // getTypes(data.manuscript, 'MPColor'),
-  // getTypes(data.manuscript, 'MPFigureLayout'),
-  // getTypes(data.manuscript, 'MPFigureStyle'),
-  // getTypes(data.manuscript, 'MPPageLayout'),
-  // getTypes(data.manuscript, 'MPColorScheme')
+  getTypes(data.manuscript, 'MPAuxiliaryObjectReferenceStyle'),
+  getTypes(data.manuscript, 'MPCaptionStyle'),
+  getTypes(data.manuscript, 'MPColor'),
+  getTypes(data.manuscript, 'MPFigureLayout'),
+  getTypes(data.manuscript, 'MPFigureStyle'),
+  getTypes(data.manuscript, 'MPPageLayout'),
+  getTypes(data.manuscript, 'MPColorScheme')
 ).forEach(obj => {
   const valid = validate(obj);
 
