@@ -13,16 +13,45 @@
         "bottomSpacing": {
           "type": "number"
         },
+        "embeddedListItemBulletStyles": {
+          "type": "object",
+          "patternProperties": {
+            "^\\d+$": { "$ref": "MPListItemBulletStyle.json#" }
+          },
+          "additionalProperties": false
+        },
+        "embeddedListItemNumberingStyles": {
+          "type": "object",
+          "patternProperties": {
+            "^\\d+$": { "$ref": "MPNumberingStyle.json#" }
+          },
+          "additionalProperties": false
+        },
         "firstLineIndent": {
           "type": "number"
         },
         "headIndent": {
           "type": "number"
         },
+        "hideListNumberingSuffixForLastLevel": {
+          "type": "boolean"
+        },
+        "hierarchicalListNumbering": {
+          "type": "boolean"
+        },
         "kind": {
           "type": "string"
         },
         "lineSpacing": {
+          "type": "number"
+        },
+        "listItemIndentPerLevel": {
+          "type": "number"
+        },
+        "listHeadIndent": {
+          "type": "number"
+        },
+        "listTailIndent": {
           "type": "number"
         },
         "nextStyle": {

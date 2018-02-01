@@ -1,0 +1,25 @@
+{
+  "$id": "MPListItemBulletStyle.json",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPEmbeddedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "bulletStyle": {
+          "type": "string"
+        },
+        "customBullet": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPListItemBulletStyle" ]
+        }
+      },
+      "required": [
+        "objectType"
+      ]
+    }
+  }
+}

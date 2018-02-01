@@ -45,10 +45,10 @@ const getTypes = (objects, type) => {
 
   if (Array.isArray(valid)) {
     console.log('');
-    console.log(`FAIL(${obj.objectType}) ✗`);
+    console.log(`FAIL(${obj._id}) ✗`);
     console.log(valid);
     console.log('');
   } else {
-    console.log(`PASS(${obj.objectType}) ✓`);
+    console.log(`PASS(${obj._id}) ✓`);
   }
 });
