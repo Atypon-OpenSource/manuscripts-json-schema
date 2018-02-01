@@ -33,7 +33,8 @@ const findType = (objects, type) => objects.find(x => x.objectType === type);
   hax(findType(data.manuscript, 'MPColor')),
   hax(findType(data.manuscript, 'MPFigureLayout')),
   hax(findType(data.manuscript, 'MPFigureStyle')),
-  hax(findType(data.manuscript, 'MPPageLayout'))
+  hax(findType(data.manuscript, 'MPPageLayout')),
+  hax(findType(data.manuscript, 'MPColorScheme'))
 ].forEach(obj => {
   const valid = validate(obj);
 
