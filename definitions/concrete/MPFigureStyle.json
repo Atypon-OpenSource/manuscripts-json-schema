@@ -33,8 +33,7 @@
       },
       "required": [
         "captionPosition",
-        "innerBorder",
-        "outerBorder"
+        "innerBorder"
       ]
     }
   }
