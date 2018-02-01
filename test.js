@@ -21,21 +21,26 @@ const hax = (obj) => {
 };
 
 const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
-const findType = (objects, type) => objects.find(x => x.objectType === type);
 
-[
-  hax(findType(data.sections, 'MPSection')),
-  hax(findType(data.sections, 'MPParagraphElement')),
-  hax(findType(data.manuscript, 'MPParagraphStyle')),
-  hax(findType(data.manuscript, 'MPBorderStyle')),
-  hax(findType(data.manuscript, 'MPAuxiliaryObjectReferenceStyle')),
-  hax(findType(data.manuscript, 'MPCaptionStyle')),
-  hax(findType(data.manuscript, 'MPColor')),
-  hax(findType(data.manuscript, 'MPFigureLayout')),
-  hax(findType(data.manuscript, 'MPFigureStyle')),
-  hax(findType(data.manuscript, 'MPPageLayout')),
-  hax(findType(data.manuscript, 'MPColorScheme'))
-].forEach(obj => {
+const getTypes = (objects, type) => {
+  return objects
+    .filter(x => x.objectType === type)
+    .map(hax);
+}
+
+[].concat(
+  getTypes(data.sections, 'MPSection'),
+  getTypes(data.sections, 'MPParagraphElement'),
+  getTypes(data.manuscript, 'MPParagraphStyle'),
+  getTypes(data.manuscript, 'MPBorderStyle'),
+  getTypes(data.manuscript, 'MPAuxiliaryObjectReferenceStyle'),
+  getTypes(data.manuscript, 'MPCaptionStyle'),
+  getTypes(data.manuscript, 'MPColor'),
+  getTypes(data.manuscript, 'MPFigureLayout'),
+  getTypes(data.manuscript, 'MPFigureStyle'),
+  getTypes(data.manuscript, 'MPPageLayout'),
+  getTypes(data.manuscript, 'MPColorScheme')
+).forEach(obj => {
   const valid = validate(obj);
 
   if (Array.isArray(valid)) {
