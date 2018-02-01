@@ -1,0 +1,52 @@
+{
+  "$id": "MPTableStyle.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "bodyBackgroundColor": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "bodyBackgroundAlternateColor": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "bodyColumnSeparatorBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "footerBackgroundColor": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "footerBottomBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "footerTopBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "footerTopSpacing": {
+          "type": "number"
+        },
+        "headerBackgroundColor": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "headerBottomBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "headerBottomSpacing": {
+          "type": "number"
+        },
+        "headerTopBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPTableStyle" ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}

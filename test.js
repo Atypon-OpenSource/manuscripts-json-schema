@@ -29,6 +29,8 @@ const getTypes = (type, objects) => {
     .map(hax);
 }
 
+// These are not all implemented, and depend on being able to find objects of
+// the type in whatever the `data` variable is.
 [].concat(
   getTypes('MPAffiliation', data.manuscript),
   getTypes('MPAuxiliaryObjectReference', data.manuscript),
@@ -66,7 +68,7 @@ const getTypes = (type, objects) => {
   getTypes('MPStyleableStringComponent', data.manuscript),
   getTypes('MPTable', data.manuscript),
   getTypes('MPTableElement', data.manuscript),
-  // getTypes('MPTableStyle', data.manuscript),
+  getTypes('MPTableStyle', data.manuscript),
   getTypes('MPTextStyling', data.manuscript)
 ).forEach(obj => {
   const valid = validate(obj);
