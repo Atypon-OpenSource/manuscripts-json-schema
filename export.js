@@ -1,5 +1,5 @@
 const { writeFileSync } = require('fs');
-const { ajv, schemasInUse, supportedObjectTypes } = require('./validate');
+const { ajv, schemas, supportedObjectTypes } = require('./validate');
 const pack = require('./pack');
 
 const argv = require('yargs')
@@ -34,14 +34,14 @@ switch (argv._[0]) {
       Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
     writeFileSync(
       argv.output,
-      JSON.stringify(schemasInUse.map(sortObject), null, 2),
+      JSON.stringify(schemas.map(sortObject), null, 2),
       'utf8'
     );
     break;
   case 'function':
     console.warn('Writing function to:', argv.output);
     const code = pack(supportedObjectTypes, ajv);
-    console.log(code);
+    // console.log(code);
     // writeFileSync(
       // argv.output,
       // JSON.stringify(schemasInUse.map(sortObject), null, 2),

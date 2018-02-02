@@ -4,7 +4,7 @@
   "description": "",
   "main": "export.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "tape tests/*.js"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +12,8 @@
   "devDependencies": {
     "ajv": "^6.0.0",
     "deepmerge": "^2.0.1",
-    "js-beautify": "^1.7.5"
+    "js-beautify": "^1.7.5",
+    "tape": "^4.8.0"
   },
   "dependencies": {
     "yargs": "^11.0.0"
