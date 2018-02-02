@@ -40,13 +40,7 @@ switch (argv._[0]) {
     break;
   case 'function':
     console.warn('Writing function to:', argv.output);
-    const code = pack(supportedObjectTypes, ajv);
-    // console.log(code);
-    // writeFileSync(
-      // argv.output,
-      // JSON.stringify(schemasInUse.map(sortObject), null, 2),
-      // 'utf8'
-    // );
+    writeFileSync(argv.output, pack(supportedObjectTypes, ajv), 'utf8');
     break;
   default:
     throw 'NotImplementedException';
