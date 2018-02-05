@@ -57,13 +57,7 @@ function packSchemas(schemas, ajv) {
     // this one is particularly bad.
     // however `'use strict';` does nothing in otto (the js interpreter)
     // https://github.com/robertkrimen/otto#caveat-emptor
-    console.log('\npatterns:');
-    console.log(patterns);
-    console.log('\nnamedFn:');
-    console.log(namedFn);
     const fnWithPatterns = namedFn.replace("'use strict';", () => patterns);
-    console.log('\nfnWithPatterns:');
-    console.log(fnWithPatterns);
 
     fnStrings.push([
       fnWithPatterns,
