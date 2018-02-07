@@ -30,10 +30,11 @@ It is largely a copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
 I struggled for days trying to get `ajv-merge-patch` to work with more than 1
 layer.
 
-e.g. an immediate subclass of `MPManagedObject` would get all it's properties,
-but if you subclassed that subclass, it wouldn't have them.
+e.g. an immediate subclass (say `MPStyle`) of `MPManagedObject` would get all
+its properties. However, if you subclassed `MPStyle` for `MPBorderStyle`,
+it wouldn't have the `MPManagedObject` properties, only the `MPStyle` ones.
 
-The way it worked was pretty confusing and hard to debug.
+Additionally, the way it worked was pretty confusing and hard to debug.
 
 My solution is `mash.js` which is an incredibly simple and boring (go look)
 recursive merger.
