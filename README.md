@@ -1,22 +1,94 @@
 # manuscripts-json-schema
 
+## Run it
+
+Export the schemas to a JSON array (useful for reviewing).
+```
+node export schemas -o the-schemas-we-care-about.json
+```
+
+Export the schemas as a validator function.
+```
+node export function -o lots-of-code.js
+```
+
+Run the tests (WIP)
+```
+node test
+```
+
+```
+npm t
+```
+
 ## How it works
 
-The `definitions` directory contains all the JSON Schema in an unprocessed
+### Introduction
+
+It is largely a copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
+
+I struggled for days trying to get `ajv-merge-patch` to work with more than 1
+layer.
+
+e.g. an immediate subclass of `MPManagedObject` would get all it's properties,
+but if you subclassed that subclass, it wouldn't have them.
+
+The way it worked was pretty confusing and hard to debug.
+
+My solution is `mash.js` which is an incredibly simple and boring (go look)
+recursive merger.
+
+### Implementation
+
+The `definitions` directory contains all the JSON schemas in an unprocessed
 state.
 
 You can look in `validate.js` and see that it first adds all the schemas in
 `definitions/scalars`.
 
-These are simple/boring schemas that just define some things like:
+These are simple/boring schemas with no inheritance, e.g.:
 
 - `_id` matching the pattern `^MP[a-zA-Z]+:[0-9a-zA-Z\\-]+`
 - `hexColor` matching the pattern `^#[a-fA-F0-9]{6}`
 
-The next step is to grab all the schemas in `definitions/concrete`. These have a
-bit of "magic", in the form of a custom keyword (`$mash` currently).
+The next step (in `validate.js`) is to grab all the schemas in
+`definitions/concrete`.
 
-A good example is `MPStyle`:
+These are the schemas that are actually used/exported.
+
+These have a bit of "magic", in the form of a custom keyword (`$mash`).
+
+`$mash` was simply the first synonym of `$merge` I could think of.
+
+### Example
+
+A good example is `MPAuxiliaryObjectReferenceStyle`:
+```json
+{
+  "$id": "MPAuxiliaryObjectReferenceStyle.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPStyle.json#" }
+    ],
+    "with": {
+      "properties": {
+        "embeddedReferenceStringComponents": {
+          "type": "array",
+          "items": [
+            { "$ref": "MPStyleableStringComponent.json#" }
+          ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
+```
+
+You can see it references `MPStyle`, which for the sake of completeness looks
+like this:
 ```json
 {
   "$id": "MPStyle.json",
@@ -47,34 +119,9 @@ A good example is `MPStyle`:
 }
 ```
 
-We _recursively_ merge the schemas in `$mash.sources`, and the
-schema defined in `$mash.with`. It is very straightforward and it works well.
-
-A `concrete` type `MPAuxiliaryObjectReferenceStyle` is a subclass of `MPStyle`
-and is defined as follows:
-```json
-{
-  "$id": "MPAuxiliaryObjectReferenceStyle.json",
-  "type": "object",
-  "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPStyle.json#" }
-    ],
-    "with": {
-      "properties": {
-        "embeddedReferenceStringComponents": {
-          "type": "array",
-          "items": [
-            { "$ref": "MPStyleableStringComponent.json#" }
-          ]
-        }
-      },
-      "required": [
-      ]
-    }
-  }
-}
-```
+Starting from the `concrete` type `MPAuxiliaryObjectReferenceStyle`, we
+_recursively_ merge the schemas in `$mash.sources`, and the schema defined in
+`$mash.with`. It is very straightforward and it works well.
 
 The resulting JSON Schema that we add to `ajv` (the JSON schema validator
 library we are using) looks like this:
@@ -131,50 +178,8 @@ library we are using) looks like this:
 }
 ```
 
-We never actually add `MPStyle` and `MPManagedObject` to the validator, we just
+We never actually add `MPStyle` or `MPManagedObject` to the validator, we just
 merge the properties from them.
 
 You can see that the `scalars` are still just references that are shared, so
 there is some reuse.
-
-### n.b.
-
-It is largely a copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
-
-I struggled for days trying to get `ajv-merge-patch` to work with more than 1
-layer. e.g. an immediate subclass of `MPManagedObject` would get all it's
-properties, but if you subclassed that it wouldn't have them. The way it worked
-was pretty confusing and hard to debug.
-
-My solution is `mash.js` which is an incredibly simple and boring recursive
-merger.
-
-I can also merge many schemas, although there aren't any examples of this any
-more.
-
-## Run it
-
-Export the schemas to an array (useful for reviewing).
-```
-node index -o all-the-expanded-schemas.json
-```
-
-Run the basic test script.
-```
-~/manuscripts-json-schema master*
-❯ npm t
-
-> manuscripts-json-schema@1.0.0 test /home/will/manuscripts-json-schema
-> node test.js
-
-PASS(MPSection) ✓
-PASS(MPParagraphElement) ✓
-PASS(MPParagraphStyle) ✓
-PASS(MPBorderStyle) ✓
-PASS(MPAuxiliaryObjectReferenceStyle) ✓
-PASS(MPCaptionStyle) ✓
-PASS(MPColor) ✓
-PASS(MPFigureLayout) ✓
-PASS(MPFigureStyle) ✓
-PASS(MPPageLayout) ✓
-```
