@@ -1,0 +1,23 @@
+{
+  "$id": "MPGrant.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "organization": { "type": "string" },
+        "code": { "type": "string" },
+        "title": { "type": "string" },
+        "fundingBody": { "$ref": "MPFundingBody.json#" },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPGrant" ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}

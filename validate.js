@@ -51,7 +51,7 @@ function validate(obj) {
   if (valid) {
     return null;
   } else {
-    return ajv.errors;
+    return validate.errors;
   }
 }
 

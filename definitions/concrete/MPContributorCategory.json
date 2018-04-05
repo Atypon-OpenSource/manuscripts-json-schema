@@ -1,0 +1,13 @@
+{
+  "$id": "MPContributorCategory.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "mixins/MPCategorizable.json#" }
+    ],
+    "with": {
+      "properties": {},
+      "required": []
+    }
+  }
+}

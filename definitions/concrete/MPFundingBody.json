@@ -1,0 +1,21 @@
+{
+  "$id": "MPFundingBody.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "name": { "type": "string" },
+        "URL": { "type": "string" },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPFundingBody" ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
