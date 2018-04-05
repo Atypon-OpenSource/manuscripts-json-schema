@@ -2,7 +2,7 @@
   "name": "manuscripts-json-schema",
   "version": "1.0.0",
   "description": "",
-  "main": "export.js",
+  "main": "index.js",
   "scripts": {
     "test": "tape tests/*.js"
   },
