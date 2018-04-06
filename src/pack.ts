@@ -1,7 +1,9 @@
-const { js_beautify } = require('js-beautify');
+import * as Ajv from 'ajv';
+import { js_beautify } from 'js-beautify';
 
-var SINGLE_QUOTE = /'|\\/g;
-function escapeQuotes(str) {
+const SINGLE_QUOTE = /'|\\/g;
+
+function escapeQuotes(str: string) {
   return str.replace(SINGLE_QUOTE, '\\$&')
     .replace(/\n/g, '\\n')
     .replace(/\r/g, '\\r')
@@ -9,7 +11,7 @@ function escapeQuotes(str) {
     .replace(/\t/g, '\\t');
 }
 
-const buildValidatorFn = names => `
+const buildValidatorFn = (names: Array<string>) => `
   function validate(obj) {
     const lookup = {
       ${names.map(name => `'${name}': ${name}`).join(',\n')}
@@ -33,7 +35,7 @@ const buildValidatorFn = names => `
   }
 `;
 
-function packSchemas(schemas, ajv) {
+function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
   const names = [];
   const fnStrings = [];
 
@@ -50,7 +52,8 @@ function packSchemas(schemas, ajv) {
       .replace(/\bvalidate\./g, `${name}.`);
 
     // collect up patterns, the fn source we will use later makes use of them.
-    const patterns = fn.source.patterns.map((p, i) => {
+    const fnSource: any = fn.source
+    const patterns = fnSource.patterns.map((p: string, i: number) => {
       return `const pattern${i} = new RegExp('${escapeQuotes(p)}');`
     }).join('  ');
 
@@ -69,11 +72,9 @@ function packSchemas(schemas, ajv) {
   return fnStrings.concat(buildValidatorFn(names));
 }
 
-function pack(schemas, ajv) {
+export default function pack(schemas: Set<string>, ajv: Ajv.Ajv) {
   const equalFn = require('ajv/lib/compile/equal').toString();
   const schemaFunctions = packSchemas(schemas, ajv);
   const code = [equalFn].concat(schemaFunctions).join('\n\n');
   return js_beautify(code, { indent_size: 2 });
 }
-
-module.exports = pack;

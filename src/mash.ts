@@ -1,10 +1,10 @@
 const merge = require('deepmerge')
-const { getSchema } = require('./getSchema');
+import { getSchema } from './getSchema';
 
-function mash(obj) {
+export default function mash(obj: any) {
   if (obj.$mash) {
     const { sources } = obj.$mash;
-    const merged = sources.reduce((acc, source) => {
+    const merged = sources.reduce((acc: any, source: any) => {
       const schemaId = source.$ref.slice(0, -1);
       const schema = getSchema(schemaId);
       const mashed = mash(schema);
@@ -15,5 +15,3 @@ function mash(obj) {
   }
   return obj;
 }
-
-module.exports = mash;

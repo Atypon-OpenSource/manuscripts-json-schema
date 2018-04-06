@@ -1,10 +1,11 @@
-const { writeFileSync } = require('fs');
-const { ajv, schemas, supportedObjectTypes } = require('./validate');
-const pack = require('./pack');
+import { writeFileSync } from 'fs';
+import pack from './pack';
+import { ajv, schemas, supportedObjectTypes } from './validate';
+import * as yargs from 'yargs';
 
-const argv = require('yargs')
+const argv = yargs
   .command('schemas', 'export JSON Schema of expanded (concrete) types', yargs => {
-    yargs
+    return yargs
       .option('output', {
         alias: 'o',
         description: 'output filename'
@@ -14,7 +15,7 @@ const argv = require('yargs')
       .alias('h', 'help');
   })
   .command('function', 'export validator function', yargs => {
-    yargs
+    return yargs
       .option('output', {
         alias: 'o',
         description: 'output filename'
@@ -30,8 +31,8 @@ const argv = require('yargs')
 switch (argv._[0]) {
   case 'schemas':
     console.warn('Writing schemas to:', argv.output);
-    const sortObject = o =>
-      Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
+    const sortObject = (obj: any) =>
+      Object.keys(obj).sort().reduce((acc: any, k) => (acc[k] = obj[k], acc), {});
     writeFileSync(
       argv.output,
       JSON.stringify(schemas.map(sortObject), null, 2),
