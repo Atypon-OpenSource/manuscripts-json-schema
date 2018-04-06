@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "removeComments": false,
     "sourceMap": true,
+    "declaration": true,
     "outDir": "./dist",
     "lib": ["es2017"],
     "types": ["node"],
@@ -12,14 +13,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "noUnusedParameters": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
-    "typeRoots": [
-      "node_modules/@types",
-      "node_modules/",
-      "types"
-    ]
+    "noUnusedParameters": true
   },
   "include": [
     "src/**/*.ts"

@@ -2,9 +2,11 @@
   "name": "@manuscripts/manuscripts-json-schema",
   "version": "1.0.1",
   "description": "",
-  "main": "dist",
+  "main": "./dist/index",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc",
+    "prepare": "npm run build",
     "test": "tape tests/*.js"
   },
   "keywords": [],
