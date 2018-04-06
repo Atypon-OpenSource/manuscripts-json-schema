@@ -21,3 +21,4 @@ node_modules/
 *.tgz
 
 # typescript
+dist/
