@@ -1,37 +1,32 @@
-const fs = require('fs');
-const Ajv = require('ajv');
-const mash = require('./mash');
-const { getSchema, getSchemas } = require('./getSchema');
+import * as Ajv from 'ajv';
+import mash from './mash';
+import { getSchemas } from './getSchema';
 
-const ajv = new Ajv({ sourceCode: true });
+export const ajv = new Ajv({ sourceCode: true });
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 
-// Collect up the actual schemas we use.
-const schemas = [];
+// Get all basic scalar schemas.
+const scalarSchemas = getSchemas('scalars');
 
 // We can just add scalar schemas to ajv.
-getSchemas('scalars').forEach(schema => {
-  schemas.push(schema);
-  ajv.addSchema(schema);
-});
+scalarSchemas.forEach(schema => ajv.addSchema(schema))
 
 // Get all the schemas we actually care about.
 const concreteSchemas = getSchemas('concrete');
 
-// Fast way to ascertain if we support this objectType.
-const supportedObjectTypes = new Set();
+// Mash them (recursively merge).
+const mashedSchemas = concreteSchemas.map(mash);
 
-// Add them (after a MASH).
-concreteSchemas.forEach(schema => {
-  const mashedSchema = mash(schema);
-  schemas.push(mashedSchema);
-  ajv.addSchema(mashedSchema);
-  supportedObjectTypes.add(schema.$id);
-});
+mashedSchemas.forEach(schema => ajv.addSchema(schema));
+
+// Fast way to ascertain if we support this objectType.
+export const supportedObjectTypes = new Set<string>(mashedSchemas.map(x => x.$id));
+
+export const schemas = [...scalarSchemas, ...mashedSchemas];
 
 // TODO: the return value of this is currently: Option<Array<Error>>
 // I'm pretty sure this is confusing.
-function validate(obj) {
+export function validate(obj: any) {
   if (!obj || !obj.objectType) {
     throw 'InvalidOperation';
   }
@@ -54,5 +49,3 @@ function validate(obj) {
     return validate.errors;
   }
 }
-
-module.exports = { validate, schemas, supportedObjectTypes, ajv };

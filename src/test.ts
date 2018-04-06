@@ -1,8 +1,9 @@
-const fs = require('fs');
-const { validate } = require('./validate');
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { validate } from './validate';
 
 // These are properties I couldn't immediately make sense of:
-const hax = (obj) => {
+const hax = (obj: any) => {
   [
     'bundled',
     'locked',
@@ -20,12 +21,12 @@ const hax = (obj) => {
   return obj;
 };
 
-const data = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
-// const data = JSON.parse(fs.readFileSync('rnap.json', 'utf8'));
+const dataPath = join(__dirname, '..', 'dictionary.json');
+const data = JSON.parse(readFileSync(dataPath, 'utf8'));
 
-const getTypes = (type, objects) => {
+const getTypes = (type: string, objects: any) => {
   return objects
-    .filter(x => x.objectType === type)
+    .filter((x: any) => x.objectType === type)
     .map(hax);
 }
 
@@ -70,7 +71,7 @@ const getTypes = (type, objects) => {
   getTypes('MPTableElement', data.manuscript),
   getTypes('MPTableStyle', data.manuscript),
   getTypes('MPTextStyling', data.manuscript)
-).forEach(obj => {
+).forEach((obj: any) => {
   const valid = validate(obj);
 
   if (Array.isArray(valid)) {
