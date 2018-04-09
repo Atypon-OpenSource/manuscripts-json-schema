@@ -1,5 +1,9 @@
 import * as Ajv from 'ajv';
-import { ajv, supportedObjectTypes } from './schemas';
+import { supportedObjectTypes } from './schemas';
+import { getBuiltSchemas } from './getSchema';
+
+const ajv = new Ajv();
+getBuiltSchemas().forEach(schema => ajv.addSchema(schema))
 
 // TODO: the return value of this is confusing.
 export function validate(obj: any): Array<Ajv.ErrorObject> | null {

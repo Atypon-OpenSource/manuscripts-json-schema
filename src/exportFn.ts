@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 import pack from './pack';
-import { ajv, supportedObjectTypes } from './validate';
+import { ajv, supportedObjectTypes } from './schemas';
 
 const outFile = 'validatorFn.js';
 

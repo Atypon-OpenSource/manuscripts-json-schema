@@ -21,6 +21,7 @@
     "ajv": "^6.0.0",
     "deepmerge": "^2.0.1",
     "js-beautify": "^1.7.5",
+    "json-schema-to-typescript": "^5.4.0",
     "rimraf": "^2.6.2",
     "tape": "^4.8.0",
     "typescript": "^2.8.1"
