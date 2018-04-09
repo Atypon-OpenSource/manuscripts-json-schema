@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "",
   "main": "./dist/index",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "npm run build-src && npm run build-schemas && npm run build-definitions",
     "build-src": "rimraf dist/* schemas/* definitions/* && tsc",
