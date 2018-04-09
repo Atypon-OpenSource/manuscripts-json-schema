@@ -11,15 +11,17 @@ export function getSchema(name: string, directory?: string) {
 }
 
 export function getSchemas(directory: string) {
-  return _getSchemas(SCHEMA_SRC_DIR, directory);
+  const schemasPath = join(__dirname, '..', SCHEMA_SRC_DIR, directory);
+  const files = readdirSync(schemasPath, 'utf8');
+  return files.map(name => getSchema(name, directory));
 }
 
 export function getBuiltSchemas() {
-  return _getSchemas(SCHEMA_DIR);
-}
-
-function _getSchemas(srcDirectory: string, directory?: string) {
-  const schemasPath = join(__dirname, '..', srcDirectory, directory || '');
+  const schemasPath = join(__dirname, '..', SCHEMA_DIR);
   const files = readdirSync(schemasPath, 'utf8');
-  return files.map(name => getSchema(name, directory));
+  return files.map((filename: string) => {
+    const schemaPath = join(__dirname, '..', SCHEMA_DIR, filename);
+    const file = readFileSync(schemaPath, 'utf8');
+    return JSON.parse(file);
+  });
 }
