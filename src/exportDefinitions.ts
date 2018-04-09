@@ -1,14 +1,26 @@
 import { join } from 'path';
-import { readdirSync, writeFileSync } from 'fs';
+import { promisify } from 'util';
+import { readdirSync, writeFile, readFile } from 'fs';
 import { compileFromFile } from 'json-schema-to-typescript';
 
-const SCHEMA_DIR = 'schemas';
-const DEFINITION_DIR = 'definitions';
+const writeFilePromise = promisify(writeFile);
+const readFilePromise = promisify(readFile);
 
-for (const file of readdirSync(SCHEMA_DIR, 'utf8')) {
-  compileFromFile(join(SCHEMA_DIR, file), { cwd: SCHEMA_DIR })
-    .then(ts => {
-      const path = join(DEFINITION_DIR, `${file.replace('.json', '')}.d.ts`);
-      writeFileSync(path, ts)
+const SCHEMA_DIR = 'schemas';
+const DIST_DIR = 'dist';
+const INDEX_D_TS = join(DIST_DIR, 'index.d.ts');
+
+Promise.all(readdirSync(SCHEMA_DIR, 'utf8').map(file => {
+  return compileFromFile(join(SCHEMA_DIR, file), {
+    cwd: SCHEMA_DIR,
+    bannerComment: ''
+  })
+})).then(definitions => {
+  return readFilePromise(INDEX_D_TS, 'utf8')
+    .then(existingContents => {
+      return [existingContents, ...definitions].join('\n')
     })
-}
+    .then(newContents => {
+      return writeFilePromise(INDEX_D_TS, newContents, 'utf8');
+    })
+});

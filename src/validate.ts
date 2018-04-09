@@ -3,6 +3,7 @@ import { supportedObjectTypes } from './schemas';
 import { getBuiltSchemas } from './getSchema';
 
 const ajv = new Ajv();
+// Use the built schemas for consistency/correctness.
 getBuiltSchemas().forEach(schema => ajv.addSchema(schema))
 
 // TODO: the return value of this is confusing.

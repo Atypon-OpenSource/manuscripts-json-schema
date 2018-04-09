@@ -10,3 +10,6 @@
   - scalars.json
     - timestamp
       - FIX: arbitrary minimum and maximum values.
+
+# Defintions
+- Issue with numbers/strings in output.
