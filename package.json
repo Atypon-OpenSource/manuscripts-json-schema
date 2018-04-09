@@ -9,8 +9,7 @@
     "build-src": "rimraf dist/* schemas/* && tsc",
     "build-schemas": "node dist/exportSchemas",
     "build-definitions": "node dist/exportDefinitions",
-    "prepare": "npm run build",
-    "test": "tape tests/*.js"
+    "prepare": "npm run build"
   },
   "keywords": [],
   "author": "",
