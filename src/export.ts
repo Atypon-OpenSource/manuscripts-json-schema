@@ -31,13 +31,7 @@ const argv = yargs
 switch (argv._[0]) {
   case 'schemas':
     console.warn('Writing schemas to:', argv.output);
-    const sortObject = (obj: any) =>
-      Object.keys(obj).sort().reduce((acc: any, k) => (acc[k] = obj[k], acc), {});
-    writeFileSync(
-      argv.output,
-      JSON.stringify(schemas.map(sortObject), null, 2),
-      'utf8'
-    );
+    writeFileSync(argv.output, JSON.stringify(schemas, null, 2), 'utf8');
     break;
   case 'function':
     console.warn('Writing function to:', argv.output);
@@ -45,5 +39,4 @@ switch (argv._[0]) {
     break;
   default:
     throw 'NotImplementedException';
-
 }

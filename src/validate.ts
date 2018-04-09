@@ -22,7 +22,11 @@ mashedSchemas.forEach(schema => ajv.addSchema(schema));
 // Fast way to ascertain if we support this objectType.
 export const supportedObjectTypes = new Set<string>(mashedSchemas.map(x => x.$id));
 
-export const schemas = [...scalarSchemas, ...mashedSchemas];
+
+const sortObject = (obj: any) =>
+  Object.keys(obj).sort().reduce((acc: any, k) => (acc[k] = obj[k], acc), {});
+
+export const schemas = [...scalarSchemas, ...mashedSchemas].map(sortObject);
 
 // TODO: the return value of this is currently: Option<Array<Error>>
 // I'm pretty sure this is confusing.
