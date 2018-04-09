@@ -25,3 +25,6 @@ dist/
 
 # compiled schemas
 schemas/
+
+# compiled typescript type defs
+definitions/
