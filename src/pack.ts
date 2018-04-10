@@ -14,7 +14,7 @@ function escapeQuotes(str: string) {
 const buildValidatorFn = (names: Array<string>) => `
   function validate(obj) {
     const lookup = {
-      ${names.map(name => `'${name}': ${name}`).join(',\n')}
+      ${names.map(name => `${name}: ${name}`).join(',\n')}
     };
 
     if (!obj || !obj.objectType || typeof obj.objectType !== 'string') {
