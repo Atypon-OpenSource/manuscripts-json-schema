@@ -50,3 +50,29 @@ test('border style', t => {
     'incorrect type for property fails'
   );
 });
+
+
+test('color', t => {
+  t.plan(2);
+
+  const validObject = {
+    "_id" : "MPColor:09070E2C-E142-4AF9-8602-586AF77E508B",
+    "objectType" : "MPColor",
+    "_rev" : "1-ad1185e0dd0e339d830af9c082b2e052",
+    "title" : "Red",
+    "updatedAt" : 1515494608.340721,
+    "createdAt" : 1515417692.476842,
+    "name" : "red",
+    "value" : "#ff0000"
+  };
+
+  t.ok(
+    validate(Object.assign({}, validObject)),
+    'valid MPColor passes'
+  );
+
+  t.notOk(
+    validate(Object.assign({}, validObject, { foobar: 1 })),
+    'additional property fails'
+  );
+});
