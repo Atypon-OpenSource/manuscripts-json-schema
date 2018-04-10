@@ -23,6 +23,11 @@ const buildValidatorFn = (names: Array<string>) => `
 
     const validator = lookup[obj.objectType];
 
+    if (!validator) {
+      // throw unsupported?
+      return false;
+    }
+
     // we could return errors here (validator.errors)
     //
     // i think it's worth considering removing all the error message logic.
