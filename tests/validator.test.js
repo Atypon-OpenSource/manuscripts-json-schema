@@ -21,8 +21,8 @@ function validate(obj) {
   return sandbox.result;
 }
 
-test('packed validator code', t => {
-  t.plan(2);
+test('border style', t => {
+  t.plan(3);
   const validObject = {
     "updatedAt" : 1515494608.245375,
     "objectType" : "MPBorderStyle",
@@ -34,6 +34,19 @@ test('packed validator code', t => {
     "name" : "dotted",
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
   };
-  t.ok(validate(Object.assign({}, validObject)));
-  t.notOk(validate(Object.assign({}, validObject, { objectType: 'WBBorderStyle' })));
+
+  t.ok(
+    validate(Object.assign({}, validObject)),
+    'valid MPBorderStyle passes'
+  );
+
+  t.notOk(
+    validate(Object.assign({}, validObject, { objectType: 'WBBorderStyle' })),
+    'unsupported objectType fails'
+  );
+
+  t.notOk(
+    validate(Object.assign({}, validObject, { pattern: 1 })),
+    'incorrect type for property fails'
+  );
 });
