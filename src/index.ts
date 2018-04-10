@@ -1,2 +1,1 @@
-import { validate } from './validate';
-export default validate;
+export { validate } from './validate';
