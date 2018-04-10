@@ -15,14 +15,14 @@ Promise.all(readdirSync(SCHEMA_DIR, 'utf8').map(file => {
   return compileFromFile(join(SCHEMA_DIR, file), {
     cwd: SCHEMA_DIR,
     bannerComment: ''
-  });
+  }).then(definition => definition.replace(/^export\sinterface\sMp/, 'export interface '));
 })).then(definitions => {
   return writeFilePromise(TYPES_D_TS, definitions.join('\n'), 'utf8')
     .then(() => readFilePromise(INDEX_D_TS, 'utf8'))
     .then((indexContents: string) => {
       const contents = [
         indexContents,
-        'export * from \'./types\';'
+        "export * from './types';"
       ].join('\n');
       return writeFilePromise(INDEX_D_TS, contents, 'utf8')
     });
