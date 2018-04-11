@@ -26,7 +26,7 @@ const buildValidatorFn = (names: Array<string>) => `
 
     if (!validator) {
       // throw unsupported?
-      return false;
+      return 'unsupported objectType: ' + obj.objectType;
     }
 
     // we could return errors here (validator.errors)
@@ -39,7 +39,7 @@ const buildValidatorFn = (names: Array<string>) => `
     // care so we could have some sort of build flag.
     var result = validator(obj);
     if (result) {
-      return;
+      return null;
     } else {
       return validator.errors[0].message;
     }

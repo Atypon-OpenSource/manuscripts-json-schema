@@ -33,23 +33,27 @@ test('border style', t => {
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
   };
 
-  t.ok(
+  t.equals(
     validate(Object.assign({}, validObject)),
+    null,
     'valid MPBorderStyle passes'
   );
 
-  t.notOk(
+  t.equals(
     validate(Object.assign({}, validObject, { objectType: 'WBBorderStyle' })),
+    'unsupported objectType: WBBorderStyle',
     'unsupported objectType fails'
   );
 
-  t.notOk(
+  t.equals(
     validate(Object.assign({}, validObject, { pattern: 1 })),
+    'should be array',
     'incorrect type for property fails'
   );
 
-  t.notOk(
+  t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPBorderStyle:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A' })),
+    'should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid id fails'
   );
 });
@@ -69,13 +73,15 @@ test('color', t => {
     "value" : "#ff0000"
   };
 
-  t.ok(
+  t.equals(
     validate(Object.assign({}, validObject)),
+    null,
     'valid MPColor passes'
   );
 
-  t.notOk(
+  t.equals(
     validate(Object.assign({}, validObject, { foobar: 1 })),
+    'should NOT have additional properties',
     'additional property fails'
   );
 });
@@ -104,15 +110,17 @@ test('color scheme', t => {
     "name" : "Manuscripts default colour scheme"
   };
 
-  t.ok(
+  t.equals(
     validate(Object.assign({}, validObject)),
+    null,
     'valid MPColorScheme passes'
   );
 
-  t.notOk(
+  t.equals(
     validate(Object.assign({}, validObject, {
       colors: [ 'WBColour:2381683C-7426-4B39-BCC5-9C78C689A3CB' ]
     })),
+    'should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid color id fails'
   );
 });
