@@ -60,7 +60,7 @@ function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
     // collect up patterns, the fn source we will use later makes use of them.
     const fnSource: any = fn.source
     const patterns = fnSource.patterns.map((p: string, i: number) => {
-      return `const pattern${i} = new RegExp('${escapeQuotes(p)}');`
+      return `var pattern${i} = new RegExp('${escapeQuotes(p)}');`
     }).join('  ');
 
     // this one is particularly bad.
