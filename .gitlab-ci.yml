@@ -1,0 +1,19 @@
+stages:
+- build
+- test
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  tags:
+    - nodejs
+
+test:
+  stage: test
+  script:
+    - npm install
+    - npm t
+  tags:
+    - nodejs
