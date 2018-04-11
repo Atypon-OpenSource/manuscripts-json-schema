@@ -1,5 +1,6 @@
 import * as Ajv from 'ajv';
 import { js_beautify } from 'js-beautify';
+import { ajv, supportedObjectTypes } from './schemas';
 
 const SINGLE_QUOTE = /'|\\/g;
 
@@ -77,9 +78,8 @@ function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
   return fnStrings.concat(buildValidatorFn(names));
 }
 
-export default function pack(schemas: Set<string>, ajv: Ajv.Ajv) {
-  const equalFn = require('ajv/lib/compile/equal').toString();
-  const schemaFunctions = packSchemas(schemas, ajv);
-  const code = [equalFn].concat(schemaFunctions).join('\n\n');
-  return js_beautify(code, { indent_size: 2 });
-}
+const equalFn = require('ajv/lib/compile/equal').toString();
+const schemaFunctions = packSchemas(supportedObjectTypes, ajv);
+const code = [equalFn].concat(schemaFunctions).join('\n\n');
+
+export const validatorFn = js_beautify(code, { indent_size: 2 });
