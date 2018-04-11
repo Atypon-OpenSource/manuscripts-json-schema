@@ -18,13 +18,14 @@
   "devDependencies": {
     "@types/js-beautify": "0.0.31",
     "@types/node": "^9.6.2",
-    "ajv": "^6.0.0",
-    "deepmerge": "^2.0.1",
-    "js-beautify": "^1.7.5",
     "json-schema-to-typescript": "^5.4.0",
     "rimraf": "^2.6.2",
     "tape": "^4.8.0",
     "typescript": "^2.8.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ajv": "^6.0.0",
+    "js-beautify": "^1.7.5",
+    "deepmerge": "^2.0.1"
+  }
 }
