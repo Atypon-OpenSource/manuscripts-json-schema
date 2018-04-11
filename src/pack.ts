@@ -37,7 +37,12 @@ const buildValidatorFn = (names: Array<string>) => `
     //
     // the clients will most likely want to know, but the sync_gateway doesn't
     // care so we could have some sort of build flag.
-    return validator(obj);
+    var result = validator(obj);
+    if (result) {
+      return;
+    } else {
+      return validator.errors[0].message;
+    }
   }
 `;
 
