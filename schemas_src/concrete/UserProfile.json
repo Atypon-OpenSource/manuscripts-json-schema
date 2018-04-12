@@ -10,9 +10,10 @@
         "objectType": {
           "type": "string",
           "enum": [ "UserProfile" ]
-        }
+        },
+        "user_id": { "type": "string" }
       },
-      "required": []
+      "required": [ "user_id" ]
     }
   }
 }
