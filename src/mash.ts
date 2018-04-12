@@ -8,7 +8,13 @@ export default function mash(obj: any) {
       const schemaId = source.$ref.slice(0, -1);
       const schema = getSchema(schemaId);
       const mashed = mash(schema);
-      return merge(acc, mashed);
+      const objectType = acc.properties.objectType;
+      const merged = merge(acc, mashed);
+      // We don't want array merging for this enum.
+      if (objectType) {
+        merged.properties.objectType = objectType;
+      }
+      return merged;
     }, obj.$mash.with);
     merged.$id = obj.$id;
     return merged;

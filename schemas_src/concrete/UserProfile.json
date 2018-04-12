@@ -1,0 +1,18 @@
+{
+  "$id": "UserProfile.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "concrete/MPContributor.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "UserProfile" ]
+        }
+      },
+      "required": []
+    }
+  }
+}
