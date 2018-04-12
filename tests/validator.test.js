@@ -53,7 +53,7 @@ test('border style', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPBorderStyle:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A' })),
-    '._id: should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
+    '._id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid id fails'
   );
 });
@@ -118,9 +118,9 @@ test('color scheme', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, {
-      colors: [ 'WBColour:2381683C-7426-4B39-BCC5-9C78C689A3CB' ]
+      colors: [ 'wBColour:2381683C-7426-4B39-BCC5-9C78C689A3CB' ]
     })),
-    '.colors[0]: should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
+    '.colors[0]: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid color id fails'
   );
 });
