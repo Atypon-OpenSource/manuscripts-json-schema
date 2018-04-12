@@ -47,13 +47,13 @@ test('border style', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { pattern: 1 })),
-    'should be array',
+    '.pattern: should be array',
     'incorrect type for property fails'
   );
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPBorderStyle:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A' })),
-    'should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
+    '._id: should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid id fails'
   );
 });
@@ -120,7 +120,7 @@ test('color scheme', t => {
     validate(Object.assign({}, validObject, {
       colors: [ 'WBColour:2381683C-7426-4B39-BCC5-9C78C689A3CB' ]
     })),
-    'should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
+    '.colors[0]: should match pattern "^MP[a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid color id fails'
   );
 });

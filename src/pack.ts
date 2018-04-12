@@ -41,7 +41,10 @@ const buildValidatorFn = (names: Array<string>) => `
     if (result) {
       return null;
     } else {
-      return validator.errors[0].message;
+      var err = validator.errors[0];
+      var msg = err.message;
+      var path = err.dataPath;
+      return path ? path + ': ' + msg : msg;
     }
   }
 `;
