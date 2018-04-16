@@ -5,6 +5,9 @@
   "properties": {
     "_id": {
       "$ref": "strings.json#/definitions/_id"
+    },
+    "_rev": {
+      "type": "string"
     }
   },
   "required": [
