@@ -60,7 +60,7 @@ test('border style', t => {
 
 
 test('color', t => {
-  t.plan(2);
+  t.plan(1);
 
   const validObject = {
     "_id" : "MPColor:09070E2C-E142-4AF9-8602-586AF77E508B",
@@ -78,14 +78,7 @@ test('color', t => {
     null,
     'valid MPColor passes'
   );
-
-  t.equals(
-    validate(Object.assign({}, validObject, { foobar: 1 })),
-    'should NOT have additional properties',
-    'additional property fails'
-  );
 });
-
 
 test('color scheme', t => {
   t.plan(2);
@@ -122,5 +115,21 @@ test('color scheme', t => {
     })),
     '.colors[0]: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-fA-F\\-]+"',
     'invalid color id fails'
+  );
+});
+
+test('error messages', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPNumberingStyle:231123-1233123-12331312',
+    objectType: 'MPNumberingStyle', // one of the simpler objects
+    startIndex: 1
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject, { foobar: 1 })),
+    '.foobar: should NOT have additional properties',
+    'additional property fails'
   );
 });

@@ -44,7 +44,12 @@ const buildValidatorFn = (names: Array<string>) => `
       var err = validator.errors[0];
       var msg = err.message;
       var path = err.dataPath;
-      return path ? path + ': ' + msg : msg;
+      var keyword = err.keyword;
+      if (keyword == 'additionalProperties') {
+        return '.' + err.params.additionalProperty + ': ' + msg;
+      } else {
+        return path + ': ' + msg;
+      }
     }
   }
 `;
