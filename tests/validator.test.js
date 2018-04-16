@@ -20,7 +20,7 @@ function validate(obj) {
 }
 
 test('border style', t => {
-  t.plan(4);
+  t.plan(3);
   const validObject = {
     "updatedAt" : 1515494608.245375,
     "objectType" : "MPBorderStyle",
@@ -49,12 +49,6 @@ test('border style', t => {
     validate(Object.assign({}, validObject, { pattern: 1 })),
     '.pattern: should be array',
     'incorrect type for property fails'
-  );
-
-  t.equals(
-    validate(Object.assign({}, validObject, { _id: 'MPBorderStyle:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A' })),
-    '._id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-fA-F\\-]+"',
-    'invalid id fails'
   );
 });
 
@@ -113,7 +107,7 @@ test('color scheme', t => {
     validate(Object.assign({}, validObject, {
       colors: [ 'wBColour:2381683C-7426-4B39-BCC5-9C78C689A3CB' ]
     })),
-    '.colors[0]: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-fA-F\\-]+"',
+    '.colors[0]: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
     'invalid color id fails'
   );
 });
@@ -123,7 +117,7 @@ test('error messages', t => {
 
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
-    objectType: 'MPNumberingStyle', // one of the simpler objects
+    objectType: 'MPNumberingStyle',
     startIndex: 1
   };
 
@@ -131,5 +125,41 @@ test('error messages', t => {
     validate(Object.assign({}, validObject, { foobar: 1 })),
     '.foobar: should NOT have additional properties',
     'additional property fails'
+  );
+});
+
+test('_id property', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPNumberingStyle:231123-1233123-12331312',
+    objectType: 'MPNumberingStyle',
+    startIndex: 1
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid _id passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        _id: 'MPNumberingStyle:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A'
+      })
+    ),
+    null,
+    '_id with invalid hex characters passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        _id: 'MPNumberingStyle:biology'
+      })
+    ),
+    null,
+    'hardcoded _id passes'
   );
 });

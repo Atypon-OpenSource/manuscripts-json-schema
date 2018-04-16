@@ -3,7 +3,7 @@
   "definitions": {
     "_id": {
       "type": "string",
-      "pattern": "^[A-Z][a-zA-Z]+:[0-9a-fA-F\\-]+"
+      "pattern": "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"
     },
     "hexColor": {
       "type": "string",
