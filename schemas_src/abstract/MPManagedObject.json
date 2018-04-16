@@ -20,8 +20,6 @@
     }
   },
   "required": [
-    "_id",
-    "_rev",
     "objectType",
     "createdAt",
     "updatedAt"
