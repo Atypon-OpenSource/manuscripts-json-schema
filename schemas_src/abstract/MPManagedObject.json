@@ -20,8 +20,6 @@
     }
   },
   "required": [
-    "objectType",
-    "createdAt",
-    "updatedAt"
+    "objectType"
   ]
 }
