@@ -123,7 +123,7 @@ test('error messages', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { foobar: 1 })),
-    '.foobar: should NOT have additional properties',
+    "should NOT have additional properties 'foobar'",
     'additional property fails'
   );
 });
