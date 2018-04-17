@@ -3,7 +3,7 @@
 - what is a sessionID again? In the export the hardcoded id MPColors don't have a sessionID
 - can preferredXHTMLElement be enumed
 - `MPPageLayout` has `embeddedNumberingStyle` which is an `MPNumberingStyle`.
-  - It has a `priority` and I have NFI how.
+  - It has a `priority` and I have no clue how.
 
 # Specific files
 - definitions/

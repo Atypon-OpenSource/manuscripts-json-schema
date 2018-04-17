@@ -1,42 +1,22 @@
 ## How it works
 
-### Introduction
-
-It is largely a copy of `$merge`: https://github.com/epoberezkin/ajv-merge-patch
-
-I struggled for days trying to get `ajv-merge-patch` to work with more than 1
-layer.
-
-e.g. an immediate subclass (say `MPStyle`) of `MPManagedObject` would get all
-its properties. However, if you subclassed `MPStyle` for `MPBorderStyle`,
-it wouldn't have the `MPManagedObject` properties, only the `MPStyle` ones.
-
-Additionally, the way it worked was pretty confusing and hard to debug.
-
-My solution is `mash.js` which is an incredibly simple and boring (go look)
-recursive merger.
-
-### Implementation
-
-The `definitions` directory contains all the JSON schemas in an unprocessed
+The `schemas_src/` directory contains all the JSON schemas in an unprocessed
 state.
 
-You can look in `validate.js` and see that it first adds all the schemas in
-`definitions/scalars`.
+You can look in `schemas.js` and see that it first adds all the schemas in
+`schemas_src/scalars`.
 
 These are simple/boring schemas with no inheritance, e.g.:
 
 - `_id` matching the pattern `^MP[a-zA-Z]+:[0-9a-zA-Z\\-]+`
 - `hexColor` matching the pattern `^#[a-fA-F0-9]{6}`
 
-The next step (in `validate.js`) is to grab all the schemas in
-`definitions/concrete`.
+The next step (in `schemas.js`) is to grab all the schemas in
+`schemas_src/concrete`.
 
 These are the schemas that are actually used/exported.
 
 These have a bit of "magic", in the form of a custom keyword (`$mash`).
-
-`$mash` was simply the first synonym of `$merge` I could think of.
 
 ### Example
 
@@ -158,6 +138,3 @@ library we are using) looks like this:
 
 We never actually add `MPStyle` or `MPManagedObject` to the validator, we just
 merge the properties from them.
-
-You can see that the `scalars` are still just references that are shared, so
-there is some reuse.
