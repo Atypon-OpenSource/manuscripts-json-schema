@@ -1,5 +1,5 @@
 {
-  "$id": "UserProfile.json",
+  "$id": "MPUserProfile.json",
   "type": "object",
   "$mash": {
     "sources": [
@@ -9,7 +9,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "UserProfile" ]
+          "enum": [ "MPUserProfile" ]
         },
         "user_id": { "type": "string" }
       },
