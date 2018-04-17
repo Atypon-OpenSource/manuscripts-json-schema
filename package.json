@@ -1,6 +1,6 @@
 {
   "name": "@manuscripts/manuscripts-json-schema",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "",
   "main": "./dist/index",
   "types": "./dist/index.d.ts",
