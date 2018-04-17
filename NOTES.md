@@ -81,8 +81,7 @@ Starting from the `concrete` type `MPAuxiliaryObjectReferenceStyle`, we
 _recursively_ merge the schemas in `$mash.sources`, and the schema defined in
 `$mash.with`. It is very straightforward and it works well.
 
-The resulting JSON Schema that we add to `ajv` (the JSON schema validator
-library we are using) looks like this:
+The resulting JSON Schema looks like this:
 ```json
 {
   "$id": "MPAuxiliaryObjectReferenceStyle.json",
