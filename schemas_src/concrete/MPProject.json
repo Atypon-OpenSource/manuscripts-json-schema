@@ -1,0 +1,36 @@
+{
+  "$id": "MPProject.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "owners" : {
+          "type": "array",
+          "items": [
+            { "$ref": "strings.json#/definitions/_id" }
+          ]
+        },
+        "writers" : {
+          "type": "array",
+          "items": [
+            { "$ref": "strings.json#/definitions/_id" }
+          ]
+        },
+        "viewers" : {
+          "type": "array",
+          "items": [
+            { "$ref": "strings.json#/definitions/_id" }
+          ]
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPProject" ]
+        }
+      },
+      "required": []
+    }
+  }
+}
