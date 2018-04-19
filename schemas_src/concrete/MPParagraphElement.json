@@ -2,7 +2,8 @@
   "$id": "MPParagraphElement.json",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPBlockElement.json#" }
+      { "$ref": "abstract/MPBlockElement.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
       "properties": {
