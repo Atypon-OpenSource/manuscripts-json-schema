@@ -42,5 +42,12 @@ Please be careful with this and always make sure `master` has your changes.
 After this package has been updated, `@manuscripts/manuscripts-sync` will need
 to be updated with this reference.
 
+1. Edit `package.json` of `@manuscripts/manuscripts-sync` with new version
+   number of `@manuscripts/manuscripts-json-schema`
+2. `npm i && npm t`
+3. `git commit`
+4. `npm version patch`
+5. `npm publish --access public`
+
 After `@manuscripts/manuscripts-sync` has been updated, `manuscripts-api` will
-need to be updated with the new `manuscripts-sync` reference.
+need to be updated in the exact same way.
