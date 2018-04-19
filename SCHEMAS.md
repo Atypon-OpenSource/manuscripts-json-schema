@@ -38,3 +38,9 @@ Alternatively, if you have `npm` access to the `@manuscripts` organisation:
 2. `npm publish --access public`
 
 Please be careful with this and always make sure `master` has your changes.
+
+After this package has been updated, `@manuscripts/manuscripts-sync` will need
+to be updated with this reference.
+
+After `@manuscripts/manuscripts-sync` has been updated, `manuscripts-api` will
+need to be updated with the new `manuscripts-sync` reference.
