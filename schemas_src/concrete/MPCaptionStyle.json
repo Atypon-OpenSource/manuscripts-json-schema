@@ -3,7 +3,8 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPStyle.json#" }
+      { "$ref": "abstract/MPStyle.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
       "properties": {

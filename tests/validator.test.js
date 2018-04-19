@@ -24,6 +24,7 @@ test('border style', t => {
   const validObject = {
     "updatedAt" : 1515494608.245375,
     "objectType" : "MPBorderStyle",
+    "container_id" : "MPProject:foo-bar-baz",
     "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
     "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
     "title" : "Dotted",
@@ -59,6 +60,7 @@ test('color', t => {
   const validObject = {
     "_id" : "MPColor:09070E2C-E142-4AF9-8602-586AF77E508B",
     "objectType" : "MPColor",
+    "container_id" : "MPProject:foo-bar-baz",
     "_rev" : "1-ad1185e0dd0e339d830af9c082b2e052",
     "title" : "Red",
     "updatedAt" : 1515494608.340721,
@@ -92,6 +94,7 @@ test('color scheme', t => {
     "_id" : "MPColorScheme:1E9C939E-B785-40AE-A8A5-9F534D91C754",
     "_rev" : "1-611a94e741630034211f64c81b80bdd8",
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
+    "container_id" : "MPProject:foo-bar-baz",
     "createdAt" : 1515417692.477127,
     "updatedAt" : 1515494608.363229,
     "name" : "Manuscripts default colour scheme"
@@ -117,6 +120,7 @@ test('error messages', t => {
 
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
+    container_id : "MPProject:foo-bar-baz",
     objectType: 'MPNumberingStyle',
     startIndex: 1
   };
@@ -134,6 +138,7 @@ test('_id property', t => {
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     objectType: 'MPNumberingStyle',
+    container_id : "MPProject:foo-bar-baz",
     startIndex: 1
   };
 
@@ -161,5 +166,33 @@ test('_id property', t => {
     ),
     null,
     'hardcoded _id passes'
+  );
+});
+
+test('container_id property', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPNumberingStyle:231123-1233123-12331312',
+    objectType: 'MPNumberingStyle',
+    startIndex: 1
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject, { container_id: "MPFoo:bar" })),
+    null,
+    'valid container_id passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { container_id: "zPFoo:bar" })),
+    '.container_id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'container_id with invalid hex characters fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    'should have required property \'container_id\'',
+    'missing container_id fails'
   );
 });

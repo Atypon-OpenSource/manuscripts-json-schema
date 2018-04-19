@@ -48,7 +48,7 @@ const buildValidatorFn = (names: Array<string>) => `
       if (keyword == 'additionalProperties') {
         return msg + " '" + err.params.additionalProperty + "'";
       } else {
-        return path + ': ' + msg;
+        return (path ? path + ': ' : '') + msg;
       }
     }
   }

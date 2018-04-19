@@ -1,0 +1,13 @@
+{
+  "$id": "MPContainedDocument.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "container_id": {
+      "$ref": "strings.json#/definitions/_id"
+    }
+  },
+  "required": [
+    "container_id"
+  ]
+}

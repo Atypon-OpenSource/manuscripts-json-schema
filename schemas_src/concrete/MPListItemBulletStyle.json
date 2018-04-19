@@ -2,7 +2,8 @@
   "$id": "MPListItemBulletStyle.json",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPEmbeddedObject.json#" }
+      { "$ref": "abstract/MPEmbeddedObject.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
       "properties": {
