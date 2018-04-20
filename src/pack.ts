@@ -91,8 +91,9 @@ function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
   return fnStrings.concat(buildValidatorFn(names));
 }
 
+const isArrayFn = 'var isArray = Array.isArray;';
 const equalFn = require('ajv/lib/compile/equal').toString();
 const schemaFunctions = packSchemas(supportedObjectTypes, ajv);
-const code = [equalFn].concat(schemaFunctions).join('\n\n');
+const code = [isArrayFn, equalFn].concat(schemaFunctions).join('\n\n');
 
 export const validatorFn = js_beautify(code, { indent_size: 2 });
