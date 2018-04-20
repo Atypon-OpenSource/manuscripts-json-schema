@@ -3,8 +3,7 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "concrete/MPContributor.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" }
+      { "$ref": "concrete/MPContributor.json#" }
     ],
     "with": {
       "properties": {
