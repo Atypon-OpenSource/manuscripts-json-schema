@@ -1,0 +1,28 @@
+{
+  "$id": "MPCollaboration.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "invitingUserId":{
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "invitedUserId": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPCollaboration" ]
+        }
+      },
+      "required": [
+        "invitingUserId",
+        "invitedUserId",
+        "createdAt"
+      ]
+    }
+  }
+}
