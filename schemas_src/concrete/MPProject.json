@@ -10,19 +10,19 @@
         "owners" : {
           "type": "array",
           "items": [
-            { "$ref": "strings.json#/definitions/_id" }
+            { "$ref": "strings.json#/definitions/gatewayAccountId" }
           ]
         },
         "writers" : {
           "type": "array",
           "items": [
-            { "$ref": "strings.json#/definitions/_id" }
+            { "$ref": "strings.json#/definitions/gatewayAccountId" }
           ]
         },
         "viewers" : {
           "type": "array",
           "items": [
-            { "$ref": "strings.json#/definitions/_id" }
+            { "$ref": "strings.json#/definitions/gatewayAccountId" }
           ]
         },
         "objectType": {

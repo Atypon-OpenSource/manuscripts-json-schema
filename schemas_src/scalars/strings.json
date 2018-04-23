@@ -5,6 +5,10 @@
       "type": "string",
       "pattern": "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"
     },
+    "gatewayAccountId": {
+      "type": "string",
+      "pattern": "^User_.+"
+    },
     "hexColor": {
       "type": "string",
       "pattern": "^#[a-fA-F0-9]{6}"
