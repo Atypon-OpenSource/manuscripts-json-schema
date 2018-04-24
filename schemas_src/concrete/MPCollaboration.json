@@ -8,10 +8,10 @@
     "with": {
       "properties": {
         "invitingUserId":{
-          "$ref": "strings.json#/definitions/_id"
+          "$ref": "strings.json#/definitions/gatewayAccountId"
         },
         "invitedUserId": {
-          "$ref": "strings.json#/definitions/_id"
+          "$ref": "strings.json#/definitions/gatewayAccountId"
         },
         "objectType": {
           "type": "string",
