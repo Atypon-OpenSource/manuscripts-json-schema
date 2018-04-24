@@ -10,15 +10,15 @@
       "properties": {
         "embeddedCaptionComponents": {
           "type": "array",
-          "items": [
-            { "$ref": "MPStyleableStringComponent.json#" }
-          ]
+          "items": {
+            "$ref": "MPStyleableStringComponent.json#"
+          }
         },
         "embeddedFigureTitleComponents": {
           "type": "array",
-          "items": [
-            { "$ref": "MPStyleableStringComponent.json#" }
-          ]
+          "items": {
+            "$ref": "MPStyleableStringComponent.json#"
+          }
         },
         "figureTitleNumberingScheme": {
           "type": "string",
