@@ -92,8 +92,16 @@ function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
 }
 
 const isArrayFn = 'var isArray = Array.isArray;';
+const keyListFn = 'var keyList = Object.keys;';
+const hasPropFn = 'var hasProp = Object.prototype.hasOwnProperty;';
 const equalFn = require('ajv/lib/compile/equal').toString();
 const schemaFunctions = packSchemas(supportedObjectTypes, ajv);
-const code = [isArrayFn, equalFn].concat(schemaFunctions).join('\n\n');
+
+const code = [
+  isArrayFn,
+  keyListFn,
+  hasPropFn,
+  equalFn
+].concat(schemaFunctions).join('\n\n');
 
 export const validatorFn = js_beautify(code, { indent_size: 2 });
