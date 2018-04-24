@@ -16,6 +16,12 @@
         "objectType": {
           "type": "string",
           "enum": [ "MPCollaboration" ]
+        },
+        "owners" : {
+          "type": "array",
+          "items": [
+            { "$ref": "strings.json#/definitions/gatewayAccountId" }
+          ]
         }
       },
       "required": [
