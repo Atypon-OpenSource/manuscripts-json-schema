@@ -16,9 +16,9 @@
         },
         "elementIDs": {
           "type": "array",
-          "items": [
-            { "$ref": "strings.json#/definitions/_id" }
-          ],
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          },
           "additionalItems": false
         },
         "objectType": {
@@ -27,9 +27,9 @@
         },
         "path": {
           "type": "array",
-          "items": [
-            { "$ref": "strings.json#/definitions/_id" }
-          ],
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          },
           "additionalItems": false
         }
       },

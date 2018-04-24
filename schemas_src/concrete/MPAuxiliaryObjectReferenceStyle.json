@@ -10,9 +10,9 @@
       "properties": {
         "embeddedReferenceStringComponents": {
           "type": "array",
-          "items": [
-            { "$ref": "MPStyleableStringComponent.json#" }
-          ]
+          "items": {
+            "$ref": "MPStyleableStringComponent.json#"
+          }
         },
         "objectType": {
           "type": "string",

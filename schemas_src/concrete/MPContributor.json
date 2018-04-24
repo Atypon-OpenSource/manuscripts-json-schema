@@ -16,9 +16,9 @@
         "appInvitationDate": { "$ref": "numbers.json#/definitions/timestamp" },
         "addressBookIDs": {
           "type": "array",
-          "items": [
-            { "type": "string" }
-          ],
+          "items": {
+            "type": "string"
+          },
           "additionalItems": false
         },
         "objectType": {
@@ -34,16 +34,16 @@
         "prefix": { "type": "string" },
         "affiliations": {
           "type": "array",
-          "items": [
-            { "$ref": "MPAffiliation.json#" }
-          ],
+          "items": {
+            "$ref": "MPAffiliation.json#"
+          },
           "additionalItems": false
         },
         "grants": {
           "type": "array",
-          "items": [
-            { "$ref": "MPGrant.json#" }
-          ],
+          "items": {
+            "$ref": "MPGrant.json#"
+          },
           "additionalItems": false
         },
         "email": { "type": "string" },

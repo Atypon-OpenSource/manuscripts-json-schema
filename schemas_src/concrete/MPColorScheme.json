@@ -10,9 +10,9 @@
       "properties": {
         "colors": {
           "type": "array",
-          "items": [
-            { "$ref": "strings.json#/definitions/_id" }
-          ]
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          }
         },
         "objectType": {
           "type": "string",
