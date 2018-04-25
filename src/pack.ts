@@ -18,8 +18,12 @@ const buildValidatorFn = (names: Array<string>) => `
       ${names.map(name => `${name}: ${name}`).join(',\n')}
     };
 
-    if (!obj || !obj.objectType || typeof obj.objectType !== 'string') {
-      return false;
+    if (!obj) {
+      return 'object null or undefined';
+    }
+
+    if (!obj.objectType || typeof obj.objectType !== 'string') {
+      return 'object missing objectType';
     }
 
     var validator = lookup[obj.objectType];
