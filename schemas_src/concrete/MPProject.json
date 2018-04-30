@@ -7,6 +7,9 @@
     ],
     "with": {
       "properties": {
+        "title" : {
+          "type": "string"
+        },
         "owners" : {
           "type": "array",
           "items": {
