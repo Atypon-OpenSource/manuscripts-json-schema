@@ -1,6 +1,7 @@
 stages:
 - build
 - test
+- deploy
 
 build:
   stage: build
@@ -17,3 +18,12 @@ test:
     - npm t
   tags:
     - nodejs
+
+publish:
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    - echo Running release
+    - npx ci-publish || true
