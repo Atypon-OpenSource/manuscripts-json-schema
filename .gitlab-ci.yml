@@ -26,6 +26,7 @@ publish:
       - master
   script:
     - echo Running release
+    - npm install
     - npx ci-publish || true
   tags:
     - nodejs
