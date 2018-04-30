@@ -27,3 +27,5 @@ publish:
   script:
     - echo Running release
     - npx ci-publish || true
+  tags:
+    - nodejs
