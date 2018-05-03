@@ -9,7 +9,7 @@ export default function mash(obj: any) {
       const schema = getSchema(schemaId);
       const mashed = mash(schema);
       const objectType = acc.properties.objectType;
-      const merged = merge(acc, mashed);
+      const merged = merge(mashed, acc);
       // We don't want array merging for this enum.
       if (objectType) {
         merged.properties.objectType = objectType;

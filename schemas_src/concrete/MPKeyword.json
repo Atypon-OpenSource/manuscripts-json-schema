@@ -1,0 +1,26 @@
+{
+  "$id": "MPKeyword.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "_id": {
+          "$ref": "strings.json#/definitions/keywordId"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPKeyword" ]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
+}
