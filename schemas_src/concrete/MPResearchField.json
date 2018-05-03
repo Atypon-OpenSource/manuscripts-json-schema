@@ -1,0 +1,18 @@
+{
+  "$id": "MPResearchField.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "concrete/MPKeyword.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPResearchField" ]
+        }
+      },
+      "required": []
+    }
+  }
+}

@@ -11,7 +11,6 @@ function validate(obj) {
   const context = vm.createContext(sandbox);
   // Execute main script with validate function
   mainScript.runInContext(context);
-
   // Run validate against obj
   const testScript = new vm.Script('result = validate(obj)');
   testScript.runInContext(context);
@@ -53,6 +52,101 @@ test('border style', t => {
   );
 });
 
+test('keywords', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPKeyword:231123-1233123-12331312',
+    objectType: 'MPKeyword',
+    name: 'foo'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate({ _id: 'MPKeyword:231123-1233123-12331312', objectType: 'MPKeyword' }),
+    'should have required property \'name\'',
+    'fails without name'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
+    '._id: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    'invalid id fails'
+  );
+});
+
+test('research fields', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPKeyword:231123-1233123-12331312',
+    objectType: 'MPKeyword',
+    name: 'foo'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate({ _id: 'MPKeyword:231123-1233123-12331312', objectType: 'MPKeyword' }),
+    'should have required property \'name\'',
+    'fails without name'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
+    '._id: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    'invalid id fails'
+  );
+});
+
+test('keyword ids', t => {
+  t.plan(4);
+  const validObject = {
+    "updatedAt" : 1515494608.245375,
+    "objectType" : "MPBorderStyle",
+    "container_id" : "MPProject:foo-bar-baz",
+    "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
+    "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    "title" : "Dotted",
+    "pattern" : [ 1, 1 ],
+    "createdAt" : 1515417692.476143,
+    "name" : "dotted",
+    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [] })),
+    null,
+    'empty keywordIDs passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [ 'MPKeyword:foo' ] })),
+    null,
+    'valid keywordIDs passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [ 'MPResearchField:foo' ] })),
+    null,
+    'valid keywordIDs passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [ 'MPUhoh:foo' ] })),
+    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    'incorrect type for property fails'
+  );
+});
 
 test('color', t => {
   t.plan(1);

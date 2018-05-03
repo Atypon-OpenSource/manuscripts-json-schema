@@ -17,6 +17,12 @@
     },
     "updatedAt": {
       "$ref": "numbers.json#/definitions/timestamp"
+    },
+    "keywordIDs" : {
+      "type": "array",
+      "items": {
+        "$ref": "strings.json#/definitions/keywordId"
+      }
     }
   },
   "required": [
