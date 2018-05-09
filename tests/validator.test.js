@@ -440,3 +440,66 @@ test('container_id property', t => {
     'missing container_id fails'
   );
 });
+
+
+test('bundle', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPBundle:www-zotero-org-styles-rare-metals',
+    scimago: {
+      t: 'Rare Metals',
+      I: '10010521',
+      R: 0.345,
+      H: 14,
+      dY: 263,
+      d3Y: 371,
+      rY: 4825,
+      c3Y: 314,
+      cib3Y: 370,
+      muC2Y: 0.75,
+      muR: 18.35,
+      c: 'China'
+    },
+    csl: {
+      version: '1.0',
+      defaultLocale: 'en-US',
+      title: 'Rare Metals',
+      cslIdentifier: 'http://www.zotero.org/styles/rare-metals',
+      "self-URL": 'http://www.zotero.org/styles/rare-metals',
+      "independent-parent-URL": 'http://www.zotero.org/styles/springer-vancouver-brackets',
+      "documentation-URL": 'http://www.springer.com/cda/content/document/cda_downloaddocument/manuscript-guidelines-1.0.pdf',
+      fields: [ 'MPResearchField:medicine' ],
+      ISSNs: [ '10010521' ],
+      eISSNs: [ '18677185' ],
+      updatedAt: 1400151600,
+      license: 'http://creativecommons.org/licenses/by-sa/3.0/',
+      _id: 'MPCitationStyle:www-zotero-org-styles-rare-metals'
+    },
+    objectType: 'MPBundle'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  const withAuthors = Object.assign({}, validObject);
+  withAuthors.csl['author-name'] = 'Stephen Congly';
+  withAuthors.csl['author-email'] = 'stephencongly@gmail.com';
+  t.equals(
+    validate(withAuthors),
+    null,
+    'valid author-name and author-email passes'
+  );
+
+  const invalidResearchField = Object.assign({}, validObject);
+  invalidResearchField.csl.fields = [ 'MPBowie:starman' ];
+
+  t.equals(
+    validate(invalidResearchField),
+    '.csl.fields[0]: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    'invalid keyword id'
+  );
+});

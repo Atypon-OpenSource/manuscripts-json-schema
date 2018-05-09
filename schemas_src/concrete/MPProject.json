@@ -7,22 +7,22 @@
     ],
     "with": {
       "properties": {
-        "title" : {
+        "title": {
           "type": "string"
         },
-        "owners" : {
+        "owners": {
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/gatewayAccountId"
           }
         },
-        "writers" : {
+        "writers": {
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/gatewayAccountId"
           }
         },
-        "viewers" : {
+        "viewers": {
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/gatewayAccountId"
