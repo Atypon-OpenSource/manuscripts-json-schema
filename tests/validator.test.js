@@ -202,6 +202,29 @@ test('bibliography name', t => {
   );
 });
 
+test('section', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPSection:bar',
+    objectType: 'MPSection',
+    container_id: 'MPProject:foobar',
+    path: []
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { priority: 1 })),
+    null,
+    'valid priority passes'
+  );
+});
+
 test('keywords', t => {
   t.plan(3);
 
