@@ -1,0 +1,122 @@
+{
+  "$id": "MPBundle.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPBundle" ]
+        },
+        "csl": {
+          "type": "object",
+          "properties": {
+            "author-name": {
+              "type": "string"
+            },
+            "author-email": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "defaultLocale": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "cslIdentifier": {
+              "type": "string"
+            },
+            "self-URL": {
+              "type": "string"
+            },
+            "independent-parent-URL": {
+              "type": "string"
+            },
+            "documentation-URL": {
+              "type": "string"
+            },
+            "fields" : {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/keywordId"
+              }
+            },
+            "ISSNs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "eISSNs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "updatedAt": {
+              "$ref": "numbers.json#/definitions/timestamp"
+            },
+            "license": {
+              "type": "string"
+            },
+            "_id": {
+              "$ref": "strings.json#/definitions/_id"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "scimago": {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string"
+            },
+            "I": {
+              "type": "string"
+            },
+            "R": {
+              "type": "number"
+            },
+            "H": {
+              "type": "number"
+            },
+            "dY": {
+              "type": "number"
+            },
+            "d3Y": {
+              "type": "number"
+            },
+            "rY": {
+              "type": "number"
+            },
+            "c3Y": {
+              "type": "number"
+            },
+            "cib3Y": {
+              "type": "number"
+            },
+            "muC2Y": {
+              "type": "number"
+            },
+            "muR": {
+              "type": "number"
+            },
+            "c": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": []
+    }
+  }
+}
