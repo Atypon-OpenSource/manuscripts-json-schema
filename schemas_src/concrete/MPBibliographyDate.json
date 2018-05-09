@@ -1,0 +1,46 @@
+{
+  "$id": "MPBibliographyDate.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPBibliographyDate" ]
+        },
+        "date-parts": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "maxItems": 3
+          },
+          "maxItems": 2
+        },
+        "season": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "circa": {
+          "type": "boolean"
+        },
+        "literal": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  }
+}
