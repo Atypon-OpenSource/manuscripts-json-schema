@@ -52,6 +52,156 @@ test('border style', t => {
   );
 });
 
+test('bibliography item', t => {
+  t.plan(6);
+
+  const validObject = {
+    _id: 'MPBibliographyItem:231123-1233123-12331312',
+    objectType: 'MPBibliographyItem',
+    container_id: 'MPProject:foo-bar-baz',
+    type: 'article'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { type: 'foo' })),
+    '.type: should be equal to one of the allowed values',
+    'invalid type fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { blahtype: 'foo' })),
+    'should NOT have additional properties \'blahtype\'',
+    'invalid property fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { accessed: 'foo' })),
+    '.accessed: should be object',
+    'invalid accessed date should fail'
+  );
+
+  const validDate = {
+    'date-parts': [ ],
+    _id: 'MPBibliographyDate:food',
+    objectType: 'MPBibliographyDate'
+  }
+
+  t.equals(
+    validate(Object.assign({}, validObject, { accessed: validDate })),
+    null,
+    'valid accessed date should pass'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { composer: [{}] })),
+    '.composer[0]: should have required property \'_id\'',
+    'invalid composer name should fail'
+  );
+});
+
+test('bibliography date', t => {
+  t.plan(11);
+
+  const validObject = {
+    'date-parts': [ ],
+    _id: 'MPBibliographyDate:food',
+    objectType: 'MPBibliographyDate'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { circa: true })),
+    null,
+    'valid circa type (boolean) passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { circa: 'foo' })),
+    '.circa: should be boolean',
+    'invalid circa type (string) fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { circa: 1200 })),
+    '.circa: should be boolean',
+    'invalid circa type (number) fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { season: 1 })),
+    null,
+    'valid season passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { season: 1337 })),
+    '.season: should be <= 4',
+    'invalid season fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { 'date-parts': [] })),
+    null,
+    'empty date-parts passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { 'date-parts': [ [], [] ] })),
+    null,
+    'valid/empty date-parts passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { 'date-parts': [ [], [], [] ] })),
+    '[\'date-parts\']: should NOT have more than 2 items',
+    'invalid date-parts fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { 'date-parts': [ [{}], [1] ] })),
+    '[\'date-parts\'][0][0]: should be string,number',
+    'invalid date-parts fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { 'date-parts': [ [ 2000, 3, 15 ], [2000, 3, 17] ] })),
+    null,
+    'complete, valid date-parts passes'
+  );
+});
+
+test('bibliography name', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPBibliographyName:barred',
+    objectType: 'MPBibliographyName'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { suffix: 1 })),
+    '.suffix: should be string',
+    'invalid object fails'
+  );
+});
+
 test('keywords', t => {
   t.plan(3);
 

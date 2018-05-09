@@ -12,7 +12,56 @@ function escapeQuotes(str: string) {
     .replace(/\t/g, '\\t');
 }
 
-const buildValidatorFn = (names: Array<string>) => `
+const nameOfId = (schemaId: string) => schemaId.replace(/.json$/, '');
+
+// Build a validator fn string for a particular schema.
+function buildValidatorFn(name: string, fn: Ajv.ValidateFunction): string {
+  const fnSource: any = fn.source
+  const namedFn = fnSource.code
+    // we want our functions named
+    .replace(/var\svalidate\s=\sfunction/, `function ${name}`)
+    // any references need to be updated
+    .replace(/\bvalidate\./g, `${name}.`)
+    // we have multiple validatorFns we will concat, so we can't have this.
+    .replace(/return validate;$/g, '')
+    //`'use strict';` does nothing in otto but is in a useful place.
+    // https://github.com/robertkrimen/otto#caveat-emptor
+    .replace(/refVal\[(\d+)\]/g, (_: string, p1: string) => `refVal${p1}`);
+
+  // First item is the parent schema itself (circular reference).
+  const refValSrcs = (fn.refVal && fn.refVal.slice(1)) || [];
+
+  // Specific definition references are just objects and we embed them.
+  //
+  // Concrete schema references _should_ also be exported so we can just
+  // reference by name.
+  const refVals: Array<string> = refValSrcs.map((refVal, i) => {
+    return typeof refVal === 'object'
+      ? `var refVal${i+1} = ${JSON.stringify(refVal)};`
+      : `var refVal${i+1} = ${nameOfId(refVal.schema.$id)};`;
+  });
+
+  const patterns = fnSource.patterns.map((p: string, i: number) => {
+    return `var pattern${i} = new RegExp('${escapeQuotes(p)}');`
+  }).join('  ');
+
+  const startIndex = namedFn.indexOf(`function ${name}`);
+
+  // The fnSource.code has patterns and refVals outside of the function which
+  // we need to remove.
+  const fnWithRefVals = namedFn
+    .slice(startIndex)
+    .replace("'use strict';", () => [patterns].concat(refVals).join('\n'));
+
+  return [
+    fnWithRefVals,
+    `${name}.schema = ${JSON.stringify(fn.schema)};`,
+    `${name}.errors = null;`
+  ].join('\n');
+}
+
+// "Main" function which calls other validators through lookup map.
+const buildValidateFn = (names: Array<string>) => `
   function validate(obj) {
     var lookup = {
       ${names.map(name => `${name}: ${name}`).join(',\n')}
@@ -58,54 +107,31 @@ const buildValidatorFn = (names: Array<string>) => `
   }
 `;
 
+// Iterates through schema ids, creating a schemaFn for each.
 function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
   const names = [];
-  const fnStrings = [];
+  const validatorFns = [];
 
   for (const schemaId of schemas) {
-    const name = schemaId.replace(/.json$/, '');
-    // these are needed in buildValidatorFn() to build a lookup.
+    const name = nameOfId(schemaId);
     names.push(name);
-
-    // the fn source
     const fn = ajv.getSchema(schemaId);
-    const fnString = fn.toString();
-    const namedFn = fnString
-      .replace(/^function\s/, `function ${name}`)
-      .replace(/\bvalidate\./g, `${name}.`);
-
-    // collect up patterns, the fn source we will use later makes use of them.
-    const fnSource: any = fn.source
-    const patterns = fnSource.patterns.map((p: string, i: number) => {
-      return `var pattern${i} = new RegExp('${escapeQuotes(p)}');`
-    }).join('  ');
-
-    // this one is particularly bad.
-    // however `'use strict';` does nothing in otto (the js interpreter)
-    // https://github.com/robertkrimen/otto#caveat-emptor
-    const fnWithPatterns = namedFn.replace("'use strict';", () => patterns);
-
-    fnStrings.push([
-      fnWithPatterns,
-      `${name}.schema = ${JSON.stringify(fn.schema)};`,
-      `${name}.errors = null;`
-    ].join('\n'));
+    const validatorFn = buildValidatorFn(name, fn);
+    validatorFns.push(validatorFn);
   }
 
-  return fnStrings.concat(buildValidatorFn(names));
+  const validateFn = buildValidateFn(names);
+  return validatorFns.concat(validateFn);
 }
 
-const isArrayFn = 'var isArray = Array.isArray;';
-const keyListFn = 'var keyList = Object.keys;';
-const hasPropFn = 'var hasProp = Object.prototype.hasOwnProperty;';
-const equalFn = require('ajv/lib/compile/equal').toString();
-const schemaFunctions = packSchemas(supportedObjectTypes, ajv);
+// Dependencies needed by validator fns.
+const dependencies = [
+  require('ajv/lib/compile/equal').toString()
+];
 
-const code = [
-  isArrayFn,
-  keyListFn,
-  hasPropFn,
-  equalFn
-].concat(schemaFunctions).join('\n\n');
+// This is an array of fn strings, where the last one is buildValidateFn.
+const validatingFunctions = packSchemas(supportedObjectTypes, ajv);
 
+// Exported code
+const code = dependencies.concat(validatingFunctions).join('\n\n');
 export const validatorFn = js_beautify(code, { indent_size: 2 });
