@@ -1,5 +1,6 @@
 {
   "$id": "MPResearchField.json",
+  "title": "ResearchField",
   "type": "object",
   "$mash": {
     "sources": [

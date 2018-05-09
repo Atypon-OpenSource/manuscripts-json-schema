@@ -1,5 +1,6 @@
 {
   "$id": "MPPageLayout.json",
+  "title": "PageLayout",
   "type": "object",
   "$mash": {
     "sources": [

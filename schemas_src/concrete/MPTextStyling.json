@@ -1,5 +1,6 @@
 {
   "$id": "MPTextStyling.json",
+  "title": "TextStyling",
   "type": "object",
   "$mash": {
     "sources": [

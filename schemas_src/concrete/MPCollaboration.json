@@ -1,5 +1,6 @@
 {
   "$id": "MPCollaboration.json",
+  "title": "Collaboration",
   "type": "object",
   "$mash": {
     "sources": [

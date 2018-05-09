@@ -1,5 +1,6 @@
 {
   "$id": "MPFigureLayout.json",
+  "title": "FigureLayout",
   "type": "object",
   "$mash": {
     "sources": [

@@ -1,5 +1,6 @@
 {
   "$id": "MPBorderStyle.json",
+  "title": "BorderStyle",
   "type": "object",
   "$mash": {
     "sources": [

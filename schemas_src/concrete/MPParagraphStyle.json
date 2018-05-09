@@ -1,5 +1,6 @@
 {
   "$id": "MPParagraphStyle.json",
+  "title": "ParagraphStyle",
   "type": "object",
   "$mash": {
     "sources": [

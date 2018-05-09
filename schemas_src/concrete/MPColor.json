@@ -1,5 +1,6 @@
 {
   "$id": "MPColor.json",
+  "title": "Color",
   "type": "object",
   "$mash": {
     "sources": [

@@ -1,5 +1,6 @@
 {
   "$id": "MPKeyword.json",
+  "title": "Keyword",
   "type": "object",
   "$mash": {
     "sources": [

@@ -1,5 +1,6 @@
 {
   "$id": "MPContributor.json",
+  "title": "Contributor",
   "type": "object",
   "$mash": {
     "sources": [

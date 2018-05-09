@@ -1,5 +1,6 @@
 {
   "$id": "MPAuxiliaryObjectReferenceStyle.json",
+  "title": "AuxiliaryObjectReferenceStyle",
   "type": "object",
   "$mash": {
     "sources": [

@@ -1,5 +1,6 @@
 {
   "$id": "MPBorder.json",
+  "title": "Border",
   "type": "object",
   "$mash": {
     "sources": [
