@@ -8,7 +8,7 @@
       "properties": {
         "elementType": {
           "type": "string",
-          "enum": ["p"]
+          "enum": ["p", "table"]
         }
       },
       "required": [
