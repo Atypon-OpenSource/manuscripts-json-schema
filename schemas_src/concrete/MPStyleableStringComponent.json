@@ -1,5 +1,6 @@
 {
   "$id": "MPStyleableStringComponent.json",
+  "title": "StyleableStringComponent",
   "type": "object",
   "$mash": {
     "sources": [

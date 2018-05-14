@@ -1,5 +1,6 @@
 {
   "$id": "MPSection.json",
+  "title": "Section",
   "type": "object",
   "$mash": {
     "sources": [

@@ -1,5 +1,6 @@
 {
   "$id": "MPParagraphElement.json",
+  "title": "ParagraphElement",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPBlockElement.json#" },

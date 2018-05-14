@@ -1,5 +1,6 @@
 {
   "$id": "MPNumberingStyle.json",
+  "title": "NumberingStyle",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPEmbeddedObject.json#" },

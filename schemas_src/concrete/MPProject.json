@@ -1,5 +1,6 @@
 {
   "$id": "MPProject.json",
+  "title": "Project",
   "type": "object",
   "$mash": {
     "sources": [

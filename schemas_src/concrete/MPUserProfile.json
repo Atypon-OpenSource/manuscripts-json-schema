@@ -1,5 +1,6 @@
 {
   "$id": "MPUserProfile.json",
+  "title": "UserProfile",
   "type": "object",
   "$mash": {
     "sources": [

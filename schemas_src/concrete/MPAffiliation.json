@@ -1,5 +1,6 @@
 {
   "$id": "MPAffiliation.json",
+  "title": "Affiliation",
   "type": "object",
   "$mash": {
     "sources": [

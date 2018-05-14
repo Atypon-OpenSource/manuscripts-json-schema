@@ -17,6 +17,7 @@ export default function mash(obj: any) {
       return merged;
     }, obj.$mash.with);
     merged.$id = obj.$id;
+    merged.title = obj.title;
     return merged;
   }
   return obj;

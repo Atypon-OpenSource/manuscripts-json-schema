@@ -1,5 +1,6 @@
 {
   "$id": "MPFundingBody.json",
+  "title": "FundingBody",
   "type": "object",
   "$mash": {
     "sources": [

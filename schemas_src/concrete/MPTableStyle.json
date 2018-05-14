@@ -1,5 +1,6 @@
 {
   "$id": "MPTableStyle.json",
+  "title": "TableStyle",
   "type": "object",
   "$mash": {
     "sources": [

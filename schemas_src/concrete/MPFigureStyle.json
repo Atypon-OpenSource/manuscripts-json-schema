@@ -1,5 +1,6 @@
 {
   "$id": "MPFigureStyle.json",
+  "title": "FigureStyle",
   "type": "object",
   "$mash": {
     "sources": [
