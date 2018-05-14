@@ -1,0 +1,21 @@
+{
+  "$id": "MPPreferences.json",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "_id": {
+      "$ref": "strings.json#/definitions/_id"
+    },
+    "_rev": {
+      "type": "string"
+    },
+    "objectType": {
+      "type": "string",
+      "enum": [ "MPPreferences" ]
+    }
+  },
+  "required": [
+    "_id",
+    "objectType"
+  ]
+}
