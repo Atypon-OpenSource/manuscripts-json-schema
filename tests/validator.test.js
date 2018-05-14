@@ -466,7 +466,7 @@ test('_id property', t => {
 });
 
 test('container_id property', t => {
-  t.plan(3);
+  t.plan(4);
 
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
@@ -475,7 +475,7 @@ test('container_id property', t => {
   };
 
   t.equals(
-    validate(Object.assign({}, validObject, { container_id: "MPFoo:bar" })),
+    validate(Object.assign({}, validObject, { container_id: "MPProject:bar" })),
     null,
     'valid container_id passes'
   );
@@ -491,8 +491,13 @@ test('container_id property', t => {
     'should have required property \'container_id\'',
     'missing container_id fails'
   );
-});
 
+  t.equals(
+    validate(Object.assign({}, validObject, { container_id: 'MPPotato:1000' })),
+    '.container_id: should match pattern "^MPProject"',
+    'invalid container_id fails'
+  );
+});
 
 test('bundle', t => {
   t.plan(3);
@@ -553,5 +558,44 @@ test('bundle', t => {
     validate(invalidResearchField),
     '.csl.fields[0]: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
     'invalid keyword id'
+  );
+});
+
+test('table element', t => {
+  t.plan(3);
+
+  const validObject = {
+    updatedAt : 1454537867.959872,
+    caption : 'An example table.',
+    sessionID : 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    objectType : 'MPTableElement',
+    _rev : '3-5a3d94454953b3092e0cc41ed645621a',
+    suppressFooter : true,
+    _id : 'MPTableElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
+    elementType : 'table',
+    tableStyle : 'MPTableStyle:6C38D4AD-D718-4B4B-8AE9-05B567D2F203',
+    paragraphStyle : 'MPParagraphStyle:655CA525-623F-40CD-915E-9FB3BDFB833B',
+    createdAt : 1454394584,
+    container_id: 'MPProject:potato',
+    // containedObjectID : 'MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864',
+    // collection : 'elements'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { tableStyle: 'MPNotTable:24421' })),
+    '.tableStyle: should match pattern "^MPTableStyle"',
+    'invalid tableStyle id fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { paragraphStyle: 'MPNotPara:24421' })),
+    '.paragraphStyle: should match pattern "^MPParagraphStyle"',
+    'invalid paragraphStyle id fails'
   );
 });
