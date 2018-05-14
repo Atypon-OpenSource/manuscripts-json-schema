@@ -124,9 +124,16 @@ function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
   return validatorFns.concat(validateFn);
 }
 
+const isEqualFn = `\
+var isArray = Array.isArray;
+var keyList = Object.keys;
+var hasProp = Object.prototype.hasOwnProperty;
+${require('ajv/lib/compile/equal')}
+`;
+
 // Dependencies needed by validator fns.
 const dependencies = [
-  require('ajv/lib/compile/equal').toString()
+  isEqualFn
 ];
 
 // This is an array of fn strings, where the last one is buildValidateFn.
