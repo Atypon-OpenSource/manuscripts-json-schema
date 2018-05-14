@@ -52,6 +52,35 @@ test('border style', t => {
   );
 });
 
+test('preferences', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: "MPPreferences:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    objectType: "MPPreferences"
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPPreferences passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { anything: 123123 })),
+    null,
+    'valid MPPreferences passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      nestedObj: { foo: 'bar', baz: 1 }
+    })),
+    null,
+    'valid MPPreferences with nested object passes'
+  );
+});
+
 test('bibliography item', t => {
   t.plan(6);
 
