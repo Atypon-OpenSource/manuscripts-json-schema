@@ -82,7 +82,7 @@ test('preferences', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(6);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -101,6 +101,12 @@ test('bibliography item', t => {
     validate(Object.assign({}, validObject, { type: 'foo' })),
     '.type: should be equal to one of the allowed values',
     'invalid type fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [ 'MPKeyword:foo' ] })),
+    null,
+    'taggable with keywordIDs'
   );
 
   t.equals(
