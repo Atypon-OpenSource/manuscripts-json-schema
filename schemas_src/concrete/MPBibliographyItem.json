@@ -3,7 +3,7 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPEmbeddedObject.json#" },
+      { "$ref": "abstract/MPManagedObject.json#" },
       { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
