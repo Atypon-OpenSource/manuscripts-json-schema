@@ -1,4 +1,5 @@
 # General
+
 - the ids should probably be fully resolved (http://manuscripts.io/schema/mp-section.json)
 - what is a sessionID again? In the export the hardcoded id MPColors don't have a sessionID
 - can preferredXHTMLElement be enumed

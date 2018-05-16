@@ -6,15 +6,33 @@ stages:
 build:
   stage: build
   script:
-    - npm install
+    - yarn install
     - npm run build
   tags:
     - nodejs
 
+build_docs:
+  stage: build
+  script:
+    - yarn install
+    - npm run build
+    - npx doca init -i schemas
+    - cd documentation && yarn install && npm run build:nojs
+    - AWS_ACCESS_KEY_ID=${DOCS_S3_ACCESS_KEY} AWS_SECRET_ACCESS_KEY=${DOCS_S3_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${DOCS_S3_REGION} aws s3 sync build s3://${DOCS_S3_SCHEMA_BUCKET} --include "*"
+    - AWS_ACCESS_KEY_ID=${DOCS_S3_ACCESS_KEY} AWS_SECRET_ACCESS_KEY=${DOCS_S3_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${DOCS_S3_REGION} aws cloudfront create-invalidation --distribution-id ${DOCS_CLOUDFRONT_ID} --paths /index.html /
+  artifacts:
+    paths:
+      - ./documentation/build
+    expire_in: 4 weeks
+    when: always
+  tags:
+    - nodejs
+    - awscli
+
 test:
   stage: test
   script:
-    - npm install
+    - yarn install
     - npm t
   tags:
     - nodejs
@@ -26,7 +44,7 @@ publish:
       - master
   script:
     - echo Running release
-    - npm install
+    - yarn install
     - npx ci-publish || true
   tags:
     - nodejs
