@@ -379,7 +379,7 @@ test('color', t => {
 });
 
 test('project', t => {
-  t.plan(4);
+  t.plan(5);
 
   t.equals(
     validate({
@@ -426,6 +426,18 @@ test('project', t => {
     }),
     '.writers[0]: should match pattern "^User_.+"',
     'invalid MPProject fails (invalid item in members array)'
+  );
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      writers : ['User_Foo'],
+      viewers : []
+    }),
+    null,
+    'valid MPProject passes'
   );
 });
 
