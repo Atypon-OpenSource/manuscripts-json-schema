@@ -379,7 +379,7 @@ test('color', t => {
 });
 
 test('project', t => {
-  t.plan(3);
+  t.plan(4);
 
   t.equals(
     validate({
@@ -401,7 +401,7 @@ test('project', t => {
       viewers : []
     }),
     'should have required property \'writers\'',
-    'invalid MPProject passes (missing required members array)'
+    'invalid MPProject fails (missing required members array)'
   );
 
   t.equals(
@@ -413,7 +413,19 @@ test('project', t => {
       viewers : []
     }),
     '.writers: should be array',
-    'invalid MPProject passes (invalid type of members array)'
+    'invalid MPProject fails (invalid type of members array)'
+  );
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      writers : ['Foo'],
+      viewers : []
+    }),
+    '.writers[0]: should match pattern "^User_.+"',
+    'invalid MPProject fails (invalid item in members array)'
   );
 });
 
