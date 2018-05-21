@@ -378,6 +378,69 @@ test('color', t => {
   );
 });
 
+test('project', t => {
+  t.plan(5);
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      writers : [],
+      viewers : []
+    }),
+    null,
+    'valid MPProject passes'
+  );
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      viewers : []
+    }),
+    'should have required property \'writers\'',
+    'invalid MPProject fails (missing required members array)'
+  );
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      writers : 'foo',
+      viewers : []
+    }),
+    '.writers: should be array',
+    'invalid MPProject fails (invalid type of members array)'
+  );
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      writers : ['Foo'],
+      viewers : []
+    }),
+    '.writers[0]: should match pattern "^User_.+"',
+    'invalid MPProject fails (invalid item in members array)'
+  );
+
+  t.equals(
+    validate({
+      objectType : 'MPProject',
+      _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      owners : [],
+      writers : ['User_Foo'],
+      viewers : []
+    }),
+    null,
+    'valid MPProject passes'
+  );
+});
+
 test('color scheme', t => {
   t.plan(2);
 

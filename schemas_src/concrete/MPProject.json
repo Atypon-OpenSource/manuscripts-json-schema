@@ -34,7 +34,11 @@
           "enum": [ "MPProject" ]
         }
       },
-      "required": []
+      "required": [
+        "owners",
+        "writers",
+        "viewers"
+      ]
     }
   }
 }
