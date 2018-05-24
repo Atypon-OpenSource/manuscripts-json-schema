@@ -13,9 +13,21 @@
           "pattern": "^MPProject"
         }
       ]
+    },
+    "manuscript": {
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^MPManuscript"
+        }
+      ]
     }
   },
   "required": [
-    "container_id"
+    "container_id",
+    "manuscript"
   ]
 }
