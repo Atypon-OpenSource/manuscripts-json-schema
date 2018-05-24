@@ -26,6 +26,7 @@ test('border style', t => {
     "container_id" : "MPProject:foo-bar-baz",
     "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
     "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    "manuscript": "MPManuscript:zorb",
     "title" : "Dotted",
     "pattern" : [ 1, 1 ],
     "createdAt" : 1515417692.476143,
@@ -87,6 +88,7 @@ test('bibliography item', t => {
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
     objectType: 'MPBibliographyItem',
+    manuscript: 'MPManuscript:zorb',
     container_id: 'MPProject:foo-bar-baz',
     type: 'article'
   };
@@ -243,6 +245,7 @@ test('section', t => {
   const validObject = {
     _id: 'MPSection:bar',
     objectType: 'MPSection',
+    manuscript: 'MPManuscript:zorb',
     container_id: 'MPProject:foobar',
     path: []
   };
@@ -326,6 +329,7 @@ test('keyword ids', t => {
     "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
     "title" : "Dotted",
     "pattern" : [ 1, 1 ],
+    "manuscript": "MPManuscript:zorb",
     "createdAt" : 1515417692.476143,
     "name" : "dotted",
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
@@ -366,6 +370,7 @@ test('color', t => {
     "_rev" : "1-ad1185e0dd0e339d830af9c082b2e052",
     "title" : "Red",
     "updatedAt" : 1515494608.340721,
+    "manuscript": "MPManuscript:zorb",
     "createdAt" : 1515417692.476842,
     "name" : "red",
     "value" : "#ff0000"
@@ -460,6 +465,7 @@ test('color scheme', t => {
     "_rev" : "1-611a94e741630034211f64c81b80bdd8",
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
     "container_id" : "MPProject:foo-bar-baz",
+    "manuscript": "MPManuscript:zorb",
     "createdAt" : 1515417692.477127,
     "updatedAt" : 1515494608.363229,
     "name" : "Manuscripts default colour scheme"
@@ -486,6 +492,7 @@ test('error messages', t => {
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     container_id : "MPProject:foo-bar-baz",
+    manuscript: 'MPManuscript:zorb',
     objectType: 'MPNumberingStyle',
     startIndex: 1
   };
@@ -504,6 +511,7 @@ test('_id property', t => {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     objectType: 'MPNumberingStyle',
     container_id : "MPProject:foo-bar-baz",
+    manuscript: 'MPManuscript:zorb',
     startIndex: 1
   };
 
@@ -540,7 +548,8 @@ test('container_id property', t => {
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     objectType: 'MPNumberingStyle',
-    startIndex: 1
+    startIndex: 1,
+    manuscript: 'MPManuscript:zorb'
   };
 
   t.equals(
@@ -552,7 +561,7 @@ test('container_id property', t => {
   t.equals(
     validate(Object.assign({}, validObject, { container_id: "zPFoo:bar" })),
     '.container_id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
-    'container_id with invalid hex characters fails'
+    'container_id with invalid prefix fails'
   );
 
   t.equals(
@@ -565,6 +574,41 @@ test('container_id property', t => {
     validate(Object.assign({}, validObject, { container_id: 'MPPotato:1000' })),
     '.container_id: should match pattern "^MPProject"',
     'invalid container_id fails'
+  );
+});
+
+test('manuscript property', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPNumberingStyle:231123-1233123-12331312',
+    objectType: 'MPNumberingStyle',
+    startIndex: 1,
+    container_id: 'MPProject:foo'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject, { manuscript: "MPManuscript:bar" })),
+    null,
+    'valid manuscript passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { manuscript: "zPFoo:bar" })),
+    '.manuscript: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'manuscript with invalid prefix fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    'should have required property \'manuscript\'',
+    'missing manuscript fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { manuscript: 'MPPotato:1000' })),
+    '.manuscript: should match pattern "^MPManuscript"',
+    'invalid manuscript fails'
   );
 });
 
@@ -642,6 +686,7 @@ test('table element', t => {
     suppressFooter : true,
     _id : 'MPTableElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
     elementType : 'table',
+    manuscript: 'MPManuscript:zorb',
     tableStyle : 'MPTableStyle:6C38D4AD-D718-4B4B-8AE9-05B567D2F203',
     paragraphStyle : 'MPParagraphStyle:655CA525-623F-40CD-915E-9FB3BDFB833B',
     createdAt : 1454394584,
