@@ -1,0 +1,48 @@
+{
+  "$id": "MPManuscript.json",
+  "title": "Manuscript",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "effectiveTitle": {
+          "type": "string"
+        },
+        "plainTextTitle": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "colorScheme": {
+          "$ref": "MPColorScheme.json#"
+        },
+        "category": {
+          "$ref": "MPManuscriptCategory.json#"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPManuscript" ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
