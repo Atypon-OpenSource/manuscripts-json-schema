@@ -4,7 +4,8 @@
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPBlockElement.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" }
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
     ],
     "with": {
       "properties": {
