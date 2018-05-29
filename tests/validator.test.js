@@ -714,6 +714,24 @@ test('table element', t => {
   );
 });
 
+test('manuscript bitmask', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPManuscript:231123-1233123-12331312',
+    objectType: 'MPManuscript',
+    container_id: 'MPProject:baz',
+    figureElementNumberingScheme: '',
+    figureNumberingScheme: ''
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject, { contentSummaryMode: 1 })),
+    null,
+    'valid bitmask value passes'
+  );
+});
+
 test('_attachments property', t => {
   t.plan(7);
 
