@@ -738,7 +738,6 @@ test('_attachments property', t => {
   const validObject = {
     _id: 'MPManuscriptCategory:231123-1233123-12331312',
     objectType: 'MPManuscriptCategory',
-    manuscript: 'MPManuscript:bar',
     container_id: 'MPProject:baz',
     name: 'foo'
   };
