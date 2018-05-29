@@ -98,16 +98,16 @@
           "type": "boolean"
         },
         "contributorPresentationStyleTag": {
-          "$ref": "MPContributorPresentationStyleTag.json#"
+          "$ref": "enums.json#/definitions/MPContributorPresentationStyleTag"
         },
         "affiliationPresentationStyleTag": {
-          "$ref": "MPAffiliationPresentationStyleTag.json#"
+          "$ref": "enums.json#/definitions/MPContributorPresentationStyleTag"
         },
         "figureElementFileLayout": {
-          "$ref": "MPAuxiliaryElementFileLayout.json#"
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
         },
         "tableElementFileLayout": {
-          "$ref": "MPAuxiliaryElementFileLayout.json#"
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
         },
         "appleHelpBundleTitle": {
           "type": "string"
@@ -146,7 +146,7 @@
           "type": "string"
         },
         "contentSummaryMode": {
-          "$ref": "MPContentSummaryMode.json#"
+          "$ref": "enums.json#/definitions/MPContentSummaryMode"
         },
         "footnoteNumberingScheme": {
           "type": "string"

@@ -1,0 +1,17 @@
+{
+  "$id": "enums.json",
+  "definitions": {
+    "MPContributorPresentationStyleTag": {
+      "type": "integer",
+      "enum": [ 0, 1, 2 ]
+    },
+    "MPAuxiliaryElementFileLayout": {
+      "type": "integer",
+      "enum": [ 0, 1, 2, 3, 4 ]
+    },
+    "MPContentSummaryMode": {
+      "type": "integer",
+      "enum": [ 0, 1, 2, 4, 8, 16, 32 ]
+    }
+  }
+}
