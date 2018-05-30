@@ -715,7 +715,7 @@ test('table element', t => {
 });
 
 test('manuscript bitmask', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPManuscript:231123-1233123-12331312',
@@ -735,7 +735,31 @@ test('manuscript bitmask', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, {
+      contentSummaryMode: 33
+    })),
+    null,
+    'invalid bitmask value fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
       contentSummaryMode: 1 | 2 | 4
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 1 | 4
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 8 | 4
     })),
     null,
     'valid bitmask value passes'
@@ -753,7 +777,7 @@ test('manuscript bitmask', t => {
     validate(Object.assign({}, validObject, {
       contentSummaryMode: 1 | 2 | 4 | 8 | 16 | 32 | 64
     })),
-    '.contentSummaryMode: should be <= 63',
+    '.contentSummaryMode: should be equal to one of the allowed values',
     'invalid bitmask value fails'
   );
 });

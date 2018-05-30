@@ -5,12 +5,22 @@ const isBitmask = (definition: any) =>
 
 export const bitmask = (schema: any) => {
   const { definitions } = schema;
+
+  const possibleValues = (input: Array<number>) =>
+    Array.from(
+      new Set(
+        input
+          .reduce((acc: Array<Array<number>>, x) => acc.concat(acc.map(y => [x].concat(y))), [[]])
+          .filter(xs => xs.length)
+          .map(xs => xs.reduce((acc, x) => acc + x))
+      )
+    ).sort((a, b) => a - b);
+
   for (const key in definitions) {
     if (isBitmask(definitions[key])) {
       definitions[key] = {
         type: 'integer',
-        minimum: Math.min(...definitions[key].enum),
-        maximum: definitions[key].enum.reduce((acc: number, x: number) => acc + x)
+        enum: possibleValues(definitions[key].enum)
       };
     }
   }
