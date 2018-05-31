@@ -5,7 +5,8 @@
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPEmbeddedObject.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" }
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
     ],
     "with": {
       "properties": {

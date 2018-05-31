@@ -1,21 +1,21 @@
 {
-  "$id": "MPContainedDocument.json",
+  "$id": "MPManuscriptDocument.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "container_id": {
+    "manuscript": {
       "allOf": [
         {
           "$ref": "strings.json#/definitions/_id"
         },
         {
           "type": "string",
-          "pattern": "^MPProject"
+          "pattern": "^MPManuscript"
         }
       ]
     }
   },
   "required": [
-    "container_id"
+    "manuscript"
   ]
 }
