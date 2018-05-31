@@ -1,5 +1,5 @@
 {
-  "$id": "MPBibliographyName.json",
+  "$id": "MPBibliographicName.json",
   "type": "object",
   "$mash": {
     "sources": [
@@ -9,7 +9,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPBibliographyName" ]
+          "enum": [ "MPBibliographicName" ]
         },
         "family" : {
           "type": "string"

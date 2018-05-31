@@ -26,13 +26,10 @@
           "type": "string",
           "enum": [ "MPContributor" ]
         },
-        "prename": { "type": "string" },
-        "firstName": { "type": "string" },
-        "middleNames": { "type": "string" },
-        "lastName": { "type": "string" },
-        "fullName": { "type": "string" },
+        "bibliographicName": {
+          "$ref": "MPBibliographicName.json#"
+        },
         "bio": { "type": "string" },
-        "prefix": { "type": "string" },
         "affiliations": {
           "type": "array",
           "items": {
@@ -50,10 +47,7 @@
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }
       },
-      "required": [
-        "firstName",
-        "lastName"
-      ]
+      "required": []
     }
   }
 }
