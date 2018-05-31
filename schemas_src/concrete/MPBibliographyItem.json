@@ -71,99 +71,99 @@
         "author": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           },
           "additionalItems": false
         },
         "collection-editor": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "composer": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "container-author": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "director": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "editor": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "editorial-director": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "interviewer": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "illustrator": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "original-author": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "recipient": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "reviewed-author": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "translator": {
           "type": "array",
           "items": {
-            "$ref": "MPBibliographyName.json#"
+            "$ref": "MPBibliographicName.json#"
           }
         },
         "accessed": {
-          "$ref": "MPBibliographyDate.json#"
+          "$ref": "MPBibliographicDate.json#"
         },
         "container": {
-          "$ref": "MPBibliographyDate.json#"
+          "$ref": "MPBibliographicDate.json#"
         },
         "event-date": {
-          "$ref": "MPBibliographyDate.json#"
+          "$ref": "MPBibliographicDate.json#"
         },
         "issued": {
-          "$ref": "MPBibliographyDate.json#"
+          "$ref": "MPBibliographicDate.json#"
         },
         "original-date": {
-          "$ref": "MPBibliographyDate.json#"
+          "$ref": "MPBibliographicDate.json#"
         },
         "submitted": {
-          "$ref": "MPBibliographyDate.json#"
+          "$ref": "MPBibliographicDate.json#"
         },
         "abstract": {
           "type": "string"

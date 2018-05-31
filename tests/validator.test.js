@@ -53,6 +53,54 @@ test('border style', t => {
   );
 });
 
+test('contributor', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
+    objectType: 'MPContributor'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPContributor passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographicName: {}
+    })),
+    '.bibliographicName: should have required property \'_id\'',
+    'invalid MPContributor fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographicName: {
+        _id: 'MPBibliographicName:DEDDA223',
+        objectType: 'MPBibliographicName'
+      }
+    })),
+    null,
+    'valid MPContributor passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographicName: {
+        _id: 'MPBibliographicName:DEDDA223',
+        objectType: 'MPBibliographicName',
+        family: 'Oss',
+        'non-dropping-particle': 'Van',
+        given: 'Foo'
+      }
+    })),
+    null,
+    'valid MPContributor passes'
+  );
+});
+
 test('preferences', t => {
   t.plan(3);
 
@@ -125,8 +173,8 @@ test('bibliography item', t => {
 
   const validDate = {
     'date-parts': [ ],
-    _id: 'MPBibliographyDate:food',
-    objectType: 'MPBibliographyDate'
+    _id: 'MPBibliographicDate:food',
+    objectType: 'MPBibliographicDate'
   }
 
   t.equals(
@@ -147,8 +195,8 @@ test('bibliography date', t => {
 
   const validObject = {
     'date-parts': [ ],
-    _id: 'MPBibliographyDate:food',
-    objectType: 'MPBibliographyDate'
+    _id: 'MPBibliographicDate:food',
+    objectType: 'MPBibliographicDate'
   };
 
   t.equals(
@@ -222,8 +270,8 @@ test('bibliography name', t => {
   t.plan(2);
 
   const validObject = {
-    _id: 'MPBibliographyName:barred',
-    objectType: 'MPBibliographyName'
+    _id: 'MPBibliographicName:barred',
+    objectType: 'MPBibliographicName'
   };
 
   t.equals(

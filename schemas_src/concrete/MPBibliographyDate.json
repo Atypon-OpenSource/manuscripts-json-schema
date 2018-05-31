@@ -1,5 +1,5 @@
 {
-  "$id": "MPBibliographyDate.json",
+  "$id": "MPBibliographicDate.json",
   "type": "object",
   "$mash": {
     "sources": [
@@ -9,7 +9,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPBibliographyDate" ]
+          "enum": [ "MPBibliographicDate" ]
         },
         "date-parts": {
           "type": "array",
