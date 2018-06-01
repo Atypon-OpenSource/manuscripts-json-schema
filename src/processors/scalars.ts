@@ -3,18 +3,19 @@ const isBitmask = (definition: any) =>
   definition.enum &&
   definition.isBitmask;
 
+function possibleValues(input: Array<number>) {
+  return Array.from(
+    new Set(
+      input
+        .reduce((acc: Array<Array<number>>, x) => acc.concat(acc.map(y => [x].concat(y))), [[]])
+        .filter(xs => xs.length)
+        .map(xs => xs.reduce((acc, x) => acc + x))
+    )
+  ).sort((a, b) => a - b);
+}
+
 export const bitmask = (schema: any) => {
   const { definitions } = schema;
-
-  const possibleValues = (input: Array<number>) =>
-    Array.from(
-      new Set(
-        input
-          .reduce((acc: Array<Array<number>>, x) => acc.concat(acc.map(y => [x].concat(y))), [[]])
-          .filter(xs => xs.length)
-          .map(xs => xs.reduce((acc, x) => acc + x))
-      )
-    ).sort((a, b) => a - b);
 
   for (const key in definitions) {
     if (isBitmask(definitions[key])) {
