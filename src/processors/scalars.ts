@@ -3,15 +3,19 @@ const isBitmask = (definition: any) =>
   definition.enum &&
   definition.isBitmask;
 
-function possibleValues(input: Array<number>) {
-  return Array.from(
-    new Set(
-      input
-        .reduce((acc: Array<Array<number>>, x) => acc.concat(acc.map(y => [x].concat(y))), [[]])
-        .filter(xs => xs.length)
-        .map(xs => xs.reduce((acc, x) => acc + x))
-    )
-  ).sort((a, b) => a - b);
+function possibleBitmaskValues(input: Array<number>) {
+  const combinations = input.reduce((acc: Array<Array<number>>, x) =>
+    acc.concat(acc.map(y => [x].concat(y))),
+    [[]]
+  );
+
+  const sum = (xs: Array<number>) => xs.reduce((acc, x) => acc + x);
+
+  const totals = combinations
+    .filter(xs => xs.length)
+    .map(sum);
+
+  return [...new Set(totals)].sort((a, b) => a - b);
 }
 
 export const bitmask = (schema: any) => {
@@ -21,7 +25,7 @@ export const bitmask = (schema: any) => {
     if (isBitmask(definitions[key])) {
       definitions[key] = {
         type: 'integer',
-        enum: possibleValues(definitions[key].enum)
+        enum: possibleBitmaskValues(definitions[key].enum)
       };
     }
   }
