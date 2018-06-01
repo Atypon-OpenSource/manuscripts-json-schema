@@ -1,0 +1,40 @@
+{
+  "$id": "MPManuscriptCategory.json",
+  "title": "ManuscriptCategory",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPAttachmentOwner.json#" }
+    ],
+    "with": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "imageURL": {
+          "type": "string"
+        },
+        "imageName": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "typicalFixedSectionTreeDepth": {
+          "type": "integer"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPManuscriptCategory" ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}

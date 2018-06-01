@@ -4,7 +4,9 @@ import { readFileSync, readdirSync } from 'fs';
 const SCHEMA_DIR = 'schemas';
 const SCHEMA_SRC_DIR = 'schemas_src';
 
-export function getSchema(name: string, directory?: string) {
+export type JsonSchema = {};
+
+export function getSchema(name: string, directory?: string): JsonSchema {
   const schemaPath = join(__dirname, '..', SCHEMA_SRC_DIR, directory || '', name);
   const file = readFileSync(schemaPath, 'utf8');
   return JSON.parse(file);

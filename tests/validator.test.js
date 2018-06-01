@@ -761,3 +761,166 @@ test('table element', t => {
     'invalid paragraphStyle id fails'
   );
 });
+
+test('manuscript bitmask', t => {
+  t.plan(7);
+
+  const validObject = {
+    _id: 'MPManuscript:231123-1233123-12331312',
+    objectType: 'MPManuscript',
+    container_id: 'MPProject:baz',
+    figureElementNumberingScheme: '',
+    figureNumberingScheme: ''
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 1
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 33
+    })),
+    null,
+    'invalid bitmask value fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 1 | 2 | 4
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 1 | 4
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 8 | 4
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 1 | 2 | 4 | 8 | 16 | 32
+    })),
+    null,
+    'valid bitmask value passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      contentSummaryMode: 1 | 2 | 4 | 8 | 16 | 32 | 64
+    })),
+    '.contentSummaryMode: should be equal to one of the allowed values',
+    'invalid bitmask value fails'
+  );
+});
+
+test('_attachments property', t => {
+  t.plan(7);
+
+  const validObject = {
+    _id: 'MPManuscriptCategory:231123-1233123-12331312',
+    objectType: 'MPManuscriptCategory',
+    container_id: 'MPProject:baz',
+    name: 'foo'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid doc without _attachments passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _attachments: []
+    })),
+    '._attachments: should be object',
+    'invalid _attachments type'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _attachments: {}
+    })),
+    null,
+    'empty _attachments is valid'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _attachments: {
+        "notes.txt": {
+        }
+      }
+    })),
+    '._attachments[\'notes.txt\']: should have required property \'digest\'',
+    'empty _attachment fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _attachments: {
+        "notes.txt": {
+          "foo": 11
+        }
+      }
+    })),
+    'should NOT have additional properties \'foo\'',
+    'invalid _attachment property fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _attachments: {
+        "notes.txt": {
+          digest: "sha1-ig2C32KlOtcsuTvdPdebkg9IYbQ=",
+          revpos: 2,
+          content_type: "text/plain",
+          length: 900,
+          stub: true
+        }
+      }
+    })),
+    null,
+    'valid _attachment passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _attachments: {
+        "notes.txt": {
+          digest: "sha1-ig2C32KlOtcsuTvdPdebkg9IYbQ=",
+          revpos: 2,
+          content_type: "text/plain",
+          length: 900,
+          stub: true
+        },
+        "trololol.mp3": {
+          digest: "sha1-ig2C32KlOtcsuTvdPdebkg9IYbQ=",
+          revpos: 2,
+          content_type: "audio/mp3",
+          length: 231290,
+          stub: false
+        }
+      }
+    })),
+    null,
+    'multiple valid _attachments pass'
+  );
+});

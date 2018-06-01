@@ -1,0 +1,31 @@
+{
+  "$id": "MPAttachmentOwner.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "_attachments": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "digest": { "type": "string" },
+            "revpos": { "type": "integer" },
+            "content_type": { "type": "string" },
+            "length": { "type": "integer" },
+            "stub": { "type": "boolean" }
+          },
+          "required": [
+            "digest",
+            "revpos",
+            "content_type",
+            "length",
+            "stub"
+          ]
+        }
+      }
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,180 @@
+{
+  "$id": "MPManuscript.json",
+  "title": "Manuscript",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "effectiveTitle": {
+          "type": "string"
+        },
+        "plainTextTitle": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "colorScheme": {
+          "$ref": "MPColorScheme.json#"
+        },
+        "category": {
+          "$ref": "MPManuscriptCategory.json#"
+        },
+        "manuscriptType": {
+          "type": "integer",
+          "enum": [ 0, 1 ]
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContributor.json#"
+          },
+          "additionalItems": false
+        },
+        "editors": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContributor.json#"
+          },
+          "additionalItems": false
+        },
+        "translators": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContributor.json#"
+          },
+          "additionalItems": false
+        },
+        "figureElementNumberingScheme": {
+          "type": "string"
+        },
+        "figureNumberingScheme": {
+          "type": "string"
+        },
+        "publicationDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "acceptanceDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "volume": {
+          "type": "integer"
+        },
+        "issue": {
+          "type": "integer"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "documentationURLString": {
+          "type": "string"
+        },
+        "copyrightStatement": {
+          "type": "string"
+        },
+        "copyrightHolder": {
+          "type": "string"
+        },
+        "copyrightYear": {
+          "type": "integer"
+        },
+        "inEditMode": {
+          "type": "boolean"
+        },
+        "contributorPresentationStyleTag": {
+          "$ref": "enums.json#/definitions/MPContributorPresentationStyleTag"
+        },
+        "affiliationPresentationStyleTag": {
+          "$ref": "enums.json#/definitions/MPContributorPresentationStyleTag"
+        },
+        "figureElementFileLayout": {
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
+        },
+        "tableElementFileLayout": {
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
+        },
+        "appleHelpBundleTitle": {
+          "type": "string"
+        },
+        "appleHelpBundleIdentifier": {
+          "type": "string"
+        },
+        "abstract": {
+          "$ref": "MPSection.json#"
+        },
+        "keywords": {
+          "$ref": "MPSection.json#"
+        },
+        "pageLayout": {
+          "$ref": "MPPageLayout.json#"
+        },
+        "includeLineNumbering": {
+          "type": "boolean"
+        },
+        "targetBundle": {
+          "$ref": "MPBundle.json#"
+        },
+        "bundle": {
+          "$ref": "MPBundle.json#"
+        },
+        "hideBibliographyNotesInEditor": {
+          "type": "boolean"
+        },
+        "showBibliographyNotesInExports": {
+          "type": "boolean"
+        },
+        "useNativeBiblatexCitations": {
+          "type": "boolean"
+        },
+        "biblatexStyle": {
+          "type": "string"
+        },
+        "contentSummaryMode": {
+          "$ref": "enums.json#/definitions/MPContentSummaryMode"
+        },
+        "footnoteNumberingScheme": {
+          "type": "string"
+        },
+        "endnoteNumberingScheme": {
+          "type": "string"
+        },
+        "figureElementLabel": {
+          "type": "string"
+        },
+        "tableElementLabel": {
+          "type": "string"
+        },
+        "equationElementLabel": {
+          "type": "string"
+        },
+        "listingElementLabel": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPManuscript" ]
+        }
+      },
+      "required": [
+        "figureElementNumberingScheme",
+        "figureNumberingScheme"
+      ]
+    }
+  }
+}
