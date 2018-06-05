@@ -1,0 +1,53 @@
+{
+  "$id": "MPContributor.json",
+  "title": "Contributor",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "role": { "type": "string" },
+        "isMe": { "type": "boolean" },
+        "category": { "$ref": "MPContributorCategory.json#" },
+        "priority": { "type": "number" },
+        "contribution": { "type": "string" },
+        "placeholderString": { "type": "string" },
+        "appInvitationDate": { "$ref": "numbers.json#/definitions/timestamp" },
+        "addressBookIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPContributor" ]
+        },
+        "bibliographicName": {
+          "$ref": "MPBibliographicName.json#"
+        },
+        "bio": { "type": "string" },
+        "affiliations": {
+          "type": "array",
+          "items": {
+            "$ref": "MPAffiliation.json#"
+          },
+          "additionalItems": false
+        },
+        "grants": {
+          "type": "array",
+          "items": {
+            "$ref": "MPGrant.json#"
+          },
+          "additionalItems": false
+        },
+        "email": { "type": "string" },
+        "jointContributorGroup": { "type": "number" }
+      },
+      "required": []
+    }
+  }
+}
