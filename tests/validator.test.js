@@ -59,7 +59,8 @@ test('contributor', t => {
   const validObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
-    manuscript: 'MPManuscript:1001'
+    manuscript: 'MPManuscript:1001',
+    container_id: 'MPProject:2002'
   };
 
   t.equals(
