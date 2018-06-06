@@ -1,0 +1,27 @@
+{
+  "$id": "MPBibliographyElement.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPBlockElement.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "paragraphStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPParagraphStyle"
+            }
+          ]
+        }
+      },
+      "required": []
+    }
+  }
+}
