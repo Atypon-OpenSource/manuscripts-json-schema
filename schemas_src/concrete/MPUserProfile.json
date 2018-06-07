@@ -4,7 +4,7 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPContributorBase.json#" }
+      { "$ref": "abstract/MPPerson.json#" }
     ],
     "with": {
       "properties": {
