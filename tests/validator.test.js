@@ -724,6 +724,39 @@ test('bundle', t => {
   );
 });
 
+test('bibliography element', t => {
+  t.plan(3);
+
+  const validObject = {
+    updatedAt : 1454537867.959872,
+    objectType : 'MPBibliographyElement',
+    _rev : '3-5a3d94454953b3092e0cc41ed645621a',
+    _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
+    elementType : 'table',
+    manuscript: 'MPManuscript:zorb',
+    createdAt : 1454394584,
+    container_id: 'MPProject:potato'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {  paragraphStyle: 'MPParagraphStyle:655CA525-623F-40CD-915E-9FB3BDFB833B' })),
+    null,
+    'paragraphStyle permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { paragraphStyle: 'MPNotPara:24421' })),
+    '.paragraphStyle: should match pattern "^MPParagraphStyle"',
+    'invalid paragraphStyle id fails'
+  );
+});
+
 test('table element', t => {
   t.plan(3);
 
