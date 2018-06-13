@@ -1,17 +1,12 @@
 {
   "$id": "MPEmbeddedObject.json",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "_id": {
-      "$ref": "strings.json#/definitions/_id"
-    },
-    "_rev": {
-      "type": "string"
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPObject.json#" }
+    ],
+    "with": {
+      "properties": { },
+      "required": [ ]
     }
-  },
-  "required": [
-    "_id",
-    "objectType"
-  ]
+  }
 }
