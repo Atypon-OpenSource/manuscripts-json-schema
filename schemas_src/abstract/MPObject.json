@@ -1,0 +1,20 @@
+{
+  "$id": "MPObject.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "_id": {
+      "$ref": "strings.json#/definitions/_id"
+    },
+    "_rev": {
+      "type": "string"
+    },
+    "_revisions": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "_id",
+    "objectType"
+  ]
+}

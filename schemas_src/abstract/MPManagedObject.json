@@ -1,32 +1,28 @@
 {
   "$id": "MPManagedObject.json",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "sessionID": {
-      "type": "string"
-    },
-    "_id": {
-      "$ref": "strings.json#/definitions/_id"
-    },
-    "_rev": {
-      "type": "string"
-    },
-    "createdAt": {
-      "$ref": "numbers.json#/definitions/timestamp"
-    },
-    "updatedAt": {
-      "$ref": "numbers.json#/definitions/timestamp"
-    },
-    "keywordIDs" : {
-      "type": "array",
-      "items": {
-        "$ref": "strings.json#/definitions/keywordId"
-      }
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "sessionID": {
+          "type": "string"
+        },
+        "createdAt": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "updatedAt": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "keywordIDs" : {
+          "type": "array",
+          "items": {
+            "$ref": "strings.json#/definitions/keywordId"
+          }
+        }
+      },
+      "required": [ ]
     }
-  },
-  "required": [
-    "_id",
-    "objectType"
-  ]
+  }
 }
