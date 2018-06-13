@@ -10,7 +10,19 @@
       "type": "string"
     },
     "_revisions": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        }
+      }
     }
   },
   "required": [

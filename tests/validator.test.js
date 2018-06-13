@@ -724,6 +724,63 @@ test('bundle', t => {
   );
 });
 
+test('_revisions property', t => {
+  t.plan(4);
+
+  const validObject = {
+    updatedAt : 1454537867.959872,
+    objectType : 'MPBibliographyElement',
+    _rev : '3-5a3d94454953b3092e0cc41ed645621a',
+    _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
+    elementType : 'table',
+    manuscript: 'MPManuscript:zorb',
+    createdAt : 1454394584,
+    container_id: 'MPProject:potato'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _revisions: {}
+    })),
+    null,
+    'empty _revisions object permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _revisions: {
+        start: 2,
+        ids: [
+          '0322f88f64224218aa753ef1c841e90f',
+          'ceab75b3102946e0930412d6f07a5723'
+        ]
+      }
+    })),
+    null,
+    '_revisions object permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      _revisions: {
+        start: 2,
+        ids: [
+          11,
+          'ceab75b3102946e0930412d6f07a5723'
+        ]
+      }
+    })),
+    '._revisions.ids[0]: should be string',
+    'invalid _revisions object rejected'
+  );
+});
+
 test('bibliography element', t => {
   t.plan(3);
 
