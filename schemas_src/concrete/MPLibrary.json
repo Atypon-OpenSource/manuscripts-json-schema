@@ -1,0 +1,19 @@
+{
+  "$id": "MPLibrary.json",
+  "title": "Library",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPManagedObject.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPLibrary" ]
+        }
+      },
+      "required": []
+    }
+  }
+}
