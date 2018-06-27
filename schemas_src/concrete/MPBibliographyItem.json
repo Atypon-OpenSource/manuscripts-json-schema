@@ -213,7 +213,10 @@
           "type": "string"
         },
         "edition": {
-          "type": "integer"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "event": {
           "type": "string"
@@ -231,10 +234,16 @@
           "type": "string"
         },
         "ISSN": {
-          "type": "string"
+          "type": [
+            "string",
+            "array"
+          ]
         },
         "issue": {
-          "type": "integer"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "jurisdiction": {
           "type": "string"
@@ -267,13 +276,22 @@
           "type": "string"
         },
         "original-title": {
-          "type": "string"
+          "type": [
+            "string",
+            "array"
+          ]
         },
         "page": {
-          "type": "string"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "page-first": {
-          "type": "string"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "PMCID": {
           "type": "string"
@@ -318,7 +336,10 @@
           "type": "string"
         },
         "volume": {
-          "type": "string"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "year-suffix": {
           "type": "string"
