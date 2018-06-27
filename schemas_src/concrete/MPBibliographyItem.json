@@ -231,10 +231,16 @@
           "type": "string"
         },
         "ISSN": {
-          "type": "string"
+          "type": [
+            "string",
+            "array"
+          ]
         },
         "issue": {
-          "type": "integer"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "jurisdiction": {
           "type": "string"
@@ -267,7 +273,10 @@
           "type": "string"
         },
         "original-title": {
-          "type": "string"
+          "type": [
+            "string",
+            "array"
+          ]
         },
         "page": {
           "type": "string"
