@@ -213,7 +213,10 @@
           "type": "string"
         },
         "edition": {
-          "type": "integer"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "event": {
           "type": "string"
@@ -279,10 +282,16 @@
           ]
         },
         "page": {
-          "type": "string"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "page-first": {
-          "type": "string"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "PMCID": {
           "type": "string"
@@ -327,7 +336,10 @@
           "type": "string"
         },
         "volume": {
-          "type": "string"
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "year-suffix": {
           "type": "string"
