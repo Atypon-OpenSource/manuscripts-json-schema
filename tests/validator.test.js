@@ -138,7 +138,6 @@ test('bibliography item', t => {
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
     objectType: 'MPBibliographyItem',
-    manuscript: 'MPManuscript:zorb',
     container_id: 'MPProject:foo-bar-baz',
     type: 'article'
   };
