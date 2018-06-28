@@ -12,9 +12,9 @@
           "type": "string",
           "enum": [ "MPUserProfile" ]
         },
-        "user_id": { "type": "string" }
+        "userID": { "type": "string" }
       },
-      "required": [ "user_id" ]
+      "required": [ "userID" ]
     }
   }
 }
