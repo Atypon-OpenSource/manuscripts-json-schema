@@ -3,7 +3,7 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "container_id": {
+    "containerID": {
       "allOf": [
         {
           "$ref": "strings.json#/definitions/_id"
@@ -16,6 +16,6 @@
     }
   },
   "required": [
-    "container_id"
+    "containerID"
   ]
 }

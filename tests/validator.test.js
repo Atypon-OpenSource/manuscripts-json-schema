@@ -23,10 +23,10 @@ test('border style', t => {
   const validObject = {
     "updatedAt" : 1515494608.245375,
     "objectType" : "MPBorderStyle",
-    "container_id" : "MPProject:foo-bar-baz",
+    "containerID" : "MPProject:foo-bar-baz",
     "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
     "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
-    "manuscript": "MPManuscript:zorb",
+    "manuscriptID": "MPManuscript:zorb",
     "title" : "Dotted",
     "pattern" : [ 1, 1 ],
     "createdAt" : 1515417692.476143,
@@ -59,8 +59,8 @@ test('contributor', t => {
   const validObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
-    manuscript: 'MPManuscript:1001',
-    container_id: 'MPProject:2002'
+    manuscriptID: 'MPManuscript:1001',
+    containerID: 'MPProject:2002'
   };
 
   t.equals(
@@ -138,7 +138,7 @@ test('bibliography item', t => {
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
     objectType: 'MPBibliographyItem',
-    container_id: 'MPProject:foo-bar-baz',
+    containerID: 'MPProject:foo-bar-baz',
     type: 'article'
   };
 
@@ -294,8 +294,8 @@ test('section', t => {
   const validObject = {
     _id: 'MPSection:bar',
     objectType: 'MPSection',
-    manuscript: 'MPManuscript:zorb',
-    container_id: 'MPProject:foobar',
+    manuscriptID: 'MPManuscript:zorb',
+    containerID: 'MPProject:foobar',
     path: []
   };
 
@@ -373,12 +373,12 @@ test('keyword ids', t => {
   const validObject = {
     "updatedAt" : 1515494608.245375,
     "objectType" : "MPBorderStyle",
-    "container_id" : "MPProject:foo-bar-baz",
+    "containerID" : "MPProject:foo-bar-baz",
     "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
     "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
     "title" : "Dotted",
     "pattern" : [ 1, 1 ],
-    "manuscript": "MPManuscript:zorb",
+    "manuscriptID": "MPManuscript:zorb",
     "createdAt" : 1515417692.476143,
     "name" : "dotted",
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
@@ -415,11 +415,11 @@ test('color', t => {
   const validObject = {
     "_id" : "MPColor:09070E2C-E142-4AF9-8602-586AF77E508B",
     "objectType" : "MPColor",
-    "container_id" : "MPProject:foo-bar-baz",
+    "containerID" : "MPProject:foo-bar-baz",
     "_rev" : "1-ad1185e0dd0e339d830af9c082b2e052",
     "title" : "Red",
     "updatedAt" : 1515494608.340721,
-    "manuscript": "MPManuscript:zorb",
+    "manuscriptID": "MPManuscript:zorb",
     "createdAt" : 1515417692.476842,
     "name" : "red",
     "value" : "#ff0000"
@@ -513,8 +513,8 @@ test('color scheme', t => {
     "_id" : "MPColorScheme:1E9C939E-B785-40AE-A8A5-9F534D91C754",
     "_rev" : "1-611a94e741630034211f64c81b80bdd8",
     "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
-    "container_id" : "MPProject:foo-bar-baz",
-    "manuscript": "MPManuscript:zorb",
+    "containerID" : "MPProject:foo-bar-baz",
+    "manuscriptID": "MPManuscript:zorb",
     "createdAt" : 1515417692.477127,
     "updatedAt" : 1515494608.363229,
     "name" : "Manuscripts default colour scheme"
@@ -540,8 +540,8 @@ test('error messages', t => {
 
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
-    container_id : "MPProject:foo-bar-baz",
-    manuscript: 'MPManuscript:zorb',
+    containerID : "MPProject:foo-bar-baz",
+    manuscriptID: 'MPManuscript:zorb',
     objectType: 'MPNumberingStyle',
     startIndex: 1
   };
@@ -559,8 +559,8 @@ test('_id property', t => {
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     objectType: 'MPNumberingStyle',
-    container_id : "MPProject:foo-bar-baz",
-    manuscript: 'MPManuscript:zorb',
+    containerID : "MPProject:foo-bar-baz",
+    manuscriptID: 'MPManuscript:zorb',
     startIndex: 1
   };
 
@@ -591,38 +591,38 @@ test('_id property', t => {
   );
 });
 
-test('container_id property', t => {
+test('containerID property', t => {
   t.plan(4);
 
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     objectType: 'MPNumberingStyle',
     startIndex: 1,
-    manuscript: 'MPManuscript:zorb'
+    manuscriptID: 'MPManuscript:zorb'
   };
 
   t.equals(
-    validate(Object.assign({}, validObject, { container_id: "MPProject:bar" })),
+    validate(Object.assign({}, validObject, { containerID: "MPProject:bar" })),
     null,
-    'valid container_id passes'
+    'valid containerID passes'
   );
 
   t.equals(
-    validate(Object.assign({}, validObject, { container_id: "zPFoo:bar" })),
-    '.container_id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
-    'container_id with invalid prefix fails'
+    validate(Object.assign({}, validObject, { containerID: "zPFoo:bar" })),
+    '.containerID: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'containerID with invalid prefix fails'
   );
 
   t.equals(
     validate(Object.assign({}, validObject)),
-    'should have required property \'container_id\'',
-    'missing container_id fails'
+    'should have required property \'containerID\'',
+    'missing containerID fails'
   );
 
   t.equals(
-    validate(Object.assign({}, validObject, { container_id: 'MPPotato:1000' })),
-    '.container_id: should match pattern "^MPProject"',
-    'invalid container_id fails'
+    validate(Object.assign({}, validObject, { containerID: 'MPPotato:1000' })),
+    '.containerID: should match pattern "^MPProject"',
+    'invalid containerID fails'
   );
 });
 
@@ -633,30 +633,30 @@ test('manuscript property', t => {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
     objectType: 'MPNumberingStyle',
     startIndex: 1,
-    container_id: 'MPProject:foo'
+    containerID: 'MPProject:foo'
   };
 
   t.equals(
-    validate(Object.assign({}, validObject, { manuscript: "MPManuscript:bar" })),
+    validate(Object.assign({}, validObject, { manuscriptID: "MPManuscript:bar" })),
     null,
     'valid manuscript passes'
   );
 
   t.equals(
-    validate(Object.assign({}, validObject, { manuscript: "zPFoo:bar" })),
-    '.manuscript: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    validate(Object.assign({}, validObject, { manuscriptID: "zPFoo:bar" })),
+    '.manuscriptID: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
     'manuscript with invalid prefix fails'
   );
 
   t.equals(
     validate(Object.assign({}, validObject)),
-    'should have required property \'manuscript\'',
+    'should have required property \'manuscriptID\'',
     'missing manuscript fails'
   );
 
   t.equals(
-    validate(Object.assign({}, validObject, { manuscript: 'MPPotato:1000' })),
-    '.manuscript: should match pattern "^MPManuscript"',
+    validate(Object.assign({}, validObject, { manuscriptID: 'MPPotato:1000' })),
+    '.manuscriptID: should match pattern "^MPManuscript"',
     'invalid manuscript fails'
   );
 });
@@ -732,9 +732,9 @@ test('_revisions property', t => {
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
     elementType : 'table',
-    manuscript: 'MPManuscript:zorb',
+    manuscriptID: 'MPManuscript:zorb',
     createdAt : 1454394584,
-    container_id: 'MPProject:potato'
+    containerID: 'MPProject:potato'
   };
 
   t.equals(
@@ -789,9 +789,9 @@ test('bibliography element', t => {
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
     elementType : 'table',
-    manuscript: 'MPManuscript:zorb',
+    manuscriptID: 'MPManuscript:zorb',
     createdAt : 1454394584,
-    container_id: 'MPProject:potato'
+    containerID: 'MPProject:potato'
   };
 
   t.equals(
@@ -825,11 +825,11 @@ test('table element', t => {
     suppressFooter : true,
     _id : 'MPTableElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
     elementType : 'table',
-    manuscript: 'MPManuscript:zorb',
+    manuscriptID: 'MPManuscript:zorb',
     tableStyle : 'MPTableStyle:6C38D4AD-D718-4B4B-8AE9-05B567D2F203',
     paragraphStyle : 'MPParagraphStyle:655CA525-623F-40CD-915E-9FB3BDFB833B',
     createdAt : 1454394584,
-    container_id: 'MPProject:potato',
+    containerID: 'MPProject:potato',
     // containedObjectID : 'MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864',
     // collection : 'elements'
   };
@@ -859,7 +859,7 @@ test('manuscript bitmask', t => {
   const validObject = {
     _id: 'MPManuscript:231123-1233123-12331312',
     objectType: 'MPManuscript',
-    container_id: 'MPProject:baz',
+    containerID: 'MPProject:baz',
     figureElementNumberingScheme: '',
     figureNumberingScheme: ''
   };
@@ -927,7 +927,7 @@ test('_attachments property', t => {
   const validObject = {
     _id: 'MPManuscriptCategory:231123-1233123-12331312',
     objectType: 'MPManuscriptCategory',
-    container_id: 'MPProject:baz',
+    containerID: 'MPProject:baz',
     name: 'foo'
   };
 

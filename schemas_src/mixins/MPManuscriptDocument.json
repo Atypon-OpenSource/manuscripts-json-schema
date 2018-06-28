@@ -3,7 +3,7 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "manuscript": {
+    "manuscriptID": {
       "allOf": [
         {
           "$ref": "strings.json#/definitions/_id"
@@ -16,6 +16,6 @@
     }
   },
   "required": [
-    "manuscript"
+    "manuscriptID"
   ]
 }
