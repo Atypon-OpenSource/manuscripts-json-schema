@@ -1,6 +1,7 @@
 {
   "$id": "MPBibliographicName.json",
   "type": "object",
+  "additionalProperties": true,
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPManagedObject.json#" }

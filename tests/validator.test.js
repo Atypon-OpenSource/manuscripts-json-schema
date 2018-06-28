@@ -268,7 +268,7 @@ test('bibliography date', t => {
 });
 
 test('bibliography name', t => {
-  t.plan(2);
+  t.plan(3);
 
   const validObject = {
     _id: 'MPBibliographicName:barred',
@@ -285,6 +285,12 @@ test('bibliography name', t => {
     validate(Object.assign({}, validObject, { suffix: 1 })),
     '.suffix: should be string',
     'invalid object fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sequence: 1 })),
+    null,
+    'additionalProperties are permitted'
   );
 });
 
