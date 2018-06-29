@@ -1,5 +1,5 @@
 {
-  "$id": "MPObject.json",
+  "$id": "MPBaseModel.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
