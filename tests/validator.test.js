@@ -331,6 +331,54 @@ test('citation item', t => {
   );
 });
 
+test('citation', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPCitation:baz',
+    manuscriptID: 'MPManuscript:foo',
+    containerID: 'MPProject:bar',
+    objectType: 'MPCitation'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    'should have required property \'containingObject\'',
+    'containingObject property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux'
+    })),
+    'should have required property \'embeddedCitationItems\'',
+    'embeddedCitationItems property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux',
+      embeddedCitationItems: []
+    })),
+    null,
+    'valid object passes with empty array'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux',
+      embeddedCitationItems: [
+        {
+          _id : 'MPCitationItem:AB67E6B8-1ACE-48CE-9A04-5D93B77BC0CE',
+          objectType : 'MPCitationItem',
+          bibliographyItem : 'MPBibliographyItem:B040481C-8DAD-43F3-B6E7-865A64D5E434'
+        }
+      ]
+    })),
+    null,
+    'valid object passes'
+  );
+});
 
 test('section', t => {
   t.plan(2);

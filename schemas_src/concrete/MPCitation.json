@@ -1,0 +1,29 @@
+{
+  "$id": "MPCitation.json",
+  "title": "Citation",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPExternalReference.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "embeddedCitationItems": {
+          "type": "array",
+          "items": {
+            "$ref": "MPCitationItem.json#"
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPCitation" ]
+        }
+      },
+      "required": [
+        "embeddedCitationItems"
+      ]
+    }
+  }
+}
