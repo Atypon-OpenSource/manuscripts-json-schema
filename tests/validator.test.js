@@ -294,6 +294,44 @@ test('bibliography name', t => {
   );
 });
 
+test('citation item', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPCitationItem:barred',
+    objectType: 'MPCitationItem'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    'should have required property \'bibliographyItem\'',
+    'bibliographyItem property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographyItem: 'MPBibliographyItem:foo'
+    })),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographyItem: 'MPDribbleItem:foo'
+    })),
+    '.bibliographyItem: should match pattern "^MPBibliographyItem"',
+    'invalid object fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sequence: 1 })),
+    'should NOT have additional properties \'sequence\'',
+    'additionalProperties are forbidden'
+  );
+});
+
+
 test('section', t => {
   t.plan(2);
 
