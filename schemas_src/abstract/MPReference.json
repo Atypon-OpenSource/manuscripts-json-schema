@@ -1,0 +1,24 @@
+{
+  "$id": "MPReference.json",
+  "title": "Reference",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "containingObject": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "containingElement": {
+          "$comment": "Deprecated mac app property",
+          "$ref": "strings.json#/definitions/_id"
+        }
+      },
+      "required": [
+        "containingObject"
+      ]
+    }
+  }
+}

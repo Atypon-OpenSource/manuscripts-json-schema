@@ -166,6 +166,13 @@
         "listingElementLabel": {
           "type": "string"
         },
+        "primaryLanguageCode": {
+          "type": "string"
+        },
+        "citationStyle": {
+          "type": "string",
+          "$comment": "Temporary property for the frontend app until we have all the premade MPBundle documents"
+        },
         "objectType": {
           "type": "string",
           "enum": [ "MPManuscript" ]

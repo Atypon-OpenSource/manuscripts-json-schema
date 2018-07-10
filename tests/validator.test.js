@@ -294,6 +294,92 @@ test('bibliography name', t => {
   );
 });
 
+test('citation item', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPCitationItem:barred',
+    objectType: 'MPCitationItem'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    'should have required property \'bibliographyItem\'',
+    'bibliographyItem property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographyItem: 'MPBibliographyItem:foo'
+    })),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      bibliographyItem: 'MPDribbleItem:foo'
+    })),
+    '.bibliographyItem: should match pattern "^MPBibliographyItem"',
+    'invalid object fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sequence: 1 })),
+    'should NOT have additional properties \'sequence\'',
+    'additionalProperties are forbidden'
+  );
+});
+
+test('citation', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPCitation:baz',
+    manuscriptID: 'MPManuscript:foo',
+    containerID: 'MPProject:bar',
+    objectType: 'MPCitation'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    'should have required property \'containingObject\'',
+    'containingObject property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux'
+    })),
+    'should have required property \'embeddedCitationItems\'',
+    'embeddedCitationItems property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux',
+      embeddedCitationItems: []
+    })),
+    null,
+    'valid object passes with empty array'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux',
+      embeddedCitationItems: [
+        {
+          _id : 'MPCitationItem:AB67E6B8-1ACE-48CE-9A04-5D93B77BC0CE',
+          objectType : 'MPCitationItem',
+          bibliographyItem : 'MPBibliographyItem:B040481C-8DAD-43F3-B6E7-865A64D5E434'
+        }
+      ]
+    })),
+    null,
+    'valid object passes'
+  );
+});
+
 test('section', t => {
   t.plan(2);
 
