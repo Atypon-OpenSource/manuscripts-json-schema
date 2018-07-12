@@ -3,7 +3,7 @@
   "title": "NumberingStyle",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPEmbeddedObject.json#" },
+      { "$ref": "abstract/MPEmbeddedModel.json#" },
       { "$ref": "mixins/MPContainedDocument.json#" },
       { "$ref": "mixins/MPManuscriptDocument.json#" }
     ],

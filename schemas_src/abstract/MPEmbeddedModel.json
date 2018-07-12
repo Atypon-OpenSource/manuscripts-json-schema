@@ -1,8 +1,8 @@
 {
-  "$id": "MPEmbeddedObject.json",
+  "$id": "MPEmbeddedModel.json",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPObject.json#" }
+      { "$ref": "abstract/MPBaseModel.json#" }
     ],
     "with": {
       "properties": { },

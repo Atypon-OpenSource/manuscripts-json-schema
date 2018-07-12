@@ -1,8 +1,8 @@
 {
-  "$id": "MPManagedObject.json",
+  "$id": "MPModel.json",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPObject.json#" }
+      { "$ref": "abstract/MPBaseModel.json#" }
     ],
     "with": {
       "properties": {

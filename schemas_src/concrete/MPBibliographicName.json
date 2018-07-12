@@ -4,7 +4,7 @@
   "additionalProperties": true,
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPEmbeddedObject.json#" }
+      { "$ref": "abstract/MPEmbeddedModel.json#" }
     ],
     "with": {
       "properties": {

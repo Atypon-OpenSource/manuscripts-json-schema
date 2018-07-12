@@ -53,7 +53,7 @@ like this:
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPManagedObject.json#" }
+      { "$ref": "abstract/MPModel.json#" }
     ],
     "with": {
       "properties": {
@@ -135,5 +135,5 @@ The resulting JSON Schema looks like this:
 }
 ```
 
-We never actually add `MPStyle` or `MPManagedObject` to the validator, we just
+We never actually add `MPStyle` or `MPModel` to the validator, we just
 merge the properties from them.
