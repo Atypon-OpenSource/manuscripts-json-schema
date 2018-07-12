@@ -10,6 +10,8 @@
       "properties": {
         "role": { "type": "string" },
         "isMe": { "type": "boolean" },
+        "isJointContributor": { "type": "boolean" },
+        "isCorresponding": { "type": "boolean" },
         "category": { "$ref": "MPContributorCategory.json#" },
         "priority": { "type": "number" },
         "contribution": { "type": "string" },
