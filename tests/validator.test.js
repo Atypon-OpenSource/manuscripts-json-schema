@@ -1113,7 +1113,7 @@ test('invitation', (t) => {
 
   const validObjectA = {
     _id: 'MPInvitation:5480f0bfe3b0f69beb8fe360adab156e06c614ff',
-    userID: 'User|valid-user@manuscriptsapp.com',
+    invitingUserId: 'User_valid-user@manuscriptsapp.com',
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
     tokenType: 'InvitationEmailToken',
     message: 'Message',
@@ -1129,7 +1129,7 @@ test('invitation', (t) => {
   delete invalidObjectA.invitedUserEmail;
 
   const invalidObjectB = Object.assign({}, validObjectA);
-  delete invalidObjectB.userID;
+  delete invalidObjectB.invitingUserId;
 
   t.equals(
     validate(Object.assign({}, validObjectA)),
@@ -1150,7 +1150,7 @@ test('invitation', (t) => {
 
   t.equals(
     validate(Object.assign({}, invalidObjectB)),
-    'should have required property \'userID\''
+    'should have required property \'invitingUserId\''
   );
 
 });
@@ -1160,7 +1160,7 @@ test('project invitation', (t) => {
 
   const validObjectA = {
     _id: 'MPProjectInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
-    userID: 'User|valid-user@manuscriptsapp.com',
+    invitingUserId: 'User_valid-user@manuscriptsapp.com',
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
     projectID: 'valid-project-id-2' ,
     role: 'Viewer',
@@ -1178,7 +1178,7 @@ test('project invitation', (t) => {
   delete invalidObjectA.invitedUserEmail;
 
   const invalidObjectB = Object.assign({}, validObjectA);
-  delete invalidObjectB.userID;
+  delete invalidObjectB.invitingUserId;
 
   const invalidObjectC = Object.assign({}, validObjectA);
   delete invalidObjectC.projectID;
@@ -1186,7 +1186,7 @@ test('project invitation', (t) => {
   const invalidObjectD = Object.assign({}, validObjectA);
   delete invalidObjectD.role;
 
-  
+
   t.equals(
     validate(Object.assign({}, validObjectA)),
     null,
@@ -1206,7 +1206,7 @@ test('project invitation', (t) => {
 
   t.equals(
     validate(Object.assign({}, invalidObjectB)),
-    'should have required property \'userID\''
+    'should have required property \'invitingUserId\''
   );
 
   t.equals(
