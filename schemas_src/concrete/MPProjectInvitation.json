@@ -1,0 +1,28 @@
+{
+    "$id": "MPProjectInvitation.json",
+    "title": "Project Invitation",
+    "type": "object",
+    "$mash": {
+        "sources": [
+            { "$ref": "concrete/MPInvitation.json#" }
+        ],
+        "with": {
+            "properties": {
+                "projectID": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                },
+                "objectType": {
+                    "type": "string",
+                    "enum": [ "MPProjectInvitation" ]
+                }
+            },
+            "required": [
+                "projectID",
+                "role"
+            ]
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "$id": "MPInvitation.json",
+    "title": "Invitation",
+    "type": "object",
+    "$mash": {
+        "sources": [
+            { "$ref": "abstract/MPModel.json#" }
+        ],
+        "with": {
+            "properties": {
+                "userID": {
+                    "type": "string"
+                },
+                "invitedUserEmail": {
+                    "type": "string"
+                },
+                "tokenType": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "$ref": "numbers.json#/definitions/timestamp"
+                },
+                "_type": {
+                    "type": "string"
+                },
+                "objectType": {
+                    "type": "string",
+                    "enum": [ "MPInvitation" ]
+                }
+            },
+            "required": [
+                "userID",
+                "invitedUserEmail",
+                "tokenType",
+                "createdAt",
+                "_type"
+            ]
+        }
+    }
+}

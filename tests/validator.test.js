@@ -1107,3 +1107,116 @@ test('_attachments property', t => {
     'multiple valid _attachments pass'
   );
 });
+
+test('invitation', (t) => {
+  t.plan(4);
+
+  const validObjectA = {
+    _id: 'MPInvitation:5480f0bfe3b0f69beb8fe360adab156e06c614ff',
+    userID: 'User|valid-user@manuscriptsapp.com',
+    invitedUserEmail: 'valid-google@manuscriptsapp.com',
+    tokenType: 'InvitationEmailToken',
+    message: 'Message',
+    createdAt: 1522231220.927,
+    _type: 'Invitation', // TODO: Get rid of the redundancy between _type / objectType
+    objectType: 'MPInvitation'
+  };
+
+  const validObjectB = Object.assign({}, validObjectA);
+  delete validObjectB.message;
+
+  const invalidObjectA = Object.assign({}, validObjectA);
+  delete invalidObjectA.invitedUserEmail;
+
+  const invalidObjectB = Object.assign({}, validObjectA);
+  delete invalidObjectB.userID;
+
+  t.equals(
+    validate(Object.assign({}, validObjectA)),
+    null,
+    'valid invitation with message passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObjectB)),
+    null,
+    'valid invitation without message passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectA)),
+    'should have required property \'invitedUserEmail\''
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectB)),
+    'should have required property \'userID\''
+  );
+
+});
+
+test('project invitation', (t) => {
+  t.plan(6);
+
+  const validObjectA = {
+    _id: 'MPProjectInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
+    userID: 'User|valid-user@manuscriptsapp.com',
+    invitedUserEmail: 'valid-google@manuscriptsapp.com',
+    projectID: 'valid-project-id-2' ,
+    role: 'Viewer',
+    tokenType: 'InvitationEmailToken',
+    message: 'Message',
+    createdAt: 1522231220.927,
+    _type: 'ProjectInvitation', // TODO: Get rid of the redundancy of _type / objectType
+    objectType: 'MPProjectInvitation'
+  };
+
+  const validObjectB = Object.assign({}, validObjectA);
+  delete validObjectB.message;
+
+  const invalidObjectA = Object.assign({}, validObjectA);
+  delete invalidObjectA.invitedUserEmail;
+
+  const invalidObjectB = Object.assign({}, validObjectA);
+  delete invalidObjectB.userID;
+
+  const invalidObjectC = Object.assign({}, validObjectA);
+  delete invalidObjectC.projectID;
+
+  const invalidObjectD = Object.assign({}, validObjectA);
+  delete invalidObjectD.role;
+
+  
+  t.equals(
+    validate(Object.assign({}, validObjectA)),
+    null,
+    'valid invitation with message passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObjectB)),
+    null,
+    'valid invitation without message passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectA)),
+    'should have required property \'invitedUserEmail\''
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectB)),
+    'should have required property \'userID\''
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectC)),
+    'should have required property \'projectID\''
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectD)),
+    'should have required property \'role\''
+  );
+
+});
