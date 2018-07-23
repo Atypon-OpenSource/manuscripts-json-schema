@@ -8,8 +8,8 @@
         ],
         "with": {
             "properties": {
-                "invitingUserId": {
-                    "$ref": "strings.json#/definitions/gatewayAccountId"
+                "invitingUserID": {
+                    "$ref": "strings.json#/definitions/gatewayAccountID"
                 },
                 "invitedUserEmail": {
                     "type": "string"
@@ -32,7 +32,7 @@
                 }
             },
             "required": [
-                "invitingUserId",
+                "invitingUserID",
                 "invitedUserEmail",
                 "tokenType",
                 "createdAt",

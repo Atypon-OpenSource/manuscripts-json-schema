@@ -44,7 +44,7 @@
             "fields" : {
               "type": "array",
               "items": {
-                "$ref": "strings.json#/definitions/keywordId"
+                "$ref": "strings.json#/definitions/keywordID"
               }
             },
             "ISSNs": {

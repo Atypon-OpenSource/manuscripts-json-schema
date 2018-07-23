@@ -9,7 +9,7 @@
     "with": {
       "properties": {
         "_id": {
-          "$ref": "strings.json#/definitions/keywordId"
+          "$ref": "strings.json#/definitions/keywordID"
         },
         "objectType": {
           "type": "string",

@@ -8,11 +8,11 @@
     ],
     "with": {
       "properties": {
-        "invitingUserId":{
-          "$ref": "strings.json#/definitions/gatewayAccountId"
+        "invitingUserID":{
+          "$ref": "strings.json#/definitions/gatewayAccountID"
         },
-        "invitedUserId": {
-          "$ref": "strings.json#/definitions/gatewayAccountId"
+        "invitedUserID": {
+          "$ref": "strings.json#/definitions/gatewayAccountID"
         },
         "objectType": {
           "type": "string",
@@ -20,8 +20,8 @@
         }
       },
       "required": [
-        "invitingUserId",
-        "invitedUserId",
+        "invitingUserID",
+        "invitedUserID",
         "createdAt"
       ]
     }
