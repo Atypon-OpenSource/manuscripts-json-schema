@@ -1115,10 +1115,8 @@ test('invitation', (t) => {
     _id: 'MPInvitation:5480f0bfe3b0f69beb8fe360adab156e06c614ff',
     invitingUserID: 'User_valid-user@manuscriptsapp.com',
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
-    tokenType: 'InvitationEmailToken',
     message: 'Message',
     createdAt: 1522231220.927,
-    _type: 'Invitation', // TODO: Get rid of the redundancy between _type / objectType
     objectType: 'MPInvitation'
   };
 
@@ -1164,10 +1162,8 @@ test('project invitation', (t) => {
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
     projectID: 'valid-project-id-2' ,
     role: 'Viewer',
-    tokenType: 'InvitationEmailToken',
     message: 'Message',
     createdAt: 1522231220.927,
-    _type: 'ProjectInvitation', // TODO: Get rid of the redundancy of _type / objectType
     objectType: 'MPProjectInvitation'
   };
 

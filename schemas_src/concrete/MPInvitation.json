@@ -14,17 +14,11 @@
                 "invitedUserEmail": {
                     "type": "string"
                 },
-                "tokenType": {
-                    "type": "string"
-                },
                 "message": {
                     "type": "string"
                 },
                 "createdAt": {
                     "$ref": "numbers.json#/definitions/timestamp"
-                },
-                "_type": {
-                    "type": "string"
                 },
                 "objectType": {
                     "type": "string",
@@ -34,9 +28,7 @@
             "required": [
                 "invitingUserID",
                 "invitedUserEmail",
-                "tokenType",
-                "createdAt",
-                "_type"
+                "createdAt"
             ]
         }
     }
