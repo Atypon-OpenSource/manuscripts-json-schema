@@ -45,6 +45,6 @@ publish:
   script:
     - echo Running release
     - yarn install
-    - npx ci-publish || true
+    - npx ci-publish
   tags:
     - nodejs
