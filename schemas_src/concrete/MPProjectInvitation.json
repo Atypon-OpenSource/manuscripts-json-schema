@@ -27,8 +27,7 @@
             },
             "required": [
                 "projectID",
-                "role",
-                "invitedUserName"
+                "role"
             ]
         }
     }
