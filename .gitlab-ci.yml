@@ -25,6 +25,9 @@ build_docs:
       - ./documentation/build
     expire_in: 4 weeks
     when: always
+  only:
+    refs:
+      - master
   tags:
     - nodejs
     - awscli
