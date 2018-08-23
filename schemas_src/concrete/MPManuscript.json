@@ -128,10 +128,13 @@
           "type": "boolean"
         },
         "targetBundle": {
-          "$ref": "MPBundle.json#"
+          "$ref": "strings.json#/definitions/_id"
         },
         "bundle": {
-          "$ref": "MPBundle.json#"
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "parent": {
+          "$ref": "strings.json#/definitions/_id"
         },
         "hideBibliographyNotesInEditor": {
           "type": "boolean"
