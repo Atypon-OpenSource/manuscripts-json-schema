@@ -12,6 +12,9 @@
       "properties": { 
         "userID": {
           "type": "string" 
+         },
+         "invitationID": {
+          "type": "string"
          }
       }
     }
