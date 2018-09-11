@@ -182,8 +182,6 @@
         }
       },
       "required": [
-        "figureElementNumberingScheme",
-        "figureNumberingScheme"
       ]
     }
   }
