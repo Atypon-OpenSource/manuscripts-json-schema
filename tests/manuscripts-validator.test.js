@@ -2,9 +2,9 @@ const test = require('tape');
 const util = require('util');
 const vm = require('vm');
 
-const { validatorFn } = require('../dist/pack');
+const { manuscriptsFn } = require('../dist');
 
-const mainScript = new vm.Script(validatorFn);
+const mainScript = new vm.Script(manuscriptsFn);
 
 function validate(obj) {
   const sandbox = { obj };
