@@ -136,9 +136,12 @@ const dependencies = [
   isEqualFn
 ];
 
-// This is an array of fn strings, where the last one is buildValidateFn.
-const validatingFunctions = packSchemas(supportedObjectTypes, ajv);
+export const validatorFn = (schemas?: Set<string>) => {
+  // This is an array of fn strings, where the last one is buildValidateFn.
+  const validatingFunctions = packSchemas(schemas || supportedObjectTypes, ajv);
 
-// Exported code
-const code = dependencies.concat(validatingFunctions).join('\n\n');
-export const validatorFn = js_beautify(code, { indent_size: 2 });
+  // Exported code
+  const code = dependencies.concat(validatingFunctions).join('\n\n');
+
+  return js_beautify(code, { indent_size: 2 });
+}
