@@ -40,3 +40,62 @@ test('library', t => {
     'unsupported objectType fails'
   );
 });
+
+test('bibliography item', t => {
+  t.plan(7);
+
+  const validObject = {
+    _id: 'MPBibliographyItem:231123-1233123-12331312',
+    objectType: 'MPBibliographyItem',
+    containerID: 'MPLibrary:foo-bar-baz',
+    type: 'article'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { type: 'foo' })),
+    '.type: should be equal to one of the allowed values',
+    'invalid type fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [ 'MPKeyword:foo' ] })),
+    null,
+    'taggable with keywordIDs'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { blahtype: 'foo' })),
+    'should NOT have additional properties \'blahtype\'',
+    'invalid property fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { accessed: 'foo' })),
+    '.accessed: should be object',
+    'invalid accessed date should fail'
+  );
+
+  const validDate = {
+    'date-parts': [ ],
+    _id: 'MPBibliographicDate:food',
+    objectType: 'MPBibliographicDate'
+  }
+
+  t.equals(
+    validate(Object.assign({}, validObject, { accessed: validDate })),
+    null,
+    'valid accessed date should pass'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { composer: [{}] })),
+    '.composer[0]: should have required property \'_id\'',
+    'invalid composer name should fail'
+  );
+});

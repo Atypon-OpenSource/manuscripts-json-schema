@@ -1,6 +1,6 @@
 import * as Ajv from 'ajv';
 import { js_beautify } from 'js-beautify';
-import { ajv, supportedObjectTypes } from './schemas';
+import { generateSchemas } from './schemas';
 
 const SINGLE_QUOTE = /'|\\/g;
 
@@ -136,9 +136,10 @@ const dependencies = [
   isEqualFn
 ];
 
-export const validatorFn = (schemas?: Set<string>) => {
+export const validatorFn = (schemaFilter?: (schemaId: string) => boolean) => {
   // This is an array of fn strings, where the last one is buildValidateFn.
-  const validatingFunctions = packSchemas(schemas || supportedObjectTypes, ajv);
+  const { supportedObjectTypes, ajv } = generateSchemas(schemaFilter)
+  const validatingFunctions = packSchemas(supportedObjectTypes, ajv);
 
   // Exported code
   const code = dependencies.concat(validatingFunctions).join('\n\n');

@@ -1,6 +1,8 @@
 import * as Ajv from 'ajv';
-import { supportedObjectTypes } from './schemas';
+import { generateSchemas } from './schemas';
 import { getBuiltSchemas } from './getSchema';
+
+const { supportedObjectTypes } = generateSchemas()
 
 const ajv = new Ajv();
 // Use the built schemas for consistency/correctness.

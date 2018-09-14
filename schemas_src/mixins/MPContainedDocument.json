@@ -9,8 +9,16 @@
           "$ref": "strings.json#/definitions/_id"
         },
         {
-          "type": "string",
-          "pattern": "^MPProject"
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^MPProject"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPLibrary"
+            }
+          ]
         }
       ]
     }
