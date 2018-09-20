@@ -50,7 +50,7 @@ publish:
       - master
   script:
     - echo Running release
-    - yarn install
-    - npx ci-publish
+    - npm install
+    - npm publish
   tags:
     - nodejs
