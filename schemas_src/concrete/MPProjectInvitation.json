@@ -20,9 +20,6 @@
                 "projectTitle": {
                     "type": "string"
                 },
-                "accepted": {
-                    "type": "boolean"
-                },
                 "objectType": {
                     "type": "string",
                     "enum": [ "MPProjectInvitation" ]
