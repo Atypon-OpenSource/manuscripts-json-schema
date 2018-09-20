@@ -1154,7 +1154,7 @@ test('invitation', (t) => {
 });
 
 test('project invitation', (t) => {
-  t.plan(8);
+  t.plan(9);
 
   const validObjectA = {
     _id: 'MPProjectInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
@@ -1164,6 +1164,7 @@ test('project invitation', (t) => {
     projectTitle: 'Valid Project 2',
     invitedUserName: 'Valid User',
     role: 'Viewer',
+    isAccepted: false,
     message: 'Message',
     createdAt: 1522231220.927,
     objectType: 'MPProjectInvitation'
@@ -1189,6 +1190,9 @@ test('project invitation', (t) => {
 
   const invalidObjectD = Object.assign({}, validObjectA);
   delete invalidObjectD.role;
+
+  const invalidObjectE = Object.assign({}, validObjectA);
+  delete invalidObjectE.isAccepted
 
   t.equals(
     validate(Object.assign({}, validObjectA)),
@@ -1233,4 +1237,9 @@ test('project invitation', (t) => {
     validate(Object.assign({}, invalidObjectD)),
     'should have required property \'role\''
   );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectE)),
+    'should have required property \'isAccepted\''
+  )
 });
