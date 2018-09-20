@@ -3,6 +3,9 @@ stages:
 - test
 - deploy
 
+before_script:
+  - npm config set //atypon-npm-registry.herokuapp.com/:_authToken ${ATYPON_REGISTRY_NPM_TOKEN}
+
 build:
   stage: build
   script:
