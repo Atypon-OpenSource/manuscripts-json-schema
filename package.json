@@ -12,6 +12,9 @@
     "prepare": "npm run build",
     "test": "npm run build && tape tests/*.js"
   },
+  "publishConfig": {
+    "@manuscripts:registry": "https://atypon-npm-registry.herokuapp.com/"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
