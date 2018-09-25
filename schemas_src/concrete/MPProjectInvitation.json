@@ -20,8 +20,8 @@
                 "projectTitle": {
                     "type": "string"
                 },
-                "isAccepted": {
-                    "type": "boolean"
+                "acceptedAt": {
+                    "$ref": "numbers.json#/definitions/timestamp"
                 },
                 "objectType": {
                     "type": "string",
@@ -30,8 +30,7 @@
             },
             "required": [
                 "projectID",
-                "role",
-                "isAccepted"
+                "role"
             ]
         }
     }
