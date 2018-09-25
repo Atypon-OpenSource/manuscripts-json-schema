@@ -1164,7 +1164,7 @@ test('project invitation', (t) => {
     projectTitle: 'Valid Project 2',
     invitedUserName: 'Valid User',
     role: 'Viewer',
-    isAccepted: false,
+    acceptedAt: 2000000000,
     message: 'Message',
     createdAt: 1522231220.927,
     objectType: 'MPProjectInvitation'
@@ -1192,7 +1192,7 @@ test('project invitation', (t) => {
   delete invalidObjectD.role;
 
   const invalidObjectE = Object.assign({}, validObjectA);
-  delete invalidObjectE.isAccepted
+  delete invalidObjectE.acceptedAt
 
   t.equals(
     validate(Object.assign({}, validObjectA)),
@@ -1219,6 +1219,12 @@ test('project invitation', (t) => {
   )
 
   t.equals(
+    validate(Object.assign({}, invalidObjectE)),
+    null,
+    'valid invitation without acceptedAt date passes'
+  )
+
+  t.equals(
     validate(Object.assign({}, invalidObjectA)),
     'should have required property \'invitedUserEmail\''
   );
@@ -1237,9 +1243,4 @@ test('project invitation', (t) => {
     validate(Object.assign({}, invalidObjectD)),
     'should have required property \'role\''
   );
-
-  t.equals(
-    validate(Object.assign({}, invalidObjectE)),
-    'should have required property \'isAccepted\''
-  )
 });
