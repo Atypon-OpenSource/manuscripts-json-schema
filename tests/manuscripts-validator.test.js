@@ -905,6 +905,71 @@ test('bibliography element', t => {
   );
 });
 
+test('figure element', t => {
+  t.plan(3);
+
+  const validObject = {
+    "containedObjectIDs": [
+      "MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F",
+    ],
+    "figureLayout": "",
+    "figureStyle": "MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303",
+    "objectType": "MPFigureElement",
+    "containerID": "MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC",
+    "elementType" : "figure",
+    "manuscriptID": "MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C",
+    "_id": "MPFigureElement:DF026E1B-394A-4A68-C761-9DB39349A714",
+    "label": "",
+    "suppressCaption": false,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { figureStyle: 'MPNotFigure:24421' })),
+    '.figureStyle: should match pattern "^MPFigureStyle"',
+    'invalid figureStyle id fails'
+  );
+
+  const { figureStyle, ...rest } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(rest),
+    null,
+    'empty figureStyle id passes'
+  );
+});
+
+test('list element', t => {
+  t.plan(2);
+
+  const validObject = {
+    "_id" : "MPListElement:3E3C0A32-431A-4E60-AE12-07B1317C952E",
+    "objectType": "MPListElement",
+    "elementType": "ul",
+    "paragraphStyle": "MPParagraphStyle:EB203751-238B-467A-A0A2-5BC6115FC960",
+    "contents" : "foo",
+    "containerID": "MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC",
+    "manuscriptID": "MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C"
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'foo' })),
+    '.elementType: should be equal to one of the allowed values',
+    'invalid elementType fails'
+  );
+});
+
 test('table element', t => {
   t.plan(3);
 

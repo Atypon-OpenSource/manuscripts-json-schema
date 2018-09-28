@@ -1,0 +1,45 @@
+{
+  "$id": "MPListElement.json",
+  "title": "ListElement",
+  "$mash": {
+    "sources": [
+      { "$ref": "concrete/MPParagraphElement.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPListElement" ]
+        },
+        "elementType": {
+          "type": "string",
+          "enum": [ "ul", "ol" ]
+        },
+        "listItemBulletStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPListItemBulletStyle"
+            }
+          ]
+        },
+        "listItemNumberingStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPNumberingStyle"
+            }
+          ]
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
