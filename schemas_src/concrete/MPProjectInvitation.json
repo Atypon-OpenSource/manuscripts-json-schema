@@ -20,6 +20,9 @@
                 "projectTitle": {
                     "type": "string"
                 },
+                "acceptedAt": {
+                    "$ref": "numbers.json#/definitions/timestamp"
+                },
                 "objectType": {
                     "type": "string",
                     "enum": [ "MPProjectInvitation" ]

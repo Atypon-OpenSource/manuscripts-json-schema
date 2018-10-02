@@ -905,6 +905,71 @@ test('bibliography element', t => {
   );
 });
 
+test('figure element', t => {
+  t.plan(3);
+
+  const validObject = {
+    "containedObjectIDs": [
+      "MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F",
+    ],
+    "figureLayout": "",
+    "figureStyle": "MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303",
+    "objectType": "MPFigureElement",
+    "containerID": "MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC",
+    "elementType" : "figure",
+    "manuscriptID": "MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C",
+    "_id": "MPFigureElement:DF026E1B-394A-4A68-C761-9DB39349A714",
+    "label": "",
+    "suppressCaption": false,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { figureStyle: 'MPNotFigure:24421' })),
+    '.figureStyle: should match pattern "^MPFigureStyle"',
+    'invalid figureStyle id fails'
+  );
+
+  const { figureStyle, ...rest } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(rest),
+    null,
+    'empty figureStyle id passes'
+  );
+});
+
+test('list element', t => {
+  t.plan(2);
+
+  const validObject = {
+    "_id" : "MPListElement:3E3C0A32-431A-4E60-AE12-07B1317C952E",
+    "objectType": "MPListElement",
+    "elementType": "ul",
+    "paragraphStyle": "MPParagraphStyle:EB203751-238B-467A-A0A2-5BC6115FC960",
+    "contents" : "foo",
+    "containerID": "MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC",
+    "manuscriptID": "MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C"
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'foo' })),
+    '.elementType: should be equal to one of the allowed values',
+    'invalid elementType fails'
+  );
+});
+
 test('table element', t => {
   t.plan(3);
 
@@ -1154,7 +1219,7 @@ test('invitation', (t) => {
 });
 
 test('project invitation', (t) => {
-  t.plan(8);
+  t.plan(9);
 
   const validObjectA = {
     _id: 'MPProjectInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
@@ -1164,6 +1229,7 @@ test('project invitation', (t) => {
     projectTitle: 'Valid Project 2',
     invitedUserName: 'Valid User',
     role: 'Viewer',
+    acceptedAt: 2000000000,
     message: 'Message',
     createdAt: 1522231220.927,
     objectType: 'MPProjectInvitation'
@@ -1190,6 +1256,9 @@ test('project invitation', (t) => {
   const invalidObjectD = Object.assign({}, validObjectA);
   delete invalidObjectD.role;
 
+  const invalidObjectE = Object.assign({}, validObjectA);
+  delete invalidObjectE.acceptedAt
+
   t.equals(
     validate(Object.assign({}, validObjectA)),
     null,
@@ -1212,6 +1281,12 @@ test('project invitation', (t) => {
     validate(Object.assign({}, validObjectD)),
     null,
     'valid invitation without invited user name'
+  )
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectE)),
+    null,
+    'valid invitation without acceptedAt date passes'
   )
 
   t.equals(

@@ -1,0 +1,32 @@
+{
+  "$id": "MPAuxiliaryElement.json",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPElement.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPAuxiliaryElement" ]
+        },
+        "suppressCaption": {
+          "type": "boolean"
+        },
+        "enclosedSeparately": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
