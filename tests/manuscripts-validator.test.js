@@ -381,7 +381,7 @@ test('citation', t => {
 });
 
 test('section', t => {
-  t.plan(2);
+  t.plan(4);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -401,6 +401,18 @@ test('section', t => {
     validate(Object.assign({}, validObject, { priority: 1 })),
     null,
     'valid priority passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { titleSuppressed: true })),
+    null,
+    'valid titleSuppressed passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { titleSuppressed: 1 })),
+    '.titleSuppressed: should be boolean',
+    'invalid titleSuppressed fails'
   );
 });
 
@@ -906,7 +918,7 @@ test('bibliography element', t => {
 });
 
 test('figure element', t => {
-  t.plan(3);
+  t.plan(4);
 
   const validObject = {
     "containedObjectIDs": [
@@ -933,6 +945,12 @@ test('figure element', t => {
     validate(Object.assign({}, validObject, { figureStyle: 'MPNotFigure:24421' })),
     '.figureStyle: should match pattern "^MPFigureStyle"',
     'invalid figureStyle id fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { suppressCaption: 1 })),
+    '.suppressCaption: should be boolean',
+    'invalid suppressCaption fails'
   );
 
   const { figureStyle, ...rest } = Object.assign({}, validObject)
@@ -971,7 +989,7 @@ test('list element', t => {
 });
 
 test('table element', t => {
-  t.plan(3);
+  t.plan(4);
 
   const validObject = {
     updatedAt : 1454537867.959872,
@@ -1007,6 +1025,12 @@ test('table element', t => {
     validate(Object.assign({}, validObject, { paragraphStyle: 'MPNotPara:24421' })),
     '.paragraphStyle: should match pattern "^MPParagraphStyle"',
     'invalid paragraphStyle id fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { suppressCaption: true })),
+    null,
+    'valid suppressCaption passes'
   );
 });
 

@@ -22,6 +22,9 @@
         "suppressHeader": {
           "type": "boolean"
         },
+        "suppressCaption": {
+          "type": "boolean"
+        },
         "tableStyle": {
           "allOf": [
             {
