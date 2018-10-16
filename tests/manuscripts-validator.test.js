@@ -54,13 +54,14 @@ test('border style', t => {
 });
 
 test('contributor', t => {
-  t.plan(5);
+  t.plan(6);
 
   const validObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002',
+    affiliations: ['MPAffiliation:X'],
     bibliographicName: {
       _id: 'MPBibliographicName:DEDDA223',
       objectType: 'MPBibliographicName'
@@ -74,6 +75,18 @@ test('contributor', t => {
     containerID: 'MPProject:2002'
   };
 
+  const objectWithBadAffiliations = {
+    _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
+    objectType: 'MPContributor',
+    manuscriptID: 'MPManuscript:1001',
+    containerID: 'MPProject:2002',
+    affiliations: [{'_id': 'MPAffiliation', 'objectType': 'MPAffiliation'}],
+    bibliographicName: {
+      _id: 'MPBibliographicName:DEDDA223',
+      objectType: 'MPBibliographicName'
+    }
+  };
+
   t.equals(
     validate(Object.assign({}, validObject)),
     null,
@@ -83,6 +96,12 @@ test('contributor', t => {
   t.equals(
     validate(Object.assign({}, namelessObject)),
     'should have required property \'bibliographicName\'',
+    'valid MPContributor passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, objectWithBadAffiliations)),
+    '.affiliations[0]: should be string',
     'valid MPContributor passes'
   );
 
