@@ -828,23 +828,45 @@ test('bundle', t => {
 });
 
 test('_revisions property', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     updatedAt : 1454537867.959872,
     objectType : 'MPBibliographyElement',
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
-    elementType : 'table',
+    elementType : 'p',
     manuscriptID: 'MPManuscript:zorb',
     createdAt : 1454394584,
     containerID: 'MPProject:potato'
   };
 
+  const validObjectB = Object.assign(Object.assign({}, validObject), {'elementType': 'div'})
+  const validObjectC = Object.assign(Object.assign({}, validObject), {'elementType': 'table'})
+  const invalidObject = Object.assign(Object.assign({}, validObject), {'elementType': 'img'})
+
   t.equals(
     validate(Object.assign({}, validObject)),
     null,
     'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObjectB)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObjectC)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObject)),
+    '.elementType: should be equal to one of the allowed values',
+    'invalid object does not pass'
   );
 
   t.equals(
