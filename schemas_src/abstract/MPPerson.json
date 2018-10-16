@@ -49,7 +49,7 @@
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }
       },
-      "required": []
+      "required": ["bibliographicName"]
     }
   }
 }
