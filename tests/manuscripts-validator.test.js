@@ -54,9 +54,20 @@ test('border style', t => {
 });
 
 test('contributor', t => {
-  t.plan(4);
+  t.plan(5);
 
   const validObject = {
+    _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
+    objectType: 'MPContributor',
+    manuscriptID: 'MPManuscript:1001',
+    containerID: 'MPProject:2002',
+    bibliographicName: {
+      _id: 'MPBibliographicName:DEDDA223',
+      objectType: 'MPBibliographicName'
+    }
+  };
+
+  const namelessObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
     manuscriptID: 'MPManuscript:1001',
@@ -66,6 +77,12 @@ test('contributor', t => {
   t.equals(
     validate(Object.assign({}, validObject)),
     null,
+    'valid MPContributor passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, namelessObject)),
+    'should have required property \'bibliographicName\'',
     'valid MPContributor passes'
   );
 
