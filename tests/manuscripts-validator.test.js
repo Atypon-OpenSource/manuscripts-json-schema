@@ -459,11 +459,12 @@ test('section', t => {
 });
 
 test('keywords', t => {
-  t.plan(3);
+  t.plan(4);
 
   const validObject = {
     _id: 'MPKeyword:231123-1233123-12331312',
     objectType: 'MPKeyword',
+    containerID: 'MPProject:124123',
     name: 'foo'
   };
 
@@ -474,9 +475,22 @@ test('keywords', t => {
   );
 
   t.equals(
-    validate({ _id: 'MPKeyword:231123-1233123-12331312', objectType: 'MPKeyword' }),
+    validate({
+      _id: 'MPKeyword:231123-1233123-12331312',
+      objectType: 'MPKeyword',
+      containerID: 'MPProject:124123',
+    }),
     'should have required property \'name\'',
     'fails without name'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPKeyword:231123-1233123-12331312',
+      objectType: 'MPKeyword'
+    }),
+    'should have required property \'containerID\'',
+    'fails without containerID'
   );
 
   t.equals(
@@ -490,8 +504,9 @@ test('research fields', t => {
   t.plan(3);
 
   const validObject = {
-    _id: 'MPKeyword:231123-1233123-12331312',
-    objectType: 'MPKeyword',
+    _id: 'MPResearchField:231123-1233123-12331312',
+    containerID: 'MPProject:123123123-3122312',
+    objectType: 'MPResearchField',
     name: 'foo'
   };
 
@@ -502,7 +517,11 @@ test('research fields', t => {
   );
 
   t.equals(
-    validate({ _id: 'MPKeyword:231123-1233123-12331312', objectType: 'MPKeyword' }),
+    validate({
+      _id: 'MPResearchField:231123-1233123-12331312',
+      containerID: 'MPProject:123123123-3122312',
+      objectType: 'MPResearchField'
+    }),
     'should have required property \'name\'',
     'fails without name'
   );
