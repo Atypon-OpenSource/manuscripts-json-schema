@@ -1337,6 +1337,56 @@ test('_attachments property', t => {
   );
 });
 
+test('inline math fragment', (t) => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPInlineMathFragment:foo',
+    objectType: 'MPInlineMathFragment',
+    containerID: 'MPProject:bar',
+    containingObject: 'MPParagraphElement:baz',
+    TeXRepresentation: '{}'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid InlineMathFragment passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      SVGRepresentation: '<>'
+    })),
+    null,
+    'SVGRepresentation permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      MathMLRepresentation: '()'
+    })),
+    null,
+    'MathMLRepresentation permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      SVGGlyphs: '<>'
+    })),
+    null,
+    'SVGGlyphs permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      OMMLRepresentation: '-'
+    })),
+    null,
+    'OMMLRepresentation permitted'
+  );
+});
+
 test('invitation', (t) => {
   t.plan(4);
 
@@ -1379,7 +1429,6 @@ test('invitation', (t) => {
     validate(Object.assign({}, invalidObjectB)),
     'should have required property \'invitingUserID\''
   );
-
 });
 
 test('project invitation', (t) => {
