@@ -1078,6 +1078,41 @@ test('equation element', t => {
   );
 });
 
+test('footnotes element', t => {
+  t.plan(3);
+
+  const validObject = {
+    objectType : 'MPFootnotesElement',
+    _id : 'MPFootnotesElement:E3391685EDA9',
+    elementType : 'p',
+    contents : 'Foo',
+    manuscriptID: 'MPManuscript:zorb',
+    containerID: 'MPProject:potato'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { collateByKind: 'MPFootnoteKindFootnote' })),
+    null,
+    'collateByKind permitted'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.contents
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contents\'',
+    'contents required'
+  );
+});
+
 test('figure element', t => {
   t.plan(4);
 
