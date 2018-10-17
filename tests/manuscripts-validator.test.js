@@ -96,6 +96,12 @@ test('contributor', t => {
   );
 
   t.equals(
+    validate(Object.assign({}, validObject, { priority: 1 })),
+    null,
+    'valid priority passes'
+  );
+
+  t.equals(
     validate(Object.assign({}, namelessObject)),
     'should have required property \'bibliographicName\'',
     'valid MPContributor passes'
@@ -138,16 +144,6 @@ test('contributor', t => {
     })),
     null,
     'valid MPContributor passes'
-  );
-
-  const invalidObject = Object.assign({}, validObject)
-
-  delete invalidObject.priority
-
-  t.equals(
-    validate(invalidObject),
-    null,
-    'missing priority passes'
   );
 });
 
