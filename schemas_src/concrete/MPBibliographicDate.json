@@ -26,9 +26,16 @@
           "maxItems": 2
         },
         "season": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 4
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 4
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "circa": {
           "type": "boolean"
