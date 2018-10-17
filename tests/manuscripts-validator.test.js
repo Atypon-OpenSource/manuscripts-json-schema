@@ -228,7 +228,7 @@ test('bibliography item', t => {
 });
 
 test('bibliography date', t => {
-  t.plan(11);
+  t.plan(12);
 
   const validObject = {
     'date-parts': [ ],
@@ -270,6 +270,12 @@ test('bibliography date', t => {
     validate(Object.assign({}, validObject, { season: 1337 })),
     '.season: should be <= 4',
     'invalid season fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { season: 'season-01' })),
+    null,
+    'valid season passes'
   );
 
   t.equals(
