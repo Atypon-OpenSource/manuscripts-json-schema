@@ -1042,6 +1042,35 @@ test('bibliography element', t => {
   );
 });
 
+test('toc element', t => {
+  t.plan(2);
+
+  const validObject = {
+    objectType : 'MPTOCElement',
+    _id : 'MPTOCElement:E3391685EDA9',
+    elementType : 'p',
+    contents: 'Foo',
+    manuscriptID: 'MPManuscript:zorb',
+    containerID: 'MPProject:potato'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.contents
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contents\'',
+    'contents required'
+  );
+});
+
 test('listing element', t => {
   t.plan(3);
 
