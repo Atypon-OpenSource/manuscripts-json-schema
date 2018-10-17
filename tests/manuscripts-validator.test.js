@@ -58,7 +58,6 @@ test('contributor', t => {
 
   const validObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
-    priority: 1,
     objectType: 'MPContributor',
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002',
@@ -147,8 +146,8 @@ test('contributor', t => {
 
   t.equals(
     validate(invalidObject),
-    'should have required property \'priority\'',
-    'missing priority fails'
+    null,
+    'missing priority passes'
   );
 });
 
