@@ -1042,6 +1042,42 @@ test('bibliography element', t => {
   );
 });
 
+test('equation element', t => {
+  t.plan(3);
+
+  const validObject = {
+    objectType : 'MPEquationElement',
+    _id : 'MPEquationElement:E3391685EDA9',
+    elementType : 'p',
+    caption : 'An example equation.',
+    manuscriptID: 'MPManuscript:zorb',
+    containedObjectID : 'MPBar:100',
+    containerID: 'MPProject:potato'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { suppressCaption: true })),
+    null,
+    'suppressCaption bool permitted'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.caption
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'caption\'',
+    'caption required'
+  );
+});
+
 test('figure element', t => {
   t.plan(4);
 
