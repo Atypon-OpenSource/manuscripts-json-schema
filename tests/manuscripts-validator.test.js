@@ -1338,7 +1338,7 @@ test('_attachments property', t => {
 });
 
 test('inline math fragment', (t) => {
-  t.plan(5);
+  t.plan(6);
 
   const validObject = {
     _id: 'MPInlineMathFragment:foo',
@@ -1352,6 +1352,16 @@ test('inline math fragment', (t) => {
     validate(Object.assign({}, validObject)),
     null,
     'valid InlineMathFragment passes'
+  );
+
+  const invalidObject = Object.assign({}, validObject)
+
+  delete invalidObject.TeXRepresentation
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'TeXRepresentation\'',
+    'fails if TeXRepresentation is missing'
   );
 
   t.equals(
