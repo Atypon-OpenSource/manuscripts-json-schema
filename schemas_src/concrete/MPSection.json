@@ -42,7 +42,8 @@
         }
       },
       "required": [
-        "path"
+        "path",
+        "priority"
       ]
     }
   }

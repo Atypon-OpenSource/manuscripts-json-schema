@@ -54,10 +54,11 @@ test('border style', t => {
 });
 
 test('contributor', t => {
-  t.plan(6);
+  t.plan(7);
 
   const validObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
+    priority: 1,
     objectType: 'MPContributor',
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002',
@@ -71,6 +72,7 @@ test('contributor', t => {
   const namelessObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
+    priority: 1,
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002'
   };
@@ -80,6 +82,7 @@ test('contributor', t => {
     objectType: 'MPContributor',
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002',
+    priority: 1,
     affiliations: [{'_id': 'MPAffiliation', 'objectType': 'MPAffiliation'}],
     bibliographicName: {
       _id: 'MPBibliographicName:DEDDA223',
@@ -137,6 +140,16 @@ test('contributor', t => {
     null,
     'valid MPContributor passes'
   );
+
+  const invalidObject = Object.assign({}, validObject)
+
+  delete invalidObject.priority
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'priority\'',
+    'missing priority fails'
+  );
 });
 
 test('preferences', t => {
@@ -165,6 +178,24 @@ test('preferences', t => {
     })),
     null,
     'valid MPPreferences with nested object passes'
+  );
+});
+
+test('affiliation', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPAffiliation:231123-1233123-12331312',
+    objectType: 'MPAffiliation',
+    containerID: 'MPProject:foo-bar-baz',
+    manuscriptID: 'MPManuscript:23111',
+    priority: 1
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
   );
 });
 
@@ -423,13 +454,14 @@ test('citation', t => {
 });
 
 test('section', t => {
-  t.plan(4);
+  t.plan(5);
 
   const validObject = {
     _id: 'MPSection:bar',
     objectType: 'MPSection',
     manuscriptID: 'MPManuscript:zorb',
     containerID: 'MPProject:foobar',
+    priority: 3,
     path: []
   };
 
@@ -440,9 +472,9 @@ test('section', t => {
   );
 
   t.equals(
-    validate(Object.assign({}, validObject, { priority: 1 })),
-    null,
-    'valid priority passes'
+    validate(Object.assign({}, validObject, { priority: '1', })),
+    '.priority: should be integer',
+    'invalid priority fails'
   );
 
   t.equals(
@@ -455,6 +487,16 @@ test('section', t => {
     validate(Object.assign({}, validObject, { titleSuppressed: 1 })),
     '.titleSuppressed: should be boolean',
     'invalid titleSuppressed fails'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.priority
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'priority\'',
+    'missing priority fails'
   );
 });
 
