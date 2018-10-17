@@ -1047,7 +1047,7 @@ test('list element', t => {
 });
 
 test('table element', t => {
-  t.plan(4);
+  t.plan(6);
 
   const validObject = {
     updatedAt : 1454537867.959872,
@@ -1063,8 +1063,7 @@ test('table element', t => {
     paragraphStyle : 'MPParagraphStyle:655CA525-623F-40CD-915E-9FB3BDFB833B',
     createdAt : 1454394584,
     containerID: 'MPProject:potato',
-    // containedObjectID : 'MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864',
-    // collection : 'elements'
+    containedObjectID : 'MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864',
   };
 
   t.equals(
@@ -1089,6 +1088,22 @@ test('table element', t => {
     validate(Object.assign({}, validObject, { suppressCaption: true })),
     null,
     'valid suppressCaption passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { containedObjectID: '2424-4224' })),
+    '.containedObjectID: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'invalid containedObjectID fails'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.containedObjectID;
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'containedObjectID\'',
+    'missing containedObjectID fails'
   );
 });
 
