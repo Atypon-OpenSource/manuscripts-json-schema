@@ -58,8 +58,7 @@
         "jointContributorGroup": { "type": "number" }
       },
       "required": [
-        "bibliographicName",
-        "priority"
+        "bibliographicName"
       ]
     }
   }
