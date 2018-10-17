@@ -786,7 +786,7 @@ test('containerID property', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { containerID: 'MPPotato:1000' })),
-    '.containerID: should match pattern "^MPProject"',
+    '.containerID: should match pattern "^(MPProject|MPLibrary)"',
     'invalid containerID fails'
   );
 });
