@@ -57,7 +57,10 @@
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }
       },
-      "required": ["bibliographicName"]
+      "required": [
+        "bibliographicName",
+        "priority"
+      ]
     }
   }
 }
