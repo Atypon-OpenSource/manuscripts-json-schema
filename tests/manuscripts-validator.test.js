@@ -1042,6 +1042,42 @@ test('bibliography element', t => {
   );
 });
 
+test('listing element', t => {
+  t.plan(3);
+
+  const validObject = {
+    objectType : 'MPListingElement',
+    _id : 'MPListingElement:E3391685EDA9',
+    elementType : 'figure',
+    caption : 'An example listing.',
+    manuscriptID: 'MPManuscript:zorb',
+    containedObjectID : 'MPBar:100',
+    containerID: 'MPProject:potato'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'h1' })),
+    '.elementType: should be equal to one of the allowed values',
+    'invalid elementType'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.caption
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'caption\'',
+    'caption required'
+  );
+});
+
 test('equation element', t => {
   t.plan(3);
 
