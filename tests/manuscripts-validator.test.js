@@ -1496,6 +1496,26 @@ test('equation', (t) => {
   );
 });
 
+test('footnote', (t) => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPFootnote:foo',
+    objectType: 'MPFootnote',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'foo',
+    containingObject: 'MPFo:1o'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Footnote passes'
+  );
+});
+
+
 test('listing', (t) => {
   t.plan(2);
 
