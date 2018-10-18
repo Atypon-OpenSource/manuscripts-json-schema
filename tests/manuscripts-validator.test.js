@@ -1548,6 +1548,32 @@ test('table', (t) => {
   );
 });
 
+test('figure', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPFigure:foo',
+    objectType: 'MPFigure',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contentType: 'bar'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Figure passes'
+  );
+
+  const { contentType, ...invalidObject } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contentType\'',
+    'contentType is required'
+  );
+});
+
 test('inline math fragment', (t) => {
   t.plan(6);
 
