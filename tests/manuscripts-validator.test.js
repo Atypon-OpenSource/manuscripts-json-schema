@@ -1468,6 +1468,132 @@ test('_attachments property', t => {
   );
 });
 
+test('equation', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPEquation:foo',
+    objectType: 'MPEquation',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    TeXRepresentation: '{}'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Equation passes'
+  );
+
+  const invalidObject = Object.assign({}, validObject)
+
+  delete invalidObject.TeXRepresentation
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'TeXRepresentation\'',
+    'fails if TeXRepresentation is missing'
+  );
+});
+
+test('footnote', (t) => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPFootnote:foo',
+    objectType: 'MPFootnote',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'foo',
+    containingObject: 'MPFo:1o'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Footnote passes'
+  );
+});
+
+
+test('listing', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPListing:foo',
+    objectType: 'MPListing',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'foo',
+    language: 'teascript',
+    languageKey: 'obj-t'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Listing passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { title: 'Great code' })),
+    null,
+    'title is optional'
+  );
+});
+
+test('table', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPTable:foo',
+    objectType: 'MPTable',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'bar'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Table passes'
+  );
+
+  const { contents, ...invalidObject } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contents\'',
+    'contents is required'
+  );
+});
+
+test('figure', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPFigure:foo',
+    objectType: 'MPFigure',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contentType: 'bar'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Figure passes'
+  );
+
+  const { contentType, ...invalidObject } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contentType\'',
+    'contentType is required'
+  );
+});
+
 test('inline math fragment', (t) => {
   t.plan(6);
 

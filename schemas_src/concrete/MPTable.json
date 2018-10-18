@@ -1,0 +1,26 @@
+{
+  "$id": "MPTable.json",
+  "title": "Table",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPTable" ]
+        },
+        "contents": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contents"
+      ]
+    }
+  }
+}

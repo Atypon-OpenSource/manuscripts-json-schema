@@ -1,0 +1,38 @@
+{
+  "$id": "MPEquation.json",
+  "title": "Equation",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPEquation" ]
+        },
+        "TeXRepresentation": {
+          "type": "string"
+        },
+        "SVGStringRepresentation": {
+          "type": "string"
+        },
+        "MathMLStringRepresentation": {
+          "type": "string"
+        },
+        "OMMLRepresentation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "TeXRepresentation"
+      ]
+    }
+  }
+}
