@@ -1522,6 +1522,32 @@ test('listing', (t) => {
   );
 });
 
+test('table', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPTable:foo',
+    objectType: 'MPTable',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'bar'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Table passes'
+  );
+
+  const { contents, ...invalidObject } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contents\'',
+    'contents is required'
+  );
+});
+
 test('inline math fragment', (t) => {
   t.plan(6);
 
