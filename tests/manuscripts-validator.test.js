@@ -1468,6 +1468,34 @@ test('_attachments property', t => {
   );
 });
 
+test('equation', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPEquation:foo',
+    objectType: 'MPEquation',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    TeXRepresentation: '{}'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Equation passes'
+  );
+
+  const invalidObject = Object.assign({}, validObject)
+
+  delete invalidObject.TeXRepresentation
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'TeXRepresentation\'',
+    'fails if TeXRepresentation is missing'
+  );
+});
+
 test('inline math fragment', (t) => {
   t.plan(6);
 
