@@ -1496,6 +1496,32 @@ test('equation', (t) => {
   );
 });
 
+test('listing', (t) => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPListing:foo',
+    objectType: 'MPListing',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'foo',
+    language: 'teascript',
+    languageKey: 'obj-t'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid Listing passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { title: 'Great code' })),
+    null,
+    'title is optional'
+  );
+});
+
 test('inline math fragment', (t) => {
   t.plan(6);
 
