@@ -15,9 +15,7 @@
           "enum": [ "MPTOCElement" ]
         }
       },
-      "required": [
-        "contents"
-      ]
+      "required": []
     }
   }
 }

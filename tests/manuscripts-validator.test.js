@@ -931,6 +931,7 @@ test('_revisions property', t => {
   const validObject = {
     updatedAt : 1454537867.959872,
     objectType : 'MPBibliographyElement',
+    contents: 'foo',
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
     elementType : 'p',
@@ -1012,6 +1013,7 @@ test('bibliography element', t => {
     objectType : 'MPBibliographyElement',
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
+    contents: 'foo',
     elementType : 'table',
     manuscriptID: 'MPManuscript:zorb',
     createdAt : 1454394584,
