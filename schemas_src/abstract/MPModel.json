@@ -22,7 +22,10 @@
           }
         }
       },
-      "required": [ ]
+      "required": [
+        "createdAt",
+        "updatedAt"
+      ]
     }
   }
 }

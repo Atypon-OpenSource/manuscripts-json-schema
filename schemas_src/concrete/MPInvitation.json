@@ -17,9 +17,6 @@
                 "message": {
                     "type": "string"
                 },
-                "createdAt": {
-                    "$ref": "numbers.json#/definitions/timestamp"
-                },
                 "objectType": {
                     "type": "string",
                     "enum": [ "MPInvitation" ]
@@ -27,8 +24,7 @@
             },
             "required": [
                 "invitingUserID",
-                "invitedUserEmail",
-                "createdAt"
+                "invitedUserEmail"
             ]
         }
     }
