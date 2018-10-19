@@ -608,6 +608,9 @@ test('_deleted property', t => {
   const validObject = {
     _id: 'MPResearchField:231123-1233123-12331312',
     _deleted: true,
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     containerID: 'MPProject:123123123-3122312',
     objectType: 'MPResearchField',
     name: 'foo'
