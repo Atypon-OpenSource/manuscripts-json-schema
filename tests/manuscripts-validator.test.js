@@ -570,6 +570,24 @@ test('research fields', t => {
   );
 });
 
+test('_deleted property', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPResearchField:231123-1233123-12331312',
+    _deleted: true,
+    containerID: 'MPProject:123123123-3122312',
+    objectType: 'MPResearchField',
+    name: 'foo'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
 test('keyword ids', t => {
   t.plan(4);
   const validObject = {
