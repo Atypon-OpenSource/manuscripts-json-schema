@@ -25,7 +25,10 @@
           }
         }
       },
-      "required": [ ]
+      "required": [
+        "createdAt",
+        "updatedAt"
+      ]
     }
   }
 }

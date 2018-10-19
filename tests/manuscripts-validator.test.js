@@ -61,6 +61,9 @@ test('contributor', t => {
     objectType: 'MPContributor',
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     affiliations: ['MPAffiliation:X'],
     bibliographicName: {
       _id: 'MPBibliographicName:DEDDA223',
@@ -71,6 +74,9 @@ test('contributor', t => {
   const namelessObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     priority: 1,
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002'
@@ -79,6 +85,9 @@ test('contributor', t => {
   const objectWithBadAffiliations = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     objectType: 'MPContributor',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     manuscriptID: 'MPManuscript:1001',
     containerID: 'MPProject:2002',
     priority: 1,
@@ -152,6 +161,9 @@ test('preferences', t => {
 
   const validObject = {
     _id: "MPPreferences:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     objectType: "MPPreferences"
   };
 
@@ -183,6 +195,9 @@ test('affiliation', t => {
     _id: 'MPAffiliation:231123-1233123-12331312',
     objectType: 'MPAffiliation',
     containerID: 'MPProject:foo-bar-baz',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     manuscriptID: 'MPManuscript:23111',
     priority: 1
   };
@@ -200,6 +215,9 @@ test('bibliography item', t => {
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
     objectType: 'MPBibliographyItem',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     containerID: 'MPProject:foo-bar-baz',
     type: 'article'
   };
@@ -237,6 +255,9 @@ test('bibliography item', t => {
   const validDate = {
     'date-parts': [ ],
     _id: 'MPBibliographicDate:food',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     objectType: 'MPBibliographicDate'
   }
 
@@ -259,6 +280,9 @@ test('bibliography date', t => {
   const validObject = {
     'date-parts': [ ],
     _id: 'MPBibliographicDate:food',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     objectType: 'MPBibliographicDate'
   };
 
@@ -405,6 +429,9 @@ test('citation', t => {
   const validObject = {
     _id: 'MPCitation:baz',
     manuscriptID: 'MPManuscript:foo',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     containerID: 'MPProject:bar',
     objectType: 'MPCitation'
   };
@@ -456,6 +483,9 @@ test('section', t => {
     objectType: 'MPSection',
     manuscriptID: 'MPManuscript:zorb',
     containerID: 'MPProject:foobar',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     priority: 3,
     path: []
   };
@@ -502,6 +532,9 @@ test('keywords', t => {
     _id: 'MPKeyword:231123-1233123-12331312',
     objectType: 'MPKeyword',
     containerID: 'MPProject:124123',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     name: 'foo'
   };
 
@@ -511,12 +544,10 @@ test('keywords', t => {
     'valid object passes'
   );
 
+  const { name, ...invalidObject } = Object.assign({}, validObject)
+
   t.equals(
-    validate({
-      _id: 'MPKeyword:231123-1233123-12331312',
-      objectType: 'MPKeyword',
-      containerID: 'MPProject:124123',
-    }),
+    validate(invalidObject),
     'should have required property \'name\'',
     'fails without name'
   );
@@ -543,6 +574,9 @@ test('research fields', t => {
   const validObject = {
     _id: 'MPResearchField:231123-1233123-12331312',
     containerID: 'MPProject:123123123-3122312',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     objectType: 'MPResearchField',
     name: 'foo'
   };
@@ -553,12 +587,10 @@ test('research fields', t => {
     'valid object passes'
   );
 
+  const { name, ...invalidObject } = Object.assign({}, validObject)
+
   t.equals(
-    validate({
-      _id: 'MPResearchField:231123-1233123-12331312',
-      containerID: 'MPProject:123123123-3122312',
-      objectType: 'MPResearchField'
-    }),
+    validate(invalidObject),
     'should have required property \'name\'',
     'fails without name'
   );
@@ -637,6 +669,9 @@ test('color', t => {
     "objectType" : "MPColor",
     "containerID" : "MPProject:foo-bar-baz",
     "_rev" : "1-ad1185e0dd0e339d830af9c082b2e052",
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     "title" : "Red",
     "updatedAt" : 1515494608.340721,
     "manuscriptID": "MPManuscript:zorb",
@@ -659,6 +694,9 @@ test('project', t => {
     validate({
       objectType : 'MPProject',
       _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
       owners : [],
       writers : [],
       viewers : []
@@ -671,6 +709,9 @@ test('project', t => {
     validate({
       objectType : 'MPProject',
       _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
       owners : [],
       viewers : []
     }),
@@ -682,6 +723,9 @@ test('project', t => {
     validate({
       objectType : 'MPProject',
       _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
       owners : [],
       writers : 'foo',
       viewers : []
@@ -694,6 +738,9 @@ test('project', t => {
     validate({
       objectType : 'MPProject',
       _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
       owners : [],
       writers : ['Foo'],
       viewers : []
@@ -706,6 +753,9 @@ test('project', t => {
     validate({
       objectType : 'MPProject',
       _id : 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
       owners : [],
       writers : ['User_Foo'],
       viewers : []
@@ -760,8 +810,6 @@ test('error messages', t => {
 
   const validObject = {
     _id: 'MPNumberingStyle:231123-1233123-12331312',
-    containerID : "MPProject:foo-bar-baz",
-    manuscriptID: 'MPManuscript:zorb',
     objectType: 'MPNumberingStyle',
     startIndex: 1
   };
@@ -777,11 +825,16 @@ test('_id property', t => {
   t.plan(3);
 
   const validObject = {
-    _id: 'MPNumberingStyle:231123-1233123-12331312',
-    objectType: 'MPNumberingStyle',
+    objectType : 'MPTOCElement',
+    _id : 'MPTOCElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     containerID : "MPProject:foo-bar-baz",
     manuscriptID: 'MPManuscript:zorb',
-    startIndex: 1
+    elementType : 'p',
+    contents: 'Foo',
+    manuscriptID: 'MPManuscript:potato'
   };
 
   t.equals(
@@ -793,7 +846,7 @@ test('_id property', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        _id: 'MPNumberingStyle:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A'
+        _id: 'MPTOCElement:Z5326C7B-836D-4D6C-81EB-7E6CA6153E9A'
       })
     ),
     null,
@@ -803,7 +856,7 @@ test('_id property', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        _id: 'MPNumberingStyle:biology'
+        _id: 'MPTOCElement:biology'
       })
     ),
     null,
@@ -815,10 +868,14 @@ test('containerID property', t => {
   t.plan(4);
 
   const validObject = {
-    _id: 'MPNumberingStyle:231123-1233123-12331312',
-    objectType: 'MPNumberingStyle',
-    startIndex: 1,
-    manuscriptID: 'MPManuscript:zorb'
+    objectType : 'MPTOCElement',
+    _id : 'MPTOCElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+    elementType : 'p',
+    contents: 'Foo',
+    manuscriptID: 'MPManuscript:potato'
   };
 
   t.equals(
@@ -850,10 +907,14 @@ test('manuscript property', t => {
   t.plan(4);
 
   const validObject = {
-    _id: 'MPNumberingStyle:231123-1233123-12331312',
-    objectType: 'MPNumberingStyle',
-    startIndex: 1,
-    containerID: 'MPProject:foo'
+    objectType : 'MPTOCElement',
+    _id : 'MPTOCElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+    elementType : 'p',
+    contents: 'Foo',
+    containerID: 'MPProject:potato'
   };
 
   t.equals(
@@ -886,6 +947,8 @@ test('bundle', t => {
 
   const validObject = {
     _id: 'MPBundle:www-zotero-org-styles-rare-metals',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     scimago: {
       t: 'Rare Metals',
       I: '10010521',
@@ -952,15 +1015,18 @@ test('_revisions property', t => {
     contents: 'foo',
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     elementType : 'p',
     manuscriptID: 'MPManuscript:zorb',
     createdAt : 1454394584,
     containerID: 'MPProject:potato'
   };
 
-  const validObjectB = Object.assign(Object.assign({}, validObject), {'elementType': 'div'})
-  const validObjectC = Object.assign(Object.assign({}, validObject), {'elementType': 'table'})
-  const invalidObject = Object.assign(Object.assign({}, validObject), {'elementType': 'img'})
+  const validObjectB = Object.assign({}, validObject, {'elementType': 'div'})
+  const validObjectC = Object.assign({}, validObject, {'elementType': 'table'})
+  const invalidObject = Object.assign({}, validObject, {'elementType': 'img'})
 
   t.equals(
     validate(Object.assign({}, validObject)),
@@ -1030,6 +1096,7 @@ test('bibliography element', t => {
     updatedAt : 1454537867.959872,
     objectType : 'MPBibliographyElement',
     _rev : '3-5a3d94454953b3092e0cc41ed645621a',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
     _id : 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
     contents: 'foo',
     elementType : 'table',
@@ -1063,6 +1130,9 @@ test('toc element', t => {
   const validObject = {
     objectType : 'MPTOCElement',
     _id : 'MPTOCElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     elementType : 'p',
     contents: 'Foo',
     manuscriptID: 'MPManuscript:zorb',
@@ -1092,6 +1162,9 @@ test('listing element', t => {
   const validObject = {
     objectType : 'MPListingElement',
     _id : 'MPListingElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     elementType : 'figure',
     caption : 'An example listing.',
     manuscriptID: 'MPManuscript:zorb',
@@ -1128,6 +1201,9 @@ test('equation element', t => {
   const validObject = {
     objectType : 'MPEquationElement',
     _id : 'MPEquationElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     elementType : 'p',
     caption : 'An example equation.',
     manuscriptID: 'MPManuscript:zorb',
@@ -1164,6 +1240,9 @@ test('footnotes element', t => {
   const validObject = {
     objectType : 'MPFootnotesElement',
     _id : 'MPFootnotesElement:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     elementType : 'p',
     contents : 'Foo',
     manuscriptID: 'MPManuscript:zorb',
@@ -1202,6 +1281,9 @@ test('figure element', t => {
     ],
     "figureLayout": "",
     "figureStyle": "MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303",
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     "objectType": "MPFigureElement",
     "containerID": "MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC",
     "elementType" : "figure",
@@ -1244,6 +1326,9 @@ test('list element', t => {
   const validObject = {
     "_id" : "MPListElement:3E3C0A32-431A-4E60-AE12-07B1317C952E",
     "objectType": "MPListElement",
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
     "elementType": "ul",
     "paragraphStyle": "MPParagraphStyle:EB203751-238B-467A-A0A2-5BC6115FC960",
     "contents" : "foo",
@@ -1330,6 +1415,8 @@ test('manuscript bitmask', t => {
 
   const validObject = {
     _id: 'MPManuscript:231123-1233123-12331312',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
     objectType: 'MPManuscript',
     containerID: 'MPProject:baz',
     figureElementNumberingScheme: '',
@@ -1398,6 +1485,9 @@ test('_attachments property', t => {
 
   const validObject = {
     _id: 'MPManuscriptCategory:231123-1233123-12331312',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
     objectType: 'MPManuscriptCategory',
     containerID: 'MPProject:baz',
     name: 'foo'
@@ -1493,6 +1583,9 @@ test('equation', (t) => {
 
   const validObject = {
     _id: 'MPEquation:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
     objectType: 'MPEquation',
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
@@ -1521,6 +1614,9 @@ test('footnote', (t) => {
 
   const validObject = {
     _id: 'MPFootnote:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
     objectType: 'MPFootnote',
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
@@ -1541,6 +1637,9 @@ test('listing', (t) => {
 
   const validObject = {
     _id: 'MPListing:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
     objectType: 'MPListing',
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
@@ -1567,6 +1666,9 @@ test('table', (t) => {
 
   const validObject = {
     _id: 'MPTable:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
     objectType: 'MPTable',
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
@@ -1593,6 +1695,9 @@ test('figure', (t) => {
 
   const validObject = {
     _id: 'MPFigure:foo',
+    sessionID: '3123123-123123-123DDA',
+    updatedAt: 213123123.1,
+    createdAt: 213123123.1,
     objectType: 'MPFigure',
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
@@ -1619,6 +1724,8 @@ test('inline math fragment', (t) => {
 
   const validObject = {
     _id: 'MPInlineMathFragment:foo',
+    createdAt: 12312312.1,
+    updatedAt: 12312312.1,
     objectType: 'MPInlineMathFragment',
     containerID: 'MPProject:bar',
     containingObject: 'MPParagraphElement:baz',
@@ -1683,6 +1790,7 @@ test('invitation', (t) => {
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
     message: 'Message',
     createdAt: 1522231220.927,
+    updatedAt: 1522231220.927,
     objectType: 'MPInvitation'
   };
 
@@ -1732,6 +1840,7 @@ test('project invitation', (t) => {
     acceptedAt: 2000000000,
     message: 'Message',
     createdAt: 1522231220.927,
+    updatedAt: 1522231220.927,
     objectType: 'MPProjectInvitation'
   };
 
