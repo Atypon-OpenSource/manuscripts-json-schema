@@ -35,7 +35,15 @@
         "affiliations": {
           "type": "array",
           "items": {
-            "$ref": "MPAffiliation.json#"
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^MPAffiliation"
+              }
+            ]
           },
           "additionalItems": false
         },
@@ -49,7 +57,9 @@
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }
       },
-      "required": []
+      "required": [
+        "bibliographicName"
+      ]
     }
   }
 }

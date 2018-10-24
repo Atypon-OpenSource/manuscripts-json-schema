@@ -21,11 +21,13 @@ function validate(obj) {
 test('library', t => {
   t.plan(2);
   const validObject = {
-    "updatedAt" : 1515494608.245375,
-    "objectType" : "MPLibrary",
-    "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
-    "_id" : "MPLibrary:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
-    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
+    updatedAt : 1515494608.245375,
+    objectType : "MPLibrary",
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    _rev : "1-cf3758c6a77c031dcd8f617087c7493d",
+    _id : "MPLibrary:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    sessionID : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
   };
 
   t.equals(
@@ -48,6 +50,9 @@ test('bibliography item', t => {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
     objectType: 'MPBibliographyItem',
     containerID: 'MPLibrary:foo-bar-baz',
+    sessionID : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     type: 'article'
   };
 
@@ -83,6 +88,9 @@ test('bibliography item', t => {
 
   const validDate = {
     'date-parts': [ ],
+    sessionID : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
     _id: 'MPBibliographicDate:food',
     objectType: 'MPBibliographicDate'
   }

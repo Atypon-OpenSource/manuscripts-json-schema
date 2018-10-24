@@ -1,6 +1,7 @@
 {
-  "$id": "MPParagraphElement.json",
-  "title": "ParagraphElement",
+  "$id": "MPTOCElement.json",
+  "title": "TOCElement",
+  "type": "object",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPBlockElement.json#" },
@@ -11,10 +12,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPParagraphElement" ]
-        },
-        "paragraphStyle": {
-          "type": "string"
+          "enum": [ "MPTOCElement" ]
         }
       },
       "required": []

@@ -19,6 +19,9 @@
         "priority": {
           "type": "integer"
         },
+        "titleSuppressed": {
+          "type": "boolean"
+        },
         "elementIDs": {
           "type": "array",
           "items": {
@@ -39,7 +42,8 @@
         }
       },
       "required": [
-        "path"
+        "path",
+        "priority"
       ]
     }
   }

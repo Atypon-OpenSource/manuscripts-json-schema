@@ -13,6 +13,12 @@
           "type": "string",
           "enum": [ "MPBibliographyElement" ]
         },
+        "elementType": {
+          "type": "string",
+          "enum": [
+            "div"
+          ]
+        },
         "paragraphStyle": {
           "allOf": [
             {

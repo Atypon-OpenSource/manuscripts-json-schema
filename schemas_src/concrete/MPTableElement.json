@@ -22,6 +22,12 @@
         "suppressHeader": {
           "type": "boolean"
         },
+        "suppressCaption": {
+          "type": "boolean"
+        },
+        "containedObjectID": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "tableStyle": {
           "allOf": [
             {
@@ -45,7 +51,9 @@
           ]
         }
       },
-      "required": []
+      "required": [
+        "containedObjectID"
+      ]
     }
   }
 }

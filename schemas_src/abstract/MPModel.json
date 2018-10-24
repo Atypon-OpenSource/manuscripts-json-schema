@@ -6,6 +6,9 @@
     ],
     "with": {
       "properties": {
+        "_deleted": {
+          "type": "boolean"
+        },
         "sessionID": {
           "type": "string"
         },
@@ -22,7 +25,10 @@
           }
         }
       },
-      "required": [ ]
+      "required": [
+        "createdAt",
+        "updatedAt"
+      ]
     }
   }
 }
