@@ -11,6 +11,11 @@ const fusionSchemas = new Set([
   'MPBibliographyItem.json',
   'MPLibrary.json',
   'MPUserProfile.json',
+  'MPPerson.json',
+  'MPContributorCategory.json',
+  'MPGrant.json',
+  'MPFundingBody.json',
+  'MPAffiliation.json'
 ])
 
 const fusionFn = validatorFn(id => fusionSchemas.has(id))
