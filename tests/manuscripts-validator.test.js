@@ -387,7 +387,7 @@ test('bibliography name', t => {
 });
 
 test('citation item', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPCitationItem:barred',
@@ -419,6 +419,24 @@ test('citation item', t => {
   t.equals(
     validate(Object.assign({}, validObject, { sequence: 1 })),
     'should NOT have additional properties \'sequence\'',
+    'additionalProperties are forbidden'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { createdAt: 123123123 })),
+    'should NOT have additional properties \'createdAt\'',
+    'additionalProperties are forbidden'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { updatedAt: 123123123 })),
+    'should NOT have additional properties \'updatedAt\'',
+    'additionalProperties are forbidden'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sessionID: '12312312-312312' })),
+    'should NOT have additional properties \'sessionID\'',
     'additionalProperties are forbidden'
   );
 });
