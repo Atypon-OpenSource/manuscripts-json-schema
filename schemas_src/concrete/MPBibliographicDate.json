@@ -3,7 +3,7 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPModel.json#" }
+      { "$ref": "abstract/MPEmbeddedModel.json#" }
     ],
     "with": {
       "properties": {
