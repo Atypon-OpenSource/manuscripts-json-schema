@@ -9,6 +9,9 @@
         "_deleted": {
           "type": "boolean"
         },
+        "objectType": {
+          "type": "string"
+        },
         "sessionID": {
           "type": "string"
         },
