@@ -255,9 +255,6 @@ test('bibliography item', t => {
   const validDate = {
     'date-parts': [ ],
     _id: 'MPBibliographicDate:food',
-    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
-    createdAt: 1515417692.477127,
-    updatedAt: 1515494608.363229,
     objectType: 'MPBibliographicDate'
   }
 
@@ -280,9 +277,6 @@ test('bibliography date', t => {
   const validObject = {
     'date-parts': [ ],
     _id: 'MPBibliographicDate:food',
-    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
-    createdAt: 1515417692.477127,
-    updatedAt: 1515494608.363229,
     objectType: 'MPBibliographicDate'
   };
 
@@ -387,7 +381,7 @@ test('bibliography name', t => {
 });
 
 test('citation item', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPCitationItem:barred',
@@ -419,6 +413,24 @@ test('citation item', t => {
   t.equals(
     validate(Object.assign({}, validObject, { sequence: 1 })),
     'should NOT have additional properties \'sequence\'',
+    'additionalProperties are forbidden'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { createdAt: 123123123 })),
+    'should NOT have additional properties \'createdAt\'',
+    'additionalProperties are forbidden'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { updatedAt: 123123123 })),
+    'should NOT have additional properties \'updatedAt\'',
+    'additionalProperties are forbidden'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sessionID: '12312312-312312' })),
+    'should NOT have additional properties \'sessionID\'',
     'additionalProperties are forbidden'
   );
 });

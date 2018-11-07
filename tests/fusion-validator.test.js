@@ -88,9 +88,6 @@ test('bibliography item', t => {
 
   const validDate = {
     'date-parts': [ ],
-    sessionID : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
-    createdAt: 1515417692.477127,
-    updatedAt: 1515494608.363229,
     _id: 'MPBibliographicDate:food',
     objectType: 'MPBibliographicDate'
   }
