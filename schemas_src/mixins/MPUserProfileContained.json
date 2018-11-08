@@ -1,0 +1,21 @@
+{
+  "$id": "MPUserProfileContained.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "containerID": {
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^(MPProject|MPUserProfile)"
+        }
+      ]
+    }
+  },
+  "required": [
+    "containerID"
+  ]
+}
