@@ -10,7 +10,7 @@
         },
         {
           "type": "string",
-          "pattern": "^(MPProject|MPUserProfile)"
+          "pattern": "^(MPUserProfile)"
         }
       ]
     }

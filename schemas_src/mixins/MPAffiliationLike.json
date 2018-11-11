@@ -1,0 +1,20 @@
+{
+  "$id": "MPAffiliationLike.json",
+  "title": "Affiliation-like",
+  "type": "object",
+  "properties": {
+    "addressLine1": { "type": "string" },
+    "addressLine2": { "type": "string" },
+    "addressLine3": { "type": "string" },
+    "city": { "type": "string" },
+    "country": { "type": "string" },
+    "county": { "type": "string" },
+    "department": { "type": "string" },
+    "institution": { "type": "string" },
+    "postCode": { "type": "string" },
+    "priority": { "type": "number" }
+  },
+  "required": [
+    "priority"
+  ]
+}

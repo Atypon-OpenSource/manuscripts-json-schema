@@ -209,6 +209,65 @@ test('affiliation', t => {
   );
 });
 
+test('user profile affiliation', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPUserProfileAffiliation:231123-1233123-12331312',
+    objectType: 'MPUserProfileAffiliation',
+    containerID: 'MPUserProfile:foo-bar-baz',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    priority: 1
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
+test('grant', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPGrant:231123-1233123-12331312',
+    objectType: 'MPGrant',
+    containerID: 'MPProject:foo-bar-baz',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    manuscriptID: 'MPManuscript:23111'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
+test('user profile grant', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPUserProfileGrant:231123-1233123-12331312',
+    objectType: 'MPUserProfileGrant',
+    containerID: 'MPUserProfile:foo-bar-baz',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
 test('bibliography item', t => {
   t.plan(7);
 

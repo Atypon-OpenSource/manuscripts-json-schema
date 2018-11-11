@@ -1,19 +1,18 @@
 {
-  "$id": "MPGrant.json",
-  "title": "Grant",
+  "$id": "MPUserProfileGrant.json",
+  "title": "UserProfileGrant",
   "type": "object",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPModel.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" },
-      { "$ref": "mixins/MPManuscriptDocument.json#" },
+      { "$ref": "mixins/MPUserProfileContained.json#" },
       { "$ref": "mixins/MPGrantLike.json#" }
     ],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPGrant" ]
+          "enum": [ "MPUserProfileGrant" ]
         }
       }
     }
