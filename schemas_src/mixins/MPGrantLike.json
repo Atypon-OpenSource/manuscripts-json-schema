@@ -1,0 +1,12 @@
+{
+  "$id": "MPGrant.json",
+  "title": "Grant",
+  "type": "object",
+  "properties": {
+    "organization": { "type": "string" },
+    "code": { "type": "string" },
+    "title": { "type": "string" },
+    "fundingBody": { "$ref": "MPFundingBody.json#" }
+  },
+  "required": []
+}
