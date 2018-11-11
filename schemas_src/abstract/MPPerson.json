@@ -41,7 +41,7 @@
               },
               {
                 "type": "string",
-                "pattern": "^MPAffiliation"
+                "pattern": "^(MPAffiliation|MPUserProfileAffiliation)"
               }
             ]
           },
