@@ -18,6 +18,30 @@ function validate(obj) {
   return sandbox.result;
 }
 
+test('id permitted', t => {
+  t.plan(1);
+  const validObject = {
+    "updatedAt" : 1515494608.245375,
+    "objectType" : "MPBorderStyle",
+    "containerID" : "MPProject:foo-bar-baz",
+    "_rev" : "1-cf3758c6a77c031dcd8f617087c7493d",
+    "_id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    "id" : "MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A",
+    "manuscriptID": "MPManuscript:zorb",
+    "title" : "Dotted",
+    "pattern" : [ 1, 1 ],
+    "createdAt" : 1515417692.476143,
+    "name" : "dotted",
+    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'additional legacy id property allowed'
+  );
+});
+
 test('border style', t => {
   t.plan(3);
   const validObject = {
