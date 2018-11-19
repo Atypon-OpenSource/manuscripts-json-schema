@@ -1,5 +1,4 @@
 const test = require('tape');
-const util = require('util');
 
 const { ObjectTypes, manuscriptIDTypes, containerIDTypes } = require('../dist');
 
