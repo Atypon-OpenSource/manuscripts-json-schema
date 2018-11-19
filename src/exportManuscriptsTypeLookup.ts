@@ -1,10 +1,11 @@
-import { readdirSync, readFile, writeFile } from 'fs';
+import { existsSync, readdirSync, readFile, writeFile } from 'fs';
 import { join } from 'path';
 import { promisify } from 'util';
 
 const writeFilePromise = promisify(writeFile);
 const readFilePromise = promisify(readFile);
 
+// get all the concrete schemas
 async function getCompiledSchemas() {
   const schemaDir = 'schemas';
   const excludedFiles = new Set(['enums.json', 'numbers.json', 'strings.json']);
@@ -15,27 +16,42 @@ async function getCompiledSchemas() {
       .map(file => readFilePromise(join(schemaDir, file), 'utf8'))
   );
 
+  // Sort alphabetically for simplicity
   return schemaDefinitions
     .map(x => JSON.parse(x))
     .sort((a,b) => (a.$id > b.$id) ? 1 : ((b.$id > a.$id) ? -1 : 0));
 }
 
-(async function() {
+async function appendToDistFile(filename: string, contents: string) {
   const DIST_DIR = 'dist';
+  const path = join(DIST_DIR, filename)
+
+  if (existsSync(path)) {
+    const existingContents = await readFilePromise(path, 'utf8')
+    contents = [ existingContents, contents ].join('\n');
+  }
+
+  await writeFilePromise(path, contents, 'utf8')
+}
+
+(async function() {
   const exportedTypes = await getCompiledSchemas();
 
   const types = exportedTypes
     .reduce((acc, type) => {
       const name = type.$id.replace(/\.json$/, '')
 
+      // schemas with a manuscriptID property
       if (type.properties.manuscriptID) {
         acc.manuscriptIDTypes.push(name);
       }
 
+      // schemas with a containerID property
       if (type.properties.containerID) {
         acc.containerIDTypes.push(name);
       }
 
+      // All schemas (for ObjectTypes lookup)
       acc.types.push(name.replace(/^MP/, ''));
 
       return acc
@@ -53,47 +69,32 @@ async function getCompiledSchemas() {
       .toUpperCase()
   }
 
-  const outputContents = `"use strict";
+  // write js file
+  await appendToDistFile('lookup.js',
+`"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.manuscriptIDTypes = new Set(${JSON.stringify(types.manuscriptIDTypes)});
 exports.containerIDTypes = new Set(${JSON.stringify(types.containerIDTypes)});
 var ObjectTypes;
 (function (ObjectTypes) {
     ${types.types.map((t: any) => 'ObjectTypes["' + SNAKE_CASE(t) + '"] = "MP' + t + '";').join('\n    ')}
-})(ObjectTypes = exports.ObjectTypes || (exports.ObjectTypes = {}));`
-
-  await writeFilePromise(join(DIST_DIR, 'lookup.js'), outputContents, 'utf8')
+})(ObjectTypes = exports.ObjectTypes || (exports.ObjectTypes = {}));`)
 
   // write a typescript declaration
-  const LOOKUP_D_TS = join(DIST_DIR, 'lookup.d.ts');
-  await writeFilePromise(LOOKUP_D_TS,
-  `export declare const manuscriptIDTypes: Set<string>;
+  await appendToDistFile('lookup.d.ts',
+`export declare const manuscriptIDTypes: Set<string>;
 export declare const containerIDTypes: Set<string>;
 export declare enum ObjectTypes {
     ${types.types.map((t: any) => SNAKE_CASE(t) + ' = "MP' + t + '"').join(',\n    ')}
-}
-`, 'utf8')
-
-  const INDEX_D_TS = join(DIST_DIR, 'index.d.ts');
-  const existingIndexDefinitionContents = await readFilePromise(INDEX_D_TS, 'utf8')
-  const indexDefinitionContents = [
-    existingIndexDefinitionContents,
-    "export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';"
-  ].join('\n');
+}`)
 
   // append an export to these types in the index.d.ts file
-  await writeFilePromise(INDEX_D_TS, indexDefinitionContents, 'utf8')
+  await appendToDistFile('index.d.ts', "export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';")
 
-  const INDEX_JS = join(DIST_DIR, 'index.js');
-  const existingIndexContents = await readFilePromise(INDEX_JS, 'utf8')
-  const indexContents = [
-    existingIndexContents,
+  // append an export to these types in the index.d.ts file
+  await appendToDistFile('index.js',
 `const lookup_1 = require("./lookup");
 exports.manuscriptIDTypes = lookup_1.manuscriptIDTypes;
 exports.containerIDTypes = lookup_1.containerIDTypes;
-exports.ObjectTypes = lookup_1.ObjectTypes;`
-  ].join('\n');
-
-  // append an export to these types in the index.d.ts file
-  await writeFilePromise(INDEX_JS, indexContents, 'utf8')
+exports.ObjectTypes = lookup_1.ObjectTypes;`)
 })()
