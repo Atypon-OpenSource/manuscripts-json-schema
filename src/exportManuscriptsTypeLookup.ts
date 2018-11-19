@@ -62,13 +62,6 @@ async function appendToDistFile(filename: string, contents: string) {
       types: [] as string[]
     })
 
-  const SNAKE_CASE = (str: string) => {
-    return str.replace(/[A-Z]+(?=[A-Z])|[A-Z]/g, (match, pos) => {
-        return (pos ? '_' : '') + match
-      })
-      .toUpperCase()
-  }
-
   // write js file
   await appendToDistFile('lookup.js',
 `"use strict";
@@ -77,7 +70,7 @@ exports.manuscriptIDTypes = new Set(${JSON.stringify(types.manuscriptIDTypes)});
 exports.containerIDTypes = new Set(${JSON.stringify(types.containerIDTypes)});
 var ObjectTypes;
 (function (ObjectTypes) {
-    ${types.types.map((t: any) => 'ObjectTypes["' + SNAKE_CASE(t) + '"] = "MP' + t + '";').join('\n    ')}
+    ${types.types.map((t: any) => 'ObjectTypes["' + t + '"] = "MP' + t + '";').join('\n    ')}
 })(ObjectTypes = exports.ObjectTypes || (exports.ObjectTypes = {}));`)
 
   // write a typescript declaration
@@ -85,7 +78,7 @@ var ObjectTypes;
 `export declare const manuscriptIDTypes: Set<string>;
 export declare const containerIDTypes: Set<string>;
 export declare enum ObjectTypes {
-    ${types.types.map((t: any) => SNAKE_CASE(t) + ' = "MP' + t + '"').join(',\n    ')}
+    ${types.types.map((t: any) => t + ' = "MP' + t + '"').join(',\n    ')}
 }`)
 
   // append an export to these types in the index.d.ts file

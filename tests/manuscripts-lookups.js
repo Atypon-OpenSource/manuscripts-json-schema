@@ -5,9 +5,9 @@ const { ObjectTypes, manuscriptIDTypes, containerIDTypes } = require('../dist');
 test('object type lookup', t => {
   t.plan(3);
 
-  t.equals(ObjectTypes.PARAGRAPH_ELEMENT, 'MPParagraphElement');
-  t.equals(ObjectTypes.TOC_ELEMENT, 'MPTOCElement');
-  t.equals(ObjectTypes.USER_PROFILE, 'MPUserProfile');
+  t.equals(ObjectTypes.ParagraphElement, 'MPParagraphElement');
+  t.equals(ObjectTypes.TOCElement, 'MPTOCElement');
+  t.equals(ObjectTypes.UserProfile, 'MPUserProfile');
 });
 
 test('manuscriptID type lookup', t => {
