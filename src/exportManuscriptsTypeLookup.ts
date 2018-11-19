@@ -75,12 +75,25 @@ export declare enum ObjectTypes {
 `, 'utf8')
 
   const INDEX_D_TS = join(DIST_DIR, 'index.d.ts');
-  const existingIndexContents = await readFilePromise(INDEX_D_TS, 'utf8')
-  const indexContents = [
-    existingIndexContents,
+  const existingIndexDefinitionContents = await readFilePromise(INDEX_D_TS, 'utf8')
+  const indexDefinitionContents = [
+    existingIndexDefinitionContents,
     "export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';"
   ].join('\n');
 
   // append an export to these types in the index.d.ts file
-  await writeFilePromise(INDEX_D_TS, indexContents, 'utf8')
+  await writeFilePromise(INDEX_D_TS, indexDefinitionContents, 'utf8')
+
+  const INDEX_JS = join(DIST_DIR, 'index.js');
+  const existingIndexContents = await readFilePromise(INDEX_JS, 'utf8')
+  const indexContents = [
+    existingIndexContents,
+`const lookup_1 = require("./lookup");
+exports.manuscriptIDTypes = lookup_1.manuscriptIDTypes;
+exports.containerIDTypes = lookup_1.containerIDTypes;
+exports.ObjectTypes = lookup_1.ObjectTypes;`
+  ].join('\n');
+
+  // append an export to these types in the index.d.ts file
+  await writeFilePromise(INDEX_JS, indexContents, 'utf8')
 })()
