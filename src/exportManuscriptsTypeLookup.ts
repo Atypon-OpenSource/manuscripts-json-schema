@@ -91,7 +91,7 @@ export declare enum ObjectTypes {
   // append an export to these types in the index.d.ts file
   await appendToDistFile('index.d.ts', "export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';")
 
-  // append an export to these types in the index.d.ts file
+  // append an export to the code in the index.js file
   await appendToDistFile('index.js',
 `const lookup_1 = require("./lookup");
 exports.manuscriptIDTypes = lookup_1.manuscriptIDTypes;
