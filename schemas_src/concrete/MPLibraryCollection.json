@@ -1,0 +1,19 @@
+{
+  "$id": "MPLibraryCollection.json",
+  "title": "LibraryCollection",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "concrete/MPKeyword.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPLibraryCollection" ]
+        }
+      },
+      "required": []
+    }
+  }
+}
