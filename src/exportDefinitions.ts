@@ -1,7 +1,7 @@
 import mash from './mash';
 import { join } from 'path';
 import { promisify } from 'util';
-import { readdirSync, writeFile, readFile } from 'fs';
+import { existsSync, readdirSync, writeFile, readFile } from 'fs';
 import { compile, compileFromFile } from 'json-schema-to-typescript';
 import { getSchemas } from './getSchema';
 
@@ -39,18 +39,20 @@ async function getAbstractSchemas() {
   );
 }
 
-(async function() {
+async function appendToDistFile(filename: string, contents: string) {
   const DIST_DIR = 'dist';
+  const path = join(DIST_DIR, filename)
 
-  const INDEX_D_TS = join(DIST_DIR, 'index.d.ts');
-  const existingIndexContents = await readFilePromise(INDEX_D_TS, 'utf8')
-  const indexContents = [
-    existingIndexContents,
-    "export * from './types';"
-  ].join('\n');
+  if (existsSync(path)) {
+    const existingContents = await readFilePromise(path, 'utf8')
+    contents = [ existingContents, contents ].join('\n');
+  }
 
-  // append an export to these types in the index.d.ts file
-  await writeFilePromise(INDEX_D_TS, indexContents, 'utf8')
+  await writeFilePromise(path, contents, 'utf8')
+}
+
+(async function() {
+  await appendToDistFile('index.d.ts', "export * from './types';");
 
   const schemas = await getCompiledSchemas();
   const abstracts = await getAbstractSchemas();
@@ -62,5 +64,5 @@ async function getAbstractSchemas() {
     })
   );
 
-  await writeFilePromise(join(DIST_DIR, 'types.ts'), contents.join('\n'), 'utf8')
+  await appendToDistFile('types.ts', contents.join('\n'))
 })()
