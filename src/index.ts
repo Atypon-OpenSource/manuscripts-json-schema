@@ -10,6 +10,7 @@ const fusionSchemas = new Set([
   'MPBibliographicDate.json',
   'MPBibliographyItem.json',
   'MPLibrary.json',
+  'MPLibraryCollection.json',
   'MPUserProfile.json',
   'MPPerson.json',
   'MPContributorCategory.json',

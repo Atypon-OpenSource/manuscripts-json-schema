@@ -658,7 +658,7 @@ test('keywords', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
-    '._id: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    '._id: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid id fails'
   );
 });
@@ -692,7 +692,7 @@ test('research fields', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
-    '._id: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    '._id: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid id fails'
   );
 });
@@ -754,7 +754,7 @@ test('keyword ids', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { keywordIDs: [ 'MPUhoh:foo' ] })),
-    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'incorrect type for property fails'
   );
 });
@@ -1099,7 +1099,7 @@ test('bundle', t => {
 
   t.equals(
     validate(invalidResearchField),
-    '.csl.fields[0]: should match pattern "^(MPKeyword|MPResearchField):[0-9a-zA-Z\\-]+"',
+    '.csl.fields[0]: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid keyword id'
   );
 });

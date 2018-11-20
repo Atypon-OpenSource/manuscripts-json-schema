@@ -1,0 +1,28 @@
+{
+  "$id": "MPLibraryCollection.json",
+  "title": "LibraryCollection",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "_id": {
+          "$ref": "strings.json#/definitions/keywordID"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPLibraryCollection" ]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
+}

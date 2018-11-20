@@ -44,7 +44,7 @@ test('library', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(7);
+  t.plan(8);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -72,6 +72,12 @@ test('bibliography item', t => {
     validate(Object.assign({}, validObject, { keywordIDs: [ 'MPKeyword:foo' ] })),
     null,
     'taggable with keywordIDs'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { keywordIDs: [ 'MPLibraryCollection:foo' ] })),
+    null,
+    'taggable with MPLibraryCollection keywordID'
   );
 
   t.equals(
