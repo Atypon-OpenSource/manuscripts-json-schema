@@ -4,25 +4,16 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPModel.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" }
+      { "$ref": "concrete/MPKeyword.json#" }
     ],
     "with": {
       "properties": {
-        "_id": {
-          "$ref": "strings.json#/definitions/keywordID"
-        },
         "objectType": {
           "type": "string",
           "enum": [ "MPLibraryCollection" ]
-        },
-        "name": {
-          "type": "string"
         }
       },
-      "required": [
-        "name"
-      ]
+      "required": []
     }
   }
 }
