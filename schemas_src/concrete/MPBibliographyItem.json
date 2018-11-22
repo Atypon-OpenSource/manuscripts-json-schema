@@ -320,6 +320,12 @@
         "source": {
           "type": "string"
         },
+        "sourceUTI": {
+          "type": "string"
+        },
+        "sourceIdentifier": {
+          "type": "string"
+        },
         "status": {
           "type": "string"
         },

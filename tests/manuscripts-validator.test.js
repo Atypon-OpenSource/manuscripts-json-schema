@@ -333,7 +333,7 @@ test('user profile grant', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(7);
+  t.plan(9);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -361,6 +361,18 @@ test('bibliography item', t => {
     validate(Object.assign({}, validObject, { keywordIDs: [ 'MPKeyword:foo' ] })),
     null,
     'taggable with keywordIDs'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sourceUTI: 'com.mekentosj.citations.xml' })),
+    null,
+    'sourceUTI permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sourceIdentifier : 'com.mekentosj.papers.citations.xml' })),
+    null,
+    'sourceIdentifier permitted'
   );
 
   t.equals(
