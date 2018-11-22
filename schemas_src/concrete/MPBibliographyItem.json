@@ -110,6 +110,9 @@
             "$ref": "MPBibliographicName.json#"
           }
         },
+        "favorite": {
+          "type": "boolean"
+        },
         "interviewer": {
           "type": "array",
           "items": {
@@ -268,6 +271,9 @@
         },
         "number-of-volumes": {
           "type": "integer"
+        },
+        "originalIdentifier": {
+          "type": "string"
         },
         "original-publisher": {
           "type": "string"

@@ -333,7 +333,7 @@ test('user profile grant', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(9);
+  t.plan(11);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -373,6 +373,18 @@ test('bibliography item', t => {
     validate(Object.assign({}, validObject, { sourceIdentifier : 'com.mekentosj.papers.citations.xml' })),
     null,
     'sourceIdentifier permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { originalIdentifier : '9430DD33-4196-4B36-AE7F-E31A87060029' })),
+    null,
+    'originalIdentifier permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { favorite : true })),
+    null,
+    'favorite permitted'
   );
 
   t.equals(
