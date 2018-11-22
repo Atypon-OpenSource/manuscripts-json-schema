@@ -18,7 +18,7 @@ function validate(obj) {
   return sandbox.result;
 }
 
-test('id permitted', t => {
+test('id not permitted', t => {
   t.plan(1);
   const validObject = {
     "updatedAt" : 1515494608.245375,
@@ -37,8 +37,8 @@ test('id permitted', t => {
 
   t.equals(
     validate(Object.assign({}, validObject)),
-    null,
-    'additional legacy id property allowed'
+    'should NOT have additional properties \'id\'',
+    'legacy id property rejected'
   );
 });
 
