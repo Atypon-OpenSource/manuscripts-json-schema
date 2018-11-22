@@ -110,6 +110,9 @@
             "$ref": "MPBibliographicName.json#"
           }
         },
+        "favorite": {
+          "type": "boolean"
+        },
         "interviewer": {
           "type": "array",
           "items": {
@@ -121,6 +124,9 @@
           "items": {
             "$ref": "MPBibliographicName.json#"
           }
+        },
+        "institution": {
+          "type": "string"
         },
         "original-author": {
           "type": "array",
@@ -269,6 +275,9 @@
         "number-of-volumes": {
           "type": "integer"
         },
+        "originalIdentifier": {
+          "type": "string"
+        },
         "original-publisher": {
           "type": "string"
         },
@@ -318,6 +327,12 @@
           "type": "string"
         },
         "source": {
+          "type": "string"
+        },
+        "sourceUTI": {
+          "type": "string"
+        },
+        "sourceIdentifier": {
           "type": "string"
         },
         "status": {
