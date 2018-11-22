@@ -77,6 +77,46 @@ test('border style', t => {
   );
 });
 
+test('page layout', t => {
+  t.plan(1);
+
+  const validObject = {
+    updatedAt: 1446410358.635123,
+    topMargin: 20,
+    objectType: 'MPPageLayout',
+    defaultParagraphStyle: 'MPParagraphStyle:bodyText',
+    _rev: '1-b534223d2574718313361eca8dfa4466',
+    _id: 'MPPageLayout:E6437A5C-849E-417B-B726-F43E2545E597',
+    prototype: 'MPPageLayout:defaultA4',
+    beginChaptersOnRightHandPages: true,
+    displayUnits: 'mm',
+    leftMargin: 20,
+    bottomMargin: 20,
+    manuscriptID: 'MPManuscript:foo',
+    containerID: 'MPProject:foo',
+    sessionID: '3213123-123123',
+    mirrorPagesHorizontally: true,
+    rightMargin: 20,
+    createdAt: 1443870579.815809,
+    embeddedNumberingStyle: {
+      _id: 'MPNumberingStyle:CB6FF724-7F91-454A-9A3C-30293471E039',
+      prefix: '[',
+      objectType: 'MPNumberingStyle',
+      suffix: ']',
+      startIndex: 1,
+      priority: 99,
+      numberingScheme: 'decimal'
+    },
+    pageSize: 'a4'
+  }
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPPageLayout passes'
+  );
+});
+
 test('contributor', t => {
   t.plan(7);
 

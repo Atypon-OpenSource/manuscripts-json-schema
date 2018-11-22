@@ -28,6 +28,9 @@
         "prefix": {
           "type": "string"
         },
+        "priority": {
+          "type": "number"
+        },
         "suffix": {
           "type": "string"
         },
