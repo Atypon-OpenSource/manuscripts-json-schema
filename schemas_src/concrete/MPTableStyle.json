@@ -10,17 +10,35 @@
     ],
     "with": {
       "properties": {
+        "bodyRightBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "bodyLeftBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "bodyBottomBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "bodyTopBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "bodyColumnSeparatorBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "bodyRowSeparatorBorder": {
+          "$ref": "MPBorder.json#"
+        },
         "bodyBackgroundColor": {
           "$ref": "strings.json#/definitions/_id"
         },
         "bodyBackgroundAlternateColor": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "bodyColumnSeparatorBorder": {
+        "footerRightBorder": {
           "$ref": "MPBorder.json#"
         },
-        "footerBackgroundColor": {
-          "$ref": "strings.json#/definitions/_id"
+        "footerLeftBorder": {
+          "$ref": "MPBorder.json#"
         },
         "footerBottomBorder": {
           "$ref": "MPBorder.json#"
@@ -28,20 +46,35 @@
         "footerTopBorder": {
           "$ref": "MPBorder.json#"
         },
+        "footerColumnSeparatorBorder": {
+          "$ref": "MPBorder.json#"
+        },
         "footerTopSpacing": {
           "type": "number"
         },
-        "headerBackgroundColor": {
+        "footerBackgroundColor": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "headerRightBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "headerLeftBorder": {
+          "$ref": "MPBorder.json#"
+        },
         "headerBottomBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "headerTopBorder": {
+          "$ref": "MPBorder.json#"
+        },
+        "headerColumnSeparatorBorder": {
           "$ref": "MPBorder.json#"
         },
         "headerBottomSpacing": {
           "type": "number"
         },
-        "headerTopBorder": {
-          "$ref": "MPBorder.json#"
+        "headerBackgroundColor": {
+          "$ref": "strings.json#/definitions/_id"
         },
         "objectType": {
           "type": "string",
