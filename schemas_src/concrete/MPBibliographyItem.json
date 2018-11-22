@@ -125,6 +125,9 @@
             "$ref": "MPBibliographicName.json#"
           }
         },
+        "institution": {
+          "type": "string"
+        },
         "original-author": {
           "type": "array",
           "items": {

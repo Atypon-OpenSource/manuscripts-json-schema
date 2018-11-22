@@ -333,7 +333,7 @@ test('user profile grant', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(11);
+  t.plan(12);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -361,6 +361,12 @@ test('bibliography item', t => {
     validate(Object.assign({}, validObject, { keywordIDs: [ 'MPKeyword:foo' ] })),
     null,
     'taggable with keywordIDs'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { institution: 'Beijing Genomics Institute at Shenzhen, Shenzhen 518000, China. wangj@genomics.org.cn' })),
+    null,
+    'institution permitted'
   );
 
   t.equals(
