@@ -519,7 +519,7 @@ test('citation item', t => {
 });
 
 test('citation', t => {
-  t.plan(4);
+  t.plan(5);
 
   const validObject = {
     _id: 'MPCitation:baz',
@@ -543,6 +543,17 @@ test('citation', t => {
     })),
     'should have required property \'embeddedCitationItems\'',
     'embeddedCitationItems property required'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, {
+      containingObject: 'MPParagraphElement:qux',
+      embeddedCitationItems: [],
+      collationType: 1,
+      citationStyle: 'MPBundle:foo',
+    })),
+    null,
+    'collationType and citationStyle permitted'
   );
 
   t.equals(

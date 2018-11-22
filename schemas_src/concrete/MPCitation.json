@@ -19,6 +19,20 @@
         "objectType": {
           "type": "string",
           "enum": [ "MPCitation" ]
+        },
+        "collationType": {
+          "$ref": "enums.json#/definitions/MPCitationCollationType"
+        },
+        "citationStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPBundle"
+            }
+          ]
         }
       },
       "required": [
