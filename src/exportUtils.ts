@@ -14,6 +14,11 @@ export async function appendToDistFile(
   contents: string
 ) {
   const DIST_DIR = 'dist';
+
+  if (!existsSync(DIST_DIR)) {
+    await mkdirPromise(DIST_DIR)
+  }
+
   const folderPath = join(DIST_DIR, directory)
 
   if (!existsSync(folderPath)) {
