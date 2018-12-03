@@ -1,22 +1,24 @@
 {
   "name": "@manuscripts/manuscripts-json-schema",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "",
-  "main": "./dist/index",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs",
+  "module": "./dist/es",
+  "types": "./dist/types",
   "scripts": {
     "build": "npm run build-src && npm run build-schemas && npm run build-definitions && npm run build-typelookup && npm run build-validators",
-    "build-src": "rimraf dist/* schemas/* definitions/* && tsc",
-    "build-schemas": "node dist/exportSchemas",
-    "build-definitions": "node dist/exportDefinitions",
-    "build-typelookup": "node dist/exportManuscriptsTypeLookup",
-    "build-validators": "node dist/exportValidators",
+    "build-src": "rimraf tsc-dist/* dist/* schemas/* definitions/* && tsc",
+    "build-schemas": "node tsc-dist/exportSchemas",
+    "build-definitions": "node tsc-dist/exportDefinitions",
+    "build-typelookup": "node tsc-dist/exportManuscriptsTypeLookup",
+    "build-validators": "node tsc-dist/exportValidators",
     "prepare": "npm run build",
     "test": "npm run build && tape tests/*.js"
   },
   "publishConfig": {
     "@manuscripts:registry": "https://atypon-npm-registry.herokuapp.com/"
   },
+  "sideEffects": false,
   "keywords": [],
   "author": "",
   "license": "ISC",

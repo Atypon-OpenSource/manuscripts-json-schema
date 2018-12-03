@@ -1,22 +1,5 @@
-import { existsSync, readFile, writeFile } from 'fs';
-import { join } from 'path';
-import { promisify } from 'util';
+import { appendToDistFile } from './exportUtils'
 import { validatorFn } from './pack';
-
-const writeFilePromise = promisify(writeFile);
-const readFilePromise = promisify(readFile);
-
-async function appendToDistFile(filename: string, contents: string) {
-  const DIST_DIR = 'dist';
-  const path = join(DIST_DIR, filename)
-
-  if (existsSync(path)) {
-    const existingContents = await readFilePromise(path, 'utf8')
-    contents = [ existingContents, contents ].join('\n');
-  }
-
-  await writeFilePromise(path, contents, 'utf8')
-}
 
 (async function() {
   const manuscriptsFn = validatorFn()
@@ -40,24 +23,34 @@ async function appendToDistFile(filename: string, contents: string) {
 
   const fusionFn = validatorFn(id => fusionSchemas.has(id))
 
-  // write js file
-  await appendToDistFile('validators.js',
+  // write (cjs) js file
+  await appendToDistFile('validators.js', 'cjs',
 `"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fusionFn = String.raw\`${fusionFn}\`;
 exports.manuscriptsFn = String.raw\`${manuscriptsFn};\``)
 
+  // write (cjs) js file
+  await appendToDistFile('validators.js', 'es',
+`export const fusionFn = String.raw\`${fusionFn}\`;
+export const manuscriptsFn = String.raw\`${manuscriptsFn};\``)
+
   // write a typescript declaration
-  await appendToDistFile('validators.d.ts',
+  await appendToDistFile('validators.d.ts', 'types',
 `export declare const manuscriptsFn: string;
 export declare const fusionFn: string;`)
 
   // append an export to these types in the index.d.ts file
-  await appendToDistFile('index.d.ts', "export { manuscriptsFn, fusionFn } from './validators';")
+  await appendToDistFile('index.d.ts', 'types',
+    "export { manuscriptsFn, fusionFn } from './validators';")
 
-  // append an export to the code in the index.js file
-  await appendToDistFile('index.js',
+  // append an export to the code in the (cjs) index.js file
+  await appendToDistFile('index.js', 'cjs',
 `const validators_1 = require("./validators");
 exports.fusionFn = validators_1.fusionFn;
 exports.manuscriptsFn = validators_1.manuscriptsFn;`)
+
+  // append an export to the code in the (es) index.js file
+  await appendToDistFile('index.js', 'es',
+"export { fusionFn, manuscriptsFn } from './validators';")
 })()

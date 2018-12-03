@@ -21,7 +21,7 @@ node_modules/
 *.tgz
 
 # typescript
-dist/
+tsc-dist/
 
 # compiled schemas
 schemas/
@@ -30,3 +30,6 @@ schemas/
 definitions/
 
 documentation
+
+# dist
+dist/
