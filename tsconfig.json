@@ -6,7 +6,7 @@
     "removeComments": false,
     "sourceMap": false,
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./tsc-dist",
     "lib": ["es2017"],
     "types": ["node"],
     "moduleResolution": "node",

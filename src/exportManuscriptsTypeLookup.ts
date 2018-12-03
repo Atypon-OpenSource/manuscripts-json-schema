@@ -1,8 +1,8 @@
-import { existsSync, readdirSync, readFile, writeFile } from 'fs';
+import { appendToDistFile } from './exportUtils'
+import { readdirSync, readFile } from 'fs';
 import { join } from 'path';
 import { promisify } from 'util';
 
-const writeFilePromise = promisify(writeFile);
 const readFilePromise = promisify(readFile);
 
 // get all the concrete schemas
@@ -20,18 +20,6 @@ async function getCompiledSchemas() {
   return schemaDefinitions
     .map(x => JSON.parse(x))
     .sort((a,b) => (a.$id > b.$id) ? 1 : ((b.$id > a.$id) ? -1 : 0));
-}
-
-async function appendToDistFile(filename: string, contents: string) {
-  const DIST_DIR = 'dist';
-  const path = join(DIST_DIR, filename)
-
-  if (existsSync(path)) {
-    const existingContents = await readFilePromise(path, 'utf8')
-    contents = [ existingContents, contents ].join('\n');
-  }
-
-  await writeFilePromise(path, contents, 'utf8')
 }
 
 (async function() {
@@ -62,8 +50,8 @@ async function appendToDistFile(filename: string, contents: string) {
       types: [] as string[]
     })
 
-  // write js file
-  await appendToDistFile('lookup.js',
+  // write (cjs) js file
+  await appendToDistFile('lookup.js', 'cjs',
 `"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.manuscriptIDTypes = new Set(${JSON.stringify(types.manuscriptIDTypes)});
@@ -73,8 +61,17 @@ var ObjectTypes;
     ${types.types.map((t: any) => 'ObjectTypes["' + t + '"] = "MP' + t + '";').join('\n    ')}
 })(ObjectTypes = exports.ObjectTypes || (exports.ObjectTypes = {}));`)
 
+  // write (es) js file
+  await appendToDistFile('lookup.js', 'es',
+`export const manuscriptIDTypes = new Set(${JSON.stringify(types.manuscriptIDTypes)});
+export const containerIDTypes = new Set(${JSON.stringify(types.containerIDTypes)});
+export var ObjectTypes;
+(function (ObjectTypes) {
+    ${types.types.map((t: any) => 'ObjectTypes["' + t + '"] = "MP' + t + '";').join('\n    ')}
+})(ObjectTypes || (ObjectTypes = {}));`)
+
   // write a typescript declaration
-  await appendToDistFile('lookup.d.ts',
+  await appendToDistFile('lookup.d.ts', 'types',
 `export declare const manuscriptIDTypes: Set<string>;
 export declare const containerIDTypes: Set<string>;
 export declare enum ObjectTypes {
@@ -82,12 +79,17 @@ export declare enum ObjectTypes {
 }`)
 
   // append an export to these types in the index.d.ts file
-  await appendToDistFile('index.d.ts', "export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';")
+  await appendToDistFile('index.d.ts', 'types',
+    "export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';")
 
-  // append an export to the code in the index.js file
-  await appendToDistFile('index.js',
+  // append an export to the code in the (cjs) index.js file
+  await appendToDistFile('index.js', 'cjs',
 `const lookup_1 = require("./lookup");
 exports.manuscriptIDTypes = lookup_1.manuscriptIDTypes;
 exports.containerIDTypes = lookup_1.containerIDTypes;
 exports.ObjectTypes = lookup_1.ObjectTypes;`)
+
+  // append an export to the code in the (es) index.js file
+  await appendToDistFile('index.js', 'es',
+`export { manuscriptIDTypes, containerIDTypes, ObjectTypes } from './lookup';`)
 })()

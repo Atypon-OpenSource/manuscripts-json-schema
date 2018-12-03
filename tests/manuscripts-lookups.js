@@ -1,6 +1,6 @@
 const test = require('tape');
 
-const { ObjectTypes, manuscriptIDTypes, containerIDTypes } = require('../dist');
+const { ObjectTypes, manuscriptIDTypes, containerIDTypes } = require('../dist/cjs');
 
 test('object type lookup', t => {
   t.plan(3);

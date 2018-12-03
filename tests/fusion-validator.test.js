@@ -2,7 +2,7 @@ const test = require('tape');
 const util = require('util');
 const vm = require('vm');
 
-const { fusionFn } = require('../dist');
+const { fusionFn } = require('../dist/cjs');
 
 const mainScript = new vm.Script(fusionFn);
 

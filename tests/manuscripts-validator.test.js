@@ -2,7 +2,7 @@ const test = require('tape');
 const util = require('util');
 const vm = require('vm');
 
-const { manuscriptsFn } = require('../dist');
+const { manuscriptsFn } = require('../dist/cjs');
 
 const mainScript = new vm.Script(manuscriptsFn);
 
