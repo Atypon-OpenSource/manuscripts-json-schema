@@ -652,7 +652,7 @@ test('citation', t => {
 });
 
 test('section', t => {
-  t.plan(5);
+  t.plan(6);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -682,6 +682,12 @@ test('section', t => {
     validate(Object.assign({}, validObject, { titleSuppressed: true })),
     null,
     'valid titleSuppressed passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { category: 'MPSectionCategory:foo' })),
+    null,
+    'valid category passes'
   );
 
   t.equals(
@@ -2095,5 +2101,44 @@ test('project invitation', (t) => {
   t.equals(
     validate(Object.assign({}, invalidObjectD)),
     'should have required property \'role\''
+  );
+});
+
+test('section category', (t) => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPSectionCategory:cover-letter',
+    name: 'Cover Letter',
+    desc: 'A letter sent along with your manuscript to explain it.',
+    objectType: 'MPSectionCategory',
+    singular: true,
+    priority: 2000,
+    containerID : 'MPProject:foo',
+    manuscriptID : 'MPManuscript:baz',
+    sessionID : '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    updatedAt : 1515494608.245375,
+    createdAt : 1515417692.476143,
+    uniqueInScope: true,
+    supplementary: true,
+    titles: [ 'cover letter', 'coverletter' ]
+  }
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid section category passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { titleSuppressed: true })),
+    null,
+    'titleSuppressed property permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { titles: [] })),
+    '.titles: should NOT have less than 1 items',
+    'titles cannot be empty'
   );
 });
