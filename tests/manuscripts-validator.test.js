@@ -2105,7 +2105,7 @@ test('project invitation', (t) => {
 });
 
 test('section category', (t) => {
-  t.plan(3);
+  t.plan(4);
 
   const validObject = {
     _id: 'MPSectionCategory:cover-letter',
@@ -2140,5 +2140,15 @@ test('section category', (t) => {
     validate(Object.assign({}, validObject, { titles: [] })),
     '.titles: should NOT have less than 1 items',
     'titles cannot be empty'
+  );
+
+  const noTitles = Object.assign({}, validObject)
+
+  delete noTitles.titles
+
+  t.equals(
+    validate(noTitles),
+    'should have required property \'titles\'',
+    'titles must exist'
   );
 });
