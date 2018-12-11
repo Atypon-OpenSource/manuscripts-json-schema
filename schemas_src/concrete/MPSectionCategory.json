@@ -1,6 +1,6 @@
 {
-  "$id": "MPSection.json",
-  "title": "Section",
+  "$id": "MPSectionCategory.json",
+  "title": "SectionCategory",
   "type": "object",
   "$mash": {
     "sources": [
@@ -10,51 +10,42 @@
     ],
     "with": {
       "properties": {
-        "placeholderTitle": {
+        "name": {
           "type": "string"
         },
-        "title": {
+        "desc": {
           "type": "string"
         },
-        "category": {
-          "allOf": [
-            {
-              "$ref": "strings.json#/definitions/_id"
-            },
-            {
-              "type": "string",
-              "pattern": "^MPSectionCategory"
-            }
-          ]
+        "singular": {
+          "type": "boolean"
         },
         "priority": {
           "type": "integer"
         },
+        "uniqueInScope": {
+          "type": "boolean"
+        },
+        "supplementary": {
+          "type": "boolean"
+        },
         "titleSuppressed": {
           "type": "boolean"
         },
-        "elementIDs": {
+        "titles": {
           "type": "array",
           "items": {
-            "$ref": "strings.json#/definitions/_id"
+            "type": "string"
           },
+          "minItems": 1,
           "additionalItems": false
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPSection" ]
-        },
-        "path": {
-          "type": "array",
-          "items": {
-            "$ref": "strings.json#/definitions/_id"
-          },
-          "additionalItems": false
+          "enum": [ "MPSectionCategory" ]
         }
       },
       "required": [
-        "path",
-        "priority"
+        "titles"
       ]
     }
   }
