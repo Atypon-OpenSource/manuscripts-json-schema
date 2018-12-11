@@ -2138,7 +2138,7 @@ test('section category', (t) => {
 
   t.equals(
     validate(Object.assign({}, validObject, { titles: [] })),
-    '.titles: should NOT have less than 1 items',
+    '.titles: should NOT have fewer than 1 items',
     'titles cannot be empty'
   );
 
