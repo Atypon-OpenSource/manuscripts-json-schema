@@ -2152,3 +2152,45 @@ test('section category', (t) => {
     'titles must exist'
   );
 });
+
+test('manuscript priority', (t) => {
+  t.plan(3);
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+    }),
+    null,
+    'missing priority passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      priority: 10,
+    }),
+    null,
+    'integer priority passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      priority: '10',
+    }),
+    '.priority: should be integer',
+    'string priority fails'
+  );
+});
