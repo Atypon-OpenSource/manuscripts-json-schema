@@ -179,6 +179,9 @@
         "objectType": {
           "type": "string",
           "enum": [ "MPManuscript" ]
+        },
+        "priority": {
+          "type": "integer"
         }
       },
       "required": [
