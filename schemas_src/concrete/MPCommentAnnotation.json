@@ -1,0 +1,45 @@
+{
+  "$id": "MPCommentAnnotation.json",
+  "title": "CommentAnnotation",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPCommentAnnotation" ]
+        },
+        "contents": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "number"
+            },
+            "to": {
+              "type": "number"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": ["from", "to", "text"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["contents", "target", "userID"]
+    }
+  }
+}

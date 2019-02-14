@@ -2194,3 +2194,65 @@ test('manuscript priority', (t) => {
     'string priority fails'
   );
 });
+
+test('comment', (t) => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPCommentAnnotation:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
+    objectType: 'MPCommentAnnotation',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'bar',
+    target: 'MPParagraphElement:foo',
+    userID: 'MPUserProfile:bar',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid comment passes'
+  );
+
+  const { contents, ...invalidObject } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'contents\'',
+    'contents is required'
+  );
+
+  const objectWithSelector = Object.assign({
+    selector: {
+      from: 10,
+      to: 20,
+      text: 'abcdefghij'
+    }
+  }, validObject)
+
+  t.equals(
+    validate(objectWithSelector),
+    null,
+    'valid object with selector passes'
+  );
+
+  delete objectWithSelector.selector.text
+
+  t.equals(
+    validate(objectWithSelector),
+    '.selector: should have required property \'text\'',
+    'text is required'
+  );
+
+  objectWithSelector.selector.text = 'abcdefghij'
+  objectWithSelector.selector.foo = 'bar'
+
+  t.equals(
+    validate(objectWithSelector),
+    'should NOT have additional properties \'foo\'',
+    'additional property is not allowed'
+  );
+});
