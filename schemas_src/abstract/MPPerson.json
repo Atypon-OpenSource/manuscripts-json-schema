@@ -50,7 +50,15 @@
         "grants": {
           "type": "array",
           "items": {
-            "$ref": "MPGrant.json#"
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^(MPGrant|MPUserProfileGrant)"
+              }
+            ]
           },
           "additionalItems": false
         },
