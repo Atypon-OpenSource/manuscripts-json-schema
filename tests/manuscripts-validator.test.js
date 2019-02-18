@@ -118,7 +118,7 @@ test('page layout', t => {
 });
 
 test('contributor', t => {
-  t.plan(7);
+  t.plan(8);
 
   const validObject = {
     _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
@@ -129,6 +129,7 @@ test('contributor', t => {
     createdAt: 1515417692.477127,
     updatedAt: 1515494608.363229,
     affiliations: ['MPAffiliation:X'],
+    grants: ['MPGrant:X'],
     bibliographicName: {
       _id: 'MPBibliographicName:DEDDA223',
       objectType: 'MPBibliographicName'
@@ -162,6 +163,22 @@ test('contributor', t => {
     }
   };
 
+  const objectWithBadGrants = {
+    _id : 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
+    objectType: 'MPContributor',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    manuscriptID: 'MPManuscript:1001',
+    containerID: 'MPProject:2002',
+    priority: 1,
+    grants: [{'_id': 'MPGrant:X', 'objectType': 'MPGrant'}],
+    bibliographicName: {
+      _id: 'MPBibliographicName:DEDDA223',
+      objectType: 'MPBibliographicName'
+    }
+  };
+
   t.equals(
     validate(Object.assign({}, validObject)),
     null,
@@ -183,6 +200,12 @@ test('contributor', t => {
   t.equals(
     validate(Object.assign({}, objectWithBadAffiliations)),
     '.affiliations[0]: should be string',
+    'valid MPContributor passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, objectWithBadGrants)),
+    '.grants[0]: should be string',
     'valid MPContributor passes'
   );
 
