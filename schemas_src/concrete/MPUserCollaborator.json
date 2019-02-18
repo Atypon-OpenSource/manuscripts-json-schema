@@ -1,0 +1,58 @@
+{
+  "$id": "MPUserCollaborator.json",
+  "title": "UserCollaborator",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPBaseModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPUserCollaborator" ]
+        },
+        "userID": { "type": "string" },
+        "collaboratorID": {
+          "type": "string",
+          "pattern": "^MPUserProfile"
+        },
+        "collaboratorProfile": {
+          "$ref": "MPUserProfile.json#"
+        },
+        "projects" : {
+          "type": "object", 
+          "properties": {
+            "owner": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^MPProject"
+              }
+            },
+            "writer": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^MPProject"
+              }
+            },
+            "viewers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^MPProject"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "userID", 
+        "collaboratorID",
+        "collaboratorProfile",
+        "projects"
+      ]
+    }
+  }
+}
