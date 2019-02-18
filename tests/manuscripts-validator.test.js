@@ -321,6 +321,7 @@ test('user profile grant', t => {
     objectType: 'MPUserProfileGrant',
     containerID: 'MPUserProfile:foo-bar-baz',
     sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    prototype: 'MPUserProfileGrant:231123-1233123-1233131C',
     createdAt: 1515417692.477127,
     updatedAt: 1515494608.363229
   };

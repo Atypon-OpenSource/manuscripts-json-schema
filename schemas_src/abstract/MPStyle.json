@@ -21,9 +21,6 @@
         },
         "priority": {
           "type": "number"
-        },
-        "prototype": {
-          "$ref": "strings.json#/definitions/_id"
         }
       },
       "required": [

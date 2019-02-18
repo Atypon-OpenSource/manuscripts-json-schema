@@ -21,6 +21,9 @@
         "updatedAt": {
           "$ref": "numbers.json#/definitions/timestamp"
         },
+        "prototype": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "keywordIDs" : {
           "type": "array",
           "items": {
