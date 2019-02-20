@@ -1,0 +1,26 @@
+{
+  "$id": "MPAuxiliaryObjectReference.json",
+  "title": "AuxiliaryObjectReference",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPBaseModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "containingObject": { "$ref": "strings.json#/definitions/_id" },
+        "referencedObject": { "$ref": "strings.json#/definitions/_id" },
+        "auxiliaryObjectReferenceStyle": { "$ref": "strings.json#/definitions/_id" },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPAuxiliaryObjectReference" ]
+        }
+      },
+      "required": [
+        "containingObject",
+        "referencedObject"
+      ]
+    }
+  }
+}

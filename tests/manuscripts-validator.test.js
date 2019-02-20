@@ -1928,6 +1928,25 @@ test('figure', (t) => {
   );
 });
 
+test('auxiliary object reference', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPAuxiliaryObjectReference:231123-1233123-12331312',
+    objectType: 'MPAuxiliaryObjectReference',
+    containingObject: 'MPProject:foo-bar-baz',
+    referencedObject: 'MPManuscript:23111',
+    auxiliaryObjectReferenceStyle: 'MPAffiliation:foo-bar',
+    containerID: 'MPProject:123123'
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
 test('inline math fragment', (t) => {
   t.plan(6);
 
