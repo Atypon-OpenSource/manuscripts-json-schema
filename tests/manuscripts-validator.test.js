@@ -1842,7 +1842,7 @@ test('footnote', (t) => {
 
 
 test('listing', (t) => {
-  t.plan(2);
+  t.plan(3);
 
   const validObject = {
     _id: 'MPListing:foo',
@@ -1861,6 +1861,14 @@ test('listing', (t) => {
     validate(Object.assign({}, validObject)),
     null,
     'valid Listing passes'
+  );
+
+  const { language, ...objectWithoutLanguage } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(objectWithoutLanguage),
+    null,
+    'language not required'
   );
 
   t.equals(
