@@ -1,6 +1,6 @@
 ## Creating a new schema
 
-1. `git clone git@gitlab.com:mpapp-private/manuscripts-json-schema.git`
+1. `git clone git@gitlab.com:mpapp-public/manuscripts-json-schema.git`
 2. `npm i`
 3. `npm t`
 4. `cp schemas_src/concrete/MPSection.json schemas_src/concrete/MPProject.json`
