@@ -55,7 +55,8 @@ test('border style', t => {
     "pattern" : [ 1, 1 ],
     "createdAt" : 1515417692.476143,
     "name" : "dotted",
-    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
+    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
+    priority: 1
   };
 
   t.equals(
@@ -107,7 +108,8 @@ test('page layout', t => {
       priority: 99,
       numberingScheme: 'decimal'
     },
-    pageSize: 'a4'
+    pageSize: 'a4',
+    priority: 2
   }
 
   t.equals(
@@ -842,7 +844,8 @@ test('keyword ids', t => {
     "manuscriptID": "MPManuscript:zorb",
     "createdAt" : 1515417692.476143,
     "name" : "dotted",
-    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495"
+    "sessionID" : "4D17753C-AF51-4262-9FBD-88D8EC7E8495",
+    "priority" : 1 
   };
 
   t.equals(
@@ -886,7 +889,8 @@ test('color', t => {
     "manuscriptID": "MPManuscript:zorb",
     "createdAt" : 1515417692.476842,
     "name" : "red",
-    "value" : "#ff0000"
+    "value" : "#ff0000",
+    priority: 1 
   };
 
   t.equals(
@@ -996,7 +1000,8 @@ test('color scheme', t => {
     "manuscriptID": "MPManuscript:zorb",
     "createdAt" : 1515417692.477127,
     "updatedAt" : 1515494608.363229,
-    "name" : "Manuscripts default colour scheme"
+    "name" : "Manuscripts default colour scheme",
+    priority : 1
   };
 
   t.equals(

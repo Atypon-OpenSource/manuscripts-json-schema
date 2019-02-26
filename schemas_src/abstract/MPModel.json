@@ -24,6 +24,12 @@
         "prototype": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "locked": {
+          "type": "boolean"
+        },
+        "bundled": {
+          "type": "boolean"
+        },
         "keywordIDs" : {
           "type": "array",
           "items": {
