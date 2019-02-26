@@ -13,6 +13,12 @@
         "objectType": {
           "type": "string",
           "enum": [ "MPTOCElement" ]
+        },
+        "elementType": {
+          "type": "string",
+          "enum": [
+            "div"
+          ]
         }
       },
       "required": []
