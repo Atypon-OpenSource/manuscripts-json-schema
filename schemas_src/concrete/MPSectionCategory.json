@@ -45,7 +45,10 @@
         }
       },
       "required": [
-        "titles"
+        "titles",
+        "name",
+        "desc",
+        "priority"
       ]
     }
   }

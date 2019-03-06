@@ -1,0 +1,63 @@
+{
+  "$id": "MPSectionDescription.json",
+  "title": "SectionDescription",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPEmbeddedModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "sectionCategory": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "titles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "subsections": {
+          "type": "array",
+          "items" : {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "placeholder": { "type": "string" }
+            },
+            "required": [ "title" ]
+          }
+        },
+        "maxWordCount": {
+          "type": "number"
+        },
+        "minWordCount": {
+          "type": "number"
+        },
+        "maxKeywordCount": {
+          "type": "number"
+        },
+        "minKeywordCount": {
+          "type": "number"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPSectionDescription" ]
+        }
+      },
+      "required": [
+        "sectionCategory"
+      ]
+    }
+  }
+}

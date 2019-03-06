@@ -1,0 +1,39 @@
+{
+  "$id": "MPTemplateData.json",
+  "title": "TemplateData",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPBaseModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "template": {
+          "$ref": "MPManuscriptTemplate.json#"
+        },
+        "bundle": {
+          "$ref": "MPBundle.json#"
+        },
+        "articleType": {
+          "type": "string"
+        },
+        "publisher": {
+          "$ref": "MPPublisher.json#"
+        },
+        "category": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPTemplateData" ]
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  }
+}

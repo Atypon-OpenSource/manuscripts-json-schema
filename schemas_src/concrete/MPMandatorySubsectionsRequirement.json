@@ -1,0 +1,28 @@
+{
+  "$id": "MPMandatorySubsectionsRequirement.json",
+  "title": "MandatorySubsectionsRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPRequirement.json#" }
+    ],
+    "with": {
+      "properties": {
+        "evaluatedObject": {
+          "type": "string"
+        },
+        "embeddedSectionDescriptions": {
+          "$ref": "MPSectionDescription.json#"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPMandatorySubsectionsRequirement" ]
+        }
+      },
+      "required": [
+        "evaluatedObject",
+        "embeddedSectionDescriptions"
+      ]
+    }
+  }
+}

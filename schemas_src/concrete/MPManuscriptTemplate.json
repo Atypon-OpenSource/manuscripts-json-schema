@@ -1,0 +1,138 @@
+{
+  "$id": "MPManuscriptTemplate.json",
+  "title": "ManuscriptTemplate",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "aim": {
+          "type": "string"
+        },
+        "bundle": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "requirementIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "priority": {
+          "type": "number"
+        },
+        "requirements": {
+          "type": "object"
+        },
+        "styles": {
+          "type": "object"
+        },
+        "hidden": {
+          "type": "number"
+        },
+        "LaTeXTemplateURL": {
+          "type": "string"
+        },
+        "manuscriptRunningTitleRequirement": {
+          "type": "string"
+        },
+        "maxCharCountRequirement": {
+          "type": "string"
+        },
+        "maxCombinedFigureTableCountRequirement": {
+          "type": "string"
+        },
+        "maxFigureFileSizeRequirement": {
+          "type": "string"
+        },
+        "maxWordCountRequirement": {
+          "type": "string"
+        },
+        "minCombinedFigureTableCountRequirement": {
+          "type": "string"
+        },
+        "minFigureScreenDPIRequirement": {
+          "type": "string"
+        },
+        "ISSNs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "licenses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "acceptableFigureFormats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "acceptableManuscriptFormats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "authorInstructionsURL": {
+          "type": "string"
+        },
+        "bodyLineSpacing": {
+          "type": "number"
+        },
+        "eISSNs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "additionalItems": false
+        },
+        "embeddedTableElementNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "sourceURL": {
+          "type": "string"
+        },
+        "tableElementFileLayout": {
+          "type": "number"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": [ "MPManuscriptTemplate" ]
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  }
+}

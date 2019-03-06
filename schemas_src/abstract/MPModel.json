@@ -30,7 +30,7 @@
         "bundled": {
           "type": "boolean"
         },
-        "keywordIDs" : {
+        "keywordIDs": {
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/keywordID"

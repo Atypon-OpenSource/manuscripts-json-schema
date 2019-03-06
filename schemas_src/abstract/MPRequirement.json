@@ -1,0 +1,18 @@
+{
+  "$id": "MPRequirement.json",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "severity": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "severity"
+      ]
+    }
+  }
+}
