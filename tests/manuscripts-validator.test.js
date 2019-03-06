@@ -2312,3 +2312,86 @@ test('comment', (t) => {
     'additional property is not allowed'
   );
 });
+
+
+test('user project', (t) => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPUserProject:foo',
+    objectType: 'MPUserProject',
+    userID: 'MPUserProfile:bar',
+    projectID: 'MPProject:bar',
+    lastOpened:{
+      xyz: {
+        timestamp: 1234,
+        manuscriptID: 'MPManuscript:abc',
+        sectionID: 'MPSection:abc'
+      }
+    },
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid comment passes'
+  );
+
+  const { userID, ...invalidObject } = Object.assign({}, validObject)
+
+  t.equals(
+    validate(invalidObject),
+    'should have required property \'userID\'',
+    'userID is required'
+  );
+
+  const invalidManuscriptID = {
+    abc: {
+      timestamp: 123123,
+      sectionID: 'MPSection:foo',
+      manuscriptID: 'MPProject:foo' 
+    }
+  }
+
+  const invalidObject2 = Object.assign({}, { ...validObject, lastOpened: invalidManuscriptID })
+
+  t.equals(
+    validate(invalidObject2),
+    '.lastOpened[\'abc\'].manuscriptID: should match pattern "^MPManuscript"',
+    'lastOpened must contain fields of [device id] with matching manuscript id'
+  )
+
+  const invalidSectionID = {
+    abc: {
+      timestamp: 123123,
+      sectionID: 'MPProject:foo',
+      manuscriptID: 'MPManuscript:foo'
+    }
+  }
+
+  const invalidObject3 = Object.assign({}, { ...validObject, lastOpened: invalidSectionID })
+
+  t.equals(
+    validate(invalidObject3),
+    '.lastOpened[\'abc\'].sectionID: should match pattern "^MPSection"',
+    'lastOpened must contain fields of [device id] with matching section id'
+  )
+
+  const invalidLastOpenedProperties = {
+    abc: {
+      timestamp: 123123,
+      foobar: 'foobar', 
+      manuscriptID: 'MPManuscript:foo'
+    }
+  }
+
+  const invalidObject4 = Object.assign({}, { ...validObject, lastOpened: invalidLastOpenedProperties })
+
+  t.equals(
+    validate(invalidObject4),
+    'should NOT have additional properties \'foobar\'',
+    'lastOpened must contain fields of [device id] with no additional properties'
+  )
+});
