@@ -28,9 +28,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "contentType"
-      ]
+      "required": []
     }
   }
 }
