@@ -1936,8 +1936,8 @@ test('figure', (t) => {
 
   t.equals(
     validate(invalidObject),
-    'should have required property \'contentType\'',
-    'contentType is required'
+    null,
+    'valid figure without contentType'
   );
 });
 
