@@ -1,0 +1,23 @@
+{
+  "$id": "MPSubmission.json",
+  "title": "Submission",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSubmission"]
+        },
+        "submittedAt": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "journalCode": {
+          "type": "string"
+        }
+      }
+    },
+    "required": ["submittedAt", "journalCode"]
+  }
+}
