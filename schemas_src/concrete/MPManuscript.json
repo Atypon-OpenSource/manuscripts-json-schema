@@ -38,7 +38,7 @@
         },
         "manuscriptType": {
           "type": "integer",
-          "enum": [ 0, 1 ]
+          "enum": [0, 1]
         },
         "authors": {
           "type": "array",
@@ -178,14 +178,19 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPManuscript" ]
+          "enum": ["MPManuscript"]
         },
         "priority": {
           "type": "integer"
+        },
+        "submissions": {
+          "type": "array",
+          "items": {
+            "$ref": "MPSubmission.json#"
+          }
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }
