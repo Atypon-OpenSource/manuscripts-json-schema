@@ -16,7 +16,8 @@
         },
         "contents": {
           "type": "string"
-        }
+        },
+        "listingAttachment": { "$ref": "MPListingAttachmentReference.json#" }
       },
       "required": [
         "contents"

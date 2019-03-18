@@ -1966,8 +1966,8 @@ test("listing", t => {
   );
 });
 
-test("table", t => {
-  t.plan(2);
+test('table', (t) => {
+  t.plan(3);
 
   const validObject = {
     _id: "MPTable:foo",
@@ -1993,10 +1993,31 @@ test("table", t => {
     "should have required property 'contents'",
     "contents is required"
   );
+
+  const validObjectWithListingAttachment = {
+    _id: 'MPTable:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
+    objectType: 'MPTable',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'bar',
+    listingAttachment: {
+      listingID: 'MPListing:X',
+      attachmentKey: 'X'
+    }
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'Table is valid with "listingAttachment"'
+  );
 });
 
-test("figure", t => {
-  t.plan(2);
+test('figure', (t) => {
+  t.plan(3);
 
   const validObject = {
     _id: "MPFigure:foo",
@@ -2018,6 +2039,27 @@ test("figure", t => {
   const { contentType, ...invalidObject } = Object.assign({}, validObject);
 
   t.equals(validate(invalidObject), null, "valid figure without contentType");
+
+  const validObjectWithListingAttachment = {
+    _id: 'MPFigure:foo',
+    sessionID: '3123123-123123-123DDA',
+    updatedAt: 213123123.1,
+    createdAt: 213123123.1,
+    objectType: 'MPFigure',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contentType: 'bar',
+    listingAttachment: {
+      listingID: 'MPListing:X',
+      attachmentKey: 'foo'
+    }
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObjectWithListingAttachment)),
+    null,
+    'Figure is valid with "listingAttachment"'
+  );
 });
 
 test("auxiliary object reference", t => {

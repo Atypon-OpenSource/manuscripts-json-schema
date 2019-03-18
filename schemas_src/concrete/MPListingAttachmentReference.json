@@ -1,0 +1,18 @@
+{
+  "$id": "MPListingAttachmentReference.json",
+  "title": "ListingAttachmentReference",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "listingID": {
+      "type": "string"
+    },
+    "attachmentKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "listingID",
+    "attachmentKey"
+  ]
+}
