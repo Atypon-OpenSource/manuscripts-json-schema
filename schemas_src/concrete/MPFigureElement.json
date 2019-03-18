@@ -37,6 +37,9 @@
             "$ref": "strings.json#/definitions/_id"
           },
           "additionalItems": false
+        },
+        "listingID": {
+          "type": "string"
         }
       },
       "required": [
