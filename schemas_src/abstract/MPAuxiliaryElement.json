@@ -16,7 +16,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPAuxiliaryElement" ]
+          "enum": ["MPAuxiliaryElement"]
         },
         "suppressCaption": {
           "type": "boolean"
@@ -25,8 +25,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

@@ -3,14 +3,12 @@
   "title": "ResearchField",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "concrete/MPKeyword.json#" }
-    ],
+    "sources": [{ "$ref": "concrete/MPKeyword.json#" }],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPResearchField" ]
+          "enum": ["MPResearchField"]
         }
       },
       "required": []

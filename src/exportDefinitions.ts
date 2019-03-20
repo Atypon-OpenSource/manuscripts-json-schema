@@ -9,18 +9,16 @@ async function getCompiledSchemas() {
   const schemaDir = 'schemas';
   const excludedFiles = new Set(['numbers.json', 'strings.json']);
 
-  const schemaDefinitions = await Promise.all(
+  return Promise.all(
     readdirSync(schemaDir, 'utf8')
       .filter(file => !excludedFiles.has(file))
       .map(file => {
         return compileFromFile(join(schemaDir, file), {
           cwd: schemaDir,
-          bannerComment: ''
-        })
+          bannerComment: '',
+        });
       })
   );
-
-  return schemaDefinitions;
 }
 
 async function getAbstractSchemas() {
@@ -30,8 +28,8 @@ async function getAbstractSchemas() {
       .map(schema => {
         return compile(schema, schema.$id, {
           cwd: 'schemas',
-          bannerComment: ''
-        })
+          bannerComment: '',
+        });
       })
   );
 }
@@ -45,9 +43,9 @@ async function getAbstractSchemas() {
   const contents = await Promise.all(
     schemas.concat(abstracts).map(definition => {
       // this is the best approach because the `objectType` has to match the mac.
-      return definition.replace(/^export\sinterface\sMp/, 'export interface ');
+      return definition.replace(/^export\sinterface\sM[Pp]/, 'export interface ');
     })
   );
 
-  await appendToDistFile('types.ts', 'types', contents.join('\n'))
-})()
+  await appendToDistFile('types.ts', 'types', contents.join('\n'));
+})();

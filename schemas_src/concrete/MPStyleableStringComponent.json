@@ -3,9 +3,7 @@
   "title": "StyleableStringComponent",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "bold": {
@@ -19,16 +17,13 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPStyleableStringComponent" ]
+          "enum": ["MPStyleableStringComponent"]
         },
         "placeholderString": {
           "type": "string"
         }
       },
-      "required": [
-        "bold",
-        "italic"
-      ]
+      "required": ["bold", "italic"]
     }
   }
 }

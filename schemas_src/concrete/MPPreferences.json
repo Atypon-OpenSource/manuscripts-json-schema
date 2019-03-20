@@ -11,11 +11,8 @@
     },
     "objectType": {
       "type": "string",
-      "enum": [ "MPPreferences" ]
+      "enum": ["MPPreferences"]
     }
   },
-  "required": [
-    "_id",
-    "objectType"
-  ]
+  "required": ["_id", "objectType"]
 }

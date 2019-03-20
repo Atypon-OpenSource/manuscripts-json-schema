@@ -3,31 +3,29 @@
   "type": "object",
   "additionalProperties": true,
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPBibliographicName" ]
+          "enum": ["MPBibliographicName"]
         },
-        "family" : {
+        "family": {
           "type": "string"
         },
-        "given" : {
+        "given": {
           "type": "string"
         },
-        "dropping-particle" : {
+        "dropping-particle": {
           "type": "string"
         },
-        "non-dropping-particle" : {
+        "non-dropping-particle": {
           "type": "string"
         },
-        "suffix" : {
+        "suffix": {
           "type": "string"
         },
-        "literal" : {
+        "literal": {
           "type": "string"
         }
       },

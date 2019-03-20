@@ -42,7 +42,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPSection" ]
+          "enum": ["MPSection"]
         },
         "path": {
           "type": "array",
@@ -52,10 +52,7 @@
           "additionalItems": false
         }
       },
-      "required": [
-        "path",
-        "priority"
-      ]
+      "required": ["path", "priority"]
     }
   }
 }

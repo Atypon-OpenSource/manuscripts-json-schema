@@ -11,16 +11,13 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPEquationElement" ]
+          "enum": ["MPEquationElement"]
         },
         "containedObjectID": {
           "$ref": "strings.json#/definitions/_id"
         }
       },
-      "required": [
-        "caption",
-        "containedObjectID"
-      ]
+      "required": ["caption", "containedObjectID"]
     }
   }
 }

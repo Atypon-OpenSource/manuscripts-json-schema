@@ -11,16 +11,15 @@
       "properties": {
         "containingObject": { "$ref": "strings.json#/definitions/_id" },
         "referencedObject": { "$ref": "strings.json#/definitions/_id" },
-        "auxiliaryObjectReferenceStyle": { "$ref": "strings.json#/definitions/_id" },
+        "auxiliaryObjectReferenceStyle": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "objectType": {
           "type": "string",
-          "enum": [ "MPAuxiliaryObjectReference" ]
+          "enum": ["MPAuxiliaryObjectReference"]
         }
       },
-      "required": [
-        "containingObject",
-        "referencedObject"
-      ]
+      "required": ["containingObject", "referencedObject"]
     }
   }
 }

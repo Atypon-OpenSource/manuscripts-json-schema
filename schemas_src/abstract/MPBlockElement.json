@@ -1,9 +1,7 @@
 {
   "$id": "MPBlockElement.json",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPElement.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPElement.json#" }],
     "with": {
       "properties": {
         "contents": {
@@ -13,9 +11,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "contents"
-      ]
+      "required": ["contents"]
     }
   }
 }

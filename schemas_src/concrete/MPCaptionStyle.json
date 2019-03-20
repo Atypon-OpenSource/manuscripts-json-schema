@@ -24,18 +24,14 @@
         },
         "figureTitleNumberingScheme": {
           "type": "string",
-          "enum": [
-            "decimal"
-          ]
+          "enum": ["decimal"]
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPCaptionStyle" ]
+          "enum": ["MPCaptionStyle"]
         }
       },
-      "required": [
-        "embeddedCaptionComponents"
-      ]
+      "required": ["embeddedCaptionComponents"]
     }
   }
 }

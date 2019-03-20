@@ -10,11 +10,11 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPBibliographyItem" ]
+          "enum": ["MPBibliographyItem"]
         },
         "type": {
           "type": "string",
-          "enum" : [
+          "enum": [
             "article",
             "article-journal",
             "article-magazine",
@@ -219,10 +219,7 @@
           "type": "string"
         },
         "edition": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         },
         "event": {
           "type": "string"
@@ -240,16 +237,10 @@
           "type": "string"
         },
         "ISSN": {
-          "type": [
-            "string",
-            "array"
-          ]
+          "type": ["string", "array"]
         },
         "issue": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         },
         "jurisdiction": {
           "type": "string"
@@ -285,22 +276,13 @@
           "type": "string"
         },
         "original-title": {
-          "type": [
-            "string",
-            "array"
-          ]
+          "type": ["string", "array"]
         },
         "page": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         },
         "page-first": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         },
         "PMCID": {
           "type": "string"
@@ -351,18 +333,13 @@
           "type": "string"
         },
         "volume": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         },
         "year-suffix": {
           "type": "string"
         }
       },
-      "required": [
-        "type"
-      ]
+      "required": ["type"]
     }
   }
 }

@@ -2,9 +2,7 @@
   "$id": "MPStyle.json",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "desc": {
@@ -23,9 +21,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "priority"
-      ]
+      "required": ["priority"]
     }
   }
 }

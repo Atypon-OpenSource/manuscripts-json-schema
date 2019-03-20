@@ -1,31 +1,26 @@
 {
-    "$id": "MPInvitation.json",
-    "title": "Invitation",
-    "type": "object",
-    "$mash": {
-        "sources": [
-            { "$ref": "abstract/MPModel.json#" }
-        ],
-        "with": {
-            "properties": {
-                "invitingUserID": {
-                    "$ref": "strings.json#/definitions/gatewayAccountID"
-                },
-                "invitedUserEmail": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "objectType": {
-                    "type": "string",
-                    "enum": [ "MPInvitation" ]
-                }
-            },
-            "required": [
-                "invitingUserID",
-                "invitedUserEmail"
-            ]
+  "$id": "MPInvitation.json",
+  "title": "Invitation",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "invitingUserID": {
+          "$ref": "strings.json#/definitions/gatewayAccountID"
+        },
+        "invitedUserEmail": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPInvitation"]
         }
+      },
+      "required": ["invitingUserID", "invitedUserEmail"]
     }
+  }
 }

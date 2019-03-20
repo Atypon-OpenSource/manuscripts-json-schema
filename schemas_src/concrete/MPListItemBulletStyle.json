@@ -2,9 +2,7 @@
   "$id": "MPListItemBulletStyle.json",
   "title": "ListItemBulletStyle",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "bulletStyle": {
@@ -15,11 +13,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPListItemBulletStyle" ]
+          "enum": ["MPListItemBulletStyle"]
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

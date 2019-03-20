@@ -3,9 +3,7 @@
   "title": "ContributorCategory",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "mixins/MPCategorizable.json#" }
-    ],
+    "sources": [{ "$ref": "mixins/MPCategorizable.json#" }],
     "with": {
       "properties": {},
       "required": []

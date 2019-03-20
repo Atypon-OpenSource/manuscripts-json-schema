@@ -3,9 +3,7 @@
   "title": "MandatorySubsectionsRequirement",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPRequirement.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPRequirement.json#" }],
     "with": {
       "properties": {
         "evaluatedObject": {
@@ -16,13 +14,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPMandatorySubsectionsRequirement" ]
+          "enum": ["MPMandatorySubsectionsRequirement"]
         }
       },
-      "required": [
-        "evaluatedObject",
-        "embeddedSectionDescriptions"
-      ]
+      "required": ["evaluatedObject", "embeddedSectionDescriptions"]
     }
   }
 }

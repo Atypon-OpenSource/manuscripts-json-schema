@@ -3,9 +3,7 @@
   "title": "UserProject",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "userID": {
@@ -29,42 +27,39 @@
               "properties": {
                 "timestamp": { "type": "number" },
                 "manuscriptID": {
-                  "allOf": [{
-                    "$ref": "strings.json#/definitions/_id"
-                  },
-                  {
-                    "type": "string",
-                    "pattern": "^MPManuscript"
-                  }]
+                  "allOf": [
+                    {
+                      "$ref": "strings.json#/definitions/_id"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^MPManuscript"
+                    }
+                  ]
                 },
                 "sectionID": {
-                  "allOf": [{
-                    "$ref": "strings.json#/definitions/_id"
-                  },
-                  {
-                    "type": "string",
-                    "pattern": "^MPSection"
-                  }]
+                  "allOf": [
+                    {
+                      "$ref": "strings.json#/definitions/_id"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^MPSection"
+                    }
+                  ]
                 }
               },
               "additionalProperties": false,
-              "required": [
-                "timestamp",
-                "manuscriptID"
-              ]
+              "required": ["timestamp", "manuscriptID"]
             }
           }
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPUserProject" ]
+          "enum": ["MPUserProject"]
         }
       },
-      "required": [
-        "userID",
-        "projectID",
-        "lastOpened"
-      ]
+      "required": ["userID", "projectID", "lastOpened"]
     }
   }
 }

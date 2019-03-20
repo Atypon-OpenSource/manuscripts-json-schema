@@ -1,19 +1,23 @@
 {
   "name": "@manuscripts/manuscripts-json-schema",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "",
   "main": "./dist/cjs",
   "module": "./dist/es",
   "types": "./dist/types",
   "scripts": {
     "build": "npm run build-src && npm run build-schemas && npm run build-definitions && npm run build-typelookup && npm run build-validators",
-    "build-src": "rimraf tsc-dist/* dist/* schemas/* definitions/* && tsc",
+    "build-src": "tsc",
     "build-schemas": "node tsc-dist/exportSchemas",
     "build-definitions": "node tsc-dist/exportDefinitions",
     "build-typelookup": "node tsc-dist/exportManuscriptsTypeLookup",
     "build-validators": "node tsc-dist/exportValidators",
+    "lint": "eslint '{src,tests}/**/*.{js,ts}'",
+    "format": "prettier --write '{src,schemas_src,tests}/**/*.{ts,js,json}'",
+    "prebuild": "rimraf tsc-dist/* dist/* schemas/* definitions/*",
     "prepare": "npm run build",
-    "test": "npm run build && tape tests/*.js"
+    "test": "npm run build && tape tests/*.js",
+    "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
     "@manuscripts:registry": "https://atypon-npm-registry.herokuapp.com/"
@@ -23,17 +27,29 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/js-beautify": "0.0.31",
-    "@types/node": "^9.6.2",
+    "@types/js-beautify": "^1.8.0",
+    "@types/node": "^11.11.3",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
     "doca": "^0.4.0",
-    "json-schema-to-typescript": "^5.4.0",
-    "rimraf": "^2.6.2",
-    "tape": "^4.8.0",
-    "typescript": "^2.8.1"
+    "eslint": "^5.15.2",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "json-schema-to-typescript": "^6.1.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "tape": "^4.10.1",
+    "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "ajv": "^6.5.0",
-    "js-beautify": "^1.7.5",
-    "deepmerge": "^2.0.1"
+    "ajv": "^6.10.0",
+    "deepmerge": "^3.2.0",
+    "js-beautify": "^1.9.0"
   }
 }

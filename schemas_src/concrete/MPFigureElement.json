@@ -11,11 +11,11 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPFigureElement" ]
+          "enum": ["MPFigureElement"]
         },
         "elementType": {
           "type": "string",
-          "enum": [ "figure" ]
+          "enum": ["figure"]
         },
         "figureLayout": {
           "type": "string"
@@ -42,9 +42,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "containedObjectIDs"
-      ]
+      "required": ["containedObjectIDs"]
     }
   }
 }

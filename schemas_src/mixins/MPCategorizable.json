@@ -7,6 +7,5 @@
     "desc": { "type": "string" },
     "priority": { "type": "number" }
   },
-  "required": [
-  ]
+  "required": []
 }

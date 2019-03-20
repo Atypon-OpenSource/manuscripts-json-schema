@@ -3,9 +3,7 @@
   "title": "Project",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "title": {
@@ -31,14 +29,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPProject" ]
+          "enum": ["MPProject"]
         }
       },
-      "required": [
-        "owners",
-        "writers",
-        "viewers"
-      ]
+      "required": ["owners", "writers", "viewers"]
     }
   }
 }

@@ -12,15 +12,13 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPFootnote" ]
+          "enum": ["MPFootnote"]
         },
         "contents": {
           "type": "string"
         }
       },
-      "required": [
-        "contents"
-      ]
+      "required": ["contents"]
     }
   }
 }

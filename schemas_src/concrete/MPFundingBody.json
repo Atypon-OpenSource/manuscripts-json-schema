@@ -14,11 +14,10 @@
         "URL": { "type": "string" },
         "objectType": {
           "type": "string",
-          "enum": [ "MPFundingBody" ]
+          "enum": ["MPFundingBody"]
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

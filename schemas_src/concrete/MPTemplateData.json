@@ -3,9 +3,7 @@
   "title": "TemplateData",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPBaseModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
     "with": {
       "properties": {
         "title": {
@@ -28,12 +26,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPTemplateData" ]
+          "enum": ["MPTemplateData"]
         }
       },
-      "required": [
-        "title"
-      ]
+      "required": ["title"]
     }
   }
 }

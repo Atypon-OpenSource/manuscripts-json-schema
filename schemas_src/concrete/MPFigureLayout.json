@@ -15,16 +15,13 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPFigureLayout" ]
+          "enum": ["MPFigureLayout"]
         },
         "rows": {
           "type": "number"
         }
       },
-      "required": [
-        "columns",
-        "rows"
-      ]
+      "required": ["columns", "rows"]
     }
   }
 }

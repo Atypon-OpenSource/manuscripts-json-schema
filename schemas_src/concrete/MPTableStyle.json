@@ -78,11 +78,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPTableStyle" ]
+          "enum": ["MPTableStyle"]
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

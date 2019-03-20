@@ -11,7 +11,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPCommentAnnotation" ]
+          "enum": ["MPCommentAnnotation"]
         },
         "contents": {
           "type": "string"

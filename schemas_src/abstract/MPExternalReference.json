@@ -3,9 +3,7 @@
   "title": "ExternalReference",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPReference.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPReference.json#" }],
     "with": {
       "properties": {},
       "required": []

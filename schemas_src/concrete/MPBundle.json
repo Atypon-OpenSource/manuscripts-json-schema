@@ -2,14 +2,12 @@
   "$id": "MPBundle.json",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPBundle" ]
+          "enum": ["MPBundle"]
         },
         "csl": {
           "type": "object",
@@ -41,7 +39,7 @@
             "documentation-URL": {
               "type": "string"
             },
-            "fields" : {
+            "fields": {
               "type": "array",
               "items": {
                 "$ref": "strings.json#/definitions/keywordID"

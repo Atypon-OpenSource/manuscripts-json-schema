@@ -12,7 +12,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPEquation" ]
+          "enum": ["MPEquation"]
         },
         "TeXRepresentation": {
           "type": "string"
@@ -30,9 +30,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "TeXRepresentation"
-      ]
+      "required": ["TeXRepresentation"]
     }
   }
 }

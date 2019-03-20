@@ -3,9 +3,7 @@
   "title": "MinimumManuscriptWordCountRequirement",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPRequirement.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPRequirement.json#" }],
     "with": {
       "properties": {
         "count": {
@@ -13,12 +11,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPMinimumManuscriptWordCountRequirement" ]
+          "enum": ["MPMinimumManuscriptWordCountRequirement"]
         }
       },
-      "required": [
-        "count"
-      ]
+      "required": ["count"]
     }
   }
 }

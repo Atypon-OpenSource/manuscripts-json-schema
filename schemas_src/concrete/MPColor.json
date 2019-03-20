@@ -18,7 +18,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPColor" ]
+          "enum": ["MPColor"]
         },
         "title": {
           "type": "string"
@@ -27,8 +27,7 @@
           "$ref": "strings.json#/definitions/hexColor"
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

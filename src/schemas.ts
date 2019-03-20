@@ -7,7 +7,7 @@ export const generateSchemas = (filterFn?: (schemaId: string) => boolean) => {
   const ajv = new Ajv({ sourceCode: true });
   ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 
-  const pipeline = (fs: Array<(schema: JsonSchema) => JsonSchema>) => {
+  const pipeline = (fs: ((schema: JsonSchema) => JsonSchema)[]) => {
     return (schema: JsonSchema) => fs.reduce((acc, f) => f(acc), schema);
   };
 
@@ -22,7 +22,7 @@ export const generateSchemas = (filterFn?: (schemaId: string) => boolean) => {
 
   // Mash them (recursively merge).
   const mashedSchemas = concreteSchemas
-    .filter(schema => filterFn ? filterFn(schema.$id) : true)
+    .filter(schema => (filterFn ? filterFn(schema.$id) : true))
     .map(mash);
 
   mashedSchemas.forEach(schema => ajv.addSchema(schema));
@@ -31,9 +31,11 @@ export const generateSchemas = (filterFn?: (schemaId: string) => boolean) => {
   const supportedObjectTypes = new Set<string>(mashedSchemas.map(x => x.$id));
 
   const sortObject = (obj: any) =>
-    Object.keys(obj).sort().reduce((acc: any, k) => (acc[k] = obj[k], acc), {});
+    Object.keys(obj)
+      .sort()
+      .reduce((acc: any, k) => ((acc[k] = obj[k]), acc), {});
 
   const schemas = [...scalarSchemas, ...mashedSchemas].map(sortObject);
 
   return { supportedObjectTypes, schemas, ajv };
-}
+};

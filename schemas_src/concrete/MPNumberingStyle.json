@@ -2,9 +2,7 @@
   "$id": "MPNumberingStyle.json",
   "title": "NumberingStyle",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "numberingScheme": {
@@ -18,12 +16,11 @@
             "uppercase-roman",
             "lowercase-roman",
             "lowercase-greek"
-
           ]
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPNumberingStyle" ]
+          "enum": ["MPNumberingStyle"]
         },
         "prefix": {
           "type": "string"
@@ -38,9 +35,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "startIndex"
-      ]
+      "required": ["startIndex"]
     }
   }
 }

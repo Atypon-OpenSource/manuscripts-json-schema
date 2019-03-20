@@ -3,14 +3,12 @@
   "title": "Library",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPLibrary" ]
+          "enum": ["MPLibrary"]
         }
       },
       "required": []

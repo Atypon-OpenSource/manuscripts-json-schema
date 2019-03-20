@@ -11,20 +11,17 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPListingElement" ]
+          "enum": ["MPListingElement"]
         },
         "containedObjectID": {
           "$ref": "strings.json#/definitions/_id"
         },
         "elementType": {
           "type": "string",
-          "enum": [ "figure" ]
+          "enum": ["figure"]
         }
       },
-      "required": [
-        "caption",
-        "containedObjectID"
-      ]
+      "required": ["caption", "containedObjectID"]
     }
   }
 }

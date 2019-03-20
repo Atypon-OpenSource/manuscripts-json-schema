@@ -1,9 +1,7 @@
 {
   "$id": "MPModel.json",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPBaseModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
     "with": {
       "properties": {
         "_deleted": {
@@ -37,10 +35,7 @@
           }
         }
       },
-      "required": [
-        "createdAt",
-        "updatedAt"
-      ]
+      "required": ["createdAt", "updatedAt"]
     }
   }
 }

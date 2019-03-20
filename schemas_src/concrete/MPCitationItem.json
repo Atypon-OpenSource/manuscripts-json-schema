@@ -2,9 +2,7 @@
   "$id": "MPCitationItem.json",
   "title": "CitationItem",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "bibliographyItem": {
@@ -20,12 +18,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPCitationItem" ]
+          "enum": ["MPCitationItem"]
         }
       },
-      "required": [
-        "bibliographyItem"
-      ]
+      "required": ["bibliographyItem"]
     }
   }
 }

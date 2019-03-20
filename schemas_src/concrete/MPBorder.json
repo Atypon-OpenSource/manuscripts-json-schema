@@ -3,9 +3,7 @@
   "title": "Border",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "color": {
@@ -13,7 +11,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPBorder" ]
+          "enum": ["MPBorder"]
         },
         "style": {
           "$ref": "strings.json#/definitions/_id"
@@ -22,9 +20,7 @@
           "$ref": "numbers.json#/definitions/borderWidth"
         }
       },
-      "required": [
-        "width"
-      ]
+      "required": ["width"]
     }
   }
 }

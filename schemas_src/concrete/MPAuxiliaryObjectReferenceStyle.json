@@ -18,11 +18,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPAuxiliaryObjectReferenceStyle" ]
+          "enum": ["MPAuxiliaryObjectReferenceStyle"]
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

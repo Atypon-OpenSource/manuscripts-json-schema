@@ -1,37 +1,32 @@
 {
-    "$id": "MPProjectInvitation.json",
-    "title": "Project Invitation",
-    "type": "object",
-    "$mash": {
-        "sources": [
-            { "$ref": "concrete/MPInvitation.json#" }
-        ],
-        "with": {
-            "properties": {
-                "invitedUserName": {
-                    "type": "string"
-                },
-                "projectID": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "string"
-                },
-                "projectTitle": {
-                    "type": "string"
-                },
-                "acceptedAt": {
-                    "$ref": "numbers.json#/definitions/timestamp"
-                },
-                "objectType": {
-                    "type": "string",
-                    "enum": [ "MPProjectInvitation" ]
-                }
-            },
-            "required": [
-                "projectID",
-                "role"
-            ]
+  "$id": "MPProjectInvitation.json",
+  "title": "Project Invitation",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "concrete/MPInvitation.json#" }],
+    "with": {
+      "properties": {
+        "invitedUserName": {
+          "type": "string"
+        },
+        "projectID": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "projectTitle": {
+          "type": "string"
+        },
+        "acceptedAt": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPProjectInvitation"]
         }
+      },
+      "required": ["projectID", "role"]
     }
+  }
 }

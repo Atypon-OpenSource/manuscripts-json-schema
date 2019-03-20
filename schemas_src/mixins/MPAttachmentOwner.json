@@ -16,13 +16,7 @@
             "length": { "type": "integer" },
             "stub": { "type": "boolean" }
           },
-          "required": [
-            "digest",
-            "revpos",
-            "content_type",
-            "length",
-            "stub"
-          ]
+          "required": ["digest", "revpos", "content_type", "length", "stub"]
         }
       }
     }
