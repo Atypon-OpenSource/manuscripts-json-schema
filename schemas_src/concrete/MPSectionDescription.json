@@ -3,9 +3,7 @@
   "title": "SectionDescription",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "sectionCategory": {
@@ -29,13 +27,13 @@
         },
         "subsections": {
           "type": "array",
-          "items" : {
+          "items": {
             "type": "object",
             "properties": {
               "title": { "type": "string" },
               "placeholder": { "type": "string" }
             },
-            "required": [ "title" ]
+            "required": ["title"]
           }
         },
         "maxWordCount": {
@@ -52,12 +50,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPSectionDescription" ]
+          "enum": ["MPSectionDescription"]
         }
       },
-      "required": [
-        "sectionCategory"
-      ]
+      "required": ["sectionCategory"]
     }
   }
 }

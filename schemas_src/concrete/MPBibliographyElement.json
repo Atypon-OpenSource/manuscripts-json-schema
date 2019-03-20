@@ -11,13 +11,11 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPBibliographyElement" ]
+          "enum": ["MPBibliographyElement"]
         },
         "elementType": {
           "type": "string",
-          "enum": [
-            "div"
-          ]
+          "enum": ["div"]
         },
         "paragraphStyle": {
           "allOf": [

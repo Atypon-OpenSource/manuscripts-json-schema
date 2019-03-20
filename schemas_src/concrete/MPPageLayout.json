@@ -33,7 +33,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPPageLayout" ]
+          "enum": ["MPPageLayout"]
         },
         "pageSize": {
           "type": "string"

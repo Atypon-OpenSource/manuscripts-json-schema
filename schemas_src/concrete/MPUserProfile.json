@@ -11,11 +11,11 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPUserProfile" ]
+          "enum": ["MPUserProfile"]
         },
         "userID": { "type": "string" }
       },
-      "required": [ "userID" ]
+      "required": ["userID"]
     }
   }
 }

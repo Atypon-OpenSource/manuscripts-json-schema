@@ -3,9 +3,7 @@
   "title": "Person",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "role": { "type": "string" },
@@ -26,7 +24,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPContributor" ]
+          "enum": ["MPContributor"]
         },
         "bibliographicName": {
           "$ref": "MPBibliographicName.json#"
@@ -65,9 +63,7 @@
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }
       },
-      "required": [
-        "bibliographicName"
-      ]
+      "required": ["bibliographicName"]
     }
   }
 }

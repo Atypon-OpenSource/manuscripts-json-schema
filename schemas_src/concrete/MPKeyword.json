@@ -14,7 +14,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPKeyword" ]
+          "enum": ["MPKeyword"]
         },
         "name": {
           "type": "string"
@@ -23,9 +23,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "name"
-      ]
+      "required": ["name"]
     }
   }
 }

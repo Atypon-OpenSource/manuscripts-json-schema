@@ -18,7 +18,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPCitation" ]
+          "enum": ["MPCitation"]
         },
         "collationType": {
           "$ref": "enums.json#/definitions/MPCitationCollationType"
@@ -35,9 +35,7 @@
           ]
         }
       },
-      "required": [
-        "embeddedCitationItems"
-      ]
+      "required": ["embeddedCitationItems"]
     }
   }
 }

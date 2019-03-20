@@ -3,9 +3,7 @@
   "title": "ManuscriptTemplate",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "title": {
@@ -127,12 +125,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPManuscriptTemplate" ]
+          "enum": ["MPManuscriptTemplate"]
         }
       },
-      "required": [
-        "title"
-      ]
+      "required": ["title"]
     }
   }
 }

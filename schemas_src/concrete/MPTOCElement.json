@@ -12,13 +12,11 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPTOCElement" ]
+          "enum": ["MPTOCElement"]
         },
         "elementType": {
           "type": "string",
-          "enum": [
-            "div"
-          ]
+          "enum": ["div"]
         }
       },
       "required": []

@@ -30,11 +30,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPManuscriptCategory" ]
+          "enum": ["MPManuscriptCategory"]
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

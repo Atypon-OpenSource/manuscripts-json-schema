@@ -11,7 +11,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPInlineMathFragment" ]
+          "enum": ["MPInlineMathFragment"]
         },
         "TeXRepresentation": {
           "type": "string"
@@ -29,9 +29,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "TeXRepresentation"
-      ]
+      "required": ["TeXRepresentation"]
     }
   }
 }

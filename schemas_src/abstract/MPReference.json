@@ -3,9 +3,7 @@
   "title": "Reference",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "containingObject": {
@@ -16,9 +14,7 @@
           "$ref": "strings.json#/definitions/_id"
         }
       },
-      "required": [
-        "containingObject"
-      ]
+      "required": ["containingObject"]
     }
   }
 }

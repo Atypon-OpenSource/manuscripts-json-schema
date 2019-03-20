@@ -3,14 +3,12 @@
   "title": "UserCollaborator",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPBaseModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPUserCollaborator" ]
+          "enum": ["MPUserCollaborator"]
         },
         "userID": { "type": "string" },
         "collaboratorID": {
@@ -20,8 +18,8 @@
         "collaboratorProfile": {
           "$ref": "MPUserProfile.json#"
         },
-        "projects" : {
-          "type": "object", 
+        "projects": {
+          "type": "object",
           "properties": {
             "owner": {
               "type": "array",
@@ -48,7 +46,7 @@
         }
       },
       "required": [
-        "userID", 
+        "userID",
         "collaboratorID",
         "collaboratorProfile",
         "projects"

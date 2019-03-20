@@ -41,15 +41,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPSectionCategory" ]
+          "enum": ["MPSectionCategory"]
         }
       },
-      "required": [
-        "titles",
-        "name",
-        "desc",
-        "priority"
-      ]
+      "required": ["titles", "name", "desc", "priority"]
     }
   }
 }

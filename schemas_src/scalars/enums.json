@@ -3,20 +3,20 @@
   "definitions": {
     "MPContributorPresentationStyleTag": {
       "type": "integer",
-      "enum": [ 0, 1, 2 ]
+      "enum": [0, 1, 2]
     },
     "MPAuxiliaryElementFileLayout": {
       "type": "integer",
-      "enum": [ 0, 1, 2, 3, 4 ]
+      "enum": [0, 1, 2, 3, 4]
     },
     "MPContentSummaryMode": {
       "type": "integer",
-      "enum": [ 0, 1, 2, 4, 8, 16, 32 ],
+      "enum": [0, 1, 2, 4, 8, 16, 32],
       "isBitmask": true
     },
     "MPCitationCollationType": {
       "type": "integer",
-      "enum": [ 0, 1, 2 ]
+      "enum": [0, 1, 2]
     }
   }
 }

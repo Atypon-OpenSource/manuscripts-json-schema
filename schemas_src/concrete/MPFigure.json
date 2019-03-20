@@ -13,7 +13,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPFigure" ]
+          "enum": ["MPFigure"]
         },
         "contentType": {
           "type": "string"

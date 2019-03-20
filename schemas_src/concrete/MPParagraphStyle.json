@@ -62,7 +62,7 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPParagraphStyle" ]
+          "enum": ["MPParagraphStyle"]
         },
         "partOfTOC": {
           "type": "boolean"

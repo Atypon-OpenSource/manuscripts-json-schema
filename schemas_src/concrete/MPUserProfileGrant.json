@@ -12,7 +12,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPUserProfileGrant" ]
+          "enum": ["MPUserProfileGrant"]
         }
       }
     }

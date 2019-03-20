@@ -12,16 +12,14 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPTable" ]
+          "enum": ["MPTable"]
         },
         "contents": {
           "type": "string"
         },
         "listingAttachment": { "$ref": "MPListingAttachmentReference.json#" }
       },
-      "required": [
-        "contents"
-      ]
+      "required": ["contents"]
     }
   }
 }

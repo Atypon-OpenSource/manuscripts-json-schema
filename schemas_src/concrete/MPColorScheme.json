@@ -18,11 +18,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPColorScheme" ]
+          "enum": ["MPColorScheme"]
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }

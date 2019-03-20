@@ -1,15 +1,21 @@
-const { join } = require('path');
 import { readFileSync, readdirSync } from 'fs';
+import { join } from 'path';
 
 const SCHEMA_DIR = 'schemas';
 const SCHEMA_SRC_DIR = 'schemas_src';
 
-export type JsonSchema = {
-  [key: string]: any
-};
+export interface JsonSchema {
+  [key: string]: any;
+}
 
 export function getSchema(name: string, directory?: string): JsonSchema {
-  const schemaPath = join(__dirname, '..', SCHEMA_SRC_DIR, directory || '', name);
+  const schemaPath = join(
+    __dirname,
+    '..',
+    SCHEMA_SRC_DIR,
+    directory || '',
+    name
+  );
   const file = readFileSync(schemaPath, 'utf8');
   return JSON.parse(file);
 }

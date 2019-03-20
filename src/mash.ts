@@ -1,5 +1,5 @@
-const merge = require('deepmerge')
 import { getSchema } from './getSchema';
+import * as merge from 'deepmerge';
 
 export default function mash(obj: any) {
   const { additionalProperties } = obj;
@@ -10,7 +10,7 @@ export default function mash(obj: any) {
       const schema = getSchema(schemaId);
       const mashed = mash(schema);
       const { objectType } = acc.properties;
-      const merged = merge(mashed, acc);
+      const merged = merge<any>(mashed, acc);
       // We don't want array merging for this enum.
       if (objectType) {
         merged.properties.objectType = objectType;

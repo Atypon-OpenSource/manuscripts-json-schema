@@ -9,13 +9,13 @@
       { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
-      "properties": { 
+      "properties": {
         "userID": {
-          "type": "string" 
-         },
-         "invitationID": {
           "type": "string"
-         }
+        },
+        "invitationID": {
+          "type": "string"
+        }
       }
     }
   }

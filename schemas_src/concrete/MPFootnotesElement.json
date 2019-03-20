@@ -2,23 +2,19 @@
   "$id": "MPFootnotesElement.json",
   "title": "FootnotesElement",
   "$mash": {
-    "sources": [
-      { "$ref": "concrete/MPParagraphElement.json#" }
-    ],
+    "sources": [{ "$ref": "concrete/MPParagraphElement.json#" }],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPFootnotesElement" ]
+          "enum": ["MPFootnotesElement"]
         },
         "collateByKind": {
           "type": "string"
         },
         "elementType": {
           "type": "string",
-          "enum": [
-            "div"
-          ]
+          "enum": ["div"]
         }
       },
       "required": []

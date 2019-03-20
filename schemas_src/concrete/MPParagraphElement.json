@@ -11,7 +11,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPParagraphElement" ]
+          "enum": ["MPParagraphElement"]
         },
         "paragraphStyle": {
           "type": "string"

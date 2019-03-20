@@ -3,9 +3,7 @@
   "title": "TextStyling",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPEmbeddedModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
     "with": {
       "properties": {
         "bold": {
@@ -28,14 +26,10 @@
         },
         "objectType": {
           "type": "string",
-          "enum": [ "MPTextStyling" ]
+          "enum": ["MPTextStyling"]
         }
       },
-      "required": [
-        "bold",
-        "fontSize",
-        "italic"
-      ]
+      "required": ["bold", "fontSize", "italic"]
     }
   }
 }

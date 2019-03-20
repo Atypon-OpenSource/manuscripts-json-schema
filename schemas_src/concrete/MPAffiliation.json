@@ -13,7 +13,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": [ "MPAffiliation" ]
+          "enum": ["MPAffiliation"]
         }
       }
     }

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+
 import * as Ajv from 'ajv';
 import { js_beautify } from 'js-beautify';
 import { generateSchemas } from './schemas';
@@ -5,7 +7,8 @@ import { generateSchemas } from './schemas';
 const SINGLE_QUOTE = /'|\\/g;
 
 function escapeQuotes(str: string) {
-  return str.replace(SINGLE_QUOTE, '\\$&')
+  return str
+    .replace(SINGLE_QUOTE, '\\$&')
     .replace(/\n/g, '\\n')
     .replace(/\r/g, '\\r')
     .replace(/\f/g, '\\f')
@@ -16,7 +19,7 @@ const nameOfId = (schemaId: string) => schemaId.replace(/.json$/, '');
 
 // Build a validator fn string for a particular schema.
 function buildValidatorFn(name: string, fn: Ajv.ValidateFunction): string {
-  const fnSource: any = fn.source
+  const fnSource: any = fn.source;
   const namedFn = fnSource.code
     // we want our functions named
     .replace(/var\svalidate\s=\sfunction/, `function ${name}`)
@@ -24,7 +27,7 @@ function buildValidatorFn(name: string, fn: Ajv.ValidateFunction): string {
     .replace(/\bvalidate\./g, `${name}.`)
     // we have multiple validatorFns we will concat, so we can't have this.
     .replace(/return validate;$/g, '')
-    //`'use strict';` does nothing in otto but is in a useful place.
+    // `'use strict';` does nothing in otto but is in a useful place.
     // https://github.com/robertkrimen/otto#caveat-emptor
     .replace(/refVal\[(\d+)\]/g, (_: string, p1: string) => `refVal${p1}`);
 
@@ -35,15 +38,17 @@ function buildValidatorFn(name: string, fn: Ajv.ValidateFunction): string {
   //
   // Concrete schema references _should_ also be exported so we can just
   // reference by name.
-  const refVals: Array<string> = refValSrcs.map((refVal, i) => {
+  const refVals: string[] = refValSrcs.map((refVal, i) => {
     return typeof refVal === 'object'
-      ? `var refVal${i+1} = ${JSON.stringify(refVal)};`
-      : `var refVal${i+1} = ${nameOfId(refVal.schema.$id)};`;
+      ? `var refVal${i + 1} = ${JSON.stringify(refVal)};`
+      : `var refVal${i + 1} = ${nameOfId(refVal.schema.$id)};`;
   });
 
-  const patterns = fnSource.patterns.map((p: string, i: number) => {
-    return `var pattern${i} = new RegExp('${escapeQuotes(p)}');`
-  }).join('  ');
+  const patterns = fnSource.patterns
+    .map((p: string, i: number) => {
+      return `var pattern${i} = new RegExp('${escapeQuotes(p)}');`;
+    })
+    .join('  ');
 
   const startIndex = namedFn.indexOf(`function ${name}`);
 
@@ -56,12 +61,12 @@ function buildValidatorFn(name: string, fn: Ajv.ValidateFunction): string {
   return [
     fnWithRefVals,
     `${name}.schema = ${JSON.stringify(fn.schema)};`,
-    `${name}.errors = null;`
+    `${name}.errors = null;`,
   ].join('\n');
 }
 
 // "Main" function which calls other validators through lookup map.
-const buildValidateFn = (names: Array<string>) => `
+const buildValidateFn = (names: string[]) => `
   function validate(obj) {
     var lookup = {
       ${names.map(name => `${name}: ${name}`).join(',\n')}
@@ -132,17 +137,15 @@ ${require('ajv/lib/compile/equal')}
 `;
 
 // Dependencies needed by validator fns.
-const dependencies = [
-  isEqualFn
-];
+const dependencies = [isEqualFn];
 
 export const validatorFn = (schemaFilter?: (schemaId: string) => boolean) => {
   // This is an array of fn strings, where the last one is buildValidateFn.
-  const { supportedObjectTypes, ajv } = generateSchemas(schemaFilter)
+  const { supportedObjectTypes, ajv } = generateSchemas(schemaFilter);
   const validatingFunctions = packSchemas(supportedObjectTypes, ajv);
 
   // Exported code
   const code = dependencies.concat(validatingFunctions).join('\n\n');
 
   return js_beautify(code, { indent_size: 2 });
-}
+};
