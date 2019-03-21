@@ -1,5 +1,6 @@
 const test = require('tape');
 const vm = require('vm');
+const { cloneDeep } = require('lodash');
 
 const { manuscriptsFn } = require('../dist/cjs');
 
@@ -1199,7 +1200,7 @@ test('manuscript property', t => {
 });
 
 test('bundle', t => {
-  t.plan(3);
+  t.plan(5);
 
   const validObject = {
     _id: 'MPBundle:www-zotero-org-styles-rare-metals',
@@ -1245,7 +1246,7 @@ test('bundle', t => {
     'valid object passes'
   );
 
-  const withAuthors = Object.assign({}, validObject);
+  const withAuthors = cloneDeep(validObject);
   withAuthors.csl['author-name'] = 'Stephen Congly';
   withAuthors.csl['author-email'] = 'stephencongly@gmail.com';
   t.equals(
@@ -1254,13 +1255,29 @@ test('bundle', t => {
     'valid author-name and author-email passes'
   );
 
-  const invalidResearchField = Object.assign({}, validObject);
+  const invalidResearchField = cloneDeep(validObject);
   invalidResearchField.csl.fields = ['MPBowie:starman'];
 
   t.equals(
     validate(invalidResearchField),
     '.csl.fields[0]: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid keyword id'
+  );
+
+  const withContainer = Object.assign({}, validObject, {
+    containerID: 'MPProject:foo',
+  });
+
+  t.equals(validate(withContainer), null, 'valid container id');
+
+  const withInvalidContainer = Object.assign({}, validObject, {
+    containerID: 'MPManuscript:foo',
+  });
+
+  t.equals(
+    validate(withInvalidContainer),
+    '.containerID: should match pattern "^MPProject"',
+    'invalid container id'
   );
 });
 

@@ -2,12 +2,26 @@
   "$id": "MPBundle.json",
   "type": "object",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPAttachmentOwner.json#" }
+    ],
     "with": {
       "properties": {
         "objectType": {
           "type": "string",
           "enum": ["MPBundle"]
+        },
+        "containerID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPProject"
+            }
+          ]
         },
         "csl": {
           "type": "object",
