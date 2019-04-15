@@ -945,7 +945,7 @@ test('color', t => {
 });
 
 test('project', t => {
-  t.plan(5);
+  t.plan(7);
 
   t.equals(
     validate({
@@ -1019,6 +1019,36 @@ test('project', t => {
     }),
     null,
     'valid MPProject passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      viewers: ['User_Foo', '*'],
+    }),
+    null,
+    'valid MPProject passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      viewers: ['User_Foo', 'foo'],
+    }),
+    '.viewers[1]: should match pattern "\\*"',
+    'invalid MPProject fails (invalid item in members array)'
   );
 });
 

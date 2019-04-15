@@ -16,6 +16,10 @@
     "hexColor": {
       "type": "string",
       "pattern": "^#[a-fA-F0-9]{6}"
+    },
+    "publicSentinel": {
+      "type": "string",
+      "pattern": "\\*"
     }
   }
 }
