@@ -66,7 +66,7 @@ export declare const fusionFn: string;`
   await appendToDistFile(
     'index.d.ts',
     'types',
-    "export { manuscriptsFn, fusionFn, derivedDataFn } from './validators';"
+    "export * from './validators';"
   );
 
   // append an export to the code in the (cjs) index.js file
@@ -83,6 +83,6 @@ exports.manuscriptsFn = validators_1.manuscriptsFn;`
   await appendToDistFile(
     'index.js',
     'es',
-    "export { fusionFn, manuscriptsFn, derivedDataFn } from './validators';"
+    "export * from './validators';"
   );
 })();
