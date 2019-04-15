@@ -23,7 +23,10 @@
         "MathMLStringRepresentation": {
           "type": "string"
         },
-        "OMMLRepresentation": {
+        "OMMLStringRepresentation": {
+          "type": "string"
+        },
+        "HTMLStringRepresentation": {
           "type": "string"
         },
         "title": {
