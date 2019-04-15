@@ -27,6 +27,12 @@
             "$ref": "strings.json#/definitions/gatewayAccountID"
           }
         },
+        "snapshots": {
+          "type": "array",
+          "items": {
+            "$ref": "MPSnapshot.json#"
+          }
+        },
         "objectType": {
           "type": "string",
           "enum": ["MPProject"]

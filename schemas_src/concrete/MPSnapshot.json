@@ -1,0 +1,29 @@
+{
+  "$id": "MPSnapshot.json",
+  "title": "Snapshot",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSnapshot"]
+        },
+        "creator": {
+          "type": "string"
+        },
+        "glacierId": {
+          "type": "string"
+        },
+        "proof": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": ["createdAt", "creator", "glacierId", "proof"]
+  }
+}
