@@ -2778,3 +2778,19 @@ test('MPSubmission', t => {
 
   t.equals(validate(Object.assign({}, submission)), null);
 });
+
+test('MPSnapshot', t => {
+  t.plan(1);
+
+  const snapshot = {
+    _id: 'MPSnapshot:snapshot-1',
+    objectType: 'MPSnapshot',
+    createdAt: 23123123,
+    updatedAt: 23123123,
+    creator: 'stephencongly@gmail.com',
+    glacierId: 'idforgettingarchivefromglacier',
+    proof: ['random#string*of/characters'],
+  };
+
+  t.equals(validate(Object.assign({}, snapshot)), null);
+});
