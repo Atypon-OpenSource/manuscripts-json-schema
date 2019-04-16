@@ -337,6 +337,9 @@
         },
         "year-suffix": {
           "type": "string"
+        },
+        "originalProperties": {
+          "type": "object"
         }
       },
       "required": ["type"]

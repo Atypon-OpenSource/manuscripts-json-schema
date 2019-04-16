@@ -42,7 +42,7 @@ test('library', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(8);
+  t.plan(10);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -110,5 +110,19 @@ test('bibliography item', t => {
     validate(Object.assign({}, validObject, { composer: [{}] })),
     ".composer[0]: should have required property '_id'",
     'invalid composer name should fail'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { originalProperties: 'foo' })),
+    '.originalProperties: should be object',
+    'invalid originalProperties should fail'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, { originalProperties: { foo: 'bar' } })
+    ),
+    null,
+    'valid originalProperties object with any properties should pass'
   );
 });
