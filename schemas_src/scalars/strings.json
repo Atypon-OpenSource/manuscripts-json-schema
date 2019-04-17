@@ -19,7 +19,8 @@
     },
     "publicSentinel": {
       "type": "string",
-      "pattern": "\\*"
+      "pattern": "\\*",
+      "description": "The container and all objects that reference it are readable by anyone"
     }
   }
 }
