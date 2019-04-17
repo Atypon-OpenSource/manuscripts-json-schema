@@ -959,7 +959,7 @@ test('color', t => {
 });
 
 test('project', t => {
-  t.plan(7);
+  t.plan(10);
 
   t.equals(
     validate({
@@ -1059,10 +1059,55 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
-      viewers: ['User_Foo', 'foo'],
+      viewers: ['User_Foo', '*'],
     }),
-    '.viewers[1]: should match pattern "\\*"',
-    'invalid MPProject fails (invalid item in members array)'
+    null,
+    'valid MPProject with both listed viewers and public viewing capability (*) passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      viewers: ['User_Foo', 'User_Bar'],
+    }),
+    null,
+    'valid MPProject with viewers passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      viewers: ['*'],
+    }),
+    null,
+    'valid MPProject with public viewing capability ("*") passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      viewers: ['nonsense'],
+    }),
+    '.viewers[0]: should match pattern "^User_.+"',
+    'MPProject with nonsensical viewers fails'
   );
 });
 
