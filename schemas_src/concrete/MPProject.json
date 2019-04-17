@@ -23,14 +23,15 @@
         },
         "viewers": {
           "type": "array",
-          "items": [
-            {
-              "$ref": "strings.json#/definitions/gatewayAccountID"
-            },
-            {
-              "$ref": "strings.json#/definitions/publicSentinel"
-            }
-          ]
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "strings.json#/definitions/gatewayAccountID"
+              }, {
+                "$ref": "strings.json#/definitions/publicSentinel"
+              }
+            ]
+          }
         },
         "snapshots": {
           "type": "array",
