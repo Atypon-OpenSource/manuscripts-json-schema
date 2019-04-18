@@ -4,6 +4,9 @@
     "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
+        "evaluatedObject": {
+          "type": "string"
+        },
         "severity": {
           "type": "number"
         }
