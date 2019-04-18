@@ -6,18 +6,20 @@
     "sources": [{ "$ref": "abstract/MPRequirement.json#" }],
     "with": {
       "properties": {
-        "evaluatedObject": {
-          "type": "string"
-        },
         "embeddedSectionDescriptions": {
-          "$ref": "MPSectionDescription.json#"
+          "type": "array",
+          "items": {
+            "$ref": "MPSectionDescription.json#"
+          },
+          "minItems": 1,
+          "maxItems": 1
         },
         "objectType": {
           "type": "string",
           "enum": ["MPMandatorySubsectionsRequirement"]
         }
       },
-      "required": ["evaluatedObject", "embeddedSectionDescriptions"]
+      "required": ["evaluatedObject","embeddedSectionDescriptions"]
     }
   }
 }

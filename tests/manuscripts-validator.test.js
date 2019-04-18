@@ -2928,3 +2928,70 @@ test('MP*CountRequirement', t => {
     );
   }
 });
+
+test('MPMandatorySubsectionsRequirement', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPMandatorySubsectionsRequirement:1',
+    objectType: 'MPMandatorySubsectionsRequirement',
+    createdAt: 0,
+    updatedAt: 0,
+    severity: 0,
+    evaluatedObject: 'MPManuscriptTemplate:1',
+    embeddedSectionDescriptions: [
+      {
+        _id: 'MPSectionDescription:1',
+        objectType: 'MPSectionDescription',
+        sectionCategory: 'MPSectionCategory:abstract',
+      },
+    ],
+  };
+
+  t.equals(validate(Object.assign({}, validObject)), null);
+
+  // severity is required
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        severity: undefined,
+      })
+    ),
+    "should have required property 'severity'"
+  );
+
+  // evaluatedObject is required
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        evaluatedObject: undefined,
+      })
+    ),
+    "should have required property 'evaluatedObject'"
+  );
+
+  // embeddedSectionDescriptions must have one item
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        embeddedSectionDescriptions: [],
+      })
+    ),
+    '.embeddedSectionDescriptions: should NOT have fewer than 1 items'
+  );
+
+  // section description can have a word count requirement
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        embeddedSectionDescriptions: [
+          {
+            ...validObject.embeddedSectionDescriptions[0],
+            maxWordCount: 100,
+          },
+        ],
+      })
+    ),
+    null
+  );
+});
