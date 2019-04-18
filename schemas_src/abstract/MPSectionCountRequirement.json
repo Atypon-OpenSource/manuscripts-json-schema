@@ -1,0 +1,14 @@
+{
+  "$id": "MPSectionCountRequirement.json",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
+    "with": {
+      "properties": {
+        "ignored": {
+          "type": "boolean"
+        }
+      },
+      "required": ["ignored"]
+    }
+  }
+}

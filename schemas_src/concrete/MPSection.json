@@ -50,6 +50,18 @@
             "$ref": "strings.json#/definitions/_id"
           },
           "additionalItems": false
+        },
+        "maxCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
         }
       },
       "required": ["path", "priority"]
