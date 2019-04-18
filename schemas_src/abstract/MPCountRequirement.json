@@ -1,0 +1,14 @@
+{
+  "$id": "MPCountRequirement.json",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPRequirement.json#" }],
+    "with": {
+      "properties": {
+        "count": {
+          "type": "number"
+        }
+      },
+      "required": ["count"]
+    }
+  }
+}

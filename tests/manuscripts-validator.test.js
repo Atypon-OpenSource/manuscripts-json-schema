@@ -2883,3 +2883,48 @@ test('MPSnapshot', t => {
 
   t.equals(validate(Object.assign({}, snapshot)), null);
 });
+
+test('MP*CountRequirement', t => {
+  const countRequirementTypes = [
+    'MPMaximumAuxiliaryObjectCountRequirement',
+    'MPMaximumCombinedFigureTableCountRequirement',
+    'MPMaximumFigureCountRequirement',
+    'MPMaximumManuscriptCharacterCountRequirement',
+    'MPMaximumManuscriptPageCountRequirement',
+    'MPMaximumManuscriptReferenceCountRequirement',
+    'MPMaximumManuscriptTitleCharacterCountRequirement',
+    'MPMaximumManuscriptTitleWordCountRequirement',
+    'MPMaximumManuscriptWordCountRequirement',
+    'MPMaximumTableCountRequirement',
+    'MPMinimumAuxiliaryObjectCountRequirement',
+    'MPMinimumCombinedFigureTableCountRequirement',
+    'MPMinimumManuscriptPageCountRequirement',
+    'MPMinimumManuscriptReferenceCountRequirement',
+    'MPMinimumManuscriptWordCountRequirement',
+  ];
+
+  t.plan(countRequirementTypes.length * 3);
+
+  for (const objectType of countRequirementTypes) {
+    const doc = {
+      _id: `${objectType}:1`,
+      objectType,
+      createdAt: 0,
+      updatedAt: 0,
+      count: 100,
+      severity: 0,
+    };
+
+    t.equals(validate(Object.assign({}, doc)), null);
+
+    t.equals(
+      validate(Object.assign({}, doc, { count: undefined })),
+      "should have required property 'count'"
+    );
+
+    t.equals(
+      validate(Object.assign({}, doc, { count: 'foo' })),
+      '.count: should be number'
+    );
+  }
+});
