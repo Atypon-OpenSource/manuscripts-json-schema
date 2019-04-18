@@ -3,18 +3,14 @@
   "title": "MaximumManuscriptWordCountRequirement",
   "type": "object",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPRequirement.json#" }],
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
     "with": {
       "properties": {
-        "count": {
-          "type": "number"
-        },
         "objectType": {
           "type": "string",
           "enum": ["MPMaximumManuscriptWordCountRequirement"]
         }
-      },
-      "required": ["count"]
+      }
     }
   }
 }

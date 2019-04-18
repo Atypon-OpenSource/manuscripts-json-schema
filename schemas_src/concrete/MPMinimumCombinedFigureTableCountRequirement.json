@@ -1,6 +1,6 @@
 {
-  "$id": "MPMinimumManuscriptWordCountRequirement.json",
-  "title": "MinimumManuscriptWordCountRequirement",
+  "$id": "MPMinimumCombinedFigureTableCountRequirement.json",
+  "title": "MinimumCombinedFigureTableCountRequirement",
   "type": "object",
   "$mash": {
     "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
@@ -8,7 +8,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": ["MPMinimumManuscriptWordCountRequirement"]
+          "enum": ["MPMinimumCombinedFigureTableCountRequirement"]
         }
       }
     }
