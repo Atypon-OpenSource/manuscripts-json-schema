@@ -733,8 +733,8 @@ test('citation', t => {
   );
 });
 
-test('section', t => {
-  t.plan(6);
+test('MPSection', t => {
+  t.plan(10);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -780,14 +780,56 @@ test('section', t => {
     'invalid titleSuppressed fails'
   );
 
-  const invalidObject = Object.assign({}, validObject);
-
-  delete invalidObject.priority;
-
   t.equals(
-    validate(invalidObject),
+    validate(
+      Object.assign({}, validObject, {
+        priority: undefined,
+      })
+    ),
     "should have required property 'priority'",
     'missing priority fails'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxCharacterCountRequirement:
+          'MPMaximumSectionCharacterCountRequirement:1',
+      })
+    ),
+    null,
+    'valid maxCharacterCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        minCharacterCountRequirement:
+          'MPMinimumSectionCharacterCountRequirement:1',
+      })
+    ),
+    null,
+    'valid minCharacterCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxWordCountRequirement: 'MPMaximumSectionWordCountRequirement:1',
+      })
+    ),
+    null,
+    'valid maxWordCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        minWordCountRequirement: 'MPMinimumSectionWordCountRequirement:1',
+      })
+    ),
+    null,
+    'valid minWordCountRequirement passes'
   );
 });
 
@@ -2884,29 +2926,20 @@ test('MPSnapshot', t => {
   t.equals(validate(Object.assign({}, snapshot)), null);
 });
 
-test('MP*CountRequirement', t => {
+test('General Requirements', t => {
   const countRequirementTypes = [
     'MPMaximumAuxiliaryObjectCountRequirement',
     'MPMaximumCombinedFigureTableCountRequirement',
     'MPMaximumFigureCountRequirement',
-    'MPMaximumManuscriptCharacterCountRequirement',
-    'MPMaximumManuscriptPageCountRequirement',
-    'MPMaximumManuscriptReferenceCountRequirement',
-    'MPMaximumManuscriptTitleCharacterCountRequirement',
-    'MPMaximumManuscriptTitleWordCountRequirement',
-    'MPMaximumManuscriptWordCountRequirement',
     'MPMaximumTableCountRequirement',
     'MPMinimumAuxiliaryObjectCountRequirement',
     'MPMinimumCombinedFigureTableCountRequirement',
-    'MPMinimumManuscriptPageCountRequirement',
-    'MPMinimumManuscriptReferenceCountRequirement',
-    'MPMinimumManuscriptWordCountRequirement',
   ];
 
   t.plan(countRequirementTypes.length * 3);
 
   for (const objectType of countRequirementTypes) {
-    const doc = {
+    const validObject = {
       _id: `${objectType}:1`,
       objectType,
       createdAt: 0,
@@ -2915,15 +2948,132 @@ test('MP*CountRequirement', t => {
       severity: 0,
     };
 
-    t.equals(validate(Object.assign({}, doc)), null);
+    t.equals(validate(Object.assign({}, validObject)), null);
 
     t.equals(
-      validate(Object.assign({}, doc, { count: undefined })),
-      "should have required property 'count'"
+      validate(
+        Object.assign({}, validObject, {
+          count: undefined,
+        })
+      ),
+      null
     );
 
     t.equals(
-      validate(Object.assign({}, doc, { count: 'foo' })),
+      validate(
+        Object.assign({}, validObject, {
+          count: 'foo',
+        })
+      ),
+      '.count: should be number'
+    );
+  }
+});
+
+test('Manuscript Requirements', t => {
+  const countRequirementTypes = [
+    'MPMaximumManuscriptCharacterCountRequirement',
+    'MPMaximumManuscriptPageCountRequirement',
+    'MPMaximumManuscriptReferenceCountRequirement',
+    'MPMaximumManuscriptTitleCharacterCountRequirement',
+    'MPMaximumManuscriptTitleWordCountRequirement',
+    'MPMaximumManuscriptWordCountRequirement',
+    'MPMinimumManuscriptPageCountRequirement',
+    'MPMinimumManuscriptReferenceCountRequirement',
+    'MPMinimumManuscriptWordCountRequirement',
+  ];
+
+  t.plan(countRequirementTypes.length * 3);
+
+  for (const objectType of countRequirementTypes) {
+    const validObject = {
+      _id: `${objectType}:1`,
+      objectType,
+      createdAt: 0,
+      updatedAt: 0,
+      count: 100,
+      severity: 0,
+    };
+
+    t.equals(validate(Object.assign({}, validObject)), null);
+
+    t.equals(
+      validate(
+        Object.assign({}, validObject, {
+          count: undefined,
+        })
+      ),
+      null
+    );
+
+    t.equals(
+      validate(
+        Object.assign({}, validObject, {
+          count: 'foo',
+        })
+      ),
+      '.count: should be number'
+    );
+  }
+});
+
+test('Section Requirements', t => {
+  const countRequirementTypes = [
+    'MPMaximumSectionCharacterCountRequirement',
+    'MPMaximumSectionWordCountRequirement',
+    'MPMinimumSectionCharacterCountRequirement',
+    'MPMinimumSectionWordCountRequirement',
+  ];
+
+  t.plan(countRequirementTypes.length * 5);
+
+  for (const objectType of countRequirementTypes) {
+    const validObject = {
+      _id: `${objectType}:1`,
+      objectType,
+      createdAt: 0,
+      updatedAt: 0,
+      ignored: false,
+      count: 100,
+      severity: 0,
+      evaluatedObject: 'MPSection:1',
+    };
+
+    t.equals(validate(Object.assign({}, validObject)), null);
+
+    t.equals(
+      validate(
+        Object.assign({}, validObject, {
+          count: undefined,
+        })
+      ),
+      null
+    );
+
+    t.equals(
+      validate(
+        Object.assign({}, validObject, {
+          evaluatedObject: undefined,
+        })
+      ),
+      null
+    );
+
+    t.equals(
+      validate(
+        Object.assign({}, validObject, {
+          ignored: undefined,
+        })
+      ),
+      "should have required property 'ignored'"
+    );
+
+    t.equals(
+      validate(
+        Object.assign({}, validObject, {
+          count: 'foo',
+        })
+      ),
       '.count: should be number'
     );
   }

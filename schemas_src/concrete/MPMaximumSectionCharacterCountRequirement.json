@@ -1,0 +1,16 @@
+{
+  "$id": "MPMaximumSectionCharacterCountRequirement.json",
+  "title": "MPMaximumSectionCharacterCountRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPSectionCountRequirement.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMaximumSectionCharacterCountRequirement"]
+        }
+      }
+    }
+  }
+}
