@@ -6,126 +6,228 @@
     "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
-        "title": {
+        "acceptableFigureFormats": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "acceptableFigureFormatsString": {
           "type": "string"
         },
-        "parent": {
-          "type": "string"
+        "acceptableManuscriptFormats": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
-        "desc": {
-          "type": "string"
+        "acceptableTableFormats": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "aim": {
           "type": "string"
         },
-        "bundle": {
-          "type": "string"
-        },
-        "publisher": {
-          "type": "string"
-        },
-        "category": {
-          "type": "string"
-        },
-        "requirementIDs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "additionalItems": false
-        },
-        "priority": {
-          "type": "number"
-        },
-        "requirements": {
-          "type": "object"
-        },
-        "styles": {
-          "type": "object"
-        },
-        "hidden": {
-          "type": "number"
-        },
-        "LaTeXTemplateURL": {
-          "type": "string"
-        },
-        "manuscriptRunningTitleRequirement": {
-          "type": "string"
-        },
-        "maxCharCountRequirement": {
-          "type": "string"
-        },
-        "maxCombinedFigureTableCountRequirement": {
-          "type": "string"
-        },
-        "maxFigureFileSizeRequirement": {
-          "type": "string"
-        },
-        "maxWordCountRequirement": {
-          "type": "string"
-        },
-        "minCombinedFigureTableCountRequirement": {
-          "type": "string"
-        },
-        "minFigureScreenDPIRequirement": {
-          "type": "string"
-        },
-        "ISSNs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "additionalItems": false
-        },
-        "licenses": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "additionalItems": false
-        },
-        "acceptableFigureFormats": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "additionalItems": false
-        },
-        "acceptableManuscriptFormats": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "additionalItems": false
-        },
         "authorInstructionsURL": {
           "type": "string"
+        },
+        "bodyFontSize": {
+          "type": "number"
         },
         "bodyLineSpacing": {
           "type": "number"
         },
+        "bundle": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "category": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "conflictOfInterestURL": {
+          "type": "string"
+        },
+        "coverLetterRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "desc": {
+          "type": "string"
+        },
         "eISSNs": {
-          "type": "array",
+          "additionalItems": false,
           "items": {
             "type": "string"
           },
-          "additionalItems": false
+          "type": "array"
+        },
+        "embeddedAuxiliaryElementNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
+        },
+        "embeddedFigureElementNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
+        },
+        "embeddedLineNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
+        },
+        "embeddedPageNumberingStyle": {
+          "$ref": "MPNumberingStyle.json#"
         },
         "embeddedTableElementNumberingStyle": {
           "$ref": "MPNumberingStyle.json#"
         },
+        "figureElementFileLayout": {
+          "type": "number"
+        },
+        "figureFileLayoutString": {
+          "type": "string"
+        },
+        "figureFileSizeLimit": {
+          "type": "string"
+        },
+        "figureMinResolutionString": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "number"
+        },
+        "includeLineNumbering": {
+          "type": "object",
+          "properties": {
+            "required": {
+              "type": "boolean"
+            }
+          }
+        },
+        "includePageNumbering": {
+          "type": "object",
+          "properties": {
+            "inclusive": {
+              "additionalItems": false,
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "required": {
+              "type": "boolean"
+            }
+          }
+        },
+        "ISSNs": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "LaTeXTemplateURL": {
+          "type": "string"
+        },
+        "licenses": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "manuscriptRunningTitleRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxCharCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxCombinedFigureTableCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxFigureFileSizeRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxFigureScreenDPIRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxManuscriptTitleCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxManuscriptTitleWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxPageCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxTableCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minCharCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minCombinedFigureTableCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minFigureCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minFigureScreenDPIRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minPageCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "notes": {
           "type": "string"
+        },
+        "objectType": {
+          "enum": ["MPManuscriptTemplate"],
+          "type": "string"
+        },
+        "parent": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "preferredDialect": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "requirementIDs": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          },
+          "type": "array"
+        },
+        "requirements": {
+          "type": "object"
         },
         "sourceURL": {
           "type": "string"
         },
+        "styles": {
+          "type": "object"
+        },
         "tableElementFileLayout": {
           "type": "number"
         },
-        "objectType": {
-          "type": "string",
-          "enum": ["MPManuscriptTemplate"]
+        "tableFileLayoutString": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "wordTemplateURL": {
+          "type": "string"
         }
       },
       "required": ["title"]
