@@ -2762,135 +2762,27 @@ test('MPManuscriptTemplate', t => {
   t.plan(3);
 
   const validObject = {
-    _id: `MPManuscriptTemplate:XYZ`,
+    _id: 'MPManuscriptTemplate:1',
     objectType: 'MPManuscriptTemplate',
-    title: '',
-    parent: '',
-    desc: '',
-    aim: '',
-    bundle: '',
-    publisher: '',
-    category: 'Article',
-    requirementIDs: [''],
-    priority: 6,
-    requirements: {},
-    styles: {},
-    hidden: 1,
-    LaTeXTemplateURL: '',
-    manuscriptRunningTitleRequirement: '',
-    maxCharCountRequirement: '',
-    maxCombinedFigureTableCountRequirement: '',
-    maxFigureFileSizeRequirement: '',
-    maxWordCountRequirement: '',
-    minCombinedFigureTableCountRequirement: '',
-    minFigureScreenDPIRequirement: '',
-    ISSNs: [''],
-    licenses: [''],
-    acceptableFigureFormats: [''],
-    acceptableManuscriptFormats: [''],
-    authorInstructionsURL: '',
-    bodyLineSpacing: 4,
-    eISSNs: [''],
-    notes: '',
-    sourceURL: '',
-    tableElementFileLayout: 2,
-    createdAt: 21312312.1,
-    updatedAt: 23123123,
-    sessionID: 'weqq',
+    category: 'MPManuscriptCategory:1',
+    title: 'Foo',
+    createdAt: 0,
+    updatedAt: 0,
   };
 
   t.equals(
     validate(Object.assign({}, validObject)),
     null,
-    'valid publisher passes'
+    'valid template passes'
   );
 
-  const { title, ...invalidObject } = Object.assign({}, validObject);
-
-  t.equals(validate(invalidObject), "should have required property 'title'");
-
   t.equals(
-    validate(Object.assign({ foo: 'xyz' }, validObject)),
-    "should NOT have additional properties 'foo'"
-  );
-});
-
-test('MPTemplateData', t => {
-  t.plan(3);
-
-  const validManuscriptTemplateObject = {
-    _id: `MPManuscriptTemplate:XYZ`,
-    objectType: 'MPManuscriptTemplate',
-    title: '',
-    parent: '',
-    desc: '',
-    aim: '',
-    bundle: '',
-    publisher: '',
-    category: 'Article',
-    requirementIDs: [''],
-    priority: 6,
-    requirements: {},
-    styles: {},
-    hidden: 1,
-    LaTeXTemplateURL: '',
-    manuscriptRunningTitleRequirement: '',
-    maxCharCountRequirement: '',
-    maxCombinedFigureTableCountRequirement: '',
-    maxFigureFileSizeRequirement: '',
-    maxWordCountRequirement: '',
-    minCombinedFigureTableCountRequirement: '',
-    minFigureScreenDPIRequirement: '',
-    ISSNs: [''],
-    licenses: [''],
-    acceptableFigureFormats: [''],
-    acceptableManuscriptFormats: [''],
-    authorInstructionsURL: '',
-    bodyLineSpacing: 4,
-    eISSNs: [''],
-    notes: '',
-    sourceURL: '',
-    tableElementFileLayout: 2,
-    createdAt: 21312312.1,
-    updatedAt: 23123123,
-    sessionID: 'weqq',
-  };
-
-  const validPublisherObject = {
-    _id: `MPPublisher:XYZ`,
-    objectType: 'MPPublisher',
-    name: 'Kevin',
-    websiteURL: 'www.kevinsURL.com',
-    canArchivePreprint: false,
-    canArchivePostprint: false,
-    synonyms: ['abc'],
-    createdAt: 21312312.1,
-    updatedAt: 23123123,
-    sessionID: 'weqq',
-  };
-
-  const validObject = {
-    _id: `MPTemplateData:XYZ`,
-    objectType: 'MPTemplateData',
-    template: validManuscriptTemplateObject,
-    title: 'title',
-    publisher: validPublisherObject,
-    articleType: 'abc',
-    category: '',
-  };
-
-  t.equals(
-    validate(Object.assign({}, validObject)),
-    null,
-    'valid publisher passes'
+    validate(Object.assign({}, validObject, { title: undefined })),
+    "should have required property 'title'"
   );
 
-  const { title, ...invalidObject } = Object.assign({}, validObject);
-
-  t.equals(validate(invalidObject), "should have required property 'title'");
-
   t.equals(
-    validate(Object.assign({ foo: 'xyz' }, validObject)),
+    validate(Object.assign({}, validObject, { foo: 'xyz' })),
     "should NOT have additional properties 'foo'"
   );
 });
