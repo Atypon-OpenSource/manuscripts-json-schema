@@ -34,7 +34,7 @@
           "$ref": "MPColorScheme.json#"
         },
         "category": {
-          "$ref": "MPManuscriptCategory.json#"
+          "$ref": "strings.json#/definitions/_id"
         },
         "manuscriptType": {
           "type": "integer",
