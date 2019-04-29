@@ -43,6 +43,8 @@ test('user collaborator', t => {
       },
       userID: 'User_foobar@manuscriptsapp.com',
     },
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
   };
 
   t.equals(
