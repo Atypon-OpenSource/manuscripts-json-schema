@@ -3,7 +3,7 @@
   "title": "UserCollaborator",
   "type": "object",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
