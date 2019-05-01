@@ -12,6 +12,9 @@
         "invitedUserEmail": {
           "type": "string"
         },
+        "invitingUserProfile": {
+          "$ref": "MPUserProfile.json#"
+        },
         "message": {
           "type": "string"
         },
@@ -20,7 +23,7 @@
           "enum": ["MPInvitation"]
         }
       },
-      "required": ["invitingUserID", "invitedUserEmail"]
+      "required": ["invitingUserID", "invitedUserEmail", "invitingUserProfile"]
     }
   }
 }
