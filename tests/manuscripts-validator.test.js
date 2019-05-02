@@ -2814,7 +2814,7 @@ test('MPManuscriptTemplate', t => {
 });
 
 test('MPSubmission', t => {
-  t.plan(1);
+  t.plan(3);
 
   const submission = {
     _id: 'MPSubmission:submission-1',
@@ -2823,9 +2823,30 @@ test('MPSubmission', t => {
     journalCode: 'jcb',
     createdAt: 21312312.1,
     updatedAt: 23123123,
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
   };
 
   t.equals(validate(Object.assign({}, submission)), null);
+
+  t.equals(
+    validate(
+      Object.assign({}, submission, {
+        containerID: undefined,
+      })
+    ),
+    "should have required property 'containerID'"
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, submission, {
+        manuscriptID: undefined,
+      })
+    ),
+    "should have required property 'manuscriptID'"
+  );
 });
 
 test('MPSnapshot', t => {
