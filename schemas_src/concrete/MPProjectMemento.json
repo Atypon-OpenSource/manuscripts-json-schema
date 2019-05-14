@@ -1,0 +1,37 @@
+{
+  "$id": "MPProjectMemento.json",
+  "title": "ProjectMemento",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "projectID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPProject"
+            }
+          ]
+        },
+        "userID": { 
+          "type": "string"
+        },
+        "project": {
+          "$ref": "MPProject.json#"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPProjectMemento"]
+        }
+      },
+      "required": [
+        "projectID",
+        "project"
+      ]
+    }
+  }
+}
