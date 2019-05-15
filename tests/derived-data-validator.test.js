@@ -73,3 +73,41 @@ test('user collaborator', t => {
     '.projects.owner[0]: should match pattern "^MPProject"'
   );
 });
+
+test('project memento', t => {
+  t.plan(2);
+  const validObject = {
+    objectType: 'MPProjectMemento',
+    _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
+    _id: 'MPProjectMemento:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
+    userID: 'User_foobar@manuscriptsapp.com',
+    projectID: 'MPProject:foo-bar-baz',
+    project: {
+      _id: 'MPProject:foo-bar-baz',
+      objectType: 'MPProject',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: ['User_foobar@manuscriptsapp.com'],
+      writers: [],
+      viewers: [],
+    },
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPProjectMemento passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        projectID: 'MPAnything:foo-bar-baz',
+      })
+    ),
+    '.projectID: should match pattern "^MPProject"',
+    '.projectID: should match pattern "^MPProject"'
+  );
+});

@@ -17,7 +17,7 @@ import { validatorFn } from './pack';
     'MPContributorCategory.json',
     'MPGrant.json',
     'MPFundingBody.json',
-    'MPAffiliation.json',
+    'MPAffiliation.json'
   ]);
 
   const fusionFn = validatorFn(id => fusionSchemas.has(id));
@@ -29,6 +29,9 @@ import { validatorFn } from './pack';
     'MPGrant.json',
     'MPContributorCategory.json',
     'MPFundingBody.json',
+    'MPProjectMemento.json',
+    'MPProject.json',
+    'MPSnapshot.json'
   ]);
 
   const derivedDataFn = validatorFn(id => derivedDataSchemas.has(id));
