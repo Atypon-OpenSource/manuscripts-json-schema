@@ -3,7 +3,7 @@
   "title": "MPMaximumSectionCharacterCountRequirement",
   "type": "object",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPSectionCountRequirement.json#" }],
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
     "with": {
       "properties": {
         "objectType": {
