@@ -9,6 +9,9 @@
         },
         "severity": {
           "type": "number"
+        },
+        "ignored": {
+          "type": "boolean"
         }
       },
       "required": ["severity"]

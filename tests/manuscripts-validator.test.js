@@ -3001,10 +3001,10 @@ test('Section Requirements', t => {
     t.equals(
       validate(
         Object.assign({}, validObject, {
-          ignored: undefined,
+          ignored: 0,
         })
       ),
-      "should have required property 'ignored'"
+      '.ignored: should be boolean'
     );
 
     t.equals(
