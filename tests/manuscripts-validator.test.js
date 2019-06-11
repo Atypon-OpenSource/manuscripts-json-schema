@@ -2355,11 +2355,11 @@ test('project invitation', t => {
   t.plan(9);
 
   const validObjectA = {
-    _id: 'MPProjectInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
+    _id: 'MPContainerInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
     invitingUserID: 'User_valid-user@manuscriptsapp.com',
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
-    projectID: 'valid-project-id-2',
-    projectTitle: 'Valid Project 2',
+    containerID: 'valid-project-id-2',
+    containerTitle: 'Valid Project 2',
     invitedUserName: 'Valid User',
     role: 'Viewer',
     acceptedAt: 2000000000,
@@ -2379,14 +2379,14 @@ test('project invitation', t => {
     message: 'Message',
     createdAt: 1522231220.927,
     updatedAt: 1522231220.927,
-    objectType: 'MPProjectInvitation',
+    objectType: 'MPContainerInvitation',
   };
 
   const validObjectB = Object.assign({}, validObjectA);
   delete validObjectB.message;
 
   const validObjectC = Object.assign({}, validObjectA);
-  delete validObjectC.projectTitle;
+  delete validObjectC.containerTitle;
 
   const validObjectD = Object.assign({}, validObjectA);
   delete validObjectD.invitedUserName;
@@ -2398,7 +2398,7 @@ test('project invitation', t => {
   delete invalidObjectB.invitingUserID;
 
   const invalidObjectC = Object.assign({}, validObjectA);
-  delete invalidObjectC.projectID;
+  delete invalidObjectC.containerID;
 
   const invalidObjectD = Object.assign({}, validObjectA);
   delete invalidObjectD.role;
@@ -2421,7 +2421,7 @@ test('project invitation', t => {
   t.equals(
     validate(Object.assign({}, validObjectC)),
     null,
-    'valid invitation without project title'
+    'valid invitation without container title'
   );
 
   t.equals(
@@ -2448,7 +2448,7 @@ test('project invitation', t => {
 
   t.equals(
     validate(Object.assign({}, invalidObjectC)),
-    "should have required property 'projectID'"
+    "should have required property 'containerID'"
   );
 
   t.equals(
