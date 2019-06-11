@@ -2885,6 +2885,9 @@ test('General Requirements', t => {
       updatedAt: 0,
       count: 100,
       severity: 0,
+      containerID: 'MPProject:1',
+      manuscriptID: 'MPManuscript:1',
+      sessionID: 'foo',
     };
 
     t.equals(validate(Object.assign({}, validObject)), null);
@@ -2932,6 +2935,9 @@ test('Manuscript Requirements', t => {
       updatedAt: 0,
       count: 100,
       severity: 0,
+      containerID: 'MPProject:1',
+      manuscriptID: 'MPManuscript:1',
+      sessionID: 'foo',
     };
 
     t.equals(validate(Object.assign({}, validObject)), null);
@@ -2976,6 +2982,9 @@ test('Section Requirements', t => {
       count: 100,
       severity: 0,
       evaluatedObject: 'MPSection:1',
+      containerID: 'MPProject:1',
+      manuscriptID: 'MPManuscript:1',
+      sessionID: 'foo',
     };
 
     t.equals(validate(Object.assign({}, validObject)), null);
@@ -3028,6 +3037,9 @@ test('MPMandatorySubsectionsRequirement', t => {
     updatedAt: 0,
     severity: 0,
     evaluatedObject: 'MPManuscriptTemplate:1',
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
     embeddedSectionDescriptions: [
       {
         _id: 'MPSectionDescription:1',
