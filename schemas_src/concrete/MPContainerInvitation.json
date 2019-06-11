@@ -1,0 +1,32 @@
+{
+  "$id": "MPContainerInvitation.json",
+  "title": "Container Invitation",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "concrete/MPInvitation.json#" }],
+    "with": {
+      "properties": {
+        "invitedUserName": {
+          "type": "string"
+        },
+        "containerID": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "containerTitle": {
+          "type": "string"
+        },
+        "acceptedAt": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPContainerInvitation"]
+        }
+      },
+      "required": ["containerID", "role"]
+    }
+  }
+}
