@@ -29,6 +29,10 @@
         "bibliographicName": {
           "$ref": "MPBibliographicName.json#"
         },
+        "phoneNumber": { "type": "string" },
+        "websiteURL": { "type": "string" },
+        "twitterUsername": { "type": "string" },
+        "ORCIDIdentifier": { "type": "string" },
         "bio": { "type": "string" },
         "affiliations": {
           "type": "array",
