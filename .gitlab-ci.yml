@@ -45,7 +45,7 @@ test:
   tags:
     - nodejs
 
-publish:
+publish_private:
   stage: deploy
   only:
     refs:
@@ -53,6 +53,20 @@ publish:
   script:
     - echo Running release
     - npm i
+    - export NPM_TOKEN=$ATYPON_REGISTRY_NPM_TOKEN
+    - npm publish --registry https://atypon-npm-registry.herokuapp.com
+  tags:
+    - nodejs
+
+publish_public:
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    - echo Running release
+    - npm i
+    - export NPM_TOKEN=$PUBLIC_REGISTRY_NPM_TOKEN
     - npm publish
   tags:
     - nodejs

@@ -1,6 +1,6 @@
 {
   "name": "@manuscripts/manuscripts-json-schema",
-  "version": "1.14.0",
+  "version": "1.14.1",
   "description": "",
   "main": "./dist/cjs",
   "module": "./dist/es",
@@ -18,9 +18,6 @@
     "prepare": "npm run build",
     "test": "npm run build && tape tests/*.js",
     "typecheck": "tsc --noEmit"
-  },
-  "publishConfig": {
-    "@manuscripts:registry": "https://atypon-npm-registry.herokuapp.com/"
   },
   "sideEffects": false,
   "keywords": [],
