@@ -53,7 +53,7 @@ publish_private:
   script:
     - echo Running release
     - npm i
-    - export NPM_TOKEN=$ATYPON_REGISTRY_NPM_TOKEN
+    - export NPM_TOKEN="$ATYPON_REGISTRY_NPM_TOKEN"
     - npm publish --registry https://atypon-npm-registry.herokuapp.com
   tags:
     - nodejs
@@ -66,7 +66,7 @@ publish_public:
   script:
     - echo Running release
     - npm i
-    - export NPM_TOKEN=$PUBLIC_REGISTRY_NPM_TOKEN
+    - export NPM_TOKEN="$PUBLIC_REGISTRY_NPM_TOKEN"
     - npm publish
   tags:
     - nodejs
