@@ -1,11 +1,7 @@
 stages:
-- build
-- test
-- deploy
-
-before_script:
-  - npm config set //atypon-npm-registry.herokuapp.com/:_authToken ${ATYPON_REGISTRY_NPM_TOKEN}
-  - npm config set //registry.npmjs.org/:_authToken ${PUBLIC_REGISTRY_NPM_TOKEN}
+  - build
+  - test
+  - deploy
 
 build:
   stage: build
@@ -46,7 +42,7 @@ test:
   tags:
     - nodejs
 
-publish_private:
+publish:
   stage: deploy
   only:
     refs:
@@ -54,20 +50,6 @@ publish_private:
   script:
     - echo Running release
     - npm i
-    - export NPM_TOKEN="$ATYPON_REGISTRY_NPM_TOKEN"
-    - npm publish --registry https://atypon-npm-registry.herokuapp.com
-  tags:
-    - nodejs
-
-publish_public:
-  stage: deploy
-  only:
-    refs:
-      - master
-  script:
-    - echo Running release
-    - npm i
-    - export NPM_TOKEN="$PUBLIC_REGISTRY_NPM_TOKEN"
-    - npm publish
+    - npx @manuscripts/publish
   tags:
     - nodejs
