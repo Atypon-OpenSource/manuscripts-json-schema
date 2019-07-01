@@ -21,9 +21,7 @@
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": false,
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@manuscripts/publish": "^0.2.1",
     "@types/js-beautify": "^1.8.0",
