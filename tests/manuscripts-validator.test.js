@@ -2214,6 +2214,8 @@ test('auxiliary object reference', t => {
     referencedObject: 'MPManuscript:23111',
     auxiliaryObjectReferenceStyle: 'MPAffiliation:foo-bar',
     containerID: 'MPProject:123123',
+    createdAt: 123123123,
+    updatedAt: 123123123,
   };
 
   t.equals(
@@ -2475,6 +2477,7 @@ test('section category', t => {
     uniqueInScope: true,
     supplementary: true,
     titles: ['cover letter', 'coverletter'],
+    contributors: ['MPUserProfile:id', 'User_profile-id'],
   };
 
   t.equals(
