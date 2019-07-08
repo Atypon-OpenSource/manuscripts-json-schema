@@ -33,6 +33,12 @@
           "items": {
             "$ref": "strings.json#/definitions/keywordID"
           }
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": ["createdAt", "updatedAt"]
