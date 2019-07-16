@@ -1,0 +1,31 @@
+{
+  "$id": "MPCitationAlert.json",
+  "title": "CitationAlert",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPCitationAlert"]
+        },
+        "sourceDOI": {
+          "type": "string"
+        },
+        "targetDOI": {
+          "type": "string"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "isRead": {
+          "type": "boolean"
+        }
+      },
+      "required": ["userID","sourceDOI","targetDOI"]
+    }
+  }
+}

@@ -17,7 +17,9 @@ import { validatorFn } from './pack';
     'MPContributorCategory.json',
     'MPGrant.json',
     'MPFundingBody.json',
-    'MPAffiliation.json'
+    'MPAffiliation.json',
+    'MPCitationAlert.json',
+    'MPMutedCitationAlert.json'
   ]);
 
   const fusionFn = validatorFn(id => fusionSchemas.has(id));
