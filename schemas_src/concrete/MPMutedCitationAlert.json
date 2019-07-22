@@ -1,0 +1,28 @@
+{
+  "$id": "MPMutedCitationAlert.json",
+  "title": "MutedCitationAlert",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMutedCitationAlert"]
+        },
+        "targetDOI": {
+          "type": "string"
+        },
+        "userID": {
+          "type": "string"
+        },
+        "muted": {
+          "type": "boolean"
+        }
+      },
+      "required": ["userID","targetDOI"]
+    }
+  }
+}

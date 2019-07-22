@@ -93,7 +93,6 @@ test('bibliography item', t => {
     '.accessed: should be object',
     'invalid accessed date should fail'
   );
-
   const validDate = {
     'date-parts': [],
     _id: 'MPBibliographicDate:food',
@@ -124,5 +123,124 @@ test('bibliography item', t => {
     ),
     null,
     'valid originalProperties object with any properties should pass'
+  );
+});
+
+test('citation alert', t => {
+  t.plan(7);
+  const validObject = {
+    objectType: 'MPCitationAlert',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
+    _id: 'MPCitationAlert:15326C7B-836D-4D6C-81EB-7E6CA6153E9B',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8498',
+    userID: 'User_foobar@manuscriptsapp.com',
+    sourceDOI: '10.1007/978-981-13-0341-8_10',
+    targetDOI: '10.1176/appi.psychotherapy.71101',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPCitationAlert passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { objectType: 'WBCitationAlert' })),
+    'unsupported objectType: WBCitationAlert',
+    'unsupported objectType fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { isRead: 'foo' })),
+    '.isRead: should be boolean',
+    'invalid isRead should fail'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { isRead: true })),
+    null,
+    'valid boolean isRead should pass'
+  );
+
+  const invalidObjectA = Object.assign({}, validObject);
+  delete invalidObjectA.userID;
+
+  const invalidObjectB = Object.assign({}, validObject);
+  delete invalidObjectB.sourceDOI;
+
+  const invalidObjectC = Object.assign({}, validObject);
+  delete invalidObjectC.targetDOI;
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectA)),
+    "should have required property 'userID'"
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectB)),
+    "should have required property 'sourceDOI'"
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectC)),
+    "should have required property 'targetDOI'"
+  );
+});
+
+test('muted citation alert', t => {
+  t.plan(6);
+  const validObject = {
+    objectType: 'MPMutedCitationAlert',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
+    _id: 'MPMutedCitationAlert:15326C7B-836D-4D6C-81EB-7E6CA6153E9B',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8498',
+    userID: 'User_foobar@manuscriptsapp.com',
+    targetDOI: '10.1176/appi.psychotherapy.71101',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPMutedCitationAlert passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, { objectType: 'WBMutedCitationAlert' })
+    ),
+    'unsupported objectType: WBMutedCitationAlert',
+    'unsupported objectType fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { muted: 'foo' })),
+    '.muted: should be boolean',
+    'invalid isRead should fail'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { muted: true })),
+    null,
+    'valid boolean muted should pass'
+  );
+
+  const invalidObjectA = Object.assign({}, validObject);
+  delete invalidObjectA.userID;
+
+  const invalidObjectB = Object.assign({}, validObject);
+  delete invalidObjectB.targetDOI;
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectA)),
+    "should have required property 'userID'"
+  );
+
+  t.equals(
+    validate(Object.assign({}, invalidObjectB)),
+    "should have required property 'targetDOI'"
   );
 });
