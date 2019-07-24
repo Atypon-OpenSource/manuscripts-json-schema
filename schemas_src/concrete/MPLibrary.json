@@ -2,6 +2,7 @@
   "$id": "MPLibrary.json",
   "title": "Library",
   "type": "object",
+  "description": "A container, with associated users, that contains LibraryCollection and BibliographyItem objects via their containerID property",
   "$mash": {
     "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {

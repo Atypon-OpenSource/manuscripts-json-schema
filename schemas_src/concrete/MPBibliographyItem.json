@@ -1,6 +1,7 @@
 {
   "$id": "MPBibliographyItem.json",
   "type": "object",
+  "description": "A bibliographic record, using properties that map closely to CSL-JSON",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPModel.json#" },

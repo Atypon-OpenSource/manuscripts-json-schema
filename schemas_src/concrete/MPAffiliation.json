@@ -2,6 +2,7 @@
   "$id": "MPAffiliation.json",
   "title": "Affiliation",
   "type": "object",
+  "description": "An affiliation associated with a Contributor",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPModel.json#" },

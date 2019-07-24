@@ -2,6 +2,7 @@
   "$id": "MPUserProject.json",
   "title": "UserProject",
   "type": "object",
+  "description": "A collection of Projects on which a User has a role, with some information about recent usage",
   "$mash": {
     "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {

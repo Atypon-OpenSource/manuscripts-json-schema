@@ -2,6 +2,7 @@
   "$id": "MPUserProfile.json",
   "title": "UserProfile",
   "type": "object",
+  "description": "A description of a registered user",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPPerson.json#" },
