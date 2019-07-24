@@ -190,7 +190,7 @@ test('citation alert', t => {
 });
 
 test('muted citation alert', t => {
-  t.plan(6);
+  t.plan(4);
   const validObject = {
     objectType: 'MPMutedCitationAlert',
     createdAt: 1515417692.477127,
@@ -214,18 +214,6 @@ test('muted citation alert', t => {
     ),
     'unsupported objectType: WBMutedCitationAlert',
     'unsupported objectType fails'
-  );
-
-  t.equals(
-    validate(Object.assign({}, validObject, { muted: 'foo' })),
-    '.muted: should be boolean',
-    'invalid isRead should fail'
-  );
-
-  t.equals(
-    validate(Object.assign({}, validObject, { muted: true })),
-    null,
-    'valid boolean muted should pass'
   );
 
   const invalidObjectA = Object.assign({}, validObject);
