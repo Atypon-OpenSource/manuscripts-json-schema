@@ -2,6 +2,7 @@
   "$id": "MPProject.json",
   "title": "Project",
   "type": "object",
+  "description": "A container, with associated users, that contains Manuscripts and their components via their containerID property",
   "$mash": {
     "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {

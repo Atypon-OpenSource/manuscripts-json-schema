@@ -2,6 +2,7 @@
   "$id": "MPContributor.json",
   "title": "Contributor",
   "type": "object",
+  "description": "A person who contributes to a Manuscript, e.g. an author",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPPerson.json#" },

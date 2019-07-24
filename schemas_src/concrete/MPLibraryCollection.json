@@ -2,6 +2,7 @@
   "$id": "MPLibraryCollection.json",
   "title": "LibraryCollection",
   "type": "object",
+  "description": "A container, with a name, that contains BibliographyItem objects via their keywordIDs property",
   "$mash": {
     "sources": [{ "$ref": "concrete/MPKeyword.json#" }],
     "with": {
