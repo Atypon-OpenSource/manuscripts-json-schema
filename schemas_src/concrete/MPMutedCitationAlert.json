@@ -17,9 +17,6 @@
         },
         "userID": {
           "type": "string"
-        },
-        "muted": {
-          "type": "boolean"
         }
       },
       "required": ["userID","targetDOI"]
