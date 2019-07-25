@@ -1,0 +1,24 @@
+{
+  "$id": "MPHighlight.json",
+  "title": "Highlight",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPHighlight"]
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  }
+}
