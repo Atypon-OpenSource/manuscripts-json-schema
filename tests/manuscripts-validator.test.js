@@ -3099,3 +3099,37 @@ test('MPMandatorySubsectionsRequirement', t => {
     null
   );
 });
+
+test('MPHighlight', t => {
+  t.plan(3);
+
+  const highlight = {
+    _id: 'MPHighlight:1',
+    objectType: 'MPHighlight',
+    createdAt: 21312312,
+    updatedAt: 23123123,
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
+  };
+
+  t.equals(validate(Object.assign({}, highlight)), null);
+
+  t.equals(
+    validate(
+      Object.assign({}, highlight, {
+        containerID: undefined,
+      })
+    ),
+    "should have required property 'containerID'"
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, highlight, {
+        manuscriptID: undefined,
+      })
+    ),
+    "should have required property 'manuscriptID'"
+  );
+});
