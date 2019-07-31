@@ -1,0 +1,33 @@
+{
+  "$id": "MPContainerDocument.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "owners": {
+      "type": "array",
+      "items": {
+        "$ref": "strings.json#/definitions/gatewayAccountID"
+      }
+    },
+    "writers": {
+      "type": "array",
+      "items": {
+        "$ref": "strings.json#/definitions/gatewayAccountID"
+      }
+    },
+    "viewers": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "strings.json#/definitions/gatewayAccountID"
+          },
+          {
+            "$ref": "strings.json#/definitions/publicSentinel"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["owners", "writers", "viewers"]
+}

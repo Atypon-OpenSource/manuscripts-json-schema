@@ -4,35 +4,14 @@
   "type": "object",
   "description": "A container, with associated users, that contains Manuscripts and their components via their containerID property",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainerDocument.json#" }
+    ],
     "with": {
       "properties": {
         "title": {
           "type": "string"
-        },
-        "owners": {
-          "type": "array",
-          "items": {
-            "$ref": "strings.json#/definitions/gatewayAccountID"
-          }
-        },
-        "writers": {
-          "type": "array",
-          "items": {
-            "$ref": "strings.json#/definitions/gatewayAccountID"
-          }
-        },
-        "viewers": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "strings.json#/definitions/gatewayAccountID"
-              }, {
-                "$ref": "strings.json#/definitions/publicSentinel"
-              }
-            ]
-          }
         },
         "snapshots": {
           "type": "array",
@@ -45,7 +24,7 @@
           "enum": ["MPProject"]
         }
       },
-      "required": ["owners", "writers", "viewers"]
+      "required": []
     }
   }
 }

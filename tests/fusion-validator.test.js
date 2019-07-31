@@ -26,6 +26,9 @@ test('library', t => {
     _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
     _id: 'MPLibrary:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    owners: [],
+    writers: [],
+    viewers: [],
   };
 
   t.equals(

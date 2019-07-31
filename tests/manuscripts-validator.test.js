@@ -1153,6 +1153,55 @@ test('project', t => {
   );
 });
 
+test('library collection', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPLibraryCollection:5685EAF5-A642-427F-9117-CDDC779CB926',
+    objectType: 'MPLibraryCollection',
+    name: 'Very awesome name',
+    containerID: 'MPLibrary:6AF4C325-ACCE-4930-B41A-92A783B46586',
+    owners: ['User_foobar@baz.com'],
+    writers: [],
+    viewers: [],
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPLibraryCollection passes'
+  );
+
+  const invalidObject1 = Object.assign({}, validObject);
+  delete invalidObject1.writers;
+
+  t.equals(
+    validate(Object.assign({}, invalidObject1)),
+    "should have required property 'writers'",
+    "should have required property 'writers'"
+  );
+
+  const invalidObject2 = Object.assign({}, validObject);
+  delete invalidObject2.owners;
+
+  t.equals(
+    validate(Object.assign({}, invalidObject2)),
+    "should have required property 'owners'",
+    "should have required property 'owners'"
+  );
+
+  const invalidObject3 = Object.assign({}, validObject);
+  delete invalidObject3.containerID;
+
+  t.equals(
+    validate(Object.assign({}, invalidObject3)),
+    "should have required property 'containerID'",
+    "should have required property 'containerID'"
+  );
+});
+
 test('color scheme', t => {
   t.plan(2);
 
