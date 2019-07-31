@@ -4,7 +4,10 @@
   "type": "object",
   "description": "A container, with associated users, that contains LibraryCollection and BibliographyItem objects via their containerID property",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainerDocument.json#" }
+    ],
     "with": {
       "properties": {
         "objectType": {

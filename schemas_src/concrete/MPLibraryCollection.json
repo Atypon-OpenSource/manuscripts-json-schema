@@ -4,7 +4,10 @@
   "type": "object",
   "description": "A container, with a name, that contains BibliographyItem objects via their keywordIDs property",
   "$mash": {
-    "sources": [{ "$ref": "concrete/MPKeyword.json#" }],
+    "sources": [
+      { "$ref": "concrete/MPKeyword.json#" },
+      { "$ref": "mixins/MPContainerDocument.json#" }
+    ],
     "with": {
       "properties": {
         "objectType": {
