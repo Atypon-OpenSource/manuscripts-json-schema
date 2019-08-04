@@ -15,7 +15,15 @@
           "type": "string"
         },
         "invitationID": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^(MPInvitation|MPContainerInvitation)"
+            }
+          ]
         }
       }
     }

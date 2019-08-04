@@ -18,7 +18,15 @@
           "enum": ["figure"]
         },
         "figureLayout": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPFigureLayout"
+            }
+          ]
         },
         "figureStyle": {
           "allOf": [
@@ -39,7 +47,16 @@
           "additionalItems": false
         },
         "listingID": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPListing"
+            }
+          ]
+
         }
       },
       "required": ["containedObjectIDs"]

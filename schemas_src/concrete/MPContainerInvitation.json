@@ -3,13 +3,13 @@
   "title": "Container Invitation",
   "type": "object",
   "$mash": {
-    "sources": [{ "$ref": "concrete/MPInvitation.json#" }],
+    "sources": [
+      { "$ref": "concrete/MPInvitation.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
     "with": {
       "properties": {
         "invitedUserName": {
-          "type": "string"
-        },
-        "containerID": {
           "type": "string"
         },
         "role": {
@@ -26,7 +26,7 @@
           "enum": ["MPContainerInvitation"]
         }
       },
-      "required": ["containerID", "role"]
+      "required": ["role"]
     }
   }
 }

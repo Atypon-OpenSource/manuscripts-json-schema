@@ -5,7 +5,15 @@
   "additionalProperties": false,
   "properties": {
     "listingID": {
-      "type": "string"
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^MPListing"
+        }
+      ]
     },
     "attachmentKey": {
       "type": "string"

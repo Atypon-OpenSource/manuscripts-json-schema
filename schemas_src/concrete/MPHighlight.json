@@ -15,7 +15,15 @@
           "enum": ["MPHighlight"]
         },
         "color": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPColor"
+            }
+          ]
         }
       },
       "required": []
