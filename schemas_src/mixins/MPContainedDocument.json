@@ -10,7 +10,7 @@
         },
         {
           "type": "string",
-          "pattern": "^(MPProject|MPLibrary)"
+          "pattern": "^(MPProject|MPLibrary):"
         }
       ]
     }

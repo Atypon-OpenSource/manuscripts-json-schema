@@ -632,7 +632,7 @@ test('citation item', t => {
         bibliographyItem: 'MPDribbleItem:foo',
       })
     ),
-    '.bibliographyItem: should match pattern "^MPBibliographyItem"',
+    '.bibliographyItem: should match pattern "^MPBibliographyItem:"',
     'invalid object fails'
   );
 
@@ -1333,7 +1333,7 @@ test('containerID property', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { containerID: 'MPPotato:1000' })),
-    '.containerID: should match pattern "^(MPProject|MPLibrary)"',
+    '.containerID: should match pattern "^(MPProject|MPLibrary):"',
     'invalid containerID fails'
   );
 });
@@ -1374,7 +1374,7 @@ test('manuscript property', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { manuscriptID: 'MPPotato:1000' })),
-    '.manuscriptID: should match pattern "^MPManuscript"',
+    '.manuscriptID: should match pattern "^MPManuscript:"',
     'invalid manuscript fails'
   );
 });
@@ -1456,7 +1456,7 @@ test('bundle', t => {
 
   t.equals(
     validate(withInvalidContainer),
-    '.containerID: should match pattern "^MPProject"',
+    '.containerID: should match pattern "^MPProject:"',
     'invalid container id'
   );
 });
@@ -1581,7 +1581,7 @@ test('bibliography element', t => {
     validate(
       Object.assign({}, validObject, { paragraphStyle: 'MPNotPara:24421' })
     ),
-    '.paragraphStyle: should match pattern "^MPParagraphStyle"',
+    '.paragraphStyle: should match pattern "^MPParagraphStyle:"',
     'invalid paragraphStyle id fails'
   );
 });
@@ -1767,7 +1767,7 @@ test('figure element', t => {
     validate(
       Object.assign({}, validObject, { figureStyle: 'MPNotFigure:24421' })
     ),
-    '.figureStyle: should match pattern "^MPFigureStyle"',
+    '.figureStyle: should match pattern "^MPFigureStyle:"',
     'invalid figureStyle id fails'
   );
 
@@ -1841,7 +1841,7 @@ test('table element', t => {
     validate(
       Object.assign({}, validObject, { tableStyle: 'MPNotTable:24421' })
     ),
-    '.tableStyle: should match pattern "^MPTableStyle"',
+    '.tableStyle: should match pattern "^MPTableStyle:"',
     'invalid tableStyle id fails'
   );
 
@@ -1849,7 +1849,7 @@ test('table element', t => {
     validate(
       Object.assign({}, validObject, { paragraphStyle: 'MPNotPara:24421' })
     ),
-    '.paragraphStyle: should match pattern "^MPParagraphStyle"',
+    '.paragraphStyle: should match pattern "^MPParagraphStyle:"',
     'invalid paragraphStyle id fails'
   );
 
@@ -2713,7 +2713,7 @@ test('user project', t => {
 
   t.equals(
     validate(invalidObject2),
-    '.lastOpened[\'abc\'].manuscriptID: should match pattern "^MPManuscript"',
+    '.lastOpened[\'abc\'].manuscriptID: should match pattern "^MPManuscript:"',
     'lastOpened must contain fields of [device id] with matching manuscript id'
   );
 
@@ -2732,7 +2732,7 @@ test('user project', t => {
 
   t.equals(
     validate(invalidObject3),
-    '.lastOpened[\'abc\'].sectionID: should match pattern "^MPSection"',
+    '.lastOpened[\'abc\'].sectionID: should match pattern "^MPSection:"',
     'lastOpened must contain fields of [device id] with matching section id'
   );
 

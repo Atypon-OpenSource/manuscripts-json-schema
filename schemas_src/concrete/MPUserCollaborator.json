@@ -18,7 +18,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPUserProfile"
+              "pattern": "^MPUserProfile:"
             }
           ]
         },
@@ -37,7 +37,7 @@
                   },
                   {
                     "type": "string",
-                    "pattern": "^MPProject"
+                    "pattern": "^MPProject:"
                   }
                 ]
               }
@@ -51,7 +51,7 @@
                   },
                   {
                     "type": "string",
-                    "pattern": "^MPProject"
+                    "pattern": "^MPProject:"
                   }
                 ]
               }
@@ -65,7 +65,7 @@
                   },
                   {
                     "type": "string",
-                    "pattern": "^MPProject"
+                    "pattern": "^MPProject:"
                   }
                 ]
               }

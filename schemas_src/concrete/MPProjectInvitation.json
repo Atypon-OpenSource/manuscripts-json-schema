@@ -16,7 +16,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPProject"
+              "pattern": "^MPProject:"
             }
           ]
         },
