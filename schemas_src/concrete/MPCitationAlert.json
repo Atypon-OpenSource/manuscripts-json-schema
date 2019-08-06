@@ -3,9 +3,7 @@
   "title": "CitationAlert",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
@@ -25,7 +23,7 @@
           "type": "boolean"
         }
       },
-      "required": ["userID","sourceDOI","targetDOI"]
+      "required": ["userID", "sourceDOI", "targetDOI"]
     }
   }
 }

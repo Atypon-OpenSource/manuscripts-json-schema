@@ -1743,7 +1743,7 @@ test('figure element', t => {
 
   const validObject = {
     containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
-    figureLayout: '',
+    figureLayout: 'MPFigureLayout:E173019C-00BB-415E-926A-D0C57ED43303',
     figureStyle: 'MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303',
     sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
     createdAt: 1454394584,
@@ -2409,7 +2409,7 @@ test('project invitation', t => {
     _id: 'MPContainerInvitation:b849af0d7a9076cd0302f22812fbe0a14633219b',
     invitingUserID: 'User_valid-user@manuscriptsapp.com',
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
-    containerID: 'valid-project-id-2',
+    containerID: 'MPProject:valid-project-id-2',
     containerTitle: 'Valid Project 2',
     invitedUserName: 'Valid User',
     role: 'Viewer',
@@ -3180,5 +3180,30 @@ test('MPHighlight', t => {
       })
     ),
     "should have required property 'manuscriptID'"
+  );
+});
+
+test('referenced fields can not be empty', t => {
+  t.plan(1);
+
+  const validObject = {
+    containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
+    figureLayout: '',
+    figureStyle: 'MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+    objectType: 'MPFigureElement',
+    containerID: 'MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC',
+    elementType: 'figure',
+    manuscriptID: 'MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C',
+    _id: 'MPFigureElement:DF026E1B-394A-4A68-C761-9DB39349A714',
+    label: '',
+    suppressCaption: false,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject), null),
+    '.figureLayout: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
   );
 });

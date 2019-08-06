@@ -12,8 +12,15 @@
         },
         "userID": { "type": "string" },
         "collaboratorID": {
-          "type": "string",
-          "pattern": "^MPUserProfile"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPUserProfile"
+            }
+          ]
         },
         "collaboratorProfile": {
           "$ref": "MPUserProfile.json#"
@@ -24,22 +31,43 @@
             "owner": {
               "type": "array",
               "items": {
-                "type": "string",
-                "pattern": "^MPProject"
+                "allOf": [
+                  {
+                    "$ref": "strings.json#/definitions/_id"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^MPProject"
+                  }
+                ]
               }
             },
             "writer": {
               "type": "array",
               "items": {
-                "type": "string",
-                "pattern": "^MPProject"
+                "allOf": [
+                  {
+                    "$ref": "strings.json#/definitions/_id"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^MPProject"
+                  }
+                ]
               }
             },
             "viewer": {
               "type": "array",
               "items": {
-                "type": "string",
-                "pattern": "^MPProject"
+                "allOf": [
+                  {
+                    "$ref": "strings.json#/definitions/_id"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^MPProject"
+                  }
+                ]
               }
             }
           }

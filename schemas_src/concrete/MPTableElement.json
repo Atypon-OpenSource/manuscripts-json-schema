@@ -51,7 +51,15 @@
           ]
         },
         "listingID": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPListing"
+            }
+          ]
         }
       },
       "required": ["containedObjectID"]

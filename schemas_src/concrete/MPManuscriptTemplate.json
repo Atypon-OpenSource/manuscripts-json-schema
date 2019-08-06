@@ -199,7 +199,15 @@
           "type": "number"
         },
         "publisher": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPPublisher"
+            }
+          ]
         },
         "requirementIDs": {
           "additionalItems": false,

@@ -10,7 +10,15 @@
           "type": "string"
         },
         "projectID": {
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPProject"
+            }
+          ]
         },
         "role": {
           "type": "string"
