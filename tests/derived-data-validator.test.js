@@ -59,8 +59,8 @@ test('user collaborator', t => {
         collaboratorID: 'MPAnything:foo-bar-baz',
       })
     ),
-    '.collaboratorID: should match pattern "^MPUserProfile"',
-    '.collaboratorID: should match pattern "^MPUserProfile"'
+    '.collaboratorID: should match pattern "^MPUserProfile:"',
+    '.collaboratorID: should match pattern "^MPUserProfile:"'
   );
 
   t.equals(
@@ -69,8 +69,8 @@ test('user collaborator', t => {
         projects: { owner: ['MPAnything:foo-bar-baz'], writer: [], viewer: [] },
       })
     ),
-    '.projects.owner[0]: should match pattern "^MPProject"',
-    '.projects.owner[0]: should match pattern "^MPProject"'
+    '.projects.owner[0]: should match pattern "^MPProject:"',
+    '.projects.owner[0]: should match pattern "^MPProject:"'
   );
 });
 
@@ -107,7 +107,7 @@ test('project memento', t => {
         projectID: 'MPAnything:foo-bar-baz',
       })
     ),
-    '.projectID: should match pattern "^MPProject"',
-    '.projectID: should match pattern "^MPProject"'
+    '.projectID: should match pattern "^MPProject:"',
+    '.projectID: should match pattern "^MPProject:"'
   );
 });

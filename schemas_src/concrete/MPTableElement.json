@@ -35,7 +35,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPTableStyle"
+              "pattern": "^MPTableStyle:"
             }
           ]
         },
@@ -46,7 +46,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPParagraphStyle"
+              "pattern": "^MPParagraphStyle:"
             }
           ]
         },
@@ -57,7 +57,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPListing"
+              "pattern": "^MPListing:"
             }
           ]
         }

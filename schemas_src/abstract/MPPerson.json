@@ -43,7 +43,7 @@
               },
               {
                 "type": "string",
-                "pattern": "^(MPAffiliation|MPUserProfileAffiliation)"
+                "pattern": "^(MPAffiliation|MPUserProfileAffiliation):"
               }
             ]
           },
@@ -58,7 +58,7 @@
               },
               {
                 "type": "string",
-                "pattern": "^(MPGrant|MPUserProfileGrant)"
+                "pattern": "^(MPGrant|MPUserProfileGrant):"
               }
             ]
           },

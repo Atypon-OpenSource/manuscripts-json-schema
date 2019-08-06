@@ -24,7 +24,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPParagraphStyle"
+              "pattern": "^MPParagraphStyle:"
             }
           ]
         }

@@ -24,7 +24,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPFigureLayout"
+              "pattern": "^MPFigureLayout:"
             }
           ]
         },
@@ -35,7 +35,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPFigureStyle"
+              "pattern": "^MPFigureStyle:"
             }
           ]
         },
@@ -53,7 +53,7 @@
             },
             {
               "type": "string",
-              "pattern": "^MPListing"
+              "pattern": "^MPListing:"
             }
           ]
 
