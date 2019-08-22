@@ -97,11 +97,7 @@ export declare enum ObjectTypes {
   );
 
   // append an export to these types in the index.d.ts file
-  await appendToDistFile(
-    'index.d.ts',
-    'types',
-    "export * from './lookup';"
-  );
+  await appendToDistFile('index.d.ts', 'types', "export * from './lookup';");
 
   // append an export to the code in the (cjs) index.js file
   await appendToDistFile(
@@ -114,9 +110,5 @@ exports.ObjectTypes = lookup_1.ObjectTypes;`
   );
 
   // append an export to the code in the (es) index.js file
-  await appendToDistFile(
-    'index.js',
-    'es',
-    `export * from './lookup';`
-  );
+  await appendToDistFile('index.js', 'es', `export * from './lookup';`);
 })();

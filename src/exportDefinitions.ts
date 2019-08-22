@@ -43,7 +43,10 @@ async function getAbstractSchemas() {
   const contents = await Promise.all(
     schemas.concat(abstracts).map(definition => {
       // this is the best approach because the `objectType` has to match the mac.
-      return definition.replace(/^export\sinterface\sM[Pp]/, 'export interface ');
+      return definition.replace(
+        /^export\sinterface\sM[Pp]/,
+        'export interface '
+      );
     })
   );
 

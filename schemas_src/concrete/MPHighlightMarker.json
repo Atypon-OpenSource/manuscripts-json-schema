@@ -1,0 +1,31 @@
+{
+  "$id": "MPHighlightMarker.json",
+  "title": "HighlightMarker",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
+    "with": {
+      "properties": {
+        "highlightID": {
+          "type": "string",
+          "pattern": "^MPHighlight:[0-9a-zA-Z\\-]+"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "start": {
+          "type": "boolean"
+        },
+        "field": {
+          "type": "string",
+          "enum": ["caption", "contents", "title"]
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPHighlightMarker"]
+        }
+      },
+      "required": ["highlightID", "offset", "start", "field"]
+    }
+  }
+}

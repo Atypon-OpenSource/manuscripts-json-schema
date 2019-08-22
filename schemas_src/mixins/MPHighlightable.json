@@ -1,0 +1,14 @@
+{
+  "$id": "MPHighlightable.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "highlightMarkers": {
+      "type": "array",
+      "items": {
+        "$ref": "MPHighlightMarker.json#"
+      }
+    }
+  },
+  "required": []
+}

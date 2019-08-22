@@ -19,7 +19,7 @@ import { validatorFn } from './pack';
     'MPFundingBody.json',
     'MPAffiliation.json',
     'MPCitationAlert.json',
-    'MPMutedCitationAlert.json'
+    'MPMutedCitationAlert.json',
   ]);
 
   const fusionFn = validatorFn(id => fusionSchemas.has(id));
@@ -33,7 +33,7 @@ import { validatorFn } from './pack';
     'MPFundingBody.json',
     'MPProjectMemento.json',
     'MPProject.json',
-    'MPSnapshot.json'
+    'MPSnapshot.json',
   ]);
 
   const derivedDataFn = validatorFn(id => derivedDataSchemas.has(id));
@@ -85,9 +85,5 @@ exports.manuscriptsFn = validators_1.manuscriptsFn;`
   );
 
   // append an export to the code in the (es) index.js file
-  await appendToDistFile(
-    'index.js',
-    'es',
-    "export * from './validators';"
-  );
+  await appendToDistFile('index.js', 'es', "export * from './validators';");
 })();

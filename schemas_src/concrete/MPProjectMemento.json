@@ -17,7 +17,7 @@
             }
           ]
         },
-        "userID": { 
+        "userID": {
           "type": "string"
         },
         "project": {
@@ -28,10 +28,7 @@
           "enum": ["MPProjectMemento"]
         }
       },
-      "required": [
-        "projectID",
-        "project"
-      ]
+      "required": ["projectID", "project"]
     }
   }
 }
