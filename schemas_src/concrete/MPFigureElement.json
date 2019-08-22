@@ -56,7 +56,6 @@
               "pattern": "^MPListing:"
             }
           ]
-
         }
       },
       "required": ["containedObjectIDs"]

@@ -3,9 +3,7 @@
   "title": "MutedCitationAlert",
   "type": "object",
   "$mash": {
-    "sources": [
-      { "$ref": "abstract/MPModel.json#" }
-    ],
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
     "with": {
       "properties": {
         "objectType": {
@@ -19,7 +17,7 @@
           "type": "string"
         }
       },
-      "required": ["userID","targetDOI"]
+      "required": ["userID", "targetDOI"]
     }
   }
 }

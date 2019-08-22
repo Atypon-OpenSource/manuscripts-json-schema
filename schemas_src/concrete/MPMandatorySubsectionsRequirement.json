@@ -19,7 +19,7 @@
           "enum": ["MPMandatorySubsectionsRequirement"]
         }
       },
-      "required": ["evaluatedObject","embeddedSectionDescriptions"]
+      "required": ["evaluatedObject", "embeddedSectionDescriptions"]
     }
   }
 }

@@ -7,7 +7,8 @@
       { "$ref": "abstract/MPModel.json#" },
       { "$ref": "mixins/MPContainedDocument.json#" },
       { "$ref": "mixins/MPManuscriptDocument.json#" },
-      { "$ref": "mixins/MPAttachmentOwner.json#" }
+      { "$ref": "mixins/MPAttachmentOwner.json#" },
+      { "$ref": "mixins/MPHighlightable.json#" }
     ],
     "with": {
       "properties": {

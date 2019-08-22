@@ -3183,6 +3183,72 @@ test('MPHighlight', t => {
   );
 });
 
+test('MPHighlightMarker', t => {
+  t.plan(8);
+
+  const highlightMarker = {
+    _id: 'MPHighlightMarker:2',
+    highlightID: 'MPHighlight:2',
+    objectType: 'MPHighlightMarker',
+    offset: 13,
+    start: true,
+    field: 'title',
+  };
+
+  t.equals(validate(Object.assign({}, highlightMarker)), null);
+
+  t.equals(
+    validate(
+      Object.assign({}, highlightMarker, {
+        offset: undefined,
+      })
+    ),
+    "should have required property 'offset'"
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, highlightMarker, {
+        start: undefined,
+      })
+    ),
+    "should have required property 'start'"
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, highlightMarker, {
+        field: undefined,
+      })
+    ),
+    "should have required property 'field'"
+  );
+
+  t.equals(
+    validate(Object.assign({}, highlightMarker, { field: 'nthTest' })),
+    '.field: should be equal to one of the allowed values',
+    'invalid type for field'
+  );
+
+  t.equals(
+    validate(Object.assign({}, highlightMarker, { highlightID: 'test:match' })),
+    '.highlightID: should match pattern "^MPHighlight:[0-9a-zA-Z\\-]+"',
+    'Error matching highlightID'
+  );
+
+  t.equals(
+    validate(Object.assign({}, highlightMarker, { offset: 'test' })),
+    '.offset: should be integer',
+    'invalid type for offset'
+  );
+
+  t.equals(
+    validate(Object.assign({}, highlightMarker, { start: 'true' })),
+    '.start: should be boolean',
+    'invalid type for start'
+  );
+});
+
 test('referenced fields can not be empty', t => {
   t.plan(1);
 
