@@ -13,6 +13,17 @@
         "objectType": {
           "type": "string",
           "enum": ["MPLibraryCollection"]
+        },
+        "category": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPLibraryCollectionCategory:"
+            }
+          ]
         }
       },
       "required": []
