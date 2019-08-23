@@ -1153,8 +1153,84 @@ test('project', t => {
   );
 });
 
+test('library', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPLibrary:5685EAF5-A642-427F-9117-CDDC779CB926',
+    objectType: 'MPLibrary',
+    owners: ['User_foobar@baz.com'],
+    writers: [],
+    viewers: [],
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPLibrary passes'
+  );
+
+  // valid object with name
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          name: 'Very awesome name',
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid MPLibrary with name passes'
+  );
+
+  // valid object with category
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          category: 'MPLibraryCategory:B8FEC1AD-676D-4C7C-9F36-6B1EFE587742',
+        },
+        validObject
+      )
+    ),
+    null,
+    'MPLibrary with valid MPLibraryCategory passes'
+  );
+
+  // invalid object with malformed category
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          category: 'B8FEC1AD-676D-4C7C-9F36-6B1EFE587742',
+        },
+        validObject
+      )
+    ),
+    '.category: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'MPLibrary .category: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
+  );
+
+  // invalid object with wrong category prefix
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          category: 'MPLibraryCollection:B8FEC1AD-676D-4C7C-9F36-6B1EFE587742',
+        },
+        validObject
+      )
+    ),
+    '.category: should match pattern "^MPLibraryCategory:"',
+    'MPLibrary .category: should match pattern "^MPLibraryCategory:"'
+  );
+});
+
 test('library collection', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPLibraryCollection:5685EAF5-A642-427F-9117-CDDC779CB926',
@@ -1172,6 +1248,49 @@ test('library collection', t => {
     validate(Object.assign({}, validObject)),
     null,
     'valid MPLibraryCollection passes'
+  );
+
+  // valid object with category
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          category:
+            'MPLibraryCollectionCategory:B8FEC1AD-676D-4C7C-9F36-6B1EFE587742',
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid MPLibraryCollection with category passes'
+  );
+
+  // invalid object with malformed category
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          category: 'B8FEC1AD-676D-4C7C-9F36-6B1EFE587742',
+        },
+        validObject
+      )
+    ),
+    '.category: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'MPLibraryCollection .category: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
+  );
+
+  // invalid object with wrong category prefix
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          category: 'MPLibrary:B8FEC1AD-676D-4C7C-9F36-6B1EFE587742',
+        },
+        validObject
+      )
+    ),
+    '.category: should match pattern "^MPLibraryCollectionCategory:"',
+    'MPLibraryCollection .category: should match pattern "^MPLibraryCollectionCategory:"'
   );
 
   const invalidObject1 = Object.assign({}, validObject);
