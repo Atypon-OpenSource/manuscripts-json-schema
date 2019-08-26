@@ -49,3 +49,4 @@ To make schema changes visible at a running instance of [manuscripts-frontend](h
   - *NOTE:* this repository is still private (the last private repository in the project), will soon be made public – request access via the [Friends of Manuscripts Slack chat](https://manuscripts-friends-slack.herokuapp.com/) if you want in already.
   - Edit *docker/utils/templates/docker-compose.yml.ejs* on your branch to reference the updated manuscripts-sync/sync_gateway image. This has effect for local docker-compose based development environment only.
   - Edit *@manuscripts/sync* reference in package.json to reference the updated NPM package version. This change is needed for both local development and production-like environments.
+2. Post a merge request for your *manuscripts-api* changes + address review comments. Once MR is merged, an updated manuscripts-api Docker image is published to the Docker registry associated with the repository.
