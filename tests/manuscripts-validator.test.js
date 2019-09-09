@@ -2732,7 +2732,7 @@ test('comment', t => {
     manuscriptID: 'MPManuscript:baz',
     contents: 'bar',
     target: 'MPParagraphElement:foo',
-    userID: 'MPUserProfile:bar',
+    originalText: '',
   };
 
   t.equals(
@@ -2768,11 +2768,7 @@ test('comment', t => {
 
   delete objectWithSelector.selector.text;
 
-  t.equals(
-    validate(objectWithSelector),
-    ".selector: should have required property 'text'",
-    'text is required'
-  );
+  t.equals(validate(objectWithSelector), null, 'selector.text is optional');
 
   objectWithSelector.selector.text = 'abcdefghij';
   objectWithSelector.selector.foo = 'bar';
