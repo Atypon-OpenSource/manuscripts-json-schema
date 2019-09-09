@@ -23,6 +23,9 @@
         "objectType": {
           "type": "string",
           "enum": ["MPHighlightMarker"]
+        },
+        "text":{
+          "type": "string"
         }
       },
       "required": ["highlightID", "offset", "start", "field"]

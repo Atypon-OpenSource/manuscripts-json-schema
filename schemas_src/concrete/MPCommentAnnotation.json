@@ -14,13 +14,15 @@
           "enum": ["MPCommentAnnotation"]
         },
         "contents": {
-          "type": "string"
+          "type": "string",
+          "description": "The contents of the *comment* (not those of the target)."
         },
         "target": {
           "type": "string"
         },
-        "userID": {
-          "type": "string"
+        "originalText": {
+          "type": "string",
+          "description": "The original textual contents of the target of the comment annotation."
         },
         "selector": {
           "type": "object",
@@ -32,14 +34,15 @@
               "type": "number"
             },
             "text": {
-              "type": "string"
+              "type": "string",
+              "description": "A text based selector."
             }
           },
-          "required": ["from", "to", "text"],
+          "required": ["from", "to"],
           "additionalProperties": false
         }
       },
-      "required": ["contents", "target", "userID"]
+      "required": ["contents", "target"]
     }
   }
 }

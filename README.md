@@ -27,6 +27,8 @@ This repository uses a [semantic versioning scheme](https://semver.org/) with th
 - minor version: addition of a new feature in the schema for which there is no reason to believe it requires migrating already stored data: new optional fields, new entities.
 - patch version: all bug fixes that do not fall into either of above categories.
 
+**NOTE:** As a general rule, schema changes generally only add new fields or mark existing optional or mark additional non-described fields acceptable (marking optional and allowing for additional fields effectively "softly deprecating" the use of pre-existing fields that may have previously been referred to in the schema as required fields): data conforming to this schema is assumed to be synchronised across in an eventually consistent manner across clients that may be disconnected from each other for long periods of time, and data is validated at synchronisation time with the most recent recent schema. It is therefore as a general rule difficult to create schema changes that change the meaning of, or remove existing fields, in a way that is to be reflected as schema validator visible changes (because old data can inadvertently become invalid according to new schema validation rules).
+
 ## How do I get my schema change accepted?
 
 To make schema changes visible at a running instance of [manuscripts-frontend](https://gitlab.com/mpapp-public/manuscripts-frontend), please complete the following steps.
