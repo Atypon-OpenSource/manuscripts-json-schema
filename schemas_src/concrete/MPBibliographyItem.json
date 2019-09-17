@@ -228,6 +228,15 @@
         "event-place": {
           "type": "string"
         },
+        "externalIDs": {
+          "type": "object",
+          "properties": {
+            "pubmed": { "type": "string" },
+            "mendeley": { "type": "string" },
+            "zotero": { "type": "string" },
+            "orcid": { "type": "string" }
+          }
+        },
         "first-reference-note-number": {
           "type": "string"
         },
