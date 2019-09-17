@@ -1,6 +1,6 @@
 {
   "name": "@manuscripts/manuscripts-json-schema",
-  "version": "1.17.0",
+  "version": "1.17.1",
   "description": "Schema for models used in Manuscripts applications, plus validator functions for Sync Gateway",
   "repository": "gitlab:mpapp-public/manuscripts-json-schema",
   "main": "./dist/cjs",
