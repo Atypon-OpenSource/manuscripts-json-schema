@@ -1,0 +1,31 @@
+{
+  "$id": "MPContribution.json",
+  "title": "Contribution",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
+    "with": {
+      "properties": {
+        "profileID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPUserProfile:"
+            }
+          ]
+        },
+        "timestamp": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPContribution"]
+        }
+      },
+      "required": ["profileID", "timestamp"]
+    }
+  }
+}

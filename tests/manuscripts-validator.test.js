@@ -2645,7 +2645,20 @@ test('section category', t => {
     uniqueInScope: true,
     supplementary: true,
     titles: ['cover letter', 'coverletter'],
-    contributors: ['MPUserProfile:id', 'User_profile-id'],
+    contributions: [
+      {
+        _id: 'MPContribution:id',
+        objectType: 'MPContribution',
+        profileID: 'MPUserProfile:id',
+        timestamp: 1515494608.245375,
+      },
+      {
+        _id: 'MPContribution:id2',
+        objectType: 'MPContribution',
+        profileID: 'MPUserProfile:id2',
+        timestamp: 1515494608.245375,
+      },
+    ],
   };
 
   t.equals(
