@@ -20,6 +20,7 @@ import { validatorFn } from './pack';
     'MPAffiliation.json',
     'MPCitationAlert.json',
     'MPMutedCitationAlert.json',
+    'MPContribution.json',
   ]);
 
   const fusionFn = validatorFn(id => fusionSchemas.has(id));
@@ -34,6 +35,7 @@ import { validatorFn } from './pack';
     'MPProjectMemento.json',
     'MPProject.json',
     'MPSnapshot.json',
+    'MPContribution.json',
   ]);
 
   const derivedDataFn = validatorFn(id => derivedDataSchemas.has(id));
