@@ -1,0 +1,68 @@
+{
+  "$id": "MPSummary.json",
+  "title": "Summary",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "containerID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^(MPProject|MPLibrary|MPLibraryCollection):"
+            }
+          ]
+        },
+        "lastModifiedDocumentID": {
+          "description": "The ID of the document in a container whose modification triggered updating the summary corresponding to the container.",
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            }
+          ]
+        },
+        "ownerProfiles": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "MPUserProfile.json#"
+              }
+            ]
+          }
+        },
+        "writerProfiles": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "MPUserProfile.json#"
+              }
+            ]
+          }
+        },
+        "viewerProfiles": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "MPUserProfile.json#"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "containerID",
+        "lastModifiedDocumentID",
+        "ownerProfiles",
+        "writerProfiles",
+        "viewerProfiles"
+      ]
+    }
+  }
+}

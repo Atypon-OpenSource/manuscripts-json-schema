@@ -1,0 +1,21 @@
+{
+  "$id": "MPProjectSummary.json",
+  "title": "ProjectSummary",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPSummary.json#" }],
+    "with": {
+      "properties": {
+        "containerID": {
+          "type": "string",
+          "pattern": "^MPProject:"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPProjectSummary"]
+        }
+      },
+      "required": []
+    }
+  }
+}
