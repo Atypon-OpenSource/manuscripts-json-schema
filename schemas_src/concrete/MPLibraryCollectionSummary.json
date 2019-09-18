@@ -1,0 +1,21 @@
+{
+  "$id": "MPLibraryCollectionSummary.json",
+  "title": "LibraryCollectionSummary",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPSummary.json#" }],
+    "with": {
+      "properties": {
+        "containerID": {
+          "type": "string",
+          "pattern": "^MPLibraryCollection:"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPLibraryCollectionSummary"]
+        }
+      },
+      "required": []
+    }
+  }
+}

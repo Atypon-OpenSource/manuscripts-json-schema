@@ -111,3 +111,145 @@ test('project memento', t => {
     '.projectID: should match pattern "^MPProject:"'
   );
 });
+
+test('project summary', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPProjectSummary:MPProject:F1268F02-D8FC-400D-B3DE-47A4B73C1423',
+    objectType: 'MPProjectSummary',
+    containerID: 'MPProject:F1268F02-D8FC-400D-B3DE-47A4B73C1423',
+    createdAt: 1568288021.91,
+    updatedAt: 1568551125.624,
+    lastModifiedDocumentID: 'MPColor:6910B47C-3BB5-4699-9F02-FE73EFB7B30D',
+    ownerProfiles: [
+      {
+        _id: 'MPUserProfile:062e2cb3bd2953211d770df7b3a612c7455b2740',
+        bibliographicName: {
+          _id: 'MPBibliographicName:12c26192-3be4-4b22-9ae2-9f74ecb9d3dc',
+          family: 'Alhamdan',
+          given: 'Bader',
+          objectType: 'MPBibliographicName',
+        },
+        createdAt: 1568277216.272,
+        email: 'bhamdan@atypon.com',
+        objectType: 'MPUserProfile',
+        updatedAt: 1568277216.272,
+        userID: 'User_bhamdan@atypon.com',
+      },
+    ],
+    writerProfiles: [],
+    viewerProfiles: [],
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPProjectSummary passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        containerID: 'MPAnything:foo-bar-baz',
+      })
+    ),
+    '.containerID: should match pattern "^MPProject:"',
+    '.containerID: should match pattern "^MPProject:"'
+  );
+});
+
+test('library summary', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPProjectSummary:MPLibrary:F1268F02-D8FC-400D-B3DE-47A4B73C1423',
+    objectType: 'MPLibrarySummary',
+    containerID: 'MPLibrary:F1268F02-D8FC-400D-B3DE-47A4B73C1423',
+    createdAt: 1568288021.91,
+    updatedAt: 1568551125.624,
+    lastModifiedDocumentID: 'MPColor:6910B47C-3BB5-4699-9F02-FE73EFB7B30D',
+    ownerProfiles: [
+      {
+        _id: 'MPUserProfile:062e2cb3bd2953211d770df7b3a612c7455b2740',
+        bibliographicName: {
+          _id: 'MPBibliographicName:12c26192-3be4-4b22-9ae2-9f74ecb9d3dc',
+          family: 'Alhamdan',
+          given: 'Bader',
+          objectType: 'MPBibliographicName',
+        },
+        createdAt: 1568277216.272,
+        email: 'bhamdan@atypon.com',
+        objectType: 'MPUserProfile',
+        updatedAt: 1568277216.272,
+        userID: 'User_bhamdan@atypon.com',
+      },
+    ],
+    writerProfiles: [],
+    viewerProfiles: [],
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPLibrarySummary passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        containerID: 'MPAnything:foo-bar-baz',
+      })
+    ),
+    '.containerID: should match pattern "^MPLibrary:"',
+    '.containerID: should match pattern "^MPLibrary:"'
+  );
+});
+
+test('library collection summary', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id:
+      'MPLibraryCollectionSummary:MPLibraryCollection:F1268F02-D8FC-400D-B3DE-47A4B73C1423',
+    objectType: 'MPLibraryCollectionSummary',
+    containerID: 'MPLibraryCollection:F1268F02-D8FC-400D-B3DE-47A4B73C1423',
+    createdAt: 1568288021.91,
+    updatedAt: 1568551125.624,
+    lastModifiedDocumentID: 'MPColor:6910B47C-3BB5-4699-9F02-FE73EFB7B30D',
+    ownerProfiles: [
+      {
+        _id: 'MPUserProfile:062e2cb3bd2953211d770df7b3a612c7455b2740',
+        bibliographicName: {
+          _id: 'MPBibliographicName:12c26192-3be4-4b22-9ae2-9f74ecb9d3dc',
+          family: 'Alhamdan',
+          given: 'Bader',
+          objectType: 'MPBibliographicName',
+        },
+        createdAt: 1568277216.272,
+        email: 'bhamdan@atypon.com',
+        objectType: 'MPUserProfile',
+        updatedAt: 1568277216.272,
+        userID: 'User_bhamdan@atypon.com',
+      },
+    ],
+    writerProfiles: [],
+    viewerProfiles: [],
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPLibraryCollectionSummary passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        containerID: 'MPAnything:foo-bar-baz',
+      })
+    ),
+    '.containerID: should match pattern "^MPLibraryCollection:"',
+    '.containerID: should match pattern "^MPLibraryCollection:"'
+  );
+});

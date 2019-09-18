@@ -35,6 +35,9 @@ import { validatorFn } from './pack';
     'MPProjectMemento.json',
     'MPProject.json',
     'MPSnapshot.json',
+    'MPProjectSummary.json',
+    'MPLibrarySummary.json',
+    'MPLibraryCollectionSummary.json',
     'MPContribution.json',
   ]);
 
