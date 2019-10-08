@@ -189,9 +189,6 @@
             "$ref": "MPSubmission.json#"
           }
         },
-        "sectionNumberingIndex": {
-          "type": "number"
-        },
         "numberingParticipation": {
           "$ref": "enums.json#/definitions/MPNumberingParticipation"
         },
