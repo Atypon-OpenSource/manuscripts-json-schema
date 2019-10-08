@@ -1777,7 +1777,7 @@ test('listing element', t => {
 });
 
 test('equation element', t => {
-  t.plan(3);
+  t.plan(5);
 
   const validObject = {
     objectType: 'MPEquationElement',
@@ -1802,6 +1802,18 @@ test('equation element', t => {
     validate(Object.assign({}, validObject, { suppressCaption: true })),
     null,
     'suppressCaption bool permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'div' })),
+    null,
+    'elementType div permitted'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'foo' })),
+    '.elementType: should be equal to one of the allowed values',
+    'elementType foo not permitted'
   );
 
   const invalidObject = Object.assign({}, validObject);
