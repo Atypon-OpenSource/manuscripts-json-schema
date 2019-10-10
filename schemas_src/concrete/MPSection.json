@@ -52,6 +52,28 @@
           },
           "additionalItems": false
         },
+        "captionStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPCaptionStyle:"
+            }
+          ]
+        },
+        "auxiliaryObjectReferenceStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPAuxiliaryObjectReferenceStyle:"
+            }
+          ]
+        },
         "maxCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
