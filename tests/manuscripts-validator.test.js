@@ -734,7 +734,7 @@ test('citation', t => {
 });
 
 test('MPSection', t => {
-  t.plan(10);
+  t.plan(12);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -830,6 +830,26 @@ test('MPSection', t => {
     ),
     null,
     'valid minWordCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        captionStyle: 'MPCaptionStyle:foobar',
+      })
+    ),
+    null,
+    'valid captionStyle passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        auxiliaryObjectReferenceStyle: 'MPAuxiliaryObjectReferenceStyle:foobar',
+      })
+    ),
+    null,
+    'valid auxiliaryObjectReferenceStyle passes'
   );
 });
 
