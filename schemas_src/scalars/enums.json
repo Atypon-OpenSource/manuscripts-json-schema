@@ -22,6 +22,10 @@
       "type": "integer",
       "enum": [0, 1],
       "description": "Item with numbering participation of 0 will take part in numbering schemes regardless of whether the item is numbered. Items with numbering participation of 1 will take part in numbering schemes when the item is itself numbered."
+    },
+    "ContainerRole": {
+      "type": "string",
+      "enum": ["Owner", "Writer", "Editor", "Viewer"]
     }
   }
 }

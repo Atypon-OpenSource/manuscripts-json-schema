@@ -1,0 +1,29 @@
+{
+  "$id": "MPContainerRequest.json",
+  "title": "Container Request",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "role": {
+          "$ref": "enums.json#/definitions/ContainerRole"
+        },
+        "userID": {
+          "$ref": "strings.json#/definitions/gatewayAccountID"
+        },
+        "userProfile": {
+          "$ref": "MPUserProfile.json#"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPContainerRequest"]
+        }
+      },
+      "required": ["userID", "role"]
+    }
+  }
+}

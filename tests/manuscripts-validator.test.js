@@ -3446,3 +3446,37 @@ test('referenced fields can not be empty', t => {
     '.figureLayout: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
   );
 });
+
+test('container request', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPContainerRequest:DF026E1B-394A-4A68-C761-9DB39349A714',
+    objectType: 'MPContainerRequest',
+    containerID: 'MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC',
+    userID: 'User_foobar@manuscriptsapp.com',
+    role: 'Writer',
+    userProfile: {
+      _id: 'MPUserProfile:foo-bar-baz',
+      objectType: 'MPUserProfile',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      bibliographicName: {
+        _id: 'MPBibliographicName:foo-bar-baz',
+        objectType: 'MPBibliographicName',
+        createdAt: 1515417692.477127,
+        updatedAt: 1515494608.363229,
+      },
+      userID: 'User_foobar@manuscriptsapp.com',
+    },
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+  };
+
+  t.equals(validate(Object.assign({}, validObject)), null);
+
+  t.equals(
+    validate(Object.assign({}, validObject, { role: 'Clown' })),
+    '.role: should be equal to one of the allowed values'
+  );
+});
