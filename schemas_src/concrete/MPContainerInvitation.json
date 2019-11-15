@@ -13,7 +13,7 @@
           "type": "string"
         },
         "role": {
-          "type": "string"
+          "$ref": "enums.json#/definitions/ContainerRole"
         },
         "containerTitle": {
           "type": "string"
