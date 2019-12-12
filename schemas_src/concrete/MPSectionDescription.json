@@ -48,6 +48,12 @@
         "minKeywordCount": {
           "type": "number"
         },
+        "maxCharCount": {
+          "type": "number"
+        },
+        "minCharCount": {
+          "type": "number"
+        },
         "objectType": {
           "type": "string",
           "enum": ["MPSectionDescription"]

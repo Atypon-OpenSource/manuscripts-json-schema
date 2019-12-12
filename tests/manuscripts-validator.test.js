@@ -3253,7 +3253,7 @@ test('Section Requirements', t => {
 });
 
 test('MPMandatorySubsectionsRequirement', t => {
-  t.plan(5);
+  t.plan(6);
 
   const validObject = {
     _id: 'MPMandatorySubsectionsRequirement:1',
@@ -3314,6 +3314,22 @@ test('MPMandatorySubsectionsRequirement', t => {
           {
             ...validObject.embeddedSectionDescriptions[0],
             maxWordCount: 100,
+          },
+        ],
+      })
+    ),
+    null
+  );
+
+  // section description can have a char count requirement
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        embeddedSectionDescriptions: [
+          {
+            ...validObject.embeddedSectionDescriptions[0],
+            maxCharCount: 100,
+            minCharCount: 20,
           },
         ],
       })
