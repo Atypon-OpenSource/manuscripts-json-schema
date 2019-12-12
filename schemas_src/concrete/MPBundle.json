@@ -32,6 +32,15 @@
             "author-email": {
               "type": "string"
             },
+            "author-uri": {
+              "type": "string"
+            },
+            "template-URL": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
             "version": {
               "type": "string"
             },
