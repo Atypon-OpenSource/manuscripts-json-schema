@@ -662,11 +662,13 @@ test('citation item', t => {
 });
 
 test('citation', t => {
-  t.plan(5);
+  t.plan(9);
 
   const validObject = {
     _id: 'MPCitation:baz',
     manuscriptID: 'MPManuscript:foo',
+    embeddedCitationItems: [],
+    containingObject: 'MPParagraphElement:qux',
     sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
     createdAt: 1515417692.477127,
     updatedAt: 1515494608.363229,
@@ -676,6 +678,16 @@ test('citation', t => {
 
   t.equals(
     validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        containingObject: undefined,
+      })
+    ),
     "should have required property 'containingObject'",
     'containingObject property required'
   );
@@ -683,7 +695,7 @@ test('citation', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        containingObject: 'MPParagraphElement:qux',
+        embeddedCitationItems: undefined,
       })
     ),
     "should have required property 'embeddedCitationItems'",
@@ -693,25 +705,12 @@ test('citation', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        containingObject: 'MPParagraphElement:qux',
-        embeddedCitationItems: [],
         collationType: 1,
         citationStyle: 'MPBundle:foo',
       })
     ),
     null,
     'collationType and citationStyle permitted'
-  );
-
-  t.equals(
-    validate(
-      Object.assign({}, validObject, {
-        containingObject: 'MPParagraphElement:qux',
-        embeddedCitationItems: [],
-      })
-    ),
-    null,
-    'valid object passes with empty array'
   );
 
   t.equals(
@@ -729,7 +728,47 @@ test('citation', t => {
       })
     ),
     null,
-    'valid object passes'
+    'valid object passes with embedded citation item'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        displayScheme: 'author-only',
+      })
+    ),
+    null,
+    'displayScheme permitted'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        displayScheme: 'year-only',
+      })
+    ),
+    '.displayScheme: should be equal to one of the allowed values',
+    'invalid displayScheme rejected'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        prefix: 'am',
+      })
+    ),
+    null,
+    'prefix permitted'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        suffix: 'pm',
+      })
+    ),
+    null,
+    'suffix permitted'
   );
 });
 
