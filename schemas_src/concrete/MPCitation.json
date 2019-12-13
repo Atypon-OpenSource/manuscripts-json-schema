@@ -33,6 +33,20 @@
               "pattern": "^MPBundle:"
             }
           ]
+        },
+        "displayScheme": {
+          "type": "string",
+          "enum": [
+            "show-all",
+            "author-only",
+            "suppress-author"
+          ]
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
         }
       },
       "required": ["embeddedCitationItems"]
