@@ -17,6 +17,17 @@
         "elementType": {
           "type": "string",
           "enum": ["div"]
+        },
+        "paragraphStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPParagraphStyle:"
+            }
+          ]
         }
       },
       "required": []
