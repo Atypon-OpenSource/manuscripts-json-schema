@@ -3477,6 +3477,33 @@ test('MPHighlightMarker', t => {
   );
 });
 
+test('MPKeywordsElement', t => {
+  t.plan(2);
+
+  const keywordsElement = {
+    _id: 'MPKeywordsElement:1',
+    objectType: 'MPKeywordsElement',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+    containerID: 'MPProject:foo-bar-baz',
+    manuscriptID: 'MPManuscript:zorb',
+    elementType: 'p',
+    contents: 'test, testing',
+  };
+
+  t.equals(validate(Object.assign({}, keywordsElement)), null);
+
+  t.equals(
+    validate(
+      Object.assign({}, keywordsElement, {
+        contents: undefined,
+      })
+    ),
+    "should have required property 'contents'"
+  );
+});
+
 test('referenced fields can not be empty', t => {
   t.plan(1);
 
