@@ -28,6 +28,7 @@ test('library', t => {
     sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
     owners: [],
     writers: [],
+    editors: [],
     viewers: [],
   };
 

@@ -45,6 +45,16 @@
             ]
           }
         },
+        "editorProfiles": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "MPUserProfile.json#"
+              }
+            ]
+          }
+        },
         "viewerProfiles": {
           "type": "array",
           "items": {

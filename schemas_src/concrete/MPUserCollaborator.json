@@ -56,6 +56,20 @@
                 ]
               }
             },
+            "editor": {
+              "type": "array",
+              "items": {
+                "allOf": [
+                  {
+                    "$ref": "strings.json#/definitions/_id"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^MPProject:"
+                  }
+                ]
+              }
+            },
             "viewer": {
               "type": "array",
               "items": {

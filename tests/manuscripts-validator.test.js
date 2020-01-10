@@ -1060,7 +1060,7 @@ test('color', t => {
 });
 
 test('project', t => {
-  t.plan(10);
+  t.plan(11);
 
   t.equals(
     validate({
@@ -1071,6 +1071,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
+      editors: [],
       viewers: [],
     }),
     null,
@@ -1100,6 +1101,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: 'foo',
+      editors: [],
       viewers: [],
     }),
     '.writers: should be array',
@@ -1115,6 +1117,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: ['Foo'],
+      editors: [],
       viewers: [],
     }),
     '.writers[0]: should match pattern "^User_.+"',
@@ -1130,6 +1133,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: ['User_Foo'],
+      editors: [],
       viewers: [],
     }),
     null,
@@ -1145,6 +1149,23 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
+      editors: ['User_Foo'],
+      viewers: [],
+    }),
+    null,
+    'valid MPProject passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      editors: [],
       viewers: ['User_Foo', '*'],
     }),
     null,
@@ -1160,6 +1181,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
+      editors: [],
       viewers: ['User_Foo', '*'],
     }),
     null,
@@ -1175,6 +1197,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
+      editors: [],
       viewers: ['User_Foo', 'User_Bar'],
     }),
     null,
@@ -1190,6 +1213,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
+      editors: [],
       viewers: ['*'],
     }),
     null,
@@ -1205,6 +1229,7 @@ test('project', t => {
       updatedAt: 1515494608.363229,
       owners: [],
       writers: [],
+      editors: [],
       viewers: ['nonsense'],
     }),
     '.viewers[0]: should match pattern "^User_.+"',
@@ -1220,6 +1245,7 @@ test('library', t => {
     objectType: 'MPLibrary',
     owners: ['User_foobar@baz.com'],
     writers: [],
+    editors: [],
     viewers: [],
     createdAt: 1515417692.477127,
     updatedAt: 1515494608.363229,
@@ -1289,7 +1315,7 @@ test('library', t => {
 });
 
 test('library collection', t => {
-  t.plan(7);
+  t.plan(8);
 
   const validObject = {
     _id: 'MPLibraryCollection:5685EAF5-A642-427F-9117-CDDC779CB926',
@@ -1298,6 +1324,7 @@ test('library collection', t => {
     containerID: 'MPLibrary:6AF4C325-ACCE-4930-B41A-92A783B46586',
     owners: ['User_foobar@baz.com'],
     writers: [],
+    editors: [],
     viewers: [],
     createdAt: 1515417692.477127,
     updatedAt: 1515494608.363229,
@@ -1370,11 +1397,16 @@ test('library collection', t => {
     "should have required property 'owners'"
   );
 
-  const invalidObject3 = Object.assign({}, validObject);
-  delete invalidObject3.containerID;
+  const validObjectWithoutEditors = Object.assign({}, validObject);
+  delete validObjectWithoutEditors.editors;
+
+  t.equals(validate(Object.assign({}, validObjectWithoutEditors)), null);
+
+  const invalidObject4 = Object.assign({}, validObject);
+  delete invalidObject4.containerID;
 
   t.equals(
-    validate(Object.assign({}, invalidObject3)),
+    validate(Object.assign({}, invalidObject4)),
     "should have required property 'containerID'",
     "should have required property 'containerID'"
   );

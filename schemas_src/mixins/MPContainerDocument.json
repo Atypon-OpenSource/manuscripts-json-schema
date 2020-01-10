@@ -15,6 +15,12 @@
         "$ref": "strings.json#/definitions/gatewayAccountID"
       }
     },
+    "editors": {
+      "type": "array",
+      "items": {
+        "$ref": "strings.json#/definitions/gatewayAccountID"
+      }
+    },
     "viewers": {
       "type": "array",
       "items": {

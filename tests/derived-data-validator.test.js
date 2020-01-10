@@ -29,6 +29,7 @@ test('user collaborator', t => {
       owner: [],
       writer: [],
       viewer: [],
+      editor: [],
     },
     collaboratorProfile: {
       _id: 'MPUserProfile:foo-bar-baz',
@@ -66,7 +67,12 @@ test('user collaborator', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        projects: { owner: ['MPAnything:foo-bar-baz'], writer: [], viewer: [] },
+        projects: {
+          owner: ['MPAnything:foo-bar-baz'],
+          writer: [],
+          editor: [],
+          viewer: [],
+        },
       })
     ),
     '.projects.owner[0]: should match pattern "^MPProject:"',
@@ -89,6 +95,7 @@ test('project memento', t => {
       updatedAt: 1515494608.363229,
       owners: ['User_foobar@manuscriptsapp.com'],
       writers: [],
+      editors: [],
       viewers: [],
     },
     createdAt: 1515417692.477127,
@@ -139,6 +146,7 @@ test('project summary', t => {
       },
     ],
     writerProfiles: [],
+    editorProfiles: [],
     viewerProfiles: [],
   };
 
@@ -186,6 +194,7 @@ test('library summary', t => {
       },
     ],
     writerProfiles: [],
+    editorProfiles: [],
     viewerProfiles: [],
   };
 
@@ -234,6 +243,7 @@ test('library collection summary', t => {
       },
     ],
     writerProfiles: [],
+    editorProfiles: [],
     viewerProfiles: [],
   };
 
