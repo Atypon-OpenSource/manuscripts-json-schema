@@ -13,7 +13,7 @@
         "creator": {
           "type": "string"
         },
-        "glacierId": {
+        "s3Id": {
           "type": "string"
         },
         "proof": {
@@ -21,9 +21,12 @@
           "items": {
             "type": "string"
           }
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
-    "required": ["createdAt", "creator", "glacierId", "proof"]
+    "required": ["createdAt", "creator", "s3Id"]
   }
 }

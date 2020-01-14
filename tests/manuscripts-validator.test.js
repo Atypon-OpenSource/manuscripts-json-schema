@@ -3154,8 +3154,9 @@ test('MPSnapshot', t => {
     createdAt: 23123123,
     updatedAt: 23123123,
     creator: 'stephencongly@gmail.com',
-    glacierId: 'idforgettingarchivefromglacier',
+    s3Id: 'idforgettingarchivefromglacier',
     proof: ['random#string*of/characters'],
+    name: 'My Snapshot',
   };
 
   t.equals(validate(Object.assign({}, snapshot)), null);
