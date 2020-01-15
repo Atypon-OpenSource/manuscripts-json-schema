@@ -203,6 +203,17 @@
         },
         "minWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
+        },
+        "headerFigure": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPFigure:"
+            }
+          ]
         }
       },
       "required": []
