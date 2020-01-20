@@ -2835,6 +2835,48 @@ test('manuscript priority', t => {
   );
 });
 
+test('manuscript headerFigure', t => {
+  t.plan(3);
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:test',
+    }),
+    null,
+    'missing headerFigure passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      headerFigure: 'MPFigure:test',
+    }),
+    null,
+    'valid figure id passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      headerFigure: 'MPFig:test',
+    }),
+    '.headerFigure: should match pattern "^MPFigure:"',
+    'invalid figure id fails'
+  );
+});
+
 test('comment', t => {
   t.plan(5);
 
