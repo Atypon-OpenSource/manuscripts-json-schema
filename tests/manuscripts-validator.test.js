@@ -3637,3 +3637,91 @@ test('container request', t => {
     '.role: should be equal to one of the allowed values'
   );
 });
+
+test('quote element', t => {
+  t.plan(5);
+
+  // valid quoteType
+  t.equals(
+    validate({
+      _id: 'MPQuoteElement:test',
+      objectType: 'MPQuoteElement',
+      containerID: 'MPProject:test',
+      manuscriptID: 'MPManuscript:test',
+      elementType: 'div',
+      quoteType: 'block',
+      contents: 'test',
+      createdAt: 0,
+      updatedAt: 0,
+      sessionID: 'test',
+    }),
+    null
+  );
+
+  // valid quoteType
+  t.equals(
+    validate({
+      _id: 'MPQuoteElement:test',
+      objectType: 'MPQuoteElement',
+      containerID: 'MPProject:test',
+      manuscriptID: 'MPManuscript:test',
+      elementType: 'div',
+      quoteType: 'pull',
+      contents: 'test',
+      createdAt: 0,
+      updatedAt: 0,
+      sessionID: 'test',
+    }),
+    null
+  );
+
+  // invalid quoteType
+  t.equals(
+    validate({
+      _id: 'MPQuoteElement:test',
+      objectType: 'MPQuoteElement',
+      containerID: 'MPProject:test',
+      manuscriptID: 'MPManuscript:test',
+      elementType: 'div',
+      quoteType: 'pullover',
+      contents: 'test',
+      createdAt: 0,
+      updatedAt: 0,
+      sessionID: 'test',
+    }),
+    '.quoteType: should be equal to one of the allowed values'
+  );
+
+  // invalid objectType
+  t.equals(
+    validate({
+      _id: 'MPQuoteElement:test',
+      objectType: 'MPQuotElement',
+      containerID: 'MPProject:test',
+      manuscriptID: 'MPManuscript:test',
+      elementType: 'div',
+      quoteType: 'block',
+      contents: 'test',
+      createdAt: 0,
+      updatedAt: 0,
+      sessionID: 'test',
+    }),
+    'unsupported objectType: MPQuotElement'
+  );
+
+  // contents required
+  t.equals(
+    validate({
+      _id: 'MPQuoteElement:test',
+      objectType: 'MPQuotElement',
+      containerID: 'MPProject:test',
+      manuscriptID: 'MPManuscript:test',
+      elementType: 'div',
+      quoteType: 'block',
+      createdAt: 0,
+      updatedAt: 0,
+      sessionID: 'test',
+    }),
+    'unsupported objectType: MPQuotElement'
+  );
+});
