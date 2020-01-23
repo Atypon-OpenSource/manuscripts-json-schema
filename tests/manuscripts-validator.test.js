@@ -1548,7 +1548,7 @@ test('containerID property', t => {
   );
 });
 
-test('manuscript property', t => {
+test('manuscriptID property', t => {
   t.plan(4);
 
   const validObject = {
@@ -2874,6 +2874,48 @@ test('manuscript headerFigure', t => {
     }),
     '.headerFigure: should match pattern "^MPFigure:"',
     'invalid figure id fails'
+  );
+});
+
+test('manuscript DOI', t => {
+  t.plan(3);
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:test',
+    }),
+    null,
+    'missing DOI passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      DOI: '10.0000/foo',
+    }),
+    null,
+    'valid DOI passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      DOI: '100000',
+    }),
+    '.DOI: should match pattern "^10\\.[0-9]+/"',
+    'invalid DOI fails'
   );
 });
 
