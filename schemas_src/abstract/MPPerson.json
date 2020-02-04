@@ -64,6 +64,21 @@
           },
           "additionalItems": false
         },
+        "roles": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^MPContributorRole:"
+              }
+            ]
+          },
+          "additionalItems": false
+        },
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }
       },
