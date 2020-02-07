@@ -1,0 +1,25 @@
+{
+  "$id": "MPContributorRole.json",
+  "title": "ContributorRole",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "enum": ["MPContributorRole"],
+          "type": "string"
+        },
+        "name": { "type": "string" },
+        "desc": { "type": "string" },
+        "uri": { "type": "string" },
+        "priority": { "type": "number" }
+      },
+      "required": ["name"]
+    }
+  }
+}
