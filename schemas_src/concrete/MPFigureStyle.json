@@ -14,6 +14,10 @@
           "type": "string",
           "enum": ["above", "top", "bottom", "below"]
         },
+        "alignment": {
+          "type": "string",
+          "enum": ["left", "right", "center", "justify"]
+        },
         "innerBorder": {
           "$ref": "MPBorder.json#"
         },

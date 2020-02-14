@@ -10,6 +10,14 @@
     ],
     "with": {
       "properties": {
+        "captionPosition": {
+          "type": "string",
+          "enum": ["above", "top", "bottom", "below"]
+        },
+        "alignment": {
+          "type": "string",
+          "enum": ["left", "right", "center", "justify"]
+        },
         "bodyRightBorder": {
           "$ref": "MPBorder.json#"
         },
