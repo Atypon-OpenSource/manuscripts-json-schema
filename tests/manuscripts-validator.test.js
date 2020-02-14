@@ -2089,14 +2089,106 @@ test('table element', t => {
     'invalid containedObjectID fails'
   );
 
-  const invalidObject = Object.assign({}, validObject);
-
-  delete invalidObject.containedObjectID;
-
   t.equals(
-    validate(invalidObject),
+    validate(Object.assign({}, validObject, { containedObjectID: undefined })),
     "should have required property 'containedObjectID'",
     'missing containedObjectID fails'
+  );
+});
+
+test('figure style', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPFigureStyle:test',
+    _rev: '1',
+    objectType: 'MPFigureStyle',
+    updatedAt: 1,
+    createdAt: 1,
+    sessionID: 'test',
+    captionPosition: 'top',
+    innerBorder: {
+      _id: 'MPBorder:test',
+      objectType: 'MPBorder',
+      width: 2,
+    },
+    manuscriptID: 'MPManuscript:test',
+    containerID: 'MPProject:potato',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { captionPosition: undefined })),
+    "should have required property 'captionPosition'",
+    'missing captionPosition fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { captionPosition: 'inside' })),
+    '.captionPosition: should be equal to one of the allowed values',
+    'invalid captionPosition fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { alignment: 'justify' })),
+    null,
+    'valid alignment passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { alignment: 'justified' })),
+    '.alignment: should be equal to one of the allowed values',
+    'invalid alignment fails'
+  );
+});
+
+test('table style', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPTableStyle:test',
+    _rev: '1',
+    objectType: 'MPTableStyle',
+    updatedAt: 1,
+    createdAt: 1,
+    sessionID: 'test',
+    manuscriptID: 'MPManuscript:test',
+    containerID: 'MPProject:potato',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { captionPosition: 'top' })),
+    null,
+    'valid captionPosition passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { captionPosition: 'inside' })),
+    '.captionPosition: should be equal to one of the allowed values',
+    'invalid captionPosition fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { alignment: 'justify' })),
+    null,
+    'valid alignment passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { alignment: 'justified' })),
+    '.alignment: should be equal to one of the allowed values',
+    'invalid alignment fails'
   );
 });
 
