@@ -218,6 +218,9 @@
         "DOI": {
           "type": "string",
           "pattern": "^10\\.[0-9]+\/"
+        },
+        "layoutTheme": {
+          "type": "string"
         }
       },
       "required": []
