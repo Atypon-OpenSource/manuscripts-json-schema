@@ -40,6 +40,11 @@
             }
           ]
         },
+        "sizeFraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
         "containedObjectIDs": {
           "type": "array",
           "items": {
