@@ -2167,6 +2167,39 @@ test('figure style', t => {
   );
 });
 
+test('inline style', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPInlineStyle:test',
+    _rev: '1',
+    objectType: 'MPInlineStyle',
+    updatedAt: 1,
+    createdAt: 1,
+    sessionID: 'test',
+    manuscriptID: 'MPManuscript:test',
+    containerID: 'MPProject:potato',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { title: 'test' })),
+    null,
+    'valid title passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { priority: 10 })),
+    null,
+    'valid priority passes'
+  );
+});
+
 test('table style', t => {
   t.plan(5);
 
