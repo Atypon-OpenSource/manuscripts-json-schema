@@ -1961,7 +1961,7 @@ test('footnotes element', t => {
 });
 
 test('figure element', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
@@ -1999,9 +1999,29 @@ test('figure element', t => {
     'invalid suppressCaption fails'
   );
 
-  const { figureStyle, ...rest } = Object.assign({}, validObject);
+  t.equals(
+    validate(Object.assign({}, validObject, { figureStyle: undefined })),
+    null,
+    'empty figureStyle id passes'
+  );
 
-  t.equals(validate(rest), null, 'empty figureStyle id passes');
+  t.equals(
+    validate(Object.assign({}, validObject, { sizeFraction: 0.5 })),
+    null,
+    'valid sizeFraction passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sizeFraction: 50 })),
+    '.sizeFraction: should be <= 1',
+    'too large sizeFraction fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { sizeFraction: '0.5' })),
+    '.sizeFraction: should be number',
+    'invalid sizeFraction fails'
+  );
 });
 
 test('list element', t => {
