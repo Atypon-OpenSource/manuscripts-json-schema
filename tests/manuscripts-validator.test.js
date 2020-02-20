@@ -930,7 +930,7 @@ test('keywords', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
-    '._id: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '._id: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid id fails'
   );
 });
@@ -964,7 +964,7 @@ test('research fields', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
-    '._id: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '._id: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid id fails'
   );
 });
@@ -1029,7 +1029,7 @@ test('keyword ids', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { keywordIDs: ['MPUhoh:foo'] })),
-    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'incorrect type for property fails'
   );
 });
@@ -1650,7 +1650,7 @@ test('bundle', t => {
 
   t.equals(
     validate(invalidResearchField),
-    '.csl.fields[0]: should match pattern "^(MPKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '.csl.fields[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid keyword id'
   );
 
@@ -3028,6 +3028,107 @@ test('manuscript DOI', t => {
     }),
     '.DOI: should match pattern "^10\\.[0-9]+/"',
     'invalid DOI fails'
+  );
+});
+
+test('manuscript keyword', t => {
+  t.plan(3);
+
+  t.equals(
+    validate({
+      _id: 'MPManuscriptKeyword:test',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPManuscriptKeyword',
+      containerID: 'MPProject:test',
+      name: 'test',
+      priority: 1,
+    }),
+    null,
+    'valid manuscript keyword passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscriptKeyword:test',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPManuscriptKeyword',
+      containerID: 'MPProject:test',
+      name: 'test',
+    }),
+    null,
+    'valid manuscript keyword without priority passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscriptKeyword:test',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPManuscriptKeyword',
+      containerID: 'MPProject:test',
+    }),
+    "should have required property 'name'",
+    'invalid manuscript keyword with missing name fails'
+  );
+});
+
+test('manuscript keywords', t => {
+  t.plan(4);
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 0,
+      updatedAt: 0,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:test',
+    }),
+    null,
+    'missing keywords passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      DOI: '10.0000/foo',
+      keywordIDs: [],
+    }),
+    null,
+    'empty keywords passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      DOI: '10.0000/foo',
+      keywordIDs: ['MPManuscriptKeyword:test'],
+    }),
+    null,
+    'valid keywords passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      DOI: '100000',
+      keywordIDs: ['MPManuscriptKeywords:test'],
+    }),
+    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    'invalid keywords fails'
   );
 });
 

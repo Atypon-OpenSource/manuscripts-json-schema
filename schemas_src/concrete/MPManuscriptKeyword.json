@@ -1,0 +1,17 @@
+{
+  "$id": "MPManuscriptKeyword.json",
+  "title": "ManuscriptKeyword",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "concrete/MPKeyword.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPManuscriptKeyword"]
+        }
+      },
+      "required": []
+    }
+  }
+}
