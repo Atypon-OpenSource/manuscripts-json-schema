@@ -3767,3 +3767,107 @@ test('quote element', t => {
     'unsupported objectType: MPQuotElement'
   );
 });
+
+test('contributor role', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPContributorRole:test',
+    objectType: 'MPContributorRole',
+    containerID: 'MPProject:test',
+    manuscriptID: 'MPManuscript:test',
+    name: 'Test',
+    priority: 1,
+    createdAt: 0,
+    updatedAt: 0,
+    sessionID: 'test',
+  };
+
+  // valid object
+  t.equals(validate(validObject), null);
+
+  // valid with optional fields
+  t.equals(
+    validate({
+      ...validObject,
+      desc: 'A test role',
+      uri: 'http://example.com',
+    }),
+    null
+  );
+
+  // invalid objectType
+  t.equals(
+    validate({
+      ...validObject,
+      objectType: 'MPContributorRol',
+    }),
+    'unsupported objectType: MPContributorRol'
+  );
+
+  // missing objectType
+  t.equals(
+    validate({
+      ...validObject,
+      objectType: undefined,
+    }),
+    'object missing objectType'
+  );
+
+  // missing name
+  t.equals(
+    validate({
+      ...validObject,
+      name: undefined,
+    }),
+    "should have required property 'name'"
+  );
+});
+
+test('contributor roles', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPContributor:test',
+    objectType: 'MPContributor',
+    containerID: 'MPProject:test',
+    manuscriptID: 'MPManuscript:test',
+    bibliographicName: {
+      _id: 'MPBibliographicName:test',
+      objectType: 'MPBibliographicName',
+    },
+    createdAt: 0,
+    updatedAt: 0,
+    sessionID: 'test',
+  };
+
+  // valid object
+  t.equals(validate(validObject), null);
+
+  // valid object with one role
+  t.equals(
+    validate({
+      ...validObject,
+      roles: ['MPContributorRole:test'],
+    }),
+    null
+  );
+
+  // valid object with empty roles array
+  t.equals(
+    validate({
+      ...validObject,
+      roles: [],
+    }),
+    null
+  );
+
+  // invalid role id
+  t.equals(
+    validate({
+      ...validObject,
+      roles: ['MPContributor:oops'],
+    }),
+    '.roles[0]: should match pattern "^MPContributorRole:"'
+  );
+});
