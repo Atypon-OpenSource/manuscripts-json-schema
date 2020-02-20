@@ -28,6 +28,9 @@
         "title": {
           "type": "string"
         },
+        "credit": {
+          "type": "string"
+        },
         "listingAttachment": { "$ref": "MPListingAttachmentReference.json#" }
       },
       "required": []
