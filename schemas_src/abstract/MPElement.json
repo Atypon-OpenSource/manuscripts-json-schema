@@ -1,7 +1,9 @@
 {
   "$id": "MPElement.json",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" }
+    ],
     "with": {
       "properties": {
         "elementType": {
