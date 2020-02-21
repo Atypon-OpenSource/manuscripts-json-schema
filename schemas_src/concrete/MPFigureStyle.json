@@ -14,6 +14,10 @@
           "type": "string",
           "enum": ["above", "top", "bottom", "below"]
         },
+        "labelPosition": {
+          "type": "string",
+          "enum": ["above", "inline", "none"]
+        },
         "alignment": {
           "type": "string",
           "enum": ["left", "right", "center", "justify"]
