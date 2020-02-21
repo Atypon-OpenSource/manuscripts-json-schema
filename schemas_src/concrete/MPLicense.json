@@ -1,0 +1,40 @@
+{
+  "$id": "MPLicense.json",
+  "title": "License",
+  "type": "object",
+  "description": "A license",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPLicense"]
+        },
+        "desc": {
+          "type": "string"
+        },
+        "legalCodeURL": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

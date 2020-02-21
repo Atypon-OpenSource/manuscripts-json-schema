@@ -1,0 +1,14 @@
+{
+  "$id": "MPAttributable.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "attribution": {
+      "$ref": "MPAttribution.json#"
+    },
+    "credit": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,51 @@
+{
+  "$id": "MPAttribution.json",
+  "title": "Attribution",
+  "type": "object",
+  "description": "An attribution associated with a block",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPEmbeddedModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPAttribution"]
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "$ref": "MPBibliographicName.json#"
+          }
+        },
+        "copyrightStatement": {
+          "type": "string"
+        },
+        "licenseID": {
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^MPLicense:"
+              }
+            ]
+        },
+        "licenseURL": {
+          "type": "string"
+        },
+        "literal": {
+          "type": "string"
+        },
+        "sourceURL": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
