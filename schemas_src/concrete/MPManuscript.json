@@ -221,6 +221,9 @@
         },
         "layoutTheme": {
           "type": "string"
+        },
+        "paywall": {
+          "type": "boolean"
         }
       },
       "required": []
