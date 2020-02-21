@@ -25,6 +25,9 @@
         "originalURL": {
           "type": "string"
         },
+        "mediaURL": {
+          "type": "string"
+        },
         "title": {
           "type": "string"
         },
