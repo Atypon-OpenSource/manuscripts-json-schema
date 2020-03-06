@@ -80,6 +80,9 @@
         "pageBreakStyle": {
           "type": "number"
         },
+        "numberingParticipation": {
+          "$ref": "enums.json#/definitions/MPNumberingParticipation"
+        },
         "maxCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
