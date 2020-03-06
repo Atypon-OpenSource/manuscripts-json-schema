@@ -2009,7 +2009,7 @@ test('footnotes element', t => {
 });
 
 test('figure element', t => {
-  t.plan(7);
+  t.plan(9);
 
   const validObject = {
     containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
@@ -2069,6 +2069,18 @@ test('figure element', t => {
     validate(Object.assign({}, validObject, { sizeFraction: '0.5' })),
     '.sizeFraction: should be number',
     'invalid sizeFraction fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { alignment: 'center' })),
+    null,
+    'valid alignment passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { alignment: 'centre' })),
+    '.alignment: should be equal to one of the allowed values',
+    'invalid alignment fails'
   );
 });
 
