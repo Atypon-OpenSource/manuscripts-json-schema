@@ -33,3 +33,5 @@ documentation
 
 # dist
 dist/
+
+junit.xml
