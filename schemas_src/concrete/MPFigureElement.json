@@ -45,6 +45,10 @@
           "minimum": 0,
           "maximum": 1
         },
+        "alignment": {
+          "type": "string",
+          "enum": ["left", "center", "right"]
+        },
         "containedObjectIDs": {
           "type": "array",
           "items": {
