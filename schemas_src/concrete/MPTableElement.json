@@ -3,16 +3,12 @@
   "type": "object",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPElement.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "abstract/MPAuxiliaryElement.json#" },
       { "$ref": "mixins/MPManuscriptDocument.json#" },
       { "$ref": "mixins/MPHighlightable.json#" }
     ],
     "with": {
       "properties": {
-        "caption": {
-          "type": "string"
-        },
         "objectType": {
           "type": "string",
           "enum": ["MPTableElement"]
@@ -21,9 +17,6 @@
           "type": "boolean"
         },
         "suppressHeader": {
-          "type": "boolean"
-        },
-        "suppressCaption": {
           "type": "boolean"
         },
         "containedObjectID": {

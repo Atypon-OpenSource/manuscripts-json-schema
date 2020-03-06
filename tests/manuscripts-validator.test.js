@@ -2072,11 +2072,10 @@ test('list element', t => {
 });
 
 test('table element', t => {
-  t.plan(6);
+  t.plan(10);
 
   const validObject = {
     updatedAt: 1454537867.959872,
-    caption: 'An example table.',
     sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
     objectType: 'MPTableElement',
     _rev: '3-5a3d94454953b3092e0cc41ed645621a',
@@ -2131,6 +2130,42 @@ test('table element', t => {
     validate(Object.assign({}, validObject, { containedObjectID: undefined })),
     "should have required property 'containedObjectID'",
     'missing containedObjectID fails'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      label: 'Table 1',
+    }),
+    null,
+    'valid label passes'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      label: 1,
+    }),
+    '.label: should be string',
+    'invalid label fails'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      caption: 'An example table',
+    }),
+    null,
+    'valid caption passes'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      caption: 1,
+    }),
+    '.caption: should be string',
+    'invalid caption fails'
   );
 });
 
