@@ -38,7 +38,10 @@ test:
     - npm i
     - npm run typecheck
     - npm run lint
-    - npm test
+    - npm run test:ci
+  artifacts:
+    reports:
+      junit: junit.xml
   tags:
     - nodejs
 
