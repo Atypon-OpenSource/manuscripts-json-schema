@@ -773,7 +773,7 @@ test('citation', t => {
 });
 
 test('MPSection', t => {
-  t.plan(12);
+  t.plan(14);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -889,6 +889,24 @@ test('MPSection', t => {
     ),
     null,
     'valid auxiliaryObjectReferenceStyle passes'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      label: '1.1',
+    }),
+    null,
+    'valid label passes'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      label: 1,
+    }),
+    '.label: should be string',
+    'invalid label fails'
   );
 });
 

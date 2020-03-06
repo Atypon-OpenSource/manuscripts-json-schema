@@ -17,6 +17,9 @@
         "title": {
           "type": "string"
         },
+        "label": {
+          "type": "string"
+        },
         "category": {
           "allOf": [
             {
