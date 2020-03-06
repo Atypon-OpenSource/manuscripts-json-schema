@@ -773,7 +773,7 @@ test('citation', t => {
 });
 
 test('MPSection', t => {
-  t.plan(14);
+  t.plan(17);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -907,6 +907,36 @@ test('MPSection', t => {
     }),
     '.label: should be string',
     'invalid label fails'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        numberingParticipation: 0,
+      })
+    ),
+    null,
+    'valid numberingParticipation passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        numberingParticipation: 2,
+      })
+    ),
+    '.numberingParticipation: should be equal to one of the allowed values',
+    'invalid numberingParticipation fails'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        numberingParticipation: '1',
+      })
+    ),
+    '.numberingParticipation: should be integer',
+    'invalid numberingParticipation fails'
   );
 });
 
@@ -2894,7 +2924,7 @@ test('project invitation', t => {
 });
 
 test('section category', t => {
-  t.plan(4);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPSectionCategory:cover-letter',
@@ -2945,14 +2975,40 @@ test('section category', t => {
     'titles cannot be empty'
   );
 
-  const noTitles = Object.assign({}, validObject);
-
-  delete noTitles.titles;
-
   t.equals(
-    validate(noTitles),
+    validate(Object.assign({}, validObject, { titles: undefined })),
     "should have required property 'titles'",
     'titles must exist'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        numberingParticipation: 0,
+      })
+    ),
+    null,
+    'valid numberingParticipation passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        numberingParticipation: 2,
+      })
+    ),
+    '.numberingParticipation: should be equal to one of the allowed values',
+    'invalid numberingParticipation fails'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        numberingParticipation: '1',
+      })
+    ),
+    '.numberingParticipation: should be integer',
+    'invalid numberingParticipation fails'
   );
 });
 
@@ -4134,4 +4190,29 @@ test('contributor roles', t => {
     }),
     '.roles[0]: should match pattern "^MPContributorRole:"'
   );
+});
+
+test('paragraph style', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPParagraphStyle:test',
+    objectType: 'MPParagraphStyle',
+    alignment: 'left',
+    firstLineIndent: 4,
+    headIndent: 4,
+    kind: 'test',
+    lineSpacing: 1.2,
+    preferredXHTMLElement: 'p',
+    tailIndent: 4,
+    topSpacing: 4,
+    manuscriptID: 'MPManuscript:test',
+    containerID: 'MPProject:test',
+    sessionID: 'test',
+    createdAt: 0,
+    updatedAt: 0,
+  };
+
+  // valid object
+  t.equals(validate(validObject), null);
 });

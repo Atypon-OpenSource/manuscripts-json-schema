@@ -34,6 +34,9 @@
         "pageBreakStyle": {
           "type": "number"
         },
+        "numberingParticipation": {
+          "$ref": "enums.json#/definitions/MPNumberingParticipation"
+        },
         "titles": {
           "type": "array",
           "items": {
