@@ -2061,7 +2061,7 @@ test('figure element', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { sizeFraction: 50 })),
-    '.sizeFraction: should be <= 1',
+    '.sizeFraction: should be <= 2',
     'too large sizeFraction fails'
   );
 
