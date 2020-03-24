@@ -31,6 +31,9 @@
         },
         "issn": {
           "type": "string"
+        },
+        "status": {
+          "type": "string"
         }
       }
     },

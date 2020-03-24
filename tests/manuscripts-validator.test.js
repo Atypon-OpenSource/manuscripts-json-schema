@@ -3567,6 +3567,7 @@ test('MPSubmission', t => {
     _id: 'MPSubmission:submission-1',
     objectType: 'MPSubmission',
     submittedAt: 23123123,
+    status: 'confirmed',
     journalCode: 'jcb',
     createdAt: 21312312.1,
     updatedAt: 23123123,
