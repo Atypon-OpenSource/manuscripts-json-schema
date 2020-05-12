@@ -34,6 +34,17 @@
         },
         "status": {
           "type": "string"
+        },
+        "snapshot": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPSnapshot:"
+            }
+          ]
         }
       }
     },
