@@ -14,7 +14,7 @@
           "$ref": "strings.json#/definitions/_id"
         }
       },
-      "required": ["containingObject"]
+      "required": []
     }
   }
 }
