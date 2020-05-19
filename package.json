@@ -1,12 +1,14 @@
 {
   "name": "@manuscripts/manuscripts-json-schema",
-  "version": "1.29.2",
+  "version": "1.30.0",
   "description": "Schema for models used in Manuscripts applications, plus validator functions for Sync Gateway",
   "repository": "gitlab:mpapp-public/manuscripts-json-schema",
   "main": "./dist/cjs",
   "module": "./dist/es",
   "types": "./dist/types",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run build-src && npm run build-schemas && npm run build-definitions && npm run build-typelookup && npm run build-validators",
     "build-src": "tsc",
