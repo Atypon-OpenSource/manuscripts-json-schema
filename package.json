@@ -6,6 +6,7 @@
   "main": "./dist/cjs",
   "module": "./dist/es",
   "types": "./dist/types",
+  "files": ["dist"],
   "scripts": {
     "build": "npm run build-src && npm run build-schemas && npm run build-definitions && npm run build-typelookup && npm run build-validators",
     "build-src": "tsc",
