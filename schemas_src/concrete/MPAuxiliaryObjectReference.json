@@ -19,7 +19,7 @@
           "enum": ["MPAuxiliaryObjectReference"]
         }
       },
-      "required": ["containingObject", "referencedObject"]
+      "required": ["referencedObject"]
     }
   }
 }
