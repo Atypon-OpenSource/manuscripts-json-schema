@@ -1,0 +1,36 @@
+{
+  "$id": "MPManageable.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "assignees": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "strings.json#/definitions/_id"
+          },
+          {
+            "type": "string",
+            "pattern": "^MPUserProfile:"
+          }
+        ]
+      }
+    },
+    "deadline": {
+      "$ref": "numbers.json#/definitions/timestamp"
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^MPStatusLabel:"
+        }
+      ]
+    }
+  },
+  "required": []
+}
