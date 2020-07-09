@@ -7,7 +7,7 @@
     },
     "keywordID": {
       "type": "string",
-      "pattern": "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"
+      "pattern": "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"
     },
     "gatewayAccountID": {
       "type": "string",

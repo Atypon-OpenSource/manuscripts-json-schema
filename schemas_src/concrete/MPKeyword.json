@@ -21,6 +21,9 @@
         },
         "priority": {
           "type": "integer"
+        },
+        "color": {
+          "$ref": "strings.json#/definitions/_id"
         }
       },
       "required": ["name"]

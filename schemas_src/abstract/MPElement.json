@@ -2,7 +2,8 @@
   "$id": "MPElement.json",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPModel.json#" }
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPManageable.json#" }
     ],
     "with": {
       "properties": {

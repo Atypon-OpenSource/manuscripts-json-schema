@@ -6,7 +6,8 @@
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPModel.json#" },
-      { "$ref": "mixins/MPContainerDocument.json#" }
+      { "$ref": "mixins/MPContainerDocument.json#" },
+      { "$ref": "mixins/MPManageable.json#" }
     ],
     "with": {
       "properties": {

@@ -773,7 +773,7 @@ test('citation', t => {
 });
 
 test('MPSection', t => {
-  t.plan(17);
+  t.plan(19);
 
   const validObject = {
     _id: 'MPSection:bar',
@@ -791,6 +791,24 @@ test('MPSection', t => {
     validate(Object.assign({}, validObject)),
     null,
     'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        assignees: ['MPUserProfile:user'],
+        deadline: 1515417692,
+        status: 'MPStatusLabel:label',
+      })
+    ),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { status: 'MPFoo:1231231233123' })),
+    '.status: should match pattern "^MPStatusLabel:"',
+    'invalid status fails'
   );
 
   t.equals(
@@ -940,8 +958,49 @@ test('MPSection', t => {
   );
 });
 
+test('StatusLabel', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPStatusLabel:231123-1233123-12331312',
+    objectType: 'MPStatusLabel',
+    containerID: 'MPProject:124123',
+    manuscriptID: 'MPManuscript:123',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    name: 'foo',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
+test('Tag', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPTag:231123-1233123-12331312',
+    objectType: 'MPTag',
+    containerID: 'MPProject:124123',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 1515417692.477127,
+    updatedAt: 1515494608.363229,
+    name: 'tag-name',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+});
+
 test('keywords', t => {
-  t.plan(4);
+  t.plan(5);
 
   const validObject = {
     _id: 'MPKeyword:231123-1233123-12331312',
@@ -955,6 +1014,12 @@ test('keywords', t => {
 
   t.equals(
     validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { color: 'MPColor:id' })),
     null,
     'valid object passes'
   );
@@ -978,7 +1043,7 @@ test('keywords', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
-    '._id: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '._id: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"',
     'invalid id fails'
   );
 });
@@ -1012,7 +1077,7 @@ test('research fields', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { _id: 'MPFoo:1231231233123' })),
-    '._id: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '._id: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"',
     'invalid id fails'
   );
 });
@@ -1077,7 +1142,7 @@ test('keyword ids', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { keywordIDs: ['MPUhoh:foo'] })),
-    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"',
     'incorrect type for property fails'
   );
 });
@@ -1698,7 +1763,7 @@ test('bundle', t => {
 
   t.equals(
     validate(invalidResearchField),
-    '.csl.fields[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '.csl.fields[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"',
     'invalid keyword id'
   );
 
@@ -1916,7 +1981,7 @@ test('listing element', t => {
 });
 
 test('equation element', t => {
-  t.plan(5);
+  t.plan(8);
 
   const validObject = {
     objectType: 'MPEquationElement',
@@ -1935,6 +2000,32 @@ test('equation element', t => {
     validate(Object.assign({}, validObject)),
     null,
     'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        assignees: ['MPUserProfile:user'],
+        deadline: 1515417692,
+        status: 'MPStatusLabel:label',
+      })
+    ),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { status: 'MPFoo:1231231233123' })),
+    '.status: should match pattern "^MPStatusLabel:"',
+    'invalid status fails'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, { assignees: 'MPUserProfile:user' })
+    ),
+    '.assignees: should be array',
+    'invalid assignees fails'
   );
 
   t.equals(
@@ -3281,7 +3372,7 @@ test('manuscript keywords', t => {
       DOI: '100000',
       keywordIDs: ['MPManuscriptKeywords:test'],
     }),
-    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '.keywordIDs[0]: should match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"',
     'invalid keywords fails'
   );
 });
