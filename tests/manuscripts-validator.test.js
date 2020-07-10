@@ -688,8 +688,8 @@ test('citation', t => {
         containingObject: undefined,
       })
     ),
-    "should have required property 'containingObject'",
-    'containingObject property required'
+    null,
+    'containingObject property should be optional'
   );
 
   t.equals(

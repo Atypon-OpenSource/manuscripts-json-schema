@@ -22,8 +22,8 @@
     "prepare": "npm run build",
     "pretest": "npm run build",
     "pretest:ci": "npm run build",
-    "test": "tape tests/*.js | tap-dot",
-    "test:ci": "tape tests/*.js | tap-junit > junit.xml",
+    "test": "scripts/test.sh",
+    "test:ci": "scripts/test-ci.sh",
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": false,
