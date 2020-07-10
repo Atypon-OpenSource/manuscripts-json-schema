@@ -367,7 +367,7 @@ test('user profile grant', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(14);
+  t.plan(36);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -443,6 +443,42 @@ test('bibliography item', t => {
     null,
     'favorite permitted'
   );
+
+  const numberFields = [
+    // number fields from csl-json
+    'chapter-number',
+    'collection-number',
+    'edition',
+    'issue',
+    'number-of-pages',
+    'number-of-volumes',
+    'volume',
+    // extra number fields from manuscripts-json-schema
+    'citation-number',
+    'number',
+    'page',
+    'page-first',
+  ];
+
+  for (const numberField of numberFields) {
+    t.equals(
+      validate({
+        ...validObject,
+        [numberField]: 'foo',
+      }),
+      null,
+      `${numberField} allowed to be a string`
+    );
+
+    t.equals(
+      validate({
+        ...validObject,
+        [numberField]: 123,
+      }),
+      null,
+      `${numberField} allowed to be a number`
+    );
+  }
 
   t.equals(
     validate(Object.assign({}, validObject, { blahtype: 'foo' })),
