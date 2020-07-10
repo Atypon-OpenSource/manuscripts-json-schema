@@ -10,8 +10,6 @@ build:
   script:
     - npm i
     - npm run build
-  tags:
-    - nodejs
 
 build_docs:
   stage: build
@@ -31,7 +29,6 @@ build_docs:
     refs:
       - master
   tags:
-    - nodejs
     - awscli
 
 test:
@@ -44,8 +41,6 @@ test:
   artifacts:
     reports:
       junit: junit.xml
-  tags:
-    - nodejs
 
 publish:
   stage: deploy
@@ -56,5 +51,3 @@ publish:
     - echo Running release
     - npm i
     - npx @manuscripts/publish
-  tags:
-    - nodejs
