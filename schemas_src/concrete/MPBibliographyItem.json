@@ -193,16 +193,16 @@
           "type": "string"
         },
         "chapter-number": {
-          "type": "integer"
+          "type": ["string", "number"]
         },
         "citation-number": {
-          "type": "integer"
+          "type": ["string", "number"]
         },
         "citation-label": {
           "type": "string"
         },
         "collection-number": {
-          "type": "integer"
+          "type": ["string", "number"]
         },
         "collection-title": {
           "type": "string"
@@ -268,13 +268,13 @@
           "type": "string"
         },
         "number": {
-          "type": "integer"
+          "type": ["string", "number"]
         },
         "number-of-pages": {
-          "type": "integer"
+          "type": ["string", "number"]
         },
         "number-of-volumes": {
-          "type": "integer"
+          "type": ["string", "number"]
         },
         "originalIdentifier": {
           "type": "string"
