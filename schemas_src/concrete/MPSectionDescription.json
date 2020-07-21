@@ -36,22 +36,28 @@
             "required": ["title"]
           }
         },
-        "maxWordCount": {
-          "type": "number"
-        },
-        "minWordCount": {
+        "maxCharCount": {
           "type": "number"
         },
         "maxKeywordCount": {
           "type": "number"
         },
-        "minKeywordCount": {
+        "maxReferenceCount": {
           "type": "number"
         },
-        "maxCharCount": {
+        "maxTitleCharLength": {
+          "type": "number"
+        },
+        "maxWordCount": {
           "type": "number"
         },
         "minCharCount": {
+          "type": "number"
+        },
+        "minKeywordCount": {
+          "type": "number"
+        },
+        "minWordCount": {
           "type": "number"
         },
         "objectType": {

@@ -180,6 +180,12 @@
         "minFigureScreenDPIRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "minManuscriptTitleCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minManuscriptTitleWordCountRequirement" : {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "minPageCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
@@ -212,6 +218,12 @@
               "pattern": "^MPPublisher:"
             }
           ]
+        },
+        "mandatorySectionRequirements": {
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          },
+          "type": "array"
         },
         "requirementIDs": {
           "additionalItems": false,
