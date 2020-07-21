@@ -3,16 +3,20 @@ image: node:12-buster
 stages:
   - build
   - test
-  - deploy
+  - publish
+  - docs
 
 build:
   stage: build
   script:
     - npm i
     - npm run build
+  artifacts:
+    paths:
+      - dist/
 
 build_docs:
-  stage: build
+  stage: docs
   script:
     - npm i
     - npm run build
@@ -43,11 +47,9 @@ test:
       junit: junit.xml
 
 publish:
-  stage: deploy
+  stage: publish
   only:
     refs:
       - master
   script:
-    - echo Running release
-    - npm i
     - npx @manuscripts/publish
