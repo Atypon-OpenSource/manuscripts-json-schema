@@ -3616,6 +3616,8 @@ test('MPSectionDescription', t => {
     minWordCount: 30,
     maxKeywordCount: 200,
     minKeywordCount: 40,
+    maxTitleCharLength: 40,
+    maxReferenceCount: 30,
   };
 
   t.equals(
@@ -3646,7 +3648,7 @@ test('MPSectionDescription', t => {
 });
 
 test('MPManuscriptTemplate', t => {
-  t.plan(5);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPManuscriptTemplate:1',
@@ -3658,6 +3660,7 @@ test('MPManuscriptTemplate', t => {
     title: 'Foo',
     createdAt: 0,
     updatedAt: 0,
+    mandatorySectionRequirements: ['MPMandatorySubsectionsRequirement:1'],
   };
 
   t.equals(
@@ -3684,6 +3687,28 @@ test('MPManuscriptTemplate', t => {
   t.equals(
     validate(Object.assign({}, validObject, { manuscriptID: undefined })),
     "should have required property 'manuscriptID'"
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        minManuscriptTitleWordCountRequirement:
+          'MPMinimumManuscriptTitleWordCountRequirement:1',
+      })
+    ),
+    null,
+    'valid minManuscriptTitleWordCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        minManuscriptTitleCharacterCountRequirement:
+          'MPMinimumManuscriptTitleCharacterCountRequirement:1',
+      })
+    ),
+    null,
+    'valid minManuscriptTitleCharacterCountRequirement passes'
   );
 });
 
@@ -3799,6 +3824,8 @@ test('Manuscript Requirements', t => {
     'MPMinimumManuscriptPageCountRequirement',
     'MPMinimumManuscriptReferenceCountRequirement',
     'MPMinimumManuscriptWordCountRequirement',
+    'MPMinimumManuscriptTitleWordCountRequirement',
+    'MPMinimumManuscriptTitleCharacterCountRequirement',
   ];
 
   t.plan(countRequirementTypes.length * 3);
