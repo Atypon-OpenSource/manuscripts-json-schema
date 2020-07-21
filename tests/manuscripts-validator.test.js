@@ -2136,7 +2136,7 @@ test('footnotes element', t => {
 });
 
 test('figure element', t => {
-  t.plan(9);
+  t.plan(11);
 
   const validObject = {
     containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
@@ -2208,6 +2208,18 @@ test('figure element', t => {
     validate(Object.assign({}, validObject, { alignment: 'centre' })),
     '.alignment: should be equal to one of the allowed values',
     'invalid alignment fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'img' })),
+    null,
+    'valid elementType passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { elementType: 'frame' })),
+    '.elementType: should be equal to one of the allowed values',
+    'invalid elementType fails'
   );
 });
 

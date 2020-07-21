@@ -16,7 +16,7 @@
         },
         "elementType": {
           "type": "string",
-          "enum": ["figure"]
+          "enum": ["figure", "img"]
         },
         "figureLayout": {
           "allOf": [
