@@ -1,0 +1,19 @@
+{
+  "$id": "MPManuscriptCoverLetterRequirement.json",
+  "title": "ManuscriptCoverLetterRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPRequirement.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPManuscriptCoverLetterRequirement"]
+        },
+        "placeholderString": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

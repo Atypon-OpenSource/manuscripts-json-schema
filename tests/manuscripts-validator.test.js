@@ -3741,6 +3741,24 @@ test('MPSnapshot', t => {
   t.equals(validate(Object.assign({}, snapshot)), null);
 });
 
+test('Manuscript Template with requirements', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPManuscriptTemplate:1',
+    objectType: 'MPManuscriptTemplate',
+    createdAt: 0,
+    updatedAt: 0,
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
+    title: 'Test Template',
+    coverLetterRequirement: 'MPManuscriptCoverLetterRequirement:1',
+  };
+
+  t.equals(validate(Object.assign({}, validObject)), null);
+});
+
 test('General Requirements', t => {
   const countRequirementTypes = [
     'MPMaximumAuxiliaryObjectCountRequirement',
@@ -3986,6 +4004,34 @@ test('MPMandatorySubsectionsRequirement', t => {
       })
     ),
     null
+  );
+});
+
+test('MPManuscriptCoverLetterRequirement', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPManuscriptCoverLetterRequirement:1',
+    objectType: 'MPManuscriptCoverLetterRequirement',
+    createdAt: 0,
+    updatedAt: 0,
+    severity: 0,
+    evaluatedObject: 'MPManuscriptTemplate:1',
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
+  };
+
+  t.equals(validate(Object.assign({}, validObject)), null);
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        placeholderString: 'This is a test',
+      })
+    ),
+    null,
+    'optional placeholderString is allowed'
   );
 });
 
