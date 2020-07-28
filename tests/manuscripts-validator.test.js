@@ -1209,7 +1209,7 @@ test('color', t => {
 });
 
 test('project', t => {
-  t.plan(11);
+  t.plan(13);
 
   t.equals(
     validate({
@@ -1383,6 +1383,40 @@ test('project', t => {
     }),
     '.viewers[0]: should match pattern "^User_.+"',
     'MPProject with nonsensical viewers fails'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      editors: [],
+      viewers: [],
+      templateContainer: true,
+    }),
+    null,
+    'MPProject with valid templateContainer passes'
+  );
+
+  t.equals(
+    validate({
+      objectType: 'MPProject',
+      _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
+      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+      createdAt: 1515417692.477127,
+      updatedAt: 1515494608.363229,
+      owners: [],
+      writers: [],
+      editors: [],
+      viewers: [],
+      templateContainer: 'true',
+    }),
+    '.templateContainer: should be boolean',
+    'MPProject with invalid templateContainer fails'
   );
 });
 
