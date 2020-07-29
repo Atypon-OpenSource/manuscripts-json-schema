@@ -1184,7 +1184,7 @@ test('keyword ids', t => {
 });
 
 test('color', t => {
-  t.plan(1);
+  t.plan(4);
 
   const validObject = {
     _id: 'MPColor:09070E2C-E142-4AF9-8602-586AF77E508B',
@@ -1205,6 +1205,33 @@ test('color', t => {
     validate(Object.assign({}, validObject)),
     null,
     'valid MPColor passes'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      templateID: 'MPManuscriptTemplate:1',
+    }),
+    null,
+    'MPColor with valid templateID passes'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      templateID: 'MPManuscript:1',
+    }),
+    '.templateID: should match pattern "^MPManuscriptTemplate:"',
+    'MPColor with invalid templateID fails'
+  );
+
+  t.equals(
+    validate({
+      ...validObject,
+      manuscriptID: 'MPManuscriptTemplate:1',
+    }),
+    '.manuscriptID: should match pattern "^MPManuscript:"',
+    'MPColor with invalid manuscriptID fails'
   );
 });
 

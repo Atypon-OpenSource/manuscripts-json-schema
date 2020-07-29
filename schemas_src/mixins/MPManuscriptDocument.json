@@ -13,6 +13,17 @@
           "pattern": "^MPManuscript:"
         }
       ]
+    },
+    "templateID": {
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^MPManuscriptTemplate:"
+        }
+      ]
     }
   },
   "required": ["manuscriptID", "sessionID"]
