@@ -5,8 +5,7 @@
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPModel.json#" },
-      { "$ref": "mixins/MPContainedDocument.json#" },
-      { "$ref": "mixins/MPManuscriptDocument.json#" }
+      { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
       "properties": {
@@ -84,7 +83,7 @@
           "$ref": "MPNumberingStyle.json#"
         },
         "figureElementFileLayout": {
-          "type": "number"
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
         },
         "figureFileLayoutString": {
           "type": "string"
@@ -199,6 +198,9 @@
           "enum": ["MPManuscriptTemplate"],
           "type": "string"
         },
+        "pageLayout": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "parent": {
           "$ref": "strings.json#/definitions/_id"
         },
@@ -242,7 +244,7 @@
           "type": "object"
         },
         "tableElementFileLayout": {
-          "type": "number"
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
         },
         "tableFileLayoutString": {
           "type": "string"
