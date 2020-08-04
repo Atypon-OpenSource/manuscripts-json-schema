@@ -84,13 +84,13 @@
         "numberingParticipation": {
           "$ref": "enums.json#/definitions/MPNumberingParticipation"
         },
-        "maxCharacterCountRequirement": {
+        "maxCharCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "maxWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "minCharacterCountRequirement": {
+        "minCharCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "minWordCountRequirement": {

@@ -182,7 +182,7 @@
         "minManuscriptTitleCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "minManuscriptTitleWordCountRequirement" : {
+        "minManuscriptTitleWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "minPageCountRequirement": {
