@@ -3669,7 +3669,7 @@ test('MPPublisher', t => {
 });
 
 test('MPSectionDescription', t => {
-  t.plan(4);
+  t.plan(5);
 
   const validObject = {
     _id: `MPSectionDescription:XYZ`,
@@ -3689,6 +3689,7 @@ test('MPSectionDescription', t => {
     minKeywordCount: 40,
     maxTitleCharLength: 40,
     maxReferenceCount: 30,
+    priority: 3,
   };
 
   t.equals(
@@ -3707,6 +3708,11 @@ test('MPSectionDescription', t => {
   t.equals(
     validate(Object.assign({ foo: 'xyz' }, validObject)),
     "should NOT have additional properties 'foo'"
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { priority: 'x' })),
+    '.priority: should be number'
   );
 
   const invalidSubsectionObject = Object.assign({}, validObject);

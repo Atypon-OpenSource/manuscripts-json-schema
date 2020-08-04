@@ -60,6 +60,9 @@
         "minWordCount": {
           "type": "number"
         },
+        "priority": {
+          "type": "number"
+        },
         "objectType": {
           "type": "string",
           "enum": ["MPSectionDescription"]
