@@ -3721,13 +3721,12 @@ test('MPSectionDescription', t => {
 });
 
 test('MPManuscriptTemplate', t => {
-  t.plan(7);
+  t.plan(6);
 
   const validObject = {
     _id: 'MPManuscriptTemplate:1',
     objectType: 'MPManuscriptTemplate',
     containerID: 'MPProject:1',
-    manuscriptID: 'MPManuscript:1',
     sessionID: 'foo',
     category: 'MPManuscriptCategory:1',
     title: 'Foo',
@@ -3755,11 +3754,6 @@ test('MPManuscriptTemplate', t => {
   t.equals(
     validate(Object.assign({}, validObject, { containerID: undefined })),
     "should have required property 'containerID'"
-  );
-
-  t.equals(
-    validate(Object.assign({}, validObject, { manuscriptID: undefined })),
-    "should have required property 'manuscriptID'"
   );
 
   t.equals(
@@ -3848,7 +3842,6 @@ test('Manuscript Template with requirements', t => {
     createdAt: 0,
     updatedAt: 0,
     containerID: 'MPProject:1',
-    manuscriptID: 'MPManuscript:1',
     sessionID: 'foo',
     title: 'Test Template',
     coverLetterRequirement: 'MPManuscriptCoverLetterRequirement:1',
