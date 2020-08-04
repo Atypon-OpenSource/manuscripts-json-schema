@@ -190,13 +190,13 @@
             "$ref": "MPSubmission.json#"
           }
         },
-        "maxCharacterCountRequirement": {
+        "maxCharCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "maxWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "minCharacterCountRequirement": {
+        "minCharCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "minWordCountRequirement": {
@@ -215,7 +215,7 @@
         },
         "DOI": {
           "type": "string",
-          "pattern": "^10\\.[0-9]+\/"
+          "pattern": "^10\\.[0-9]+/"
         },
         "layoutTheme": {
           "type": "string"

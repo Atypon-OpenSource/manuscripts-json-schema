@@ -1,18 +1,17 @@
 {
-    "$id": "MPTag.json",
-    "title": "Tag",
-    "type": "object",
-    "$mash": {
-      "sources": [{ "$ref": "concrete/MPKeyword.json#" }],
-      "with": {
-        "properties": {
-          "objectType": {
-            "type": "string",
-            "enum": ["MPTag"]
-          }
-        },
-        "required": []
-      }
+  "$id": "MPTag.json",
+  "title": "Tag",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "concrete/MPKeyword.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPTag"]
+        }
+      },
+      "required": []
     }
   }
-  
+}

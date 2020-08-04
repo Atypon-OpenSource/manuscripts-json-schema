@@ -886,23 +886,21 @@ test('MPSection', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        maxCharacterCountRequirement:
-          'MPMaximumSectionCharacterCountRequirement:1',
+        maxCharCountRequirement: 'MPMaximumSectionCharacterCountRequirement:1',
       })
     ),
     null,
-    'valid maxCharacterCountRequirement passes'
+    'valid maxCharCountRequirement passes'
   );
 
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        minCharacterCountRequirement:
-          'MPMinimumSectionCharacterCountRequirement:1',
+        minCharCountRequirement: 'MPMinimumSectionCharacterCountRequirement:1',
       })
     ),
     null,
-    'valid minCharacterCountRequirement passes'
+    'valid minCharCountRequirement passes'
   );
 
   t.equals(
