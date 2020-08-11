@@ -140,7 +140,7 @@
         "manuscriptRunningTitleRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "maxCharCountRequirement": {
+        "maxCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "maxCombinedFigureTableCountRequirement": {
@@ -167,7 +167,7 @@
         "maxWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "minCharCountRequirement": {
+        "minCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "minCombinedFigureTableCountRequirement": {
