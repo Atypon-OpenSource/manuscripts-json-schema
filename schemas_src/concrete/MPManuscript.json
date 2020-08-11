@@ -190,13 +190,13 @@
             "$ref": "MPSubmission.json#"
           }
         },
-        "maxCharCountRequirement": {
+        "maxCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "maxWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "minCharCountRequirement": {
+        "minCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "minWordCountRequirement": {
