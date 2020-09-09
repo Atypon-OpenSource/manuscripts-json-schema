@@ -176,6 +176,9 @@
         "minFigureCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "maxFigureCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "minFigureScreenDPIRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
@@ -189,6 +192,9 @@
           "$ref": "strings.json#/definitions/_id"
         },
         "minWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxManuscriptReferenceCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
         "notes": {

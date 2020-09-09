@@ -3727,7 +3727,7 @@ test('MPSectionDescription', t => {
 });
 
 test('MPManuscriptTemplate', t => {
-  t.plan(6);
+  t.plan(8);
 
   const validObject = {
     _id: 'MPManuscriptTemplate:1',
@@ -3782,6 +3782,27 @@ test('MPManuscriptTemplate', t => {
     ),
     null,
     'valid minManuscriptTitleCharacterCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxFigureCountRequirement: 'MPMaximumFigureCountRequirement:1',
+      })
+    ),
+    null,
+    'valid maxFigureCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxManuscriptReferenceCountRequirement:
+          'MPMaximumManuscriptReferenceCountRequirement:1',
+      })
+    ),
+    null,
+    'valid maxManuscriptReferenceCountRequirement passes'
   );
 });
 
