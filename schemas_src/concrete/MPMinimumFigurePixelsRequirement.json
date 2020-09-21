@@ -1,0 +1,20 @@
+{
+  "$id": "MPMinimumFigurePixelsRequirement.json",
+  "title": "MinimumFigurePixelsRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMinimumFigurePixelsRequirement"]
+        },
+        "dimension": {
+          "type": "number",
+          "enum": [0, 1, 2]
+        }
+      }
+    }
+  }
+}

@@ -260,6 +260,18 @@
         },
         "wordTemplateURL": {
           "type": "string"
+        },
+        "minFigureWidthPixelsRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxFigureWidthPixelsRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minFigureHeightPixelsRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxFigureHeightPixelsRequirement": {
+          "$ref": "strings.json#/definitions/_id"
         }
       },
       "required": ["title"]

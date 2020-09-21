@@ -3727,7 +3727,7 @@ test('MPSectionDescription', t => {
 });
 
 test('MPManuscriptTemplate', t => {
-  t.plan(8);
+  t.plan(12);
 
   const validObject = {
     _id: 'MPManuscriptTemplate:1',
@@ -3803,6 +3803,46 @@ test('MPManuscriptTemplate', t => {
     ),
     null,
     'valid maxManuscriptReferenceCountRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        minFigureWidthPixelsRequirement: 'MPMinimumFigurePixelsRequirement:1',
+      })
+    ),
+    null,
+    'valid minFigurePixelsRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        minFigureHeightPixelsRequirement: 'MPMinimumFigurePixelsRequirement:1',
+      })
+    ),
+    null,
+    'valid minFigurePixelsRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxFigureWidthPixelsRequirement: 'MPMaximumFigurePixelsRequirement:1',
+      })
+    ),
+    null,
+    'valid maxFigurePixelsRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxFigureHeightPixelsRequirement: 'MPMaximumFigurePixelsRequirement:1',
+      })
+    ),
+    null,
+    'valid maxFigurePixelsRequirement passes'
   );
 });
 
@@ -3937,6 +3977,8 @@ test('Manuscript Requirements', t => {
     'MPMinimumManuscriptWordCountRequirement',
     'MPMinimumManuscriptTitleWordCountRequirement',
     'MPMinimumManuscriptTitleCharacterCountRequirement',
+    'MPMaximumFigurePixelsRequirement',
+    'MPMinimumFigurePixelsRequirement',
   ];
 
   t.plan(countRequirementTypes.length * 3);
@@ -4124,6 +4166,70 @@ test('MPMandatorySubsectionsRequirement', t => {
       })
     ),
     null
+  );
+});
+test('Figure minimum pixels requirement', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPMinimumFigurePixelsRequirement:1',
+    objectType: 'MPMinimumFigurePixelsRequirement',
+    createdAt: 0,
+    updatedAt: 0,
+    count: 100,
+    severity: 0,
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
+  };
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        dimension: 'foo',
+      })
+    ),
+    '.dimension: should be number'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        dimension: 4,
+      })
+    ),
+    '.dimension: should be equal to one of the allowed values'
+  );
+});
+
+test('Figure maximum pixels requirement', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPMaximumFigurePixelsRequirement:1',
+    objectType: 'MPMaximumFigurePixelsRequirement',
+    createdAt: 0,
+    updatedAt: 0,
+    count: 100,
+    severity: 0,
+    containerID: 'MPProject:1',
+    manuscriptID: 'MPManuscript:1',
+    sessionID: 'foo',
+  };
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        dimension: 'foo',
+      })
+    ),
+    '.dimension: should be number'
+  );
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        dimension: -1,
+      })
+    ),
+    '.dimension: should be equal to one of the allowed values'
   );
 });
 
