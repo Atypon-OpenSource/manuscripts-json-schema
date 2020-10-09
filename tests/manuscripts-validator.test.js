@@ -3847,8 +3847,10 @@ test('MPManuscriptTemplate', t => {
 });
 
 test('Manuscript validation results', t => {
-  t.plan(10);
+  t.plan(16);
   const common = {
+    containerID: 'MPProject:test',
+    manuscriptID: 'MPManuscript:test',
     sessionID: 'foo',
     createdAt: 0,
     updatedAt: 0,
@@ -3867,6 +3869,60 @@ test('Manuscript validation results', t => {
     validate(sectionTitleValidationResult),
     null,
     'Valid MPSectionValidationResult passes'
+  );
+
+  t.equals(
+    validate({
+      ...sectionTitleValidationResult,
+      containerID: undefined,
+    }),
+    "should have required property 'containerID'",
+    'MPSectionValidationResult without containerID fails'
+  );
+
+  t.equals(
+    validate({
+      ...sectionTitleValidationResult,
+      manuscriptID: undefined,
+    }),
+    "should have required property 'manuscriptID'",
+    'MPSectionValidationResult without manuscriptID fails'
+  );
+
+  t.equals(
+    validate({
+      ...sectionTitleValidationResult,
+      fix: undefined,
+    }),
+    null,
+    'MPSectionValidationResult without fix passes'
+  );
+
+  t.equals(
+    validate({
+      ...sectionTitleValidationResult,
+      severity: undefined,
+    }),
+    "should have required property 'severity'",
+    'MPSectionValidationResult without severity fails'
+  );
+
+  t.equals(
+    validate({
+      ...sectionTitleValidationResult,
+      passed: undefined,
+    }),
+    "should have required property 'passed'",
+    'MPSectionValidationResult without passed fails'
+  );
+
+  t.equals(
+    validate({
+      ...sectionTitleValidationResult,
+      passed: 1,
+    }),
+    '.passed: should be boolean',
+    'MPSectionValidationResult without passed fails'
   );
 
   const sectionCategoryValidationResult = {
