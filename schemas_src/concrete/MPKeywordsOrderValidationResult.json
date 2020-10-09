@@ -1,0 +1,32 @@
+{
+  "$id": "MPKeywordsOrderValidationResult.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPValidationResult.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPKeywordsOrderValidationResult"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["keywords-order"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/_id"
+              }
+            }
+          },
+          "required": ["order"]
+        }
+      },
+      "required": ["data"]
+    }
+  }
+}
