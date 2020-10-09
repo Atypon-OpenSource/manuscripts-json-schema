@@ -1,0 +1,32 @@
+{
+  "$id": "MPRequiredSectionValidationResult.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPValidationResult.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPRequiredSectionValidationResult"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["required-section"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "sectionDescription": {
+              "$ref": "MPSectionDescription.json#"
+            },
+            "sectionCategory": {
+              "$ref": "strings.json#/definitions/_id"
+            }
+          },
+          "required": ["sectionDescription", "sectionCategory"]
+        }
+      },
+      "required": ["data"]
+    }
+  }
+}

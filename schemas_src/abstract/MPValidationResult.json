@@ -1,0 +1,28 @@
+{
+  "$id": "MPValidationResult.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPValidationResult"]
+        },
+        "type": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "severity": {
+          "type": "number"
+        },
+        "fix": {
+          "type": "boolean"
+        }
+      },
+      "required": ["type", "passed", "severity"]
+    }
+  }
+}

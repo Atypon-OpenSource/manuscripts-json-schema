@@ -1,0 +1,38 @@
+{
+  "$id": "MPSectionTitleValidationResult.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPValidationResult.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSectionTitleValidationResult"]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "section-title-match",
+            "section-title-contains-content"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            "sectionCategory": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": ["id"]
+        }
+      },
+      "required": ["data"]
+    }
+  }
+}

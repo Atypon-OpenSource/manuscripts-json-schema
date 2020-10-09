@@ -1,0 +1,32 @@
+{
+  "$id": "MPSectionOrderValidationResult.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPValidationResult.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSectionOrderValidationResult"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["section-order"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/_id"
+              }
+            }
+          },
+          "required": ["order"]
+        }
+      },
+      "required": ["data"]
+    }
+  }
+}

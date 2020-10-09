@@ -1,0 +1,59 @@
+{
+  "$id": "MPCountValidationResult.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPValidationResult.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPCountValidationResult"]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "manuscript-maximum-characters",
+            "manuscript-minimum-characters",
+            "manuscript-maximum-words",
+            "manuscript-minimum-words",
+            "section-maximum-characters",
+            "section-minimum-characters",
+            "section-maximum-words",
+            "section-minimum-words",
+            "manuscript-title-maximum-characters",
+            "manuscript-title-minimum-characters",
+            "manuscript-title-maximum-words",
+            "manuscript-title-minimum-words",
+            "manuscript-maximum-figures",
+            "manuscript-maximum-tables",
+            "manuscript-maximum-combined-figure-tables",
+            "manuscript-maximum-references",
+            "figure-minimum-width-resolution",
+            "figure-minimum-height-resolution",
+            "figure-maximum-width-resolution",
+            "figure-maximum-height-resolution"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "value": {
+              "type": "number"
+            },
+            "id": {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            "sectionCategory": {
+              "$ref": "strings.json#/definitions/_id"
+            }
+          },
+          "required": ["count", "value"]
+        }
+      },
+      "required": ["data"]
+    }
+  }
+}

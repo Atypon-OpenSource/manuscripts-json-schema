@@ -3846,6 +3846,156 @@ test('MPManuscriptTemplate', t => {
   );
 });
 
+test('Manuscript validation results', t => {
+  t.plan(10);
+  const common = {
+    sessionID: 'foo',
+    createdAt: 0,
+    updatedAt: 0,
+    severity: 0,
+    passed: true,
+    fix: false,
+  };
+  const sectionTitleValidationResult = {
+    ...common,
+    _id: 'MPSectionTitleValidationResult:1',
+    objectType: 'MPSectionTitleValidationResult',
+    type: 'section-title-match',
+    data: { id: 'MPSection:1' },
+  };
+  t.equals(
+    validate(sectionTitleValidationResult),
+    null,
+    'Valid MPSectionValidationResult passes'
+  );
+
+  const sectionCategoryValidationResult = {
+    ...common,
+    _id: 'MPSectionCategoryValidationResult:1',
+    objectType: 'MPSectionCategoryValidationResult',
+    type: 'section-category-uniqueness',
+    data: { id: 'MPSection:1' },
+  };
+  t.equals(
+    validate(sectionCategoryValidationResult),
+    null,
+    'Valid MPSectionCategoryValidationResult passes'
+  );
+
+  const sectionBodyValidationResult = {
+    ...common,
+    _id: 'MPSectionBodyValidationResult:1',
+    objectType: 'MPSectionBodyValidationResult',
+    type: 'section-body-has-content',
+    data: { id: 'MPSection:1' },
+  };
+  t.equals(
+    validate(sectionBodyValidationResult),
+    null,
+    'Valid MPSectionBodyValidationResult passes'
+  );
+
+  const requiredSectionValidationResult = {
+    ...common,
+    _id: 'MPRequiredSectionValidationResult:1',
+    objectType: 'MPRequiredSectionValidationResult',
+    type: 'required-section',
+    data: {
+      sectionCategory: 'MPSectionCategory:test',
+      sectionDescription: {
+        _id: 'MPSectionDescription:1',
+        objectType: 'MPSectionDescription',
+        sectionCategory: 'MPSectionCategory:test',
+      },
+    },
+  };
+  t.equals(
+    validate(requiredSectionValidationResult),
+    null,
+    'Valid MPRequiredSectionValidationResult passes'
+  );
+
+  const sectionOrderValidationResult = {
+    ...common,
+    _id: 'MPSectionOrderValidationResult:1',
+    objectType: 'MPSectionOrderValidationResult',
+    type: 'section-order',
+    data: {
+      order: ['MPSectionCategory:Introduction', 'MPSectionCategory:Summary'],
+    },
+  };
+  t.equals(
+    validate(sectionOrderValidationResult),
+    null,
+    'Valid MPSectionOrderValidationResult passes'
+  );
+
+  const figureFormatValidationResult = {
+    ...common,
+    _id: 'MPFigureFormatValidationResult:1',
+    objectType: 'MPFigureFormatValidationResult',
+    type: 'figure-format-validation',
+    data: { id: 'MPFigure:1', contentType: 'test' },
+  };
+  t.equals(
+    validate(figureFormatValidationResult),
+    null,
+    'Valid MPFigureFormatValidationResult passes'
+  );
+
+  const countValidationResult = {
+    ...common,
+    _id: 'MPCountValidationResult:1',
+    objectType: 'MPCountValidationResult',
+    type: 'manuscript-maximum-characters',
+    data: { count: 10, value: 20 },
+  };
+  t.equals(
+    validate(countValidationResult),
+    null,
+    'Valid MPCountValidationResult passes'
+  );
+
+  const bibliographyValidationResult = {
+    ...common,
+    _id: 'MPBibliographyValidationResult:1',
+    objectType: 'MPBibliographyValidationResult',
+    type: 'bibliography-doi-format',
+    data: { id: 'MPCitation:1' },
+  };
+  t.equals(
+    validate(bibliographyValidationResult),
+    null,
+    'Valid MPBibliographyValidationResult passes'
+  );
+
+  const keywordsOrderValidationResult = {
+    ...common,
+    _id: 'MPKeywordsOrderValidationResult:1',
+    objectType: 'MPKeywordsOrderValidationResult',
+    type: 'keywords-order',
+    data: { order: ['MPKeyword:1', 'MPKeyword:2'] },
+  };
+  t.equals(
+    validate(keywordsOrderValidationResult),
+    null,
+    'Valid MPKeywordsOrderValidationResult passes'
+  );
+
+  const figureImageValidationResult = {
+    ...common,
+    _id: 'MPFigureImageValidationResult:1',
+    objectType: 'MPFigureImageValidationResult',
+    type: 'figure-contains-image',
+    data: { id: 'MPFigure:1' },
+  };
+  t.equals(
+    validate(figureImageValidationResult),
+    null,
+    'Valid MPFigureImageValidationResult passes'
+  );
+});
+
 test('MPSubmission', t => {
   t.plan(3);
 
