@@ -2,7 +2,11 @@
   "$id": "MPValidationResult.json",
   "type": "object",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
     "with": {
       "properties": {
         "objectType": {
