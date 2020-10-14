@@ -36,12 +36,15 @@
         },
         "displayScheme": {
           "type": "string",
-          "enum": ["show-all", "author-only", "suppress-author"]
+          "enum": ["show-all", "author-only", "suppress-author", "composite"]
         },
         "prefix": {
           "type": "string"
         },
         "suffix": {
+          "type": "string"
+        },
+        "infix": {
           "type": "string"
         }
       },
