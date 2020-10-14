@@ -16,7 +16,7 @@
     "build-definitions": "node tsc-dist/exportDefinitions",
     "build-typelookup": "node tsc-dist/exportManuscriptsTypeLookup",
     "build-validators": "node tsc-dist/exportValidators",
-    "lint": "eslint '{src,tests}/**/*.{js,ts}'",
+    "lint": "eslint src tests --ext .js,.ts",
     "format": "prettier --write '{src,schemas_src,tests}/**/*.{ts,js,json}'",
     "prebuild": "rimraf tsc-dist/* dist/* schemas/* definitions/*",
     "prepare": "npm run build",

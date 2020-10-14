@@ -4846,7 +4846,7 @@ test('contributor roles', t => {
 });
 
 test('paragraph style', t => {
-  t.plan(1);
+  t.plan(3);
 
   const validObject = {
     _id: 'MPParagraphStyle:test',
@@ -4868,4 +4868,13 @@ test('paragraph style', t => {
 
   // valid object
   t.equals(validate(validObject), null);
+
+  // valid object with optional boolean properties
+  t.equals(validate({ ...validObject, partOfTOC: true, runIn: true }), null);
+
+  // invalid object with optional boolean properties as strings
+  t.equals(
+    validate({ ...validObject, partOfTOC: 'true', runIn: 'true' }),
+    '.partOfTOC: should be boolean'
+  );
 });
