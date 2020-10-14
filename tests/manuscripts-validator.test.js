@@ -698,7 +698,7 @@ test('citation item', t => {
 });
 
 test('citation', t => {
-  t.plan(9);
+  t.plan(11);
 
   const validObject = {
     _id: 'MPCitation:baz',
@@ -780,6 +780,16 @@ test('citation', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
+        displayScheme: 'composite',
+      })
+    ),
+    null,
+    'composite displayScheme permitted'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
         displayScheme: 'year-only',
       })
     ),
@@ -805,6 +815,16 @@ test('citation', t => {
     ),
     null,
     'suffix permitted'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        infix: 'midday',
+      })
+    ),
+    null,
+    'infix permitted'
   );
 });
 
