@@ -18,14 +18,14 @@ function validate(obj) {
 }
 
 test('user collaborator', t => {
-  t.plan(3);
+  t.plan(4);
   const validObject = {
     objectType: 'MPUserCollaborator',
     _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
     _id: 'MPUserCollaborator:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
     userID: 'User_foobar@manuscriptsapp.com',
     collaboratorID: 'MPUserProfile:foo-bar-baz',
-    projects: {
+    containers: {
       owner: [],
       writer: [],
       viewer: [],
@@ -67,16 +67,29 @@ test('user collaborator', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        projects: {
+        containers: {
           owner: ['MPAnything:foo-bar-baz'],
           writer: [],
-          editor: [],
           viewer: [],
         },
       })
     ),
-    '.projects.owner[0]: should match pattern "^MPProject:"',
-    '.projects.owner[0]: should match pattern "^MPProject:"'
+    '[\'containers\'].owner[0]: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '[\'containers\'].owner[0]: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        containers: {
+          owner: ['MPLibrary:foo-bar-baz'],
+          writer: [],
+          viewer: [],
+        },
+      })
+    ),
+    null,
+    'valid MPLibrary container passes'
   );
 });
 

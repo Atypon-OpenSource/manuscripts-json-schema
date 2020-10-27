@@ -24,64 +24,34 @@
         },
         "collaboratorProfile": {
           "$ref": "MPUserProfile.json#"
-        },
-        "projects": {
+        }
+      },
+      "patternProperties": {
+        "^(containers|projects)$": {
           "type": "object",
           "properties": {
             "owner": {
               "type": "array",
               "items": {
-                "allOf": [
-                  {
-                    "$ref": "strings.json#/definitions/_id"
-                  },
-                  {
-                    "type": "string",
-                    "pattern": "^MPProject:"
-                  }
-                ]
+                "$ref": "strings.json#/definitions/containerID"
               }
             },
             "writer": {
               "type": "array",
               "items": {
-                "allOf": [
-                  {
-                    "$ref": "strings.json#/definitions/_id"
-                  },
-                  {
-                    "type": "string",
-                    "pattern": "^MPProject:"
-                  }
-                ]
+                "$ref": "strings.json#/definitions/containerID"
               }
             },
             "editor": {
               "type": "array",
               "items": {
-                "allOf": [
-                  {
-                    "$ref": "strings.json#/definitions/_id"
-                  },
-                  {
-                    "type": "string",
-                    "pattern": "^MPProject:"
-                  }
-                ]
+                "$ref": "strings.json#/definitions/containerID"
               }
             },
             "viewer": {
               "type": "array",
               "items": {
-                "allOf": [
-                  {
-                    "$ref": "strings.json#/definitions/_id"
-                  },
-                  {
-                    "type": "string",
-                    "pattern": "^MPProject:"
-                  }
-                ]
+                "$ref": "strings.json#/definitions/containerID"
               }
             }
           }
@@ -90,8 +60,7 @@
       "required": [
         "userID",
         "collaboratorID",
-        "collaboratorProfile",
-        "projects"
+        "collaboratorProfile"
       ]
     }
   }
