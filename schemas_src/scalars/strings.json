@@ -21,6 +21,10 @@
       "type": "string",
       "pattern": "\\*",
       "description": "The container and all objects that reference it are readable by anyone"
+    },
+    "containerID": {
+      "type": "string",
+      "pattern": "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"
     }
   }
 }

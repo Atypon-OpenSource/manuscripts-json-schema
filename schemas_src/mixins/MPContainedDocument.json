@@ -4,15 +4,7 @@
   "additionalProperties": false,
   "properties": {
     "containerID": {
-      "allOf": [
-        {
-          "$ref": "strings.json#/definitions/_id"
-        },
-        {
-          "type": "string",
-          "pattern": "^(MPProject|MPLibrary):"
-        }
-      ]
+      "$ref": "strings.json#/definitions/containerID"
     }
   },
   "required": ["containerID"]

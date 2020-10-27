@@ -1761,7 +1761,7 @@ test('containerID property', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { containerID: 'zPFoo:bar' })),
-    '.containerID: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    '.containerID: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'containerID with invalid prefix fails'
   );
 
@@ -1773,7 +1773,7 @@ test('containerID property', t => {
 
   t.equals(
     validate(Object.assign({}, validObject, { containerID: 'MPPotato:1000' })),
-    '.containerID: should match pattern "^(MPProject|MPLibrary):"',
+    '.containerID: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
     'invalid containerID fails'
   );
 });

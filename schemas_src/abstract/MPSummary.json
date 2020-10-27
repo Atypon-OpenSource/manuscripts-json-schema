@@ -9,11 +9,7 @@
         "containerID": {
           "allOf": [
             {
-              "$ref": "strings.json#/definitions/_id"
-            },
-            {
-              "type": "string",
-              "pattern": "^(MPProject|MPLibrary|MPLibraryCollection):"
+              "$ref": "strings.json#/definitions/containerID"
             }
           ]
         },
