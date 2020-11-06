@@ -2785,7 +2785,7 @@ test('equation', t => {
 });
 
 test('footnote', t => {
-  t.plan(1);
+  t.plan(3);
 
   const validObject = {
     _id: 'MPFootnote:foo',
@@ -2797,12 +2797,25 @@ test('footnote', t => {
     manuscriptID: 'MPManuscript:baz',
     contents: 'foo',
     containingObject: 'MPFo:1o',
+    kind: 'footnote',
   };
 
   t.equals(
     validate(Object.assign({}, validObject)),
     null,
     'valid Footnote passes'
+  );
+
+  t.equals(
+    validate({ ...validObject, kind: 'footnote' }),
+    null,
+    'valid kind property is allowed'
+  );
+
+  t.equals(
+    validate({ ...validObject, kind: 'foonote' }),
+    '.kind: should be equal to one of the allowed values',
+    'invalid kind property is rejected'
   );
 });
 

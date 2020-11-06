@@ -17,9 +17,13 @@
         },
         "contents": {
           "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["footnote", "endnote"]
         }
       },
-      "required": ["contents"]
+      "required": ["contents", "kind"]
     }
   }
 }
