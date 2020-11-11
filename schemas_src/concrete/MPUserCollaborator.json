@@ -24,10 +24,37 @@
         },
         "collaboratorProfile": {
           "$ref": "MPUserProfile.json#"
-        }
-      },
-      "patternProperties": {
-        "^(containers|projects)$": {
+        },
+        "containers": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
+            },
+            "writer": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
+            },
+            "editor": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
+            },
+            "viewer": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
+            }
+          }
+        },
+        "projects": {
           "type": "object",
           "properties": {
             "owner": {

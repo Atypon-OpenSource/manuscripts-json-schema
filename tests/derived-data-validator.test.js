@@ -74,8 +74,8 @@ test('user collaborator', t => {
         },
       })
     ),
-    '[\'containers\'].owner[0]: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
-    '[\'containers\'].owner[0]: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"'
+    '.containers.owner[0]: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"',
+    '.containers.owner[0]: should match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"'
   );
 
   t.equals(
