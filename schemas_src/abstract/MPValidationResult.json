@@ -24,6 +24,9 @@
         },
         "fix": {
           "type": "boolean"
+        },
+        "message": {
+          "type": "string"
         }
       },
       "required": ["type", "passed", "severity"]
