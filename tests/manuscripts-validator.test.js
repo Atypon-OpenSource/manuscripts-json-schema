@@ -4911,3 +4911,30 @@ test('paragraph style', t => {
     '.partOfTOC: should be boolean'
   );
 });
+
+test('manuscript note', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPManuscriptNote:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
+    objectType: 'MPManuscriptNote',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'bar',
+    target: 'MPManuscript:baz',
+    originalText: '',
+  };
+
+  t.equals(validate(Object.assign({}, validObject)), null, 'valid note passes');
+
+  const { contents, ...invalidObject } = Object.assign({}, validObject);
+
+  t.equals(
+    validate(invalidObject),
+    "should have required property 'contents'",
+    'contents is required'
+  );
+});

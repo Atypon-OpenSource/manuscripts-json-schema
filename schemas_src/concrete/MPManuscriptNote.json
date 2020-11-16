@@ -1,0 +1,19 @@
+{
+  "$id": "MPManuscriptNote.json",
+  "title": "ManuscriptNote",
+  "$mash": {
+    "sources": [
+      {"$ref":  "concrete/MPCommentAnnotation.json#"}
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPManuscriptNote"]
+        },
+        "additionalProperties": false
+      },
+      "required": []
+    }
+  }
+}
