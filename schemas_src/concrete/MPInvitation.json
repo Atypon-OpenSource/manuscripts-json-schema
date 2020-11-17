@@ -12,6 +12,9 @@
         "invitedUserEmail": {
           "type": "string"
         },
+        "invitedUserID": {
+          "type": "string"
+        },
         "invitingUserProfile": {
           "$ref": "MPUserProfile.json#"
         },

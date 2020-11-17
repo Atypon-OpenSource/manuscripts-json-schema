@@ -3046,6 +3046,7 @@ test('invitation', t => {
     _id: 'MPInvitation:5480f0bfe3b0f69beb8fe360adab156e06c614ff',
     invitingUserID: 'User_valid-user@manuscriptsapp.com',
     invitedUserEmail: 'valid-google@manuscriptsapp.com',
+    invitedUserID: 'User_valid-google@manuscriptsapp.com',
     invitingUserProfile: {
       _id: 'MPUserProfile:foo-bar-baz',
       objectType: 'MPUserProfile',
