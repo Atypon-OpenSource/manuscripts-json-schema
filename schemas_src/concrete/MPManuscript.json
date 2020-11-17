@@ -19,6 +19,9 @@
         "plainTextTitle": {
           "type": "string"
         },
+        "runningTitle": {
+          "type": "string"
+        },
         "desc": {
           "type": "string"
         },

@@ -3418,6 +3418,44 @@ test('manuscript DOI', t => {
   );
 });
 
+test('manuscript title', t => {
+  t.plan(3);
+
+  const validObject = {
+    _id: 'MPManuscript:foo',
+    createdAt: 0,
+    updatedAt: 0,
+    objectType: 'MPManuscript',
+    containerID: 'MPProject:test',
+  };
+
+  t.equals(validate({ ...validObject }), null, 'missing titles passes');
+
+  t.equals(
+    validate({
+      ...validObject,
+      title: 'The Title',
+      subtitle: 'The Subtitle',
+      runningTitle: 'The Running Title',
+    }),
+    null,
+    'valid titles passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      title: 1,
+    }),
+    '.title: should be string',
+    'invalid title fails'
+  );
+});
+
 test('manuscript keyword', t => {
   t.plan(3);
 
