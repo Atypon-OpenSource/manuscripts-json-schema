@@ -51,6 +51,9 @@
         "maxWordCount": {
           "type": "number"
         },
+        "maxParagraphsCount":{
+          "type": "number"
+        },
         "minCharCount": {
           "type": "number"
         },
