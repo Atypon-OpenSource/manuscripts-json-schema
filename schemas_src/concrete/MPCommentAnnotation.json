@@ -40,6 +40,9 @@
           },
           "required": ["from", "to"],
           "additionalProperties": false
+        },
+        "resolved": {
+          "type": "boolean"
         }
       },
       "required": ["contents", "target"]

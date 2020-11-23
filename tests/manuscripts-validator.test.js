@@ -3559,7 +3559,7 @@ test('manuscript keywords', t => {
 });
 
 test('comment', t => {
-  t.plan(5);
+  t.plan(7);
 
   const validObject = {
     _id: 'MPCommentAnnotation:foo',
@@ -3616,6 +3616,13 @@ test('comment', t => {
     validate(objectWithSelector),
     "should NOT have additional properties 'foo'",
     'additional property is not allowed'
+  );
+
+  t.equals(validate(Object.assign({ resolved: true }, validObject)), null);
+
+  t.equals(
+    validate(Object.assign({ resolved: 'foo' }, validObject)),
+    '.resolved: should be boolean'
   );
 });
 
