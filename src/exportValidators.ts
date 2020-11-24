@@ -21,6 +21,7 @@ import { validatorFn } from './pack';
     'MPCitationAlert.json',
     'MPMutedCitationAlert.json',
     'MPContribution.json',
+    'MPDiscussionItem.json'
   ]);
 
   const fusionFn = validatorFn(id => fusionSchemas.has(id));
@@ -43,6 +44,12 @@ import { validatorFn } from './pack';
 
   const derivedDataFn = validatorFn(id => derivedDataSchemas.has(id));
 
+  const discussionsDataSchemas = new Set([
+      'MPDiscussionItem.json'
+  ]);
+
+  const discussionsFn = validatorFn(id => discussionsDataSchemas.has(id));
+
   // write (cjs) js file
   await appendToDistFile(
     'validators.js',
@@ -51,7 +58,8 @@ import { validatorFn } from './pack';
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fusionFn = String.raw\`${fusionFn}\`;
 exports.derivedDataFn = String.raw\`${derivedDataFn}\`;
-exports.manuscriptsFn = String.raw\`${manuscriptsFn};\``
+exports.manuscriptsFn = String.raw\`${manuscriptsFn}\`;
+exports.discussionsFn = String.raw\`${discussionsFn}\`;`
   );
 
   // write (cjs) js file
@@ -60,6 +68,7 @@ exports.manuscriptsFn = String.raw\`${manuscriptsFn};\``
     'es',
     `export const fusionFn = String.raw\`${fusionFn}\`;
 export const derivedDataFn = String.raw\`${derivedDataFn}\`;
+export const discussionsFn = String.raw\`${discussionsFn}\`;
 export const manuscriptsFn = String.raw\`${manuscriptsFn};\``
   );
 
@@ -69,6 +78,7 @@ export const manuscriptsFn = String.raw\`${manuscriptsFn};\``
     'types',
     `export declare const manuscriptsFn: string;
 export declare const derivedDataFn: string;
+export declare const discussionsFn: string;
 export declare const fusionFn: string;`
   );
 
@@ -86,6 +96,7 @@ export declare const fusionFn: string;`
     `const validators_1 = require("./validators");
 exports.fusionFn = validators_1.fusionFn;
 exports.derivedDataFn = validators_1.derivedDataFn;
+exports.discussionsFn = validators_1.discussionsFn;
 exports.manuscriptsFn = validators_1.manuscriptsFn;`
   );
 

@@ -236,3 +236,95 @@ test('muted citation alert', t => {
     "should have required property 'targetDOI'"
   );
 });
+
+test('Discussion Item', t => {
+  const validObject = {
+    context: {
+      back: 'have',
+      front: '',
+    },
+    contextRanges: [
+      {
+        contentType: 'HTML',
+        context: 'https://assets.scitrus.com/widget/moby_dick.html',
+        offset: 7991,
+        offset_h: 349,
+        offset_t: 27704,
+        ranges: [
+          {
+            end: '/div[2]/p[32]',
+            endOffset: 83,
+            start: '/div[2]/p[32]',
+            startOffset: 38,
+          },
+        ],
+      },
+    ],
+    dateInserted: 1601465770972,
+    issn: '',
+    objectType: 'MPDiscussionItem',
+    publicationAccess: {
+      access: 1,
+      type: 2,
+      value: 'assets.scitrus.com/widget/moby_dick.html',
+    },
+    publicationId: 'f5d96da96f74203c8ca6ed1ee81d0f71',
+    quoteHTML: 'come in upon this coast (Fife) Anno 1652, one',
+    removed: false,
+    section: 'come in upon this coast (Fife) Anno 1652, one',
+    sendResolutionMessageToSubmitter: false,
+    siteUrl: 'https://assets.scitrus.com/widget/moby_dick.html',
+    subjects: [],
+    text: '',
+    users: [
+      {
+        role: 0,
+        sgUserId: 'User|vparchas@atypon.com',
+        userId: '5f43b9580ec2d79d90c010e9',
+      },
+    ],
+    _id: 'MPDiscussionItem:023e68ff-7dd5-486d-93a3-1666b728fe42',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid MPDiscussionItem passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { objectType: 'DiscussionItem' })),
+    'unsupported objectType: DiscussionItem',
+    'unsupported objectType fails'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { removed: 'foo' })),
+    '.removed: should be boolean',
+    'invalid removed should fail'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { removed: true })),
+    null,
+    'valid removed should pass'
+  );
+
+  const missingUsersObj = Object.assign({}, validObject);
+  delete missingUsersObj.users;
+
+  t.equals(
+    validate(Object.assign({}, missingUsersObj)),
+    "should have required property 'users'"
+  );
+
+  const emptyUsersObj = Object.assign({}, validObject);
+  emptyUsersObj.users = [];
+
+  t.equals(
+    validate(Object.assign({}, emptyUsersObj)),
+    '.users: should NOT have fewer than 1 items'
+  );
+
+  t.end();
+});
