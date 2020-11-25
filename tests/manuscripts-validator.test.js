@@ -4210,6 +4210,7 @@ test('General Requirements', t => {
     'MPMaximumTableCountRequirement',
     'MPMinimumAuxiliaryObjectCountRequirement',
     'MPMinimumCombinedFigureTableCountRequirement',
+    'MPMaximumCorrespondingAuthorCountRequirement',
   ];
 
   t.plan(countRequirementTypes.length * 3);

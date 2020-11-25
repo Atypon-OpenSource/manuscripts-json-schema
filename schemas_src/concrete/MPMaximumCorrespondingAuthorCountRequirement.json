@@ -1,0 +1,16 @@
+{
+  "$id": "MPMaximumCorrespondingAuthorCountRequirement.json",
+  "title": "MaximumCorrespondingAuthorCountRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMaximumCorrespondingAuthorCountRequirement"]
+        }
+      }
+    }
+  }
+}

@@ -197,6 +197,9 @@
         "maxManuscriptReferenceCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "maxCorrespondingAuthorCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "notes": {
           "type": "string"
         },
