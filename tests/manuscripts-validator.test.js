@@ -4973,6 +4973,7 @@ test('manuscript note', t => {
     contents: 'bar',
     target: 'MPManuscript:baz',
     originalText: '',
+    source: 'EDITOR',
   };
 
   t.equals(validate(Object.assign({}, validObject)), null, 'valid note passes');

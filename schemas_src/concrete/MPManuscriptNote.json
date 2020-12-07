@@ -11,9 +11,12 @@
           "type": "string",
           "enum": ["MPManuscriptNote"]
         },
+        "source": {
+          "$ref": "enums.json#/definitions/NoteSource"
+        },
         "additionalProperties": false
       },
-      "required": []
+      "required": ["source"]
     }
   }
 }

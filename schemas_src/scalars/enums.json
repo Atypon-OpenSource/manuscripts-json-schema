@@ -26,6 +26,10 @@
     "ContainerRole": {
       "type": "string",
       "enum": ["Owner", "Writer", "Editor", "Viewer"]
+    },
+    "NoteSource": {
+      "type": "string",
+      "enum": ["EMAIL", "EDITOR", "DASHBOARD"]
     }
   }
 }
