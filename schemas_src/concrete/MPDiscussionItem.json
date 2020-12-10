@@ -87,7 +87,20 @@
                 "type": "string"
               },
               "page": {
-                "type": "string"
+                "anyOf": [
+                  {"type": "string"},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "idref": {
+                        "type": "string"
+                      },
+                      "index": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                ]
               },
               "context": {
                 "type": "string"
@@ -126,6 +139,9 @@
                     }
                   }
                 }
+              },
+              "type": {
+                "type": "number"
               }
             }
           }
@@ -157,6 +173,91 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        },
+        "attachments": {
+          "type": "object",
+          "properties": {
+            "images": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "link": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "files": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "link": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "videos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "link": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "others": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
           }
         }
       },

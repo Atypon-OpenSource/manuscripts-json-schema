@@ -258,6 +258,27 @@ test('Discussion Item', t => {
             startOffset: 38,
           },
         ],
+        page: '20',
+      },
+      {
+        contentType: 'HTML',
+        context: 'https://assets.scitrus.com/widget/moby_dick.html',
+        offset: 7991,
+        offset_h: 349,
+        offset_t: 27704,
+        ranges: [
+          {
+            end: '/div[2]/p[32]',
+            endOffset: 83,
+            start: '/div[2]/p[32]',
+            startOffset: 38,
+          },
+        ],
+        page: {
+          idref: 'page10',
+          index: 10,
+        },
+        type: 4,
       },
     ],
     dateInserted: 1601465770972,
@@ -284,10 +305,38 @@ test('Discussion Item', t => {
       },
     ],
     _id: 'MPDiscussionItem:023e68ff-7dd5-486d-93a3-1666b728fe42',
+    attachments: {
+      images: [
+        {
+          type: 'png',
+          link: 'https://www.fnordware.com/superpng/pnggrad8rgb.png',
+          name: 'Random PNG',
+          size: 976,
+        },
+        {
+          type: 'png',
+          link: 'https://www.fnordware.com/superpng/pnggrad8rgb.png',
+          name: 'Random PNG 2',
+          size: 976,
+        },
+      ],
+      files: [],
+      videos: [],
+      others: [],
+    },
   };
 
   t.equals(
     validate(Object.assign({}, validObject)),
+    null,
+    'valid MPDiscussionItem passes'
+  );
+
+  const noAttachmentsObject = Object.assign({}, validObject);
+  delete noAttachmentsObject.attachments;
+
+  t.equals(
+    validate(Object.assign({}, noAttachmentsObject)),
     null,
     'valid MPDiscussionItem passes'
   );
