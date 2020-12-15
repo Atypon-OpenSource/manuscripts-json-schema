@@ -4986,3 +4986,27 @@ test('manuscript note', t => {
     'contents is required'
   );
 });
+
+test('external file', t => {
+  t.plan(2);
+  const validObject = {
+    _id: 'MPExternalFile:test',
+    filename: 'supplemental-file.docx',
+    objectType: 'MPExternalFile',
+    MIME:
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    displayName: 'Supplemental file',
+  };
+
+  // valid object
+  t.equals(validate(validObject), null);
+
+  t.equals(
+    validate({
+      ...validObject,
+      publicUrl: 'manuscripts com',
+    }),
+    '.publicUrl: should match pattern "(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"',
+    'publicUrl has to correspond to uri string pattern'
+  );
+});

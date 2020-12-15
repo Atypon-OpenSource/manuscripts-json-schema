@@ -1,0 +1,23 @@
+{
+  "$id": "MPExternalFile.json",
+  "title": "MPExternalFile",
+  "type": "object",
+  "properties": {
+    "filename": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "MIME": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "publicUrl": {
+      "$ref": "strings.json#/definitions/uri"
+    }
+  },
+  "required": ["filename", "displayName", "MIME"]
+}

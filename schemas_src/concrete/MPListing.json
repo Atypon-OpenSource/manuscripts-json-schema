@@ -27,7 +27,8 @@
         },
         "title": {
           "type": "string"
-        }
+        },
+        "attachment": { "$ref": "MPExternalFile.json#" }
       },
       "required": ["contents", "languageKey"]
     }
