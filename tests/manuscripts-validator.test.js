@@ -4993,6 +4993,9 @@ test('external file', t => {
     _id: 'MPExternalFile:test',
     filename: 'supplemental-file.docx',
     objectType: 'MPExternalFile',
+    updatedAt: 1,
+    createdAt: 1,
+    containerID: 'MPProject:my-project',
     MIME:
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     displayName: 'Supplemental file',
