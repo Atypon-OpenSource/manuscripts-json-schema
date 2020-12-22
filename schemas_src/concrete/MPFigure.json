@@ -33,7 +33,7 @@
           "type": "string"
         },
         "listingAttachment": { "$ref": "MPListingAttachmentReference.json#" },
-        "attachment": { "$ref": "MPExternalFile.json#" }
+        "externalFile": { "$ref": "MPExternalFile.json#" }
       },
       "required": []
     }
