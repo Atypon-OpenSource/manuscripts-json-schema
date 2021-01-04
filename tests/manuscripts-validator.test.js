@@ -3806,7 +3806,7 @@ test('MPSectionDescription', t => {
 });
 
 test('MPManuscriptTemplate', t => {
-  t.plan(12);
+  t.plan(13);
 
   const validObject = {
     _id: 'MPManuscriptTemplate:1',
@@ -3922,6 +3922,17 @@ test('MPManuscriptTemplate', t => {
     ),
     null,
     'valid maxFigurePixelsRequirement passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        maxManuscriptRunningTitleCharacterCountRequirement:
+          'MPMaximumRunningTitleCharacterCountRequirement:1',
+      })
+    ),
+    null,
+    'valid maxManuscriptRunningTitleCharacterCountRequirement passes'
   );
 });
 
@@ -4257,6 +4268,7 @@ test('Manuscript Requirements', t => {
     'MPMaximumManuscriptReferenceCountRequirement',
     'MPMaximumManuscriptTitleCharacterCountRequirement',
     'MPMaximumManuscriptTitleWordCountRequirement',
+    'MPMaximumRunningTitleCharacterCountRequirement',
     'MPMaximumManuscriptWordCountRequirement',
     'MPMinimumManuscriptPageCountRequirement',
     'MPMinimumManuscriptReferenceCountRequirement',

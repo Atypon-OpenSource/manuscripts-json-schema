@@ -1,0 +1,16 @@
+{
+  "$id": "MPMaximumRunningTitleCharacterCountRequirement.json",
+  "title": "MaximumRunningTitleCharacterCountRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMaximumRunningTitleCharacterCountRequirement"]
+        }
+      }
+    }
+  }
+}

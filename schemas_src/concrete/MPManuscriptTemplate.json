@@ -200,6 +200,9 @@
         "maxCorrespondingAuthorCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "maxManuscriptRunningTitleCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "notes": {
           "type": "string"
         },
