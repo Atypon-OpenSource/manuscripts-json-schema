@@ -1,6 +1,6 @@
 {
   "$id": "MPExternalFile.json",
-  "title": "MPExternalFile",
+  "title": "ExternalFile",
   "type": "object",
   "$mash": {
     "sources": [
