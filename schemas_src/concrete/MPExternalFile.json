@@ -27,6 +27,9 @@
         },
         "publicUrl": {
           "$ref": "strings.json#/definitions/uri"
+        },
+        "designation": {
+          "type": "string"
         }
       },
       "required": ["filename", "displayName", "MIME"]
