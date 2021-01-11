@@ -3946,7 +3946,7 @@ test('Manuscript validation results', t => {
     updatedAt: 0,
     severity: 0,
     passed: true,
-    fix: false,
+    fixable: false,
   };
   const sectionTitleValidationResult = {
     ...common,
@@ -3982,7 +3982,7 @@ test('Manuscript validation results', t => {
   t.equals(
     validate({
       ...sectionTitleValidationResult,
-      fix: undefined,
+      fixable: undefined,
     }),
     null,
     'MPSectionValidationResult without fix passes'
@@ -4107,7 +4107,7 @@ test('Manuscript validation results', t => {
     _id: 'MPBibliographyValidationResult:1',
     objectType: 'MPBibliographyValidationResult',
     type: 'bibliography-doi-format',
-    data: { id: 'MPCitation:1' },
+    affectedElementId: 'MPCitation:1',
   };
   t.equals(
     validate(bibliographyValidationResult),
@@ -4133,7 +4133,7 @@ test('Manuscript validation results', t => {
     _id: 'MPFigureImageValidationResult:1',
     objectType: 'MPFigureImageValidationResult',
     type: 'figure-contains-image',
-    data: { id: 'MPFigure:1' },
+    affectedElementId: 'MPFigure:1',
   };
   t.equals(
     validate(figureImageValidationResult),

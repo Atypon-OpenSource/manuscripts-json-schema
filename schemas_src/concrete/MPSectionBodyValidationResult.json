@@ -11,21 +11,15 @@
         },
         "type": {
           "type": "string",
-          "enum": [
-            "section-body-has-content"
-          ]
+          "enum": ["section-body-has-content"]
         },
         "data": {
           "type": "object",
           "properties": {
-            "id": {
-              "$ref": "strings.json#/definitions/_id"
-            },
             "sectionCategory": {
               "type": "string"
             }
-          },
-          "required": ["id"]
+          }
         }
       },
       "required": ["data"]

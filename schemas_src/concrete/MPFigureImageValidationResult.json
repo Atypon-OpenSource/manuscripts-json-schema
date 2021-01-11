@@ -14,18 +14,8 @@
           "enum": [
             "figure-contains-image"
           ]
-        },
-        "data": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "strings.json#/definitions/_id"
-            }
-          },
-          "required": ["id"]
         }
-      },
-      "required": ["data"]
+      }
     }
   }
 }

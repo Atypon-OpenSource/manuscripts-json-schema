@@ -12,18 +12,8 @@
         "type": {
           "type": "string",
           "enum": ["bibliography-doi-format", "bibliography-doi-exist"]
-        },
-        "data": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "strings.json#/definitions/_id"
-            }
-          },
-          "required": ["id"]
         }
-      },
-      "required": ["data"]
+      }
     }
   }
 }

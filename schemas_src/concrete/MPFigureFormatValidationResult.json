@@ -16,14 +16,11 @@
         "data": {
           "type": "object",
           "properties": {
-            "id": {
-              "$ref": "strings.json#/definitions/_id"
-            },
             "contentType": {
               "type": "string"
             }
           },
-          "required": ["id", "contentType"]
+          "required": ["contentType"]
         }
       },
       "required": ["data"]

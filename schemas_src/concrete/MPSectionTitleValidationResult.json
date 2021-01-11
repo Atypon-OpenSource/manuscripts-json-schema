@@ -19,17 +19,13 @@
         "data": {
           "type": "object",
           "properties": {
-            "id": {
-              "$ref": "strings.json#/definitions/_id"
-            },
             "sectionCategory": {
               "type": "string"
             },
             "title": {
               "type": "string"
             }
-          },
-          "required": ["id"]
+          }
         }
       },
       "required": ["data"]

@@ -46,9 +46,6 @@
             "value": {
               "type": "number"
             },
-            "id": {
-              "$ref": "strings.json#/definitions/_id"
-            },
             "sectionCategory": {
               "$ref": "strings.json#/definitions/_id"
             }

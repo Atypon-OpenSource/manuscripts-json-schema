@@ -13,23 +13,23 @@
           "type": "string",
           "enum": ["MPValidationResult"]
         },
-        "type": {
-          "type": "string"
-        },
         "passed": {
           "type": "boolean"
         },
         "severity": {
           "type": "number"
         },
-        "fix": {
+        "fixable": {
           "type": "boolean"
         },
         "message": {
           "type": "string"
+        },
+        "affectedElementId": {
+          "$ref": "strings.json#/definitions/_id"
         }
       },
-      "required": ["type", "passed", "severity"]
+      "required": ["passed", "severity"]
     }
   }
 }
