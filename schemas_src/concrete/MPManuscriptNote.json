@@ -2,9 +2,7 @@
   "$id": "MPManuscriptNote.json",
   "title": "ManuscriptNote",
   "$mash": {
-    "sources": [
-      {"$ref":  "concrete/MPCommentAnnotation.json#"}
-    ],
+    "sources": [{ "$ref": "concrete/MPCommentAnnotation.json#" }],
     "with": {
       "properties": {
         "objectType": {
@@ -13,6 +11,10 @@
         },
         "source": {
           "$ref": "enums.json#/definitions/NoteSource"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "For storing the user name when the comment was created outside of Manuscripts"
         },
         "additionalProperties": false
       },
