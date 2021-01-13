@@ -1,0 +1,70 @@
+{
+  "$id": "MPCommit.json",
+  "title": "Commit",
+  "type": "object",
+  "description": "Data needed to apply a particular Correction to a document. Must be in reference to a snapshot, and possibly other commits",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPCommit"]
+        },
+        "snapshotID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPSnapshot:"
+            }
+          ]
+        },
+        "correctionID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "MPCorrection:"
+            }
+          ]
+        },
+        "prev": {
+          "$ref": "MPCommit.json#"
+        },
+        "blame": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": { "type": "number" },
+              "to": { "type": "number" },
+              "commit": { "type": "string" }
+            }
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "stepType": { "type": "string" },
+              "from": { "type": "number" },
+              "to": { "type": "number" },
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    },
+    "required": ["createdAt", "correctionID", "snapshotID", "steps", "blame"]
+  }
+}

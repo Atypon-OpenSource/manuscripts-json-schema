@@ -5025,3 +5025,30 @@ test('external file', t => {
     'publicUrl has to correspond to uri string pattern'
   );
 });
+
+test('commit', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPCommit:test',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
+    objectType: 'MPCommit',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    snapshotID: 'MPSnapshot:foo',
+    correctionID: 'MPCorrection:duh',
+    blame: [],
+    steps: [],
+  };
+
+  t.equals(validate(validObject), null);
+
+  const invalidObject = {
+    ...validObject,
+    steps: ['astring'],
+  };
+
+  t.equals(validate(invalidObject), '.steps[0]: should be object');
+});

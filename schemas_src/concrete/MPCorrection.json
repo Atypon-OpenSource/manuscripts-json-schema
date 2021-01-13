@@ -1,0 +1,37 @@
+{
+  "$id": "MPCorrection.json",
+  "title": "Correction",
+  "description": "A record of a propsed correction to a Manuscript. The data to actually apply the change is stored in an MPCommit",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPCorrection"]
+        },
+        "userID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "MPUserProfile:"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["proposed", "accepted", "rejected"]
+        }
+      }
+    },
+    "required": ["userID"]
+  }
+}
