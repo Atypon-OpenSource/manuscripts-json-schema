@@ -17,22 +17,25 @@
           "type": "string"
         },
         "displayName": {
+          "description": "Pretty name for display purposes",
           "type": "string"
         },
         "MIME": {
           "type": "string"
         },
         "description": {
+          "description": "Text description that can be used as a caption source or play similar role.",
           "type": "string"
         },
         "publicUrl": {
           "$ref": "strings.json#/definitions/uri"
         },
         "designation": {
+          "description": "Describes file designation such as supplemental, figure or other.",
           "type": "string"
         }
       },
-      "required": ["filename", "displayName", "MIME"]
+      "required": ["filename", "MIME", "designation"]
     }
   }
 }
