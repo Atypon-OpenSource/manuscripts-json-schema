@@ -18,9 +18,15 @@
           "properties": {
             "contentType": {
               "type": "string"
+            },
+            "allowedImageTypes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
-          "required": ["contentType"]
+          "required": ["contentType", "allowedImageTypes"]
         }
       },
       "required": ["data"]

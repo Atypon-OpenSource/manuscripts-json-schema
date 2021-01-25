@@ -4081,7 +4081,7 @@ test('Manuscript validation results', t => {
     _id: 'MPFigureFormatValidationResult:1',
     objectType: 'MPFigureFormatValidationResult',
     type: 'figure-format-validation',
-    data: { id: 'MPFigure:1', contentType: 'test' },
+    data: { contentType: 'test', allowedImageTypes: ['jpg', 'png', 'tiff'] },
   };
   t.equals(
     validate(figureFormatValidationResult),
