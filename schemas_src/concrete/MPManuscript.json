@@ -225,6 +225,9 @@
         },
         "paywall": {
           "type": "boolean"
+        },
+        "authorInstructionsURL": {
+          "type": "string"
         }
       },
       "required": []
