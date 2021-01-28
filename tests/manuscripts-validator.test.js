@@ -5031,14 +5031,10 @@ test('commit', t => {
 
   const validObject = {
     _id: 'MPCommit:test',
-    createdAt: 21312312.1,
+    changeID: 'mycommitchanges',
     updatedAt: 23123123,
-    sessionID: 'weqq',
     objectType: 'MPCommit',
     containerID: 'MPProject:bar',
-    manuscriptID: 'MPManuscript:baz',
-    snapshotID: 'MPSnapshot:foo',
-    correctionID: 'MPCorrection:duh',
     blame: [],
     steps: [],
   };

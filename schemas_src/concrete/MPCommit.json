@@ -5,8 +5,7 @@
   "description": "Data needed to apply a particular Correction to a document. Must be in reference to a snapshot, and possibly other commits",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPModel.json#" },
-      { "$ref": "mixins/MPManuscriptDocument.json#" },
+      { "$ref": "abstract/MPBaseModel.json#" },
       { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
@@ -14,28 +13,6 @@
         "objectType": {
           "type": "string",
           "enum": ["MPCommit"]
-        },
-        "snapshotID": {
-          "allOf": [
-            {
-              "$ref": "strings.json#/definitions/_id"
-            },
-            {
-              "type": "string",
-              "pattern": "^MPSnapshot:"
-            }
-          ]
-        },
-        "correctionID": {
-          "allOf": [
-            {
-              "$ref": "strings.json#/definitions/_id"
-            },
-            {
-              "type": "string",
-              "pattern": "MPCorrection:"
-            }
-          ]
         },
         "prev": {
           "$ref": "MPCommit.json#"
@@ -48,7 +25,8 @@
               "from": { "type": "number" },
               "to": { "type": "number" },
               "commit": { "type": "string" }
-            }
+            },
+            "required": ["from", "to", "commit"]
           }
         },
         "steps": {
@@ -62,9 +40,17 @@
               "additionalProperties": true
             }
           }
+        },
+        "updatedAt": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "changeID": {
+          "type": "string",
+          "pattern": "[0-9a-zA-Z\\-]+",
+          "description": "A permanent identifier for the change, which is stable across rebases"
         }
-      }
-    },
-    "required": ["createdAt", "correctionID", "snapshotID", "steps", "blame"]
+      },
+      "required": ["steps", "blame", "updatedAt", "changeID"]
+    }
   }
 }

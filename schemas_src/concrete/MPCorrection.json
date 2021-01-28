@@ -15,23 +15,29 @@
           "type": "string",
           "enum": ["MPCorrection"]
         },
-        "userID": {
+        "status": {
+          "type": "string",
+          "enum": ["proposed", "accepted", "rejected"]
+        },
+        "snapshotID": {
           "allOf": [
             {
               "$ref": "strings.json#/definitions/_id"
             },
             {
               "type": "string",
-              "pattern": "MPUserProfile:"
+              "pattern": "^MPSnapshot:"
             }
           ]
         },
-        "status": {
-          "type": "string",
-          "enum": ["proposed", "accepted", "rejected"]
+        "commits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
-      }
-    },
-    "required": ["userID"]
+      },
+      "required": ["status", "snapshotID", "commits"]
+    }
   }
 }
