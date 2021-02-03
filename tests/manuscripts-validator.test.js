@@ -5009,6 +5009,8 @@ test('external file', t => {
     updatedAt: 1,
     createdAt: 1,
     containerID: 'MPProject:my-project',
+    manuscriptID: 'MPManuscript:my-manuscript',
+    sessionID: 'test',
     MIME:
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   };
