@@ -30,11 +30,10 @@
             }
           ]
         },
-        "commits": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "commitChangeID": {
+          "type": "string",
+          "pattern": "[0-9a-zA-Z\\-]+",
+          "description": "A permanent identifier for the change, which is stable across rebases"
         }
       },
       "required": ["status", "snapshotID", "commits"]
