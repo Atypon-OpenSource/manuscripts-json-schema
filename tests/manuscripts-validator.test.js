@@ -3947,6 +3947,7 @@ test('Manuscript validation results', t => {
     severity: 0,
     passed: true,
     fixable: false,
+    ignored: false,
   };
   const sectionTitleValidationResult = {
     ...common,

@@ -27,9 +27,12 @@
         },
         "affectedElementId": {
           "$ref": "strings.json#/definitions/_id"
+        },
+        "ignored": {
+          "type": "boolean"
         }
       },
-      "required": ["passed", "severity"]
+      "required": ["passed", "severity", "ignored"]
     }
   }
 }
