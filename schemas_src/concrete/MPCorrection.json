@@ -30,6 +30,10 @@
             }
           ]
         },
+        "snippet": {
+          "type": "string",
+          "description": "A plain text snippet of the text added/changed"
+        },
         "commitChangeID": {
           "type": "string",
           "pattern": "[0-9a-zA-Z\\-]+",
