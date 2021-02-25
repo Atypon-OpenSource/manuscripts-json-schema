@@ -34,6 +34,10 @@
         "designation": {
           "description": "Describes file designation such as supplemental, figure or other.",
           "type": "string"
+        },
+        "storeId": {
+          "description": "Describes an identifier (no specific format, maybe reversed url) for the external store where the external file originates from",
+          "type": "string"
         }
       },
       "required": ["filename", "MIME", "designation"]
