@@ -40,7 +40,7 @@
           "description": "A permanent identifier for the change, which is stable across rebases"
         }
       },
-      "required": ["status", "snapshotID", "commits"]
+      "required": ["status", "snapshotID", "commitChangeID"]
     }
   }
 }

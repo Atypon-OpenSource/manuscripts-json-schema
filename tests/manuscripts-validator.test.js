@@ -5051,3 +5051,32 @@ test('commit', t => {
 
   t.equals(validate(invalidObject), '.steps[0]: should be object');
 });
+
+test('correction', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPCorrection:valid-correction-id-1',
+    containerID: 'MPProject:valid-project-id-2',
+    manuscriptID: 'MPManuscript:valid-manuscript-id-1',
+    sessionID: 'test',
+    objectType: 'MPCorrection',
+    snapshotID: 'MPSnapshot:test-snap',
+    status: 'accepted',
+    updatedAt: 23123123,
+    createdAt: 23123123,
+    commitChangeID: 'some-identifier',
+  };
+
+  t.equals(validate(validObject), null);
+
+  const invalidObject = {
+    ...validObject,
+    snapshotID: 'test-snap',
+  };
+
+  t.equals(
+    validate(invalidObject),
+    '.snapshotID: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
+  );
+});
