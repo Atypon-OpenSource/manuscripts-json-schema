@@ -20,7 +20,22 @@
           "type": "string"
         },
         "listingAttachment": { "$ref": "MPListingAttachmentReference.json#" },
-        "externalFile": { "$ref": "MPExternalFile.json#" }
+        "externalFile": { "$ref": "MPExternalFile.json#" },
+        "externalFiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              "kind": {
+                "type": "string"
+              }
+            },
+            "required": ["_id", "kind"]
+          }
+        }
       },
       "required": ["contents"]
     }
