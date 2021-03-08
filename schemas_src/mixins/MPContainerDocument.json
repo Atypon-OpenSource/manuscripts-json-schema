@@ -21,6 +21,12 @@
         "$ref": "strings.json#/definitions/gatewayAccountID"
       }
     },
+    "annotators": {
+      "type": "array",
+      "items": {
+        "$ref": "strings.json#/definitions/gatewayAccountID"
+      }
+    },
     "viewers": {
       "type": "array",
       "items": {
