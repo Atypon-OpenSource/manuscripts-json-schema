@@ -30,9 +30,17 @@
             }
           ]
         },
-        "snippet": {
+        "positionInSnapshot": {
+          "type": "number",
+          "description": "The position in the snaphot/ancestor document where the change occurred."
+        },
+        "insertion": {
           "type": "string",
-          "description": "A plain text snippet of the text added/changed"
+          "description": "A plain text snippet of the text added"
+        },
+        "deletion": {
+          "type": "string",
+          "description": "A plain text snippet of the text removed"
         },
         "commitChangeID": {
           "type": "string",
