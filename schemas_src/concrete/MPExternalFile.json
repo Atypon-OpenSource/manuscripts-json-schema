@@ -40,7 +40,7 @@
           "type": "string"
         }
       },
-      "required": ["filename", "MIME", "designation"]
+      "required": ["filename", "MIME", "designation", "publicUrl"]
     }
   }
 }

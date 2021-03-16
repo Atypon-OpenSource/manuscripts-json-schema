@@ -5014,6 +5014,7 @@ test('external file', t => {
     sessionID: 'test',
     MIME:
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    publicUrl: 'https://www.someurl.com',
   };
 
   // valid object

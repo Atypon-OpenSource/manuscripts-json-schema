@@ -28,20 +28,19 @@
         "title": {
           "type": "string"
         },
-        "externalFile": { "$ref": "MPExternalFile.json#" },
-        "externalFiles": {
+        "externalFileReferences": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "_id": {
-                "$ref": "strings.json#/definitions/_id"
+              "url": {
+                "$ref": "strings.json#/definitions/uri"
               },
               "kind": {
-                "type": "string"
+                "$ref": "enums.json#/definitions/ExternalFileKind"
               }
             },
-            "required": ["_id", "kind"]
+            "required": ["url"]
           }
         }
       },

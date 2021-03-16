@@ -30,6 +30,10 @@
     "NoteSource": {
       "type": "string",
       "enum": ["EMAIL", "EDITOR", "DASHBOARD"]
+    },
+    "ExternalFileKind": {
+      "type": "string",
+      "enum": ["imageRepresentation", "interactiveRepresentation", "dataset"]
     }
   }
 }
