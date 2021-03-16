@@ -1,0 +1,22 @@
+{
+  "$id": "MPRequirementsValidation.json",
+  "title": "RequirementsValidation",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPRequirementsValidation"]
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "MPRequirementsValidationData.json#"
+          }
+        }
+      },
+      "required": ["results"]
+    }
+  }
+}

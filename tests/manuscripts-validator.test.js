@@ -5081,3 +5081,35 @@ test('correction', t => {
     '.snapshotID: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
   );
 });
+
+test('Requirements Validation', t => {
+  t.plan(1);
+
+  const validObject = {
+    _id: 'MPRequirementsValidation:D4F97FCC-2CD5-4D89-91DB-5833E4EB1C41',
+    objectType: 'MPRequirementsValidation',
+    updatedAt: 1,
+    createdAt: 1,
+    results: [
+      {
+        manuscriptID: 'MPManuscript:1001',
+        containerID: 'MPProject:B09F2B1A-BBD6-4AEA-9EAB-C471CB317EE3',
+        passed: false,
+        severity: 0,
+        objectType: 'MPSectionBodyValidationResult',
+        _id:
+          'MPSectionBodyValidationResult:EF2589B7-9F0E-4F58-929C-20740246498B',
+        affectedElementId: 'MPSection:BBBA3AB0-5892-4F07-BCC9-DA69C5205DCA',
+        message: 'Competing Interests section must contains content',
+      },
+    ],
+  };
+
+  const { results, ...invalidObject } = Object.assign({}, validObject);
+
+  t.equals(
+    validate(invalidObject),
+    "should have required property 'results'",
+    'results is required'
+  );
+});
