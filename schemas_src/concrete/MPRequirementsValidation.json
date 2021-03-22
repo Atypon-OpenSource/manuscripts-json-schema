@@ -2,7 +2,10 @@
   "$id": "MPRequirementsValidation.json",
   "title": "RequirementsValidation",
   "$mash": {
-    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
     "with": {
       "properties": {
         "objectType": {

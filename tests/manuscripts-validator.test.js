@@ -5087,9 +5087,11 @@ test('Requirements Validation', t => {
 
   const validObject = {
     _id: 'MPRequirementsValidation:D4F97FCC-2CD5-4D89-91DB-5833E4EB1C41',
+    manuscriptID: 'MPManuscript:311BF2B2-F22E-4A04-8EE8-AA9F5F23C03B',
     objectType: 'MPRequirementsValidation',
     updatedAt: 1,
     createdAt: 1,
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
     results: [
       {
         manuscriptID: 'MPManuscript:1001',
