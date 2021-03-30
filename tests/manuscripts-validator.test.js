@@ -1553,6 +1553,7 @@ test('library collection', t => {
     name: 'Very awesome name',
     containerID: 'MPLibrary:6AF4C325-ACCE-4930-B41A-92A783B46586',
     owners: ['User_foobar@baz.com'],
+    inherited: [],
     writers: [],
     editors: [],
     viewers: [],

@@ -24,6 +24,12 @@
               "pattern": "^MPLibraryCollectionCategory:"
             }
           ]
+        },
+        "inherited": {
+            "type": "array",
+            "items": {
+              "$ref": "strings.json#/definitions/gatewayAccountID"
+            }
         }
       },
       "required": []
