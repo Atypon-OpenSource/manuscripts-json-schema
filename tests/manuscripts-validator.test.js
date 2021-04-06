@@ -4192,6 +4192,7 @@ test('MPSnapshot', t => {
     creator: 'stephencongly@gmail.com',
     s3Id: 'idforgettingarchivefromglacier',
     proof: ['random#string*of/characters'],
+    containerID: 'MPProject:my-project',
     name: 'My Snapshot',
   };
 
