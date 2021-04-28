@@ -5039,6 +5039,7 @@ test('commit', t => {
     _id: 'MPCommit:test',
     changeID: 'mycommitchanges',
     updatedAt: 23123123,
+    createdAt: 23123123,
     objectType: 'MPCommit',
     containerID: 'MPProject:bar',
     blame: [],

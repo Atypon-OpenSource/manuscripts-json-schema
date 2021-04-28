@@ -5,7 +5,7 @@
   "description": "Data needed to apply a particular Correction to a document. Must be in reference to a snapshot, and possibly other commits",
   "$mash": {
     "sources": [
-      { "$ref": "abstract/MPBaseModel.json#" },
+      { "$ref": "abstract/MPModel.json#" },
       { "$ref": "mixins/MPContainedDocument.json#" }
     ],
     "with": {
@@ -41,16 +41,13 @@
             }
           }
         },
-        "updatedAt": {
-          "$ref": "numbers.json#/definitions/timestamp"
-        },
         "changeID": {
           "type": "string",
           "pattern": "[0-9a-zA-Z\\-]+",
           "description": "A permanent identifier for the change, which is stable across rebases"
         }
       },
-      "required": ["steps", "blame", "updatedAt", "changeID"]
+      "required": ["steps", "blame", "changeID"]
     }
   }
 }
