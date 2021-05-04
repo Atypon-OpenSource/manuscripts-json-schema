@@ -1,0 +1,80 @@
+{
+  "$id": "MPJournal.json",
+  "title": "Journal",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      {
+        "$ref": "abstract/MPModel.json#"
+      },
+      {
+        "$ref": "mixins/MPContainedDocument.json#"
+      },
+      {
+        "$ref": "mixins/MPManuscriptDocument.json#"
+      }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPJournal"]
+        },
+        "ISSNs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ISSN": {
+                "type": "string"
+              },
+              "publicationType": {
+                "type": "string"
+              }
+            },
+            "required": ["ISSN"]
+          }
+        },
+        "abbreviatedTitles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "abbreviatedTitle": {
+                "type": "string"
+              },
+              "abbrevType": {
+                "type": "string"
+              }
+            },
+            "required": ["abbreviatedTitle"]
+          }
+        },
+        "journalIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "journalID": {
+                "type": "string"
+              },
+              "journalIDType": {
+                "type": "string"
+              }
+            },
+            "required": ["journalID"]
+          }
+        },
+        "submittable": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "publisherName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

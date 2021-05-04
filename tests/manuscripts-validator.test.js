@@ -5118,3 +5118,40 @@ test('Requirements Validation', t => {
     'results is required'
   );
 });
+
+test('Journal metadata', t => {
+  t.plan(4);
+
+  const validObject = {
+    _id: 'MPJournal:1',
+    manuscriptID: 'MPManuscript:311BF2B2-F22E-4A04-8EE8-AA9F5F23C03B',
+    containerID: 'MPProject:1',
+    objectType: 'MPJournal',
+    updatedAt: 1,
+    createdAt: 1,
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    ISSNs: [{ ISSN: '123/45', publicationType: 'print' }],
+    abbreviatedTitles: [{ abbreviatedTitle: 'title', abbrevType: 'publisher' }],
+    journalIdentifiers: [{ journalID: 'Some id', journalIDType: 'pmc' }],
+    title: 'journal title',
+    publisherName: 'publisher',
+    submittable: false,
+  };
+
+  t.equals(validate(validObject), null);
+
+  t.equals(
+    validate(Object.assign({}, validObject, { publisherName: 15 })),
+    '.publisherName: should be string'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { submittable: 'test' })),
+    '.submittable: should be boolean'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { ISSNs: [{}] })),
+    ".ISSNs[0]: should have required property 'ISSN'"
+  );
+});
