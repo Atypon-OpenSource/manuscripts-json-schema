@@ -5155,3 +5155,27 @@ test('Journal metadata', t => {
     ".ISSNs[0]: should have required property 'ISSN'"
   );
 });
+
+test('Keyword group', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPKeywordGroup:1',
+    manuscriptID: 'MPManuscript:311BF2B2-F22E-4A04-8EE8-AA9F5F23C03B',
+    containerID: 'MPProject:1',
+    objectType: 'MPKeywordGroup',
+    updatedAt: 1,
+    createdAt: 1,
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    title: 'keyword title',
+    label: 'label',
+    type: 'author',
+  };
+
+  t.equals(validate(validObject), null);
+
+  t.equals(
+    validate(Object.assign({}, validObject, { title: 15 })),
+    '.title: should be string'
+  );
+});

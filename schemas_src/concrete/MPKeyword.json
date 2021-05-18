@@ -24,6 +24,10 @@
         },
         "color": {
           "$ref": "strings.json#/definitions/_id"
+        },
+        "containedGroup": {
+          "type": "string",
+          "pattern": "^MPKeywordGroup:[0-9a-zA-Z\\-]+"
         }
       },
       "required": ["name"]
