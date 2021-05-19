@@ -3938,7 +3938,7 @@ test('MPManuscriptTemplate', t => {
 });
 
 test('Manuscript validation results', t => {
-  t.plan(16);
+  t.plan(17);
   const common = {
     containerID: 'MPProject:test',
     manuscriptID: 'MPManuscript:test',
@@ -4129,6 +4129,15 @@ test('Manuscript validation results', t => {
     null,
     'Valid MPKeywordsOrderValidationResult passes'
   );
+
+  const figureResolution = {
+    ...common,
+    _id: 'MPFigureResolution:1',
+    objectType: 'MPFigureResolution',
+    type: 'figure-minimum-width-resolution',
+    data: { count: 10, value: 20, dpi: 10 },
+  };
+  t.equals(validate(figureResolution), null, 'Valid MPFigureResolution passes');
 
   const figureImageValidationResult = {
     ...common,

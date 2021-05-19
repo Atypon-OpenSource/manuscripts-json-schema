@@ -1,0 +1,44 @@
+{
+  "$id": "MPFigureResolution.json",
+  "title": "FigureResolution",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPValidationResult.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPFigureResolution"]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "figure-minimum-width-resolution",
+            "figure-minimum-height-resolution",
+            "figure-maximum-width-resolution",
+            "figure-maximum-height-resolution"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "value": {
+              "type": "number"
+            },
+            "sectionCategory": {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            "dpi": {
+              "type": "number"
+            }
+          },
+          "required": ["count", "value"]
+        }
+      },
+      "required": ["data"]
+    }
+  }
+}
