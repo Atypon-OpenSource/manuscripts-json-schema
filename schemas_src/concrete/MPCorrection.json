@@ -16,8 +16,26 @@
           "enum": ["MPCorrection"]
         },
         "status": {
-          "type": "string",
-          "enum": ["proposed", "accepted", "rejected"]
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "enum": ["proposed", "accepted", "rejected"]
+            },
+            "editorProfileID": {
+              "allOf": [
+                {
+                  "$ref": "strings.json#/definitions/_id"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^MPUserProfile:"
+                }
+              ]
+            }
+          },
+          "required": ["label", "editorProfileID"],
+          "additionalProperties": false
         },
         "snapshotID": {
           "allOf": [

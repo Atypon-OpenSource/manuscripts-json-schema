@@ -5075,7 +5075,7 @@ test('correction', t => {
     sessionID: 'test',
     objectType: 'MPCorrection',
     snapshotID: 'MPSnapshot:test-snap',
-    status: 'accepted',
+    status: { label: 'accepted', editorProfileID: 'MPUserProfile:id' },
     updatedAt: 23123123,
     createdAt: 23123123,
     commitChangeID: 'some-identifier',
