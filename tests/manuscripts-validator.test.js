@@ -2950,7 +2950,7 @@ test('figure', t => {
 });
 
 test('auxiliary object reference', t => {
-  t.plan(1);
+  t.plan(2);
 
   const validObject = {
     _id: 'MPAuxiliaryObjectReference:231123-1233123-12331312',
@@ -2965,6 +2965,23 @@ test('auxiliary object reference', t => {
 
   t.equals(
     validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  const validObjectWithMultipleReferences = {
+    _id: 'MPAuxiliaryObjectReference:231123-1233123-12331312',
+    objectType: 'MPAuxiliaryObjectReference',
+    containingObject: 'MPProject:foo-bar-baz',
+    referencedObjects: ['MPFigure:test1', 'MPFigure:test2'],
+    auxiliaryObjectReferenceStyle: 'MPAffiliation:foo-bar',
+    containerID: 'MPProject:123123',
+    createdAt: 123123123,
+    updatedAt: 123123123,
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObjectWithMultipleReferences)),
     null,
     'valid object passes'
   );
