@@ -71,6 +71,36 @@
         "figureNumberingScheme": {
           "type": "string"
         },
+        "figureCount": {
+          "type": "number"
+        },
+        "tableCount": {
+          "type": "number"
+        },
+        "equationCount": {
+          "type": "number"
+        },
+        "referencesCount": {
+          "type": "number"
+        },
+        "wordCount": {
+          "type": "number"
+        },
+        "genericCounts": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "countType": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              }
+            },
+            "required": ["countType", "count"]
+          }
+        },
         "publicationDate": {
           "$ref": "numbers.json#/definitions/timestamp"
         },

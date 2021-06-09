@@ -5205,3 +5205,44 @@ test('Keyword group', t => {
     '.title: should be string'
   );
 });
+
+test('Manuscript counts', t => {
+  t.plan(3);
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      wordCount: 10,
+    }),
+    null,
+    'integer wordCount passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      tableCount: 10,
+    }),
+    null,
+    'integer tableCount passes'
+  );
+
+  t.equals(
+    validate({
+      _id: 'MPManuscript:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPManuscript',
+      containerID: 'MPProject:bar',
+      tableCount: '10',
+    }),
+    '.tableCount: should be number'
+  );
+});
