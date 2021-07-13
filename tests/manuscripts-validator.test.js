@@ -2335,7 +2335,7 @@ test('list element', t => {
 });
 
 test('table element', t => {
-  t.plan(10);
+  t.plan(12);
 
   const validObject = {
     updatedAt: 1454537867.959872,
@@ -2376,9 +2376,21 @@ test('table element', t => {
   );
 
   t.equals(
+    validate(Object.assign({}, validObject, { title: 'caption title' })),
+    null,
+    'valid caption title passes'
+  );
+
+  t.equals(
     validate(Object.assign({}, validObject, { suppressCaption: true })),
     null,
     'valid suppressCaption passes'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { suppressTitle: true })),
+    null,
+    'valid suppressTitle passes'
   );
 
   t.equals(

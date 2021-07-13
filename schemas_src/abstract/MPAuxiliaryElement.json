@@ -14,11 +14,17 @@
         "caption": {
           "type": "string"
         },
+        "title": {
+          "type": "string"
+        },
         "objectType": {
           "type": "string",
           "enum": ["MPAuxiliaryElement"]
         },
         "suppressCaption": {
+          "type": "boolean"
+        },
+        "suppressTitle": {
           "type": "boolean"
         },
         "enclosedSeparately": {
