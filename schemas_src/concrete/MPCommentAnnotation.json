@@ -47,6 +47,20 @@
         },
         "resolved": {
           "type": "boolean"
+        },
+        "readBy": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^MPUserProfile:"
+              }
+            ]
+          }
         }
       },
       "required": ["contents", "target"]
