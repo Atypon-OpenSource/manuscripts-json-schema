@@ -5129,6 +5129,7 @@ test('Requirements Validation', t => {
   const validObject = {
     _id: 'MPRequirementsValidation:D4F97FCC-2CD5-4D89-91DB-5833E4EB1C41',
     manuscriptID: 'MPManuscript:311BF2B2-F22E-4A04-8EE8-AA9F5F23C03B',
+    containerID: 'MPProject:nevermore',
     objectType: 'MPRequirementsValidation',
     updatedAt: 1,
     createdAt: 1,
