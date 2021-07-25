@@ -46,7 +46,7 @@ test('library', t => {
 });
 
 test('bibliography item', t => {
-  t.plan(10);
+  t.plan(11);
 
   const validObject = {
     _id: 'MPBibliographyItem:231123-1233123-12331312',
@@ -127,6 +127,12 @@ test('bibliography item', t => {
     ),
     null,
     'valid originalProperties object with any properties should pass'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { literal: 'foo' })),
+    null,
+    'valid object passes'
   );
 });
 

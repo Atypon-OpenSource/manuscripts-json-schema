@@ -350,6 +350,9 @@
         },
         "originalProperties": {
           "type": "object"
+        },
+        "literal": {
+          "type": "string"
         }
       },
       "required": ["type"]
