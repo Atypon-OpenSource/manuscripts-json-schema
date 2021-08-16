@@ -107,6 +107,21 @@
         "acceptanceDate": {
           "$ref": "numbers.json#/definitions/timestamp"
         },
+        "correctionDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "retractionDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "revisionRequestDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "revisionReceiveDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "receiveDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
         "volume": {
           "type": "integer"
         },

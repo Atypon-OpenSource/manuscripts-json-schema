@@ -5225,6 +5225,30 @@ test('Keyword group', t => {
   );
 });
 
+test('Validate manuscript history', t => {
+  t.plan(3);
+  const validObject = {
+    _id: 'MPManuscript:foo',
+    createdAt: 12312312.1,
+    updatedAt: 12312312.1,
+    objectType: 'MPManuscript',
+    containerID: 'MPProject:bar',
+    revisionReceiveDate: 2000000,
+    receiveDate: 20000000,
+    retractionDate: 2000000,
+  };
+  t.equals(validate(validObject), null);
+
+  t.equals(
+    validate(Object.assign({}, validObject, { revisionReceiveDate: '4878' })),
+    '.revisionReceiveDate: should be number'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { receiveDate: false })),
+    '.receiveDate: should be number'
+  );
+});
 test('Manuscript counts', t => {
   t.plan(3);
   t.equals(
