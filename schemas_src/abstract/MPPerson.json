@@ -49,6 +49,15 @@
           },
           "additionalItems": false
         },
+        "footnote": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "strings.json#/definitions/_id"
+            }
+          }
+        },
         "grants": {
           "type": "array",
           "items": {
