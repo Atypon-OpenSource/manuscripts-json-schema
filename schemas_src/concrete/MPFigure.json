@@ -47,6 +47,14 @@
             },
             "required": ["url"]
           }
+        },
+        "containedObjectIDs": {
+          "type": "array",
+          "description": "The IDs of the paragraphs contained within a figure",
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          },
+          "additionalItems": false
         }
       },
       "required": []
