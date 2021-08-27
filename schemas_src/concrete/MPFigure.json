@@ -32,6 +32,10 @@
         "title": {
           "type": "string"
         },
+        "missingImage": {
+          "description": "Indicate if the figure contains a missing image",
+          "type": "boolean"
+        },
         "listingAttachment": { "$ref": "MPListingAttachmentReference.json#" },
         "externalFileReferences": {
           "type": "array",

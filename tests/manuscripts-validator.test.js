@@ -2922,7 +2922,7 @@ test('table', t => {
 });
 
 test('figure', t => {
-  t.plan(3);
+  t.plan(4);
 
   const validObject = {
     _id: 'MPFigure:foo',
@@ -2933,6 +2933,7 @@ test('figure', t => {
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
     contentType: 'bar',
+    missingImage: false,
   };
 
   t.equals(
@@ -2964,6 +2965,11 @@ test('figure', t => {
     validate(Object.assign({}, validObjectWithListingAttachment)),
     null,
     'Figure is valid with "listingAttachment"'
+  );
+
+  t.equals(
+    validate(Object.assign({}, validObject, { missingImage: 'foo' })),
+    '.missingImage: should be boolean'
   );
 });
 
