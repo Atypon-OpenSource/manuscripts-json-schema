@@ -12,7 +12,14 @@
     "department": { "type": "string" },
     "institution": { "type": "string" },
     "postCode": { "type": "string" },
-    "priority": { "type": "number" }
+    "priority": { "type": "number" },
+    "email": {
+      "type": "object",
+      "properties": {
+        "href": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    }
   },
   "required": ["priority"]
 }
