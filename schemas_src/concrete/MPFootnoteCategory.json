@@ -1,0 +1,27 @@
+{
+  "$id": "MPFootnoteCategory.json",
+  "title": "Footnote Category",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPFootnoteCategory"]
+        }
+      },
+      "required": ["name", "desc"]
+    }
+  }
+}

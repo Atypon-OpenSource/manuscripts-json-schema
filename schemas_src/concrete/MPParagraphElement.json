@@ -23,6 +23,9 @@
               "pattern": "^MPParagraphStyle:"
             }
           ]
+        },
+        "contentType": {
+          "type": "string"
         }
       },
       "required": []

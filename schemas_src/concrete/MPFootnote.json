@@ -21,6 +21,17 @@
         "kind": {
           "type": "string",
           "enum": ["footnote", "endnote"]
+        },
+        "category": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPFootnoteCategory:"
+            }
+          ]
         }
       },
       "required": ["contents", "kind"]
