@@ -52,10 +52,16 @@
         "footnote": {
           "type": "array",
           "items": {
-            "type": "array",
-            "items": {
-              "$ref": "strings.json#/definitions/_id"
-            }
+            "type": "object",
+            "properties": {
+              "noteLabel": {
+                "type": "string"
+              },
+              "noteID": {
+                "$ref": "strings.json#/definitions/_id"
+              }
+            },
+            "required": ["noteLabel", "noteID"]
           }
         },
         "grants": {
