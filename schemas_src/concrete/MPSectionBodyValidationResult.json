@@ -18,6 +18,9 @@
           "properties": {
             "sectionCategory": {
               "type": "string"
+            },
+            "sectionTitle": {
+              "type": "string"
             }
           }
         }
