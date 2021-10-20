@@ -95,6 +95,9 @@
         },
         "minWordCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
+        },
+        "generatedLabel": {
+          "type": "boolean"
         }
       },
       "required": ["path", "priority"]
