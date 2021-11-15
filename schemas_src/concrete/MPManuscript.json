@@ -273,6 +273,9 @@
         },
         "authorInstructionsURL": {
           "type": "string"
+        },
+        "articleType": {
+          "type": "string"
         }
       },
       "required": []
