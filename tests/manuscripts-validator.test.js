@@ -2838,6 +2838,33 @@ test('footnote', t => {
   );
 });
 
+test('corresp', t => {
+  t.plan(2);
+
+  const validObject = {
+    _id: 'MPCorresponding:foo',
+    createdAt: 21312312.1,
+    updatedAt: 23123123,
+    sessionID: 'weqq',
+    objectType: 'MPCorresponding',
+    containerID: 'MPProject:bar',
+    manuscriptID: 'MPManuscript:baz',
+    contents: 'foo',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid corresp passes'
+  );
+
+  t.equals(
+    validate({ ...validObject, contents: undefined }),
+    "should have required property 'contents'",
+    'contents property is required'
+  );
+});
+
 test('listing', t => {
   t.plan(3);
 

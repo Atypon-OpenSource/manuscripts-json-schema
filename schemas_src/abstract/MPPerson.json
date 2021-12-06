@@ -64,6 +64,21 @@
             "required": ["noteLabel", "noteID"]
           }
         },
+        "corresp": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "correspLabel": {
+                "type": "string"
+              },
+              "correspID": {
+                "$ref": "strings.json#/definitions/_id"
+              }
+            },
+            "required": ["correspLabel", "correspID"]
+          }
+        },
         "grants": {
           "type": "array",
           "items": {

@@ -1,0 +1,28 @@
+{
+  "$id": "MPCorresponding.json",
+  "title": "Corresponding",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPReference.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" },
+      { "$ref": "mixins/MPHighlightable.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPCorresponding"]
+        },
+        "contents": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": ["contents"]
+    }
+  }
+}
