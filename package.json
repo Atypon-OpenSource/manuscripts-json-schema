@@ -24,7 +24,8 @@
     "pretest:ci": "npm run build",
     "test": "scripts/test.sh",
     "test:ci": "scripts/test-ci.sh",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "docs": "npm run build && npx docson -d ./schemas/"
   },
   "sideEffects": false,
   "license": "Apache-2.0",
@@ -34,7 +35,6 @@
     "@types/node": "^11.11.3",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "@typescript-eslint/parser": "^1.4.2",
-    "doca": "^0.4.0",
     "eslint": "^5.15.2",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -50,7 +50,8 @@
     "tap-dot": "^2.0.0",
     "tap-junit": "^3.1.0",
     "tape": "^4.10.1",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "docson": "^2.1.0"
   },
   "dependencies": {
     "ajv": "^6.10.0",
