@@ -1,0 +1,36 @@
+{
+  "$id": "MPFootnotesOrder.json",
+  "title": "FootnotesOrder",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "footnotesOrder": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "footnoteID": {
+                "type": "string"
+              },
+              "index": {
+                "type": "number"
+              }
+            },
+            "required": ["footnoteID", "orderNumber"]
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPFootnotesOrder"]
+        }
+      },
+      "required": ["footnotesOrder"]
+    }
+  }
+}
