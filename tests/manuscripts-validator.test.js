@@ -2879,6 +2879,12 @@ test('listing', t => {
     contents: 'foo',
     language: 'teascript',
     languageKey: 'obj-t',
+    externalFileReferences: [
+      {
+        url: 'attachment:de864936-d319-4705-8278-6b0be53a70cc',
+        kind: 'imageRepresentation',
+      },
+    ],
   };
 
   t.equals(
