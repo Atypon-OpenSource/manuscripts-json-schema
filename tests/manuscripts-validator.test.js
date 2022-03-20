@@ -2311,6 +2311,57 @@ test('figure element', t => {
   );
 });
 
+test('footnotes order', t => {
+  t.plan(3);
+
+  const validObject = {
+    objectType: 'MPFootnotesOrder',
+    _id: 'MPFootnotesOrder:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+    footnotesList: [
+      {
+        id: 'MPFootnote:B659C104-C20B-4571-B597-84A6AF85D2BC',
+        index: 0,
+      },
+    ],
+    manuscriptID: 'MPManuscript:zorb',
+    containerID: 'MPProject:potato',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        footnotesList: [
+          {
+            id: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+            index: 0,
+          },
+        ],
+      })
+    ),
+    '.footnotesList[0].id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'footnotesList.id should contain a footnote ID'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.footnotesList;
+
+  t.equals(
+    validate(invalidObject),
+    "should have required property 'footnotesList'",
+    'footnotesList required'
+  );
+});
+
 test('list element', t => {
   t.plan(2);
 

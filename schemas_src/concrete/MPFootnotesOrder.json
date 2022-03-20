@@ -10,19 +10,19 @@
     ],
     "with": {
       "properties": {
-        "footnotesOrder": {
+        "footnotesList": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "footnoteID": {
-                "type": "string"
+              "id": {
+                "$ref": "strings.json#/definitions/_id"
               },
               "index": {
                 "type": "number"
               }
             },
-            "required": ["footnoteID", "orderNumber"]
+            "required": ["id", "index"]
           }
         },
         "objectType": {
@@ -30,7 +30,7 @@
           "enum": ["MPFootnotesOrder"]
         }
       },
-      "required": ["footnotesOrder"]
+      "required": ["footnotesList"]
     }
   }
 }
