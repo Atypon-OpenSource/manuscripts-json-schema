@@ -33,6 +33,10 @@
     "attachmentID": {
       "type": "string",
       "pattern": "^(attachment):[0-9a-zA-Z\\-]+"
+    },
+    "orderElementsType": {
+      "type": "string",
+      "pattern": "(MPElementsOrder):(figure|table|listing|equation)"
     }
   }
 }

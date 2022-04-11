@@ -3095,6 +3095,83 @@ test('auxiliary object reference', t => {
   );
 });
 
+test('auxiliary object elements order', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPElementsOrder:figure',
+    elementType: 'MPFigureElement',
+    elements: ['MPFigureElement:test1', 'MPFigureElement:test2'],
+    containerID: 'MPProject:test',
+    manuscriptID: 'MPManuscript:test',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 123123123,
+    updatedAt: 123123123,
+    objectType: 'MPElementsOrder',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          _id: 'MPElementsOrder:table',
+          elementType: 'MPTableElement',
+          elements: ['MPTableElement:test1', 'MPTableElement:test2'],
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          _id: 'MPElementsOrder:equation',
+          elementType: 'MPEquationElement',
+          elements: ['MPEquationElement:test1', 'MPEquationElement:test2'],
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          _id: 'MPElementsOrder:listing',
+          elementType: 'MPListingElement',
+          elements: ['MPListingElement:test1', 'MPListingElement:test2'],
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid object passes'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.elements;
+
+  t.equals(
+    validate(Object.assign({}, invalidObject)),
+    "should have required property 'elements'",
+    'fails if elements is missing'
+  );
+});
+
 test('inline math fragment', t => {
   t.plan(6);
 
