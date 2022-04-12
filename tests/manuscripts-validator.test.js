@@ -3099,7 +3099,7 @@ test('auxiliary object elements order', t => {
   t.plan(5);
 
   const validObject = {
-    _id: 'MPElementsOrder:figure',
+    _id: 'MPElementsOrder:1',
     elementType: 'MPFigureElement',
     elements: ['MPFigureElement:test1', 'MPFigureElement:test2'],
     containerID: 'MPProject:test',
@@ -3120,7 +3120,7 @@ test('auxiliary object elements order', t => {
     validate(
       Object.assign(
         {
-          _id: 'MPElementsOrder:table',
+          _id: 'MPElementsOrder:2',
           elementType: 'MPTableElement',
           elements: ['MPTableElement:test1', 'MPTableElement:test2'],
         },
@@ -3135,7 +3135,7 @@ test('auxiliary object elements order', t => {
     validate(
       Object.assign(
         {
-          _id: 'MPElementsOrder:equation',
+          _id: 'MPElementsOrder:3',
           elementType: 'MPEquationElement',
           elements: ['MPEquationElement:test1', 'MPEquationElement:test2'],
         },
@@ -3150,7 +3150,7 @@ test('auxiliary object elements order', t => {
     validate(
       Object.assign(
         {
-          _id: 'MPElementsOrder:listing',
+          _id: 'MPElementsOrder:4',
           elementType: 'MPListingElement',
           elements: ['MPListingElement:test1', 'MPListingElement:test2'],
         },

@@ -10,9 +10,6 @@
     ],
     "with": {
       "properties": {
-        "_id": {
-          "$ref": "strings.json#/definitions/orderElementsType"
-        },
         "elementType": {
           "type": "string",
           "enum": ["MPFigureElement","MPTableElement","MPListingElement","MPEquationElement"]
