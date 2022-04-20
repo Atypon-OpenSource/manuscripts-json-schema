@@ -5213,36 +5213,6 @@ test('manuscript note', t => {
   );
 });
 
-test('external file', t => {
-  t.plan(2);
-  const validObject = {
-    _id: 'MPExternalFile:test',
-    filename: 'supplemental-file.docx',
-    objectType: 'MPExternalFile',
-    designation: 'supplemental',
-    updatedAt: 1,
-    createdAt: 1,
-    containerID: 'MPProject:my-project',
-    manuscriptID: 'MPManuscript:my-manuscript',
-    sessionID: 'test',
-    MIME:
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    publicUrl: 'https://www.someurl.com',
-  };
-
-  // valid object
-  t.equals(validate(validObject), null);
-
-  t.equals(
-    validate({
-      ...validObject,
-      publicUrl: 'manuscripts com',
-    }),
-    '.publicUrl: should match pattern "(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"',
-    'publicUrl has to correspond to uri string pattern'
-  );
-});
-
 test('commit', t => {
   t.plan(2);
 
