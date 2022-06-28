@@ -34,7 +34,7 @@
             "type": "object",
             "properties": {
               "url": {
-                "$ref": "strings.json#/definitions/uri"
+                "$ref": "strings.json#/definitions/attachmentID"
               },
               "kind": {
                 "$ref": "enums.json#/definitions/ExternalFileKind"

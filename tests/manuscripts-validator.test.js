@@ -2311,6 +2311,57 @@ test('figure element', t => {
   );
 });
 
+test('footnotes order', t => {
+  t.plan(3);
+
+  const validObject = {
+    objectType: 'MPFootnotesOrder',
+    _id: 'MPFootnotesOrder:E3391685EDA9',
+    sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+    createdAt: 1454394584,
+    updatedAt: 1454537867.959872,
+    footnotesList: [
+      {
+        id: 'MPFootnote:B659C104-C20B-4571-B597-84A6AF85D2BC',
+        index: 0,
+      },
+    ],
+    manuscriptID: 'MPManuscript:zorb',
+    containerID: 'MPProject:potato',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        footnotesList: [
+          {
+            id: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
+            index: 0,
+          },
+        ],
+      })
+    ),
+    '.footnotesList[0].id: should match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"',
+    'footnotesList.id should contain a footnote ID'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.footnotesList;
+
+  t.equals(
+    validate(invalidObject),
+    "should have required property 'footnotesList'",
+    'footnotesList required'
+  );
+});
+
 test('list element', t => {
   t.plan(2);
 
@@ -2879,6 +2930,12 @@ test('listing', t => {
     contents: 'foo',
     language: 'teascript',
     languageKey: 'obj-t',
+    externalFileReferences: [
+      {
+        url: 'attachment:de864936-d319-4705-8278-6b0be53a70cc',
+        kind: 'imageRepresentation',
+      },
+    ],
   };
 
   t.equals(
@@ -3035,6 +3092,83 @@ test('auxiliary object reference', t => {
     validate(Object.assign({}, validObjectWithMultipleReferences)),
     null,
     'valid object passes'
+  );
+});
+
+test('auxiliary object elements order', t => {
+  t.plan(5);
+
+  const validObject = {
+    _id: 'MPElementsOrder:1',
+    elementType: 'MPFigureElement',
+    elements: ['MPFigureElement:test1', 'MPFigureElement:test2'],
+    containerID: 'MPProject:test',
+    manuscriptID: 'MPManuscript:test',
+    sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
+    createdAt: 123123123,
+    updatedAt: 123123123,
+    objectType: 'MPElementsOrder',
+  };
+
+  t.equals(
+    validate(Object.assign({}, validObject)),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          _id: 'MPElementsOrder:2',
+          elementType: 'MPTableElement',
+          elements: ['MPTableElement:test1', 'MPTableElement:test2'],
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          _id: 'MPElementsOrder:3',
+          elementType: 'MPEquationElement',
+          elements: ['MPEquationElement:test1', 'MPEquationElement:test2'],
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid object passes'
+  );
+
+  t.equals(
+    validate(
+      Object.assign(
+        {
+          _id: 'MPElementsOrder:4',
+          elementType: 'MPListingElement',
+          elements: ['MPListingElement:test1', 'MPListingElement:test2'],
+        },
+        validObject
+      )
+    ),
+    null,
+    'valid object passes'
+  );
+
+  const invalidObject = Object.assign({}, validObject);
+
+  delete invalidObject.elements;
+
+  t.equals(
+    validate(Object.assign({}, invalidObject)),
+    "should have required property 'elements'",
+    'fails if elements is missing'
   );
 });
 
@@ -5076,36 +5210,6 @@ test('manuscript note', t => {
     validate(invalidObject),
     "should have required property 'contents'",
     'contents is required'
-  );
-});
-
-test('external file', t => {
-  t.plan(2);
-  const validObject = {
-    _id: 'MPExternalFile:test',
-    filename: 'supplemental-file.docx',
-    objectType: 'MPExternalFile',
-    designation: 'supplemental',
-    updatedAt: 1,
-    createdAt: 1,
-    containerID: 'MPProject:my-project',
-    manuscriptID: 'MPManuscript:my-manuscript',
-    sessionID: 'test',
-    MIME:
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    publicUrl: 'https://www.someurl.com',
-  };
-
-  // valid object
-  t.equals(validate(validObject), null);
-
-  t.equals(
-    validate({
-      ...validObject,
-      publicUrl: 'manuscripts com',
-    }),
-    '.publicUrl: should match pattern "(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"',
-    'publicUrl has to correspond to uri string pattern'
   );
 });
 

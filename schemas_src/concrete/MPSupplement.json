@@ -1,0 +1,36 @@
+{
+  "$id": "MPSupplement.json",
+  "title": "Supplement",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      {
+        "$ref": "abstract/MPModel.json#"
+      },
+      {
+        "$ref": "mixins/MPContainedDocument.json#"
+      },
+      {
+        "$ref": "mixins/MPManuscriptDocument.json#"
+      }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSupplement"]
+        },
+        "title": {
+          "type": "string"
+        },
+        "href": {
+          "$ref": "strings.json#/definitions/attachmentID"
+        },
+        "MIME": {
+          "type": "string"
+        }
+      }
+    },
+    "required": ["title", "href", "MIME"]
+  }
+}

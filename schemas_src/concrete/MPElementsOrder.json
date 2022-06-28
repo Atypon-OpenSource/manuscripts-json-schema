@@ -1,0 +1,31 @@
+{
+  "$id": "MPElementsOrder.json",
+  "title": "MPElementsOrder",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "elementType": {
+          "type": "string",
+          "enum": ["MPFigureElement","MPTableElement","MPListingElement","MPEquationElement"]
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPElementsOrder"]
+        }
+      },
+      "required": ["elementType","elements"]
+    }
+  }
+}
