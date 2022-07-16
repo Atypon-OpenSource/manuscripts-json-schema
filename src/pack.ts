@@ -69,7 +69,7 @@ function buildValidatorFn(name: string, fn: Ajv.ValidateFunction): string {
 const buildValidateFn = (names: string[]) => `
   function validate(obj) {
     var lookup = {
-      ${names.map(name => `${name}: ${name}`).join(',\n')}
+      ${names.map((name) => `${name}: ${name}`).join(',\n')}
     };
 
     if (!obj) {
@@ -121,8 +121,10 @@ function packSchemas(schemas: Set<string>, ajv: Ajv.Ajv) {
     const name = nameOfId(schemaId);
     names.push(name);
     const fn = ajv.getSchema(schemaId);
-    const validatorFn = buildValidatorFn(name, fn);
-    validatorFns.push(validatorFn);
+    if (fn) {
+      const validatorFn = buildValidatorFn(name, fn);
+      validatorFns.push(validatorFn);
+    }
   }
 
   const validateFn = buildValidateFn(names);

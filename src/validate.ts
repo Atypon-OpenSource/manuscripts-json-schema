@@ -6,7 +6,7 @@ const { supportedObjectTypes } = generateSchemas();
 
 const ajv = new Ajv();
 // Use the built schemas for consistency/correctness.
-getBuiltSchemas().forEach(schema => ajv.addSchema(schema));
+getBuiltSchemas().forEach((schema) => ajv.addSchema(schema));
 
 // TODO: the return value of this is confusing.
 export function validate(obj: any): Ajv.ErrorObject[] | null {
@@ -24,11 +24,13 @@ export function validate(obj: any): Ajv.ErrorObject[] | null {
   // Get schema from ajv.
   const validate = ajv.getSchema(schemaId);
   // Run obj against schema in ajv.
+  /* @ts-ignore */
   const valid = validate(obj);
 
   if (valid) {
     return null;
   } else {
+    /* @ts-ignore */
     return validate.errors || null;
   }
 }
