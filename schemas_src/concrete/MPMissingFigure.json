@@ -1,6 +1,6 @@
 {
-  "$id": "MPFigure.json",
-  "title": "Figure",
+  "$id": "MPMissingFigure.json",
+  "title": "MissingFigure",
   "type": "object",
   "$mash": {
     "sources": [
@@ -12,16 +12,7 @@
       "properties": {
         "objectType": {
           "type": "string",
-          "enum": ["MPFigure"]
-        },
-        "contentType": {
-          "type": "string"
-        },
-        "src": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
+          "enum": ["MPMissingFigure"]
         },
         "position": {
           "type": "string"
