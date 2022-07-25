@@ -78,7 +78,7 @@
                 "enum": ["interactive", "dataset"]
               },
               "src": {
-                "$ref": "strings.json#/definitions/attachmentID"
+                "type": "string"
               }
             },
             "required": ["src"]
