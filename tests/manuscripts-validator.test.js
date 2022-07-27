@@ -609,7 +609,10 @@ test('bibliography date', t => {
   t.equals(
     validate(
       Object.assign({}, validObject, {
-        'date-parts': [[2000, 3, 15], [2000, 3, 17]],
+        'date-parts': [
+          [2000, 3, 15],
+          [2000, 3, 17],
+        ],
       })
     ),
     null,
@@ -2224,7 +2227,7 @@ test('footnotes element', t => {
 });
 
 test('figure element', t => {
-  t.plan(11);
+  t.plan(12);
 
   const validObject = {
     containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
@@ -2237,6 +2240,16 @@ test('figure element', t => {
     containerID: 'MPProject:990DC4B9-4AAE-4AEF-8630-04929F53B8EC',
     elementType: 'figure',
     manuscriptID: 'MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C',
+    alternatives: [
+      {
+        type: 'interactive',
+        src: 'attachment:be0806dd-be82-47db-8f47-c4edf79ba9d0',
+      },
+      {
+        type: 'dataset',
+        src: 'attachment:be0806dd-be82-47db-8f47-c4edf79ba9d0',
+      },
+    ],
     _id: 'MPFigureElement:DF026E1B-394A-4A68-C761-9DB39349A714',
     label: '',
     suppressCaption: false,
@@ -2308,6 +2321,21 @@ test('figure element', t => {
     validate(Object.assign({}, validObject, { elementType: 'frame' })),
     '.elementType: should be equal to one of the allowed values',
     'invalid elementType fails'
+  );
+
+  t.equals(
+    validate(
+      Object.assign({}, validObject, {
+        alternatives: [
+          {
+            type: 'invalid',
+            src: 'attachment:be0806dd-be82-47db-8f47-c4edf79ba9d0',
+          },
+        ],
+      })
+    ),
+    '.alternatives[0].type: should be equal to one of the allowed values',
+    'invalid alternatives type fails'
   );
 });
 
@@ -3006,7 +3034,7 @@ test('table', t => {
 });
 
 test('figure', t => {
-  t.plan(4);
+  t.plan(2);
 
   const validObject = {
     _id: 'MPFigure:foo',
@@ -3017,7 +3045,6 @@ test('figure', t => {
     containerID: 'MPProject:bar',
     manuscriptID: 'MPManuscript:baz',
     contentType: 'bar',
-    missingImage: false,
   };
 
   t.equals(
@@ -3029,32 +3056,6 @@ test('figure', t => {
   const { contentType, ...invalidObject } = Object.assign({}, validObject);
 
   t.equals(validate(invalidObject), null, 'valid figure without contentType');
-
-  const validObjectWithListingAttachment = {
-    _id: 'MPFigure:foo',
-    sessionID: '3123123-123123-123DDA',
-    updatedAt: 213123123.1,
-    createdAt: 213123123.1,
-    objectType: 'MPFigure',
-    containerID: 'MPProject:bar',
-    manuscriptID: 'MPManuscript:baz',
-    contentType: 'bar',
-    listingAttachment: {
-      listingID: 'MPListing:X',
-      attachmentKey: 'foo',
-    },
-  };
-
-  t.equals(
-    validate(Object.assign({}, validObjectWithListingAttachment)),
-    null,
-    'Figure is valid with "listingAttachment"'
-  );
-
-  t.equals(
-    validate(Object.assign({}, validObject, { missingImage: 'foo' })),
-    '.missingImage: should be boolean'
-  );
 });
 
 test('auxiliary object reference', t => {

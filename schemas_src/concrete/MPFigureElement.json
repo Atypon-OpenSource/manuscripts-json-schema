@@ -6,7 +6,8 @@
     "sources": [
       { "$ref": "abstract/MPAuxiliaryElement.json#" },
       { "$ref": "mixins/MPManuscriptDocument.json#" },
-      { "$ref": "mixins/MPHighlightable.json#" }
+      { "$ref": "mixins/MPHighlightable.json#" },
+      { "$ref": "mixins/MPAttributable.json#" }
     ],
     "with": {
       "properties": {
@@ -66,6 +67,22 @@
               "pattern": "^MPListing:"
             }
           ]
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["interactive", "dataset"]
+              },
+              "src": {
+                "type": "string"
+              }
+            },
+            "required": ["src"]
+          }
         }
       },
       "required": ["containedObjectIDs"]
