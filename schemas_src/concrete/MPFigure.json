@@ -25,6 +25,21 @@
         },
         "position": {
           "type": "string"
+        },
+        "externalFileReferences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "$ref": "strings.json#/definitions/attachmentID"
+              },
+              "kind": {
+                "$ref": "enums.json#/definitions/ExternalFileKind"
+              }
+            },
+            "required": ["url"]
+          }
         }
       },
       "required": []
