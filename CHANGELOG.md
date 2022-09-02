@@ -1,5 +1,11 @@
 # @manuscripts/manuscripts-json-schema
 
+## 1.51.0
+
+### Minor Changes
+
+- f6f5f8d6: restore externalFileReferences on figure model
+
 ## 1.50.1
 
 ### Patch Changes
