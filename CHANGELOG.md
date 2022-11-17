@@ -1,5 +1,11 @@
 # @manuscripts/manuscripts-json-schema
 
+## 1.52.0
+
+### Minor Changes
+
+- 80629f50: LEAN-1894
+
 ## 1.51.0
 
 ### Minor Changes
