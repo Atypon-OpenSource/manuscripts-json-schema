@@ -51,6 +51,12 @@
               "items": {
                 "$ref": "strings.json#/definitions/containerID"
               }
+            },
+            "annotators": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
             }
           }
         },
@@ -76,6 +82,12 @@
               }
             },
             "viewer": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
+            },
+            "annotator": {
               "type": "array",
               "items": {
                 "$ref": "strings.json#/definitions/containerID"
