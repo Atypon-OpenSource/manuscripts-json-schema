@@ -1,5 +1,11 @@
 # @manuscripts/manuscripts-json-schema
 
+## 1.53.0
+
+### Minor Changes
+
+- 0b080346: LEAN-1544 -- individual references rework
+
 ## 1.52.0
 
 ### Minor Changes
