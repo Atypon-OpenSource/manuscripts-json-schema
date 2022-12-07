@@ -376,6 +376,7 @@ test('bibliography item', t => {
     createdAt: 1515417692.477127,
     updatedAt: 1515494608.363229,
     containerID: 'MPProject:foo-bar-baz',
+    manuscriptID: 'MPManuscript:23111',
     type: 'article',
   };
 
