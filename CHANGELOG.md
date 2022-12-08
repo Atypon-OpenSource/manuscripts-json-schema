@@ -1,5 +1,11 @@
 # @manuscripts/manuscripts-json-schema
 
+## 1.54.0
+
+### Minor Changes
+
+- f7034873: Removing externalFileReferences usage
+
 ## 1.53.0
 
 ### Minor Changes
