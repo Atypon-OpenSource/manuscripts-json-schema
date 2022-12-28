@@ -2,7 +2,8 @@
   "name": "@manuscripts/manuscripts-json-schema",
   "version": "1.54.0",
   "description": "Schema for models used in Manuscripts applications, plus validator functions for Sync Gateway",
-  "repository": "gitlab:mpapp-public/manuscripts-json-schema",
+  "repository": "github:Atypon-OpenSource/manuscripts-json-schema",
+  "license": "Apache-2.0",
   "main": "./dist/cjs",
   "module": "./dist/es",
   "types": "./dist/types",
@@ -26,10 +27,12 @@
     "typecheck": "tsc --noEmit",
     "docs": "npm run build && npx docson -d ./schemas/"
   },
-  "sideEffects": false,
-  "license": "Apache-2.0",
+  "dependencies": {
+    "ajv": "^6.10.0",
+    "deepmerge": "^3.2.0",
+    "js-beautify": "^1.9.0"
+  },
   "devDependencies": {
-    "@manuscripts/publish": "^0.2.1",
     "@types/js-beautify": "^1.8.0",
     "@types/node": "^11.11.3",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
@@ -51,10 +54,5 @@
     "tape": "^4.10.1",
     "typescript": "^4.0.5",
     "docson": "^2.1.0"
-  },
-  "dependencies": {
-    "ajv": "^6.10.0",
-    "deepmerge": "^3.2.0",
-    "js-beautify": "^1.9.0"
   }
 }
