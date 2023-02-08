@@ -1,0 +1,23 @@
+{
+  "$id": "MPMetaSection.json",
+  "title": "MetaSection",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "_id": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMetaSection"]
+        }
+      }
+    }
+  }
+}

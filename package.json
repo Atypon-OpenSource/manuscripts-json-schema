@@ -1,6 +1,6 @@
 {
   "name": "@manuscripts/json-schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Schema for models used in Manuscripts applications, plus validator functions for Sync Gateway",
   "repository": "github:Atypon-OpenSource/manuscripts-json-schema",
   "license": "Apache-2.0",
