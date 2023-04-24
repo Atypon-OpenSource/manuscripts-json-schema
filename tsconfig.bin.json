@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": false,
     "sourceMap": false,
     "declaration": false,
-    "outDir": "./dist",
+    "outDir": "./tsc-dist",
     "lib": ["esnext"],
     "types": ["node"],
     "moduleResolution": "node",
@@ -15,6 +15,5 @@
     "strictFunctionTypes": true,
     "noUnusedParameters": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.template.ts"]
+  "include": ["bin/**/*.ts"]
 }

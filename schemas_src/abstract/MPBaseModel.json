@@ -6,23 +6,8 @@
     "_id": {
       "$ref": "strings.json#/definitions/_id"
     },
-    "_rev": {
+    "objectType": {
       "type": "string"
-    },
-    "_revisions": {
-      "type": "object",
-      "properties": {
-        "start": {
-          "type": "integer"
-        },
-        "ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "additionalItems": false
-        }
-      }
     }
   },
   "required": ["_id", "objectType"]

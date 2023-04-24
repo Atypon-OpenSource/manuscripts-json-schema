@@ -11,12 +11,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build-src && npm run build-schemas && npm run build-definitions && npm run build-typelookup && npm run build-validators",
-    "build-src": "tsc",
-    "build-schemas": "node tsc-dist/exportSchemas",
-    "build-definitions": "node tsc-dist/exportDefinitions",
-    "build-typelookup": "node tsc-dist/exportManuscriptsTypeLookup",
-    "build-validators": "node tsc-dist/exportValidators",
+    "build": "npm-run-all generate:build generate:run build:cjs build:es",
+    "build:cjs": "tsc --outDir dist/cjs --module commonjs",
+    "build:es": "tsc --outDir dist/es --declarationDir dist/types --declaration",
+    "generate:build": "tsc --project tsconfig.bin.json",
+    "generate:run": "node tsc-dist/index.js",
     "lint": "eslint src tests --ext .js,.ts",
     "format": "prettier --write '{src,schemas_src,tests}/**/*.{ts,js,json}'",
     "prebuild": "rimraf tsc-dist/* dist/* schemas/* definitions/*",
@@ -28,8 +27,8 @@
     "docs": "npm run build && npx docson -d ./schemas/"
   },
   "dependencies": {
-    "ajv": "^6.10.0",
-    "deepmerge": "^4.2.2",
+    "ajv": "^8.12.0",
+    "deepmerge": "^4.3.1",
     "js-beautify": "^1.14.7"
   },
   "devDependencies": {
@@ -44,14 +43,14 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "json-schema-to-typescript": "^6.1.3",
+    "json-schema-to-typescript": "^12.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
     "tap-dot": "^2.0.0",
     "tap-junit": "^5.0.2",
     "tape": "^5.6.1",
-    "typescript": "^4.0.5",
+    "typescript": "^4.9.5",
     "docson": "^2.1.0"
   }
 }

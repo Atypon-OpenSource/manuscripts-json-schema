@@ -4,15 +4,6 @@
     "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
     "with": {
       "properties": {
-        "_deleted": {
-          "type": "boolean"
-        },
-        "objectType": {
-          "type": "string"
-        },
-        "sessionID": {
-          "type": "string"
-        },
         "createdAt": {
           "$ref": "numbers.json#/definitions/timestamp"
         },
@@ -22,22 +13,10 @@
         "prototype": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "locked": {
-          "type": "boolean"
-        },
-        "bundled": {
-          "type": "boolean"
-        },
         "keywordIDs": {
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/keywordID"
-          }
-        },
-        "contributions": {
-          "type": "array",
-          "items": {
-            "$ref": "MPContribution.json#"
           }
         }
       },

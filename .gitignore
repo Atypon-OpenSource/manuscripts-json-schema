@@ -36,3 +36,6 @@ dist/
 
 junit.xml
 /.idea/
+
+src/lookup.ts
+src/types.ts
