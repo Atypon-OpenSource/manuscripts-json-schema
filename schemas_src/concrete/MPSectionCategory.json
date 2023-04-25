@@ -34,6 +34,10 @@
         "pageBreakStyle": {
           "type": "number"
         },
+        "group": {
+          "type": "string",
+          "enum": ["abstracts", "body", "backmatter"]
+        },
         "numberingParticipation": {
           "$ref": "enums.json#/definitions/MPNumberingParticipation"
         },
