@@ -34,8 +34,11 @@
         "pageBreakStyle": {
           "type": "number"
         },
-        "groupID": {
-          "type": "string"
+        "groupIDs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "numberingParticipation": {
           "$ref": "enums.json#/definitions/MPNumberingParticipation"
