@@ -4,6 +4,9 @@
     "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
     "with": {
       "properties": {
+        "sessionID": {
+          "type": "string"
+        },
         "createdAt": {
           "$ref": "numbers.json#/definitions/timestamp"
         },

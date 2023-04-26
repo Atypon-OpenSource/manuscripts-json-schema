@@ -8,6 +8,9 @@
     },
     "objectType": {
       "type": "string"
+    },
+    "_rev": {
+      "type": "string"
     }
   },
   "required": ["_id", "objectType"]
