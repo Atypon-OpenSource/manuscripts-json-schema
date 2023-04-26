@@ -34,7 +34,7 @@
         "pageBreakStyle": {
           "type": "number"
         },
-        "groupId": {
+        "groupID": {
           "type": "string"
         },
         "numberingParticipation": {
