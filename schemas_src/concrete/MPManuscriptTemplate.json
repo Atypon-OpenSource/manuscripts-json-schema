@@ -10,7 +10,6 @@
     "with": {
       "properties": {
         "acceptableFigureFormats": {
-          "additionalItems": false,
           "items": {
             "type": "string"
           },
@@ -20,14 +19,12 @@
           "type": "string"
         },
         "acceptableManuscriptFormats": {
-          "additionalItems": false,
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "acceptableTableFormats": {
-          "additionalItems": false,
           "items": {
             "type": "string"
           },
@@ -61,7 +58,6 @@
           "type": "string"
         },
         "eISSNs": {
-          "additionalItems": false,
           "items": {
             "type": "string"
           },
@@ -109,7 +105,6 @@
           "type": "object",
           "properties": {
             "inclusive": {
-              "additionalItems": false,
               "items": {
                 "type": "string"
               },
@@ -121,7 +116,6 @@
           }
         },
         "ISSNs": {
-          "additionalItems": false,
           "items": {
             "type": "string"
           },
@@ -131,7 +125,6 @@
           "type": "string"
         },
         "licenses": {
-          "additionalItems": false,
           "items": {
             "type": "string"
           },
@@ -240,7 +233,6 @@
           "type": "array"
         },
         "requirementIDs": {
-          "additionalItems": false,
           "items": {
             "$ref": "strings.json#/definitions/_id"
           },

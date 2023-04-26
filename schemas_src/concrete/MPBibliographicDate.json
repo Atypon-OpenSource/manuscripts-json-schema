@@ -14,7 +14,13 @@
           "items": {
             "type": "array",
             "items": {
-              "type": ["string", "number"]
+              "anyOf": [
+                {
+                  "type": "string"
+                }, {
+                  "type": "number"
+                }
+              ]
             },
             "maxItems": 3
           },

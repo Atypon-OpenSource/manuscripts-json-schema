@@ -6,14 +6,16 @@
     "removeComments": false,
     "sourceMap": false,
     "declaration": false,
-    "outDir": "./tsc-dist",
+    "outDir": "../tsc-dist",
     "lib": ["esnext"],
     "types": ["node"],
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "resolveJsonModule": true
   },
-  "include": ["bin/**/*.ts"]
+  "include": ["../bin/**/*.ts"],
+  "exclude": ["*.template.ts"]
 }

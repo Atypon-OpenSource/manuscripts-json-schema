@@ -25,6 +25,7 @@
           "type": "object",
           "patternProperties": {
             ".*": {
+              "type": "object",
               "properties": {
                 "timestamp": { "type": "number" },
                 "manuscriptID": {

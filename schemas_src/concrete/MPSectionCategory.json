@@ -42,8 +42,7 @@
           "items": {
             "type": "string"
           },
-          "minItems": 1,
-          "additionalItems": false
+          "minItems": 1
         },
         "objectType": {
           "type": "string",

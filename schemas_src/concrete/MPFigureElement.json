@@ -54,8 +54,7 @@
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/_id"
-          },
-          "additionalItems": false
+          }
         },
         "listingID": {
           "allOf": [

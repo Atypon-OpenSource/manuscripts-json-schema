@@ -73,8 +73,7 @@
           "type": "array",
           "items": {
             "$ref": "MPBibliographicName.json#"
-          },
-          "additionalItems": false
+          }
         },
         "collection-editor": {
           "type": "array",
@@ -194,16 +193,34 @@
           "type": "string"
         },
         "chapter-number": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
         "citation-number": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "number"
+            }, {
+              "type": "string"
+            }
+          ]
         },
         "citation-label": {
           "type": "string"
         },
         "collection-number": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "number"
+            }, {
+              "type": "string"
+            }
+          ]
         },
         "collection-title": {
           "type": "string"
@@ -221,7 +238,13 @@
           "type": "string"
         },
         "edition": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "number"
+            }, {
+              "type": "string"
+            }
+          ]
         },
         "event": {
           "type": "string"
@@ -248,10 +271,22 @@
           "type": "string"
         },
         "ISSN": {
-          "type": ["string", "array"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "array"
+            }
+          ]
         },
         "issue": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
         "jurisdiction": {
           "type": "string"
@@ -269,13 +304,31 @@
           "type": "string"
         },
         "number": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+            "type": "string"
+            }, {
+            "type": "number"
+            }
+          ]
         },
         "number-of-pages": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
-        "number-of-volumes": {
-          "type": ["string", "number"]
+        "number-of-volumes":{
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
         "originalIdentifier": {
           "type": "string"
@@ -287,13 +340,31 @@
           "type": "string"
         },
         "original-title": {
-          "type": ["string", "array"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "array"
+            }
+          ]
         },
         "page": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
         "page-first": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
         "PMCID": {
           "type": "string"
@@ -347,7 +418,13 @@
           "type": "string"
         },
         "volume": {
-          "type": ["string", "number"]
+          "anyOf": [
+            {
+              "type": "string"
+            }, {
+              "type": "number"
+            }
+          ]
         },
         "year-suffix": {
           "type": "string"

@@ -19,8 +19,7 @@
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "additionalItems": false
+          }
         },
         "objectType": {
           "type": "string",
@@ -46,8 +45,7 @@
                 "pattern": "^(MPAffiliation|MPUserProfileAffiliation):"
               }
             ]
-          },
-          "additionalItems": false
+          }
         },
         "footnote": {
           "type": "array",
@@ -91,8 +89,7 @@
                 "pattern": "^(MPGrant|MPUserProfileGrant):"
               }
             ]
-          },
-          "additionalItems": false
+          }
         },
         "roles": {
           "type": "array",
@@ -106,8 +103,7 @@
                 "pattern": "^MPContributorRole:"
               }
             ]
-          },
-          "additionalItems": false
+          }
         },
         "email": { "type": "string" },
         "jointContributorGroup": { "type": "number" }

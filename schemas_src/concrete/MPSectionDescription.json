@@ -19,8 +19,7 @@
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "additionalItems": false
+          }
         },
         "placeholder": {
           "type": "string"

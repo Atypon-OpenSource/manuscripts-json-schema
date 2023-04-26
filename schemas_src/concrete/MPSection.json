@@ -42,8 +42,7 @@
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/_id"
-          },
-          "additionalItems": false
+          }
         },
         "objectType": {
           "type": "string",
@@ -53,8 +52,7 @@
           "type": "array",
           "items": {
             "$ref": "strings.json#/definitions/_id"
-          },
-          "additionalItems": false
+          }
         },
         "captionStyle": {
           "allOf": [

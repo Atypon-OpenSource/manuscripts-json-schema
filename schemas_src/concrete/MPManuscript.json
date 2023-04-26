@@ -48,22 +48,19 @@
           "type": "array",
           "items": {
             "$ref": "MPContributor.json#"
-          },
-          "additionalItems": false
+          }
         },
         "editors": {
           "type": "array",
           "items": {
             "$ref": "MPContributor.json#"
-          },
-          "additionalItems": false
+          }
         },
         "translators": {
           "type": "array",
           "items": {
             "$ref": "MPContributor.json#"
-          },
-          "additionalItems": false
+          }
         },
         "figureElementNumberingScheme": {
           "type": "string"
@@ -89,6 +86,7 @@
         "genericCounts": {
           "type": "array",
           "items": {
+            "type": "object",
             "additionalProperties": false,
             "properties": {
               "countType": {

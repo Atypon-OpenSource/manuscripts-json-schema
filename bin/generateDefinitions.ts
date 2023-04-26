@@ -1,7 +1,9 @@
-import * as path from 'path'
-import { compile } from 'json-schema-to-typescript';
+import { abstract, concrete, JsonSchema, schemas } from './schemas';
+
 import { promises as fs } from 'fs';
-import {abstract, concrete, JsonSchema, schemas} from './schemas';
+import { compile } from 'json-schema-to-typescript';
+import * as path from 'path';
+
 
 function normalize(schema: JsonSchema) {
     const clone = Object.assign({}, schema);
@@ -36,6 +38,5 @@ async function compileSchema(schema: JsonSchema) {
 export async function generateDefinitions() {
     const schemas = [...(await abstract), ...(await concrete)]
     const contents = await Promise.all(schemas.map(schema => compileSchema(schema)));
-    const src = path.join(__dirname, '..', 'src');
-    await fs.writeFile(path.join(src, 'types.ts'), contents);
+    await fs.writeFile(path.join('src', 'types.ts'), contents);
 }

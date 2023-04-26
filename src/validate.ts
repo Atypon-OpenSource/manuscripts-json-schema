@@ -2,14 +2,34 @@
 import * as validators from './validators'
 
 export function validate(object: any) {
-    const type = object.objectType;
-    const validator = validators[type];
-    if (!validator(object)) {
-        return validator.errors[0];
+    if (!object) {
+        return 'object null or undefined';
     }
-    return null;
-}
 
-export function equals(object: any, obb: any) {
-    return object === obb;
+    const type = object.objectType;
+    if (!type || typeof type !== 'string') {
+        return 'object missing objectType';
+    }
+    const validator = validators[type];
+
+    if (!validator) {
+        // throw unsupported?
+        return 'unsupported objectType: ' + type;
+    }
+
+    const result = validator(object);
+    if (result) {
+        return null;
+    } else {
+        const err = validator.errors[0];
+        const msg = err.message;
+        const path = err.instancePath;
+        const keyword = err.keyword;
+        if (keyword === 'additionalProperties') {
+            return `${msg} '${err.params.additionalProperty}'`;
+        } else {
+            return (path ? path + ': ' : '') + msg;
+        }
+    }
+
 }

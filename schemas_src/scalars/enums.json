@@ -11,8 +11,7 @@
     },
     "MPContentSummaryMode": {
       "type": "integer",
-      "enum": [0, 1, 2, 4, 8, 16, 32],
-      "isBitmask": true
+      "enum": [0, 1, 2, 4, 8, 16, 32]
     },
     "MPCitationCollationType": {
       "type": "integer",
