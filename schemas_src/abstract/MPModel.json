@@ -16,6 +16,9 @@
         "prototype": {
           "$ref": "strings.json#/definitions/_id"
         },
+        "bundled": {
+          "type": "boolean"
+        },
         "keywordIDs": {
           "type": "array",
           "items": {

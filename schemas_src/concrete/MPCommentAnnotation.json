@@ -61,6 +61,12 @@
               }
             ]
           }
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContribution.json#"
+          }
         }
       },
       "required": ["contents", "target"]

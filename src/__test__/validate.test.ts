@@ -15,7 +15,6 @@
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const validate = require('../../dist/cjs/validate').validate;
-// const projectDump = require('@manuscripts/examples/data/project-dump.json');
 
 describe('Validation', () => {
   test('id not permitted', () => {
@@ -444,7 +443,7 @@ describe('Validation', () => {
       objectType: 'MPBibliographicName',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(validate(Object.assign({}, validObject, { suffix: 1 }))).toBe(
       '/suffix: must be string'
@@ -462,7 +461,7 @@ describe('Validation', () => {
       bibliographyItem: 'MPBibliographyItem:foo',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -502,7 +501,7 @@ describe('Validation', () => {
       objectType: 'MPCitation',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -607,7 +606,7 @@ describe('Validation', () => {
       path: [],
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -755,7 +754,7 @@ describe('Validation', () => {
       name: 'foo',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
   });
 
   test('Tag', () => {
@@ -769,7 +768,7 @@ describe('Validation', () => {
       name: 'tag-name',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
   });
 
   test('keywords', () => {
@@ -783,13 +782,13 @@ describe('Validation', () => {
       name: 'foo',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { color: 'MPColor:id' }))
     ).toBeNull();
 
-    const { name, ...invalidObject } = Object.assign({}, validObject);
+    const { name, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe("must have required property 'name'");
 
@@ -818,9 +817,9 @@ describe('Validation', () => {
       name: 'foo',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { name, ...invalidObject } = Object.assign({}, validObject);
+    const { name, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe("must have required property 'name'");
 
@@ -886,7 +885,7 @@ describe('Validation', () => {
       priority: 1,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate({
@@ -1106,7 +1105,7 @@ describe('Validation', () => {
       updatedAt: 1515494608.363229,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     // valid object with name
     expect(
@@ -1173,7 +1172,7 @@ describe('Validation', () => {
       updatedAt: 1515494608.363229,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     // valid object with category
     expect(
@@ -1212,29 +1211,21 @@ describe('Validation', () => {
       )
     ).toBe('/category: must match pattern "^MPLibraryCollectionCategory:"');
 
-    const invalidObject1 = Object.assign({}, validObject);
-    delete invalidObject1.writers;
-
-    expect(validate(Object.assign({}, invalidObject1))).toBe(
+    const { writers, ...invalidObject1 } = validObject;
+    expect(validate(invalidObject1)).toBe(
       "must have required property 'writers'"
     );
 
-    const invalidObject2 = Object.assign({}, validObject);
-    delete invalidObject2.owners;
-
-    expect(validate(Object.assign({}, invalidObject2))).toBe(
+    const { owners, ...invalidObject2 } = validObject;
+    expect(validate(invalidObject2)).toBe(
       "must have required property 'owners'"
     );
 
-    const validObjectWithoutEditors = Object.assign({}, validObject);
-    delete validObjectWithoutEditors.editors;
+    const { editors, ...validObjectWithoutEditors } = validObject;
+    expect(validate(validObjectWithoutEditors)).toBeNull();
 
-    expect(validate(Object.assign({}, validObjectWithoutEditors))).toBeNull();
-
-    const invalidObject4 = Object.assign({}, validObject);
-    delete invalidObject4.containerID;
-
-    expect(validate(Object.assign({}, invalidObject4))).toBe(
+    const { containerID, ...invalidObject4 } = validObject;
+    expect(validate(invalidObject4)).toBe(
       "must have required property 'containerID'"
     );
   });
@@ -1263,7 +1254,7 @@ describe('Validation', () => {
       priority: 1,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1299,7 +1290,7 @@ describe('Validation', () => {
       contents: 'Foo',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1340,7 +1331,7 @@ describe('Validation', () => {
       '/containerID: must match pattern "^(MPProject|MPLibrary|MPLibraryCollection):[0-9a-zA-Z\\-]+"'
     );
 
-    expect(validate(Object.assign({}, validObject))).toBe(
+    expect(validate(validObject)).toBe(
       "must have required property 'containerID'"
     );
 
@@ -1375,7 +1366,7 @@ describe('Validation', () => {
       '/manuscriptID: must match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
     );
 
-    expect(validate(Object.assign({}, validObject))).toBe(
+    expect(validate(validObject)).toBe(
       "must have required property 'manuscriptID'"
     );
 
@@ -1400,7 +1391,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1431,11 +1422,9 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.contents;
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'contents'"
@@ -1456,15 +1445,13 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { elementType: 'h1' }))
     ).toBe('/elementType: must be equal to one of the allowed values');
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.caption;
+    const { caption, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'caption'"
@@ -1485,7 +1472,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1521,9 +1508,7 @@ describe('Validation', () => {
       validate(Object.assign({}, validObject, { elementType: 'foo' }))
     ).toBe('/elementType: must be equal to one of the allowed values');
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.caption;
+    const { caption, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'caption'"
@@ -1543,7 +1528,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1553,9 +1538,7 @@ describe('Validation', () => {
       )
     ).toBeNull();
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.contents;
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'contents'"
@@ -1589,7 +1572,7 @@ describe('Validation', () => {
       suppressCaption: false,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1664,7 +1647,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1681,9 +1664,7 @@ describe('Validation', () => {
       '/footnotesList/0/id: must match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
     );
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.footnotesList;
+    const { footnotesList, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'footnotesList'"
@@ -1704,7 +1685,7 @@ describe('Validation', () => {
       manuscriptID: 'MPManuscript:841DAFAD-2CBF-4F88-876B-45E9B766A4C',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { elementType: 'foo' }))
@@ -1728,7 +1709,7 @@ describe('Validation', () => {
       containedObjectID: 'MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -1813,7 +1794,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { captionPosition: undefined }))
@@ -1844,7 +1825,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { title: 'test' }))
@@ -1867,7 +1848,7 @@ describe('Validation', () => {
       containerID: 'MPProject:potato',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { captionPosition: 'top' }))
@@ -1898,11 +1879,9 @@ describe('Validation', () => {
       TeXRepresentation: '{}',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.TeXRepresentation;
+    const { TeXRepresentation, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'TeXRepresentation'"
@@ -1923,7 +1902,7 @@ describe('Validation', () => {
       kind: 'footnote',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(validate({ ...validObject, kind: 'footnote' })).toBeNull();
 
@@ -1944,7 +1923,7 @@ describe('Validation', () => {
       contents: 'foo',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(validate({ ...validObject, contents: undefined })).toBe(
       "must have required property 'contents'"
@@ -1971,7 +1950,7 @@ describe('Validation', () => {
       ],
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     const { language, ...objectWithoutLanguage } = Object.assign(
       {},
@@ -1997,9 +1976,9 @@ describe('Validation', () => {
       contents: 'bar',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { contents, ...invalidObject } = Object.assign({}, validObject);
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'contents'"
@@ -2020,9 +1999,7 @@ describe('Validation', () => {
       },
     };
 
-    expect(
-      validate(Object.assign({}, validObjectWithListingAttachment))
-    ).toBeNull();
+    expect(validate(validObjectWithListingAttachment)).toBeNull();
   });
 
   test('figure', () => {
@@ -2037,9 +2014,9 @@ describe('Validation', () => {
       contentType: 'bar',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { contentType, ...invalidObject } = Object.assign({}, validObject);
+    const { contentType, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBeNull();
   });
@@ -2056,7 +2033,7 @@ describe('Validation', () => {
       updatedAt: 123123123,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     const validObjectWithMultipleReferences = {
       _id: 'MPAuxiliaryObjectReference:231123-1233123-12331312',
@@ -2069,9 +2046,7 @@ describe('Validation', () => {
       updatedAt: 123123123,
     };
 
-    expect(
-      validate(Object.assign({}, validObjectWithMultipleReferences))
-    ).toBeNull();
+    expect(validate(validObjectWithMultipleReferences)).toBeNull();
   });
 
   test('auxiliary object elements order', () => {
@@ -2087,7 +2062,7 @@ describe('Validation', () => {
       objectType: 'MPElementsOrder',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(
@@ -2128,11 +2103,9 @@ describe('Validation', () => {
       )
     ).toBeNull();
 
-    const invalidObject = Object.assign({}, validObject);
+    const { elements, ...invalidObject } = validObject;
 
-    delete invalidObject.elements;
-
-    expect(validate(Object.assign({}, invalidObject))).toBe(
+    expect(validate(invalidObject)).toBe(
       "must have required property 'elements'"
     );
   });
@@ -2148,12 +2121,9 @@ describe('Validation', () => {
       TeXRepresentation: '{}',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const invalidObject = Object.assign({}, validObject);
-
-    delete invalidObject.TeXRepresentation;
-
+    const { TeXRepresentation, ...invalidObject } = validObject;
     expect(validate(invalidObject)).toBe(
       "must have required property 'TeXRepresentation'"
     );
@@ -2216,24 +2186,17 @@ describe('Validation', () => {
       objectType: 'MPInvitation',
     };
 
-    const validObjectB = Object.assign({}, validObjectA);
-    delete validObjectB.message;
+    const { message, ...validObjectB } = validObjectA;
+    const { invitedUserEmail, ...invalidObjectA } = validObjectA;
+    const { invitingUserID, ...invalidObjectB } = validObjectA;
 
-    const invalidObjectA = Object.assign({}, validObjectA);
-    delete invalidObjectA.invitedUserEmail;
-
-    const invalidObjectB = Object.assign({}, validObjectA);
-    delete invalidObjectB.invitingUserID;
-
-    expect(validate(Object.assign({}, validObjectA))).toBeNull();
-
-    expect(validate(Object.assign({}, validObjectB))).toBeNull();
-
-    expect(validate(Object.assign({}, invalidObjectA))).toBe(
+    expect(validate(validObjectA)).toBeNull();
+    expect(validate(validObjectB)).toBeNull();
+    expect(validate(invalidObjectA)).toBe(
       "must have required property 'invitedUserEmail'"
     );
 
-    expect(validate(Object.assign({}, invalidObjectB))).toBe(
+    expect(validate(invalidObjectB)).toBe(
       "must have required property 'invitingUserID'"
     );
   });
@@ -2267,55 +2230,38 @@ describe('Validation', () => {
       objectType: 'MPContainerInvitation',
     };
 
-    const validObjectB = Object.assign({}, validObjectA);
-    delete validObjectB.message;
+    const { message, ...validObjectB } = validObjectA;
+    const { containerTitle, ...validObjectC } = validObjectA;
+    const { invitedUserName, ...validObjectD } = validObjectA;
+    const { invitedUserEmail, ...invalidObjectA } = validObjectA;
+    const { invitingUserID, ...invalidObjectB } = validObjectA;
+    const { containerID, ...invalidObjectC } = validObjectA;
+    const { role, ...invalidObjectD } = validObjectA;
+    const { acceptedAt, ...invalidObjectE } = validObjectA;
 
-    const validObjectC = Object.assign({}, validObjectA);
-    delete validObjectC.containerTitle;
+    expect(validate(validObjectA)).toBeNull();
 
-    const validObjectD = Object.assign({}, validObjectA);
-    delete validObjectD.invitedUserName;
+    expect(validate(validObjectB)).toBeNull();
 
-    const invalidObjectA = Object.assign({}, validObjectA);
-    delete invalidObjectA.invitedUserEmail;
+    expect(validate(validObjectC)).toBeNull();
 
-    const invalidObjectB = Object.assign({}, validObjectA);
-    delete invalidObjectB.invitingUserID;
+    expect(validate(validObjectD)).toBeNull();
 
-    const invalidObjectC = Object.assign({}, validObjectA);
-    delete invalidObjectC.containerID;
+    expect(validate(invalidObjectE)).toBeNull();
 
-    const invalidObjectD = Object.assign({}, validObjectA);
-    delete invalidObjectD.role;
-
-    const invalidObjectE = Object.assign({}, validObjectA);
-    delete invalidObjectE.acceptedAt;
-
-    expect(validate(Object.assign({}, validObjectA))).toBeNull();
-
-    expect(validate(Object.assign({}, validObjectB))).toBeNull();
-
-    expect(validate(Object.assign({}, validObjectC))).toBeNull();
-
-    expect(validate(Object.assign({}, validObjectD))).toBeNull();
-
-    expect(validate(Object.assign({}, invalidObjectE))).toBeNull();
-
-    expect(validate(Object.assign({}, invalidObjectA))).toBe(
+    expect(validate(invalidObjectA)).toBe(
       "must have required property 'invitedUserEmail'"
     );
 
-    expect(validate(Object.assign({}, invalidObjectB))).toBe(
+    expect(validate(invalidObjectB)).toBe(
       "must have required property 'invitingUserID'"
     );
 
-    expect(validate(Object.assign({}, invalidObjectC))).toBe(
+    expect(validate(invalidObjectC)).toBe(
       "must have required property 'containerID'"
     );
 
-    expect(validate(Object.assign({}, invalidObjectD))).toBe(
-      "must have required property 'role'"
-    );
+    expect(validate(invalidObjectD)).toBe("must have required property 'role'");
   });
 
   test('section category', () => {
@@ -2336,7 +2282,7 @@ describe('Validation', () => {
       titles: ['cover letter', 'coverletter'],
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { titleSuppressed: true }))
@@ -2610,35 +2556,15 @@ describe('Validation', () => {
       originalText: '',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { contents, ...invalidObject } = Object.assign({}, validObject);
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'contents'"
     );
 
-    const objectWithSelector = Object.assign(
-      {
-        selector: {
-          from: 10,
-          to: 20,
-          text: 'abcdefghij',
-        },
-      },
-      validObject
-    );
-
-    expect(validate(objectWithSelector)).toBeNull();
-
-    delete objectWithSelector.selector.text;
-
-    expect(validate(objectWithSelector)).toBeNull();
-
-    objectWithSelector.selector.text = 'abcdefghij';
-    objectWithSelector.selector.foo = 'bar';
-
-    expect(validate(objectWithSelector)).toBe(
+    expect(validate(Object.assign({ foo: 123 }, validObject))).toBe(
       "must NOT have additional properties 'foo'"
     );
 
@@ -2666,9 +2592,9 @@ describe('Validation', () => {
       updatedAt: 23123123,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { userID, ...invalidObject } = Object.assign({}, validObject);
+    const { userID, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'userID'"
@@ -2740,9 +2666,9 @@ describe('Validation', () => {
       sessionID: 'weqq',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { name, ...invalidObject } = Object.assign({}, validObject);
+    const { name, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe("must have required property 'name'");
 
@@ -2773,7 +2699,7 @@ describe('Validation', () => {
       priority: 3,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     const { sectionCategory, ...invalidObject } = Object.assign(
       {},
@@ -2792,7 +2718,8 @@ describe('Validation', () => {
       '/priority: must be number'
     );
 
-    const invalidSubsectionObject = Object.assign({}, validObject);
+    const invalidSubsectionObject = validObject;
+    //@ts-ignore
     invalidSubsectionObject.subsections.push('abc');
 
     expect(validate(invalidSubsectionObject)).toBe(
@@ -2813,7 +2740,7 @@ describe('Validation', () => {
       mandatorySectionRequirements: ['MPMandatorySubsectionsRequirement:1'],
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(validate(Object.assign({}, validObject, { title: undefined }))).toBe(
       "must have required property 'title'"
@@ -3083,7 +3010,7 @@ describe('Validation', () => {
       sessionID: 'foo',
     };
 
-    expect(validate(Object.assign({}, submission))).toBeNull();
+    expect(validate(submission)).toBeNull();
 
     expect(
       validate(
@@ -3115,7 +3042,7 @@ describe('Validation', () => {
       name: 'My Snapshot',
     };
 
-    expect(validate(Object.assign({}, snapshot))).toBeNull();
+    expect(validate(snapshot)).toBeNull();
   });
 
   test('Manuscript Template with requirements', () => {
@@ -3130,7 +3057,7 @@ describe('Validation', () => {
       coverLetterRequirement: 'MPManuscriptCoverLetterRequirement:1',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
   });
 
   test('MPHighlight', () => {
@@ -3144,7 +3071,7 @@ describe('Validation', () => {
       sessionID: 'foo',
     };
 
-    expect(validate(Object.assign({}, highlight))).toBeNull();
+    expect(validate(highlight)).toBeNull();
 
     expect(
       validate(
@@ -3173,7 +3100,7 @@ describe('Validation', () => {
       field: 'title',
     };
 
-    expect(validate(Object.assign({}, highlightMarker))).toBeNull();
+    expect(validate(highlightMarker)).toBeNull();
 
     expect(
       validate(
@@ -3231,7 +3158,7 @@ describe('Validation', () => {
       contents: 'test, testing',
     };
 
-    expect(validate(Object.assign({}, keywordsElement))).toBeNull();
+    expect(validate(keywordsElement)).toBeNull();
 
     expect(
       validate(
@@ -3259,7 +3186,7 @@ describe('Validation', () => {
       suppressCaption: false,
     };
 
-    expect(validate(Object.assign({}, validObject), null)).toBe(
+    expect(validate(validObject, null)).toBe(
       '/figureLayout: must match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
     );
   });
@@ -3288,7 +3215,7 @@ describe('Validation', () => {
       updatedAt: 1454537867.959872,
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(validate(Object.assign({}, validObject, { role: 'Clown' }))).toBe(
       '/role: must be equal to one of the allowed values'
@@ -3485,9 +3412,9 @@ describe('Validation', () => {
       source: 'EDITOR',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
-    const { contents, ...invalidObject } = Object.assign({}, validObject);
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'contents'"
@@ -3517,7 +3444,7 @@ describe('Validation', () => {
       ],
     };
 
-    const { results, ...invalidObject } = Object.assign({}, validObject);
+    const { results, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
       "must have required property 'results'"
@@ -3646,19 +3573,10 @@ describe('Validation', () => {
       sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
     };
 
-    expect(validate(Object.assign({}, validObject))).toBeNull();
+    expect(validate(validObject)).toBeNull();
 
     expect(
       validate(Object.assign({}, validObject, { objectType: 'WBSomething' }))
     ).toBe('unsupported objectType: WBSomething');
   });
-
-  // test('validate example', () => {
-  //   const data = projectDump.data;
-  //   for (const object of data) {
-  //     if (validate(object)) {
-  //       throw new Error(`${object._id} failed to validate`);
-  //     }
-  //   }
-  // });
 });
