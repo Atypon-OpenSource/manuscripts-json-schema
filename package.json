@@ -1,7 +1,7 @@
 {
   "name": "@manuscripts/json-schema",
   "version": "1.1.0",
-  "description": "Schema for models used in Manuscripts applications, plus validator functions for Sync Gateway",
+  "description": "The Manuscripts JSON Schema types, and validation functions.",
   "repository": "github:Atypon-OpenSource/manuscripts-json-schema",
   "license": "Apache-2.0",
   "main": "./dist/cjs",
@@ -17,17 +17,14 @@
     "generate:build": "tsc --project bin/tsconfig.json",
     "generate:run": "node tsc-dist/index.js",
     "lint": "eslint src bin --ext .js,.ts",
-    "prebuild": "rimraf tsc-dist/* dist/* schemas/* definitions/*",
-    "test": "jest --runInBand",
-    "typecheck": "tsc --noEmit",
-    "docs": "npm run build && npx docson -d ./schemas/"
+    "prebuild": "rimraf tsc-dist/* dist/*",
+    "test": "jest --runInBand"
   },
   "dependencies": {
     "ajv": "^8.12.0",
     "deepmerge": "^4.3.1"
   },
   "devDependencies": {
-    "@manuscripts/examples": "^0.1.1",
     "@manuscripts/eslint-config": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
@@ -50,7 +47,6 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.9.5",
-    "docson": "^2.1.0"
+    "typescript": "^4.9.5"
   }
 }

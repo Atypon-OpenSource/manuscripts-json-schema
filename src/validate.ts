@@ -16,16 +16,15 @@
 //@ts-ignore
 import * as validators from './validators'; // eslint-disable-line import/no-unresolved
 
+type ManuscriptsJson = { objectType: string };
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function validate(object: any) {
+export function validate(object: ManuscriptsJson) {
   if (!object) {
     return 'object null or undefined';
   }
 
   const type = object.objectType;
-  if (!type || typeof type !== 'string') {
-    return 'object missing objectType';
-  }
   const validator = validators[type];
 
   if (!validator) {

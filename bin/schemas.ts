@@ -64,13 +64,13 @@ async function mash(schema: JsonSchema) {
 }
 
 async function getSchema(id: string): Promise<JsonSchema> {
-  const file = path.join('schemas_src', id);
+  const file = path.join('schemas', id);
   const content = await fs.readFile(file, 'utf8');
   return await mash(JSON.parse(content));
 }
 
 async function getSchemas(directory: string): Promise<JsonSchema[]> {
-  const dir = path.join('schemas_src', directory);
+  const dir = path.join('schemas', directory);
   const files = await fs.readdir(dir, 'utf8');
   return await Promise.all(
     files.map(async (name) => await getSchema(path.join(directory, name)))
