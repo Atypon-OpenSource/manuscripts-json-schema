@@ -11,6 +11,9 @@
     },
     "_rev": {
       "type": "string"
+    },
+    "_revisions": {
+      "type": "object"
     }
   },
   "required": ["_id", "objectType"]

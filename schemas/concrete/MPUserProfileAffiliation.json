@@ -1,6 +1,6 @@
 {
   "$id": "MPUserProfileAffiliation.json",
-  "title": "MPUserProfileAffiliation",
+  "title": "UserProfileAffiliation",
   "type": "object",
   "$mash": {
     "sources": [

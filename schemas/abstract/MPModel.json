@@ -7,6 +7,9 @@
         "sessionID": {
           "type": "string"
         },
+        "_deleted": {
+          "type": "boolean"
+        },
         "createdAt": {
           "$ref": "numbers.json#/definitions/timestamp"
         },

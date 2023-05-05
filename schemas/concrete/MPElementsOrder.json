@@ -1,6 +1,6 @@
 {
   "$id": "MPElementsOrder.json",
-  "title": "MPElementsOrder",
+  "title": "ElementsOrder",
   "type": "object",
   "$mash": {
     "sources": [

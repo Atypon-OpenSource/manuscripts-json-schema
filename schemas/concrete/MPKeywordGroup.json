@@ -1,6 +1,6 @@
 {
   "$id": "MPKeywordGroup.json",
-  "title": "MPKeywordGroup",
+  "title": "KeywordGroup",
   "type": "object",
   "$mash": {
     "sources": [
