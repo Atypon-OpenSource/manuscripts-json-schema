@@ -1,0 +1,75 @@
+{
+  "$id": "MPCommentAnnotation.json",
+  "title": "CommentAnnotation",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPCommentAnnotation"]
+        },
+        "contents": {
+          "type": "string",
+          "description": "The contents of the *comment* (not those of the target)."
+        },
+        "target": {
+          "type": "string"
+        },
+        "originalText": {
+          "type": "string",
+          "description": "The original textual contents of the target of the comment annotation."
+        },
+        "annotationColor": {
+          "type": "string",
+          "description": "Optional annotation color - a default value should be provided in case this property is missing"
+        },
+        "selector": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "number"
+            },
+            "to": {
+              "type": "number"
+            },
+            "text": {
+              "type": "string",
+              "description": "A text based selector."
+            }
+          },
+          "required": ["from", "to"],
+          "additionalProperties": false
+        },
+        "resolved": {
+          "type": "boolean"
+        },
+        "readBy": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^MPUserProfile:"
+              }
+            ]
+          }
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContribution.json#"
+          }
+        }
+      },
+      "required": ["contents", "target"]
+    }
+  }
+}

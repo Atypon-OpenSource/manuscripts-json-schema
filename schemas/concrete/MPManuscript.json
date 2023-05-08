@@ -1,0 +1,282 @@
+{
+  "$id": "MPManuscript.json",
+  "title": "Manuscript",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManageable.json#" }
+    ],
+    "with": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "effectiveTitle": {
+          "type": "string"
+        },
+        "plainTextTitle": {
+          "type": "string"
+        },
+        "runningTitle": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "colorScheme": {
+          "$ref": "MPColorScheme.json#"
+        },
+        "category": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "manuscriptType": {
+          "type": "integer",
+          "enum": [0, 1]
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContributor.json#"
+          }
+        },
+        "editors": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContributor.json#"
+          }
+        },
+        "translators": {
+          "type": "array",
+          "items": {
+            "$ref": "MPContributor.json#"
+          }
+        },
+        "figureElementNumberingScheme": {
+          "type": "string"
+        },
+        "figureNumberingScheme": {
+          "type": "string"
+        },
+        "figureCount": {
+          "type": "number"
+        },
+        "tableCount": {
+          "type": "number"
+        },
+        "equationCount": {
+          "type": "number"
+        },
+        "referencesCount": {
+          "type": "number"
+        },
+        "wordCount": {
+          "type": "number"
+        },
+        "genericCounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "countType": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              }
+            },
+            "required": ["countType", "count"]
+          }
+        },
+        "publicationDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "acceptanceDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "correctionDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "retractionDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "revisionRequestDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "revisionReceiveDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "receiveDate": {
+          "$ref": "numbers.json#/definitions/timestamp"
+        },
+        "volume": {
+          "type": "integer"
+        },
+        "issue": {
+          "type": "integer"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "documentationURLString": {
+          "type": "string"
+        },
+        "copyrightStatement": {
+          "type": "string"
+        },
+        "copyrightHolder": {
+          "type": "string"
+        },
+        "copyrightYear": {
+          "type": "integer"
+        },
+        "inEditMode": {
+          "type": "boolean"
+        },
+        "contributorPresentationStyleTag": {
+          "$ref": "enums.json#/definitions/MPContributorPresentationStyleTag"
+        },
+        "affiliationPresentationStyleTag": {
+          "$ref": "enums.json#/definitions/MPContributorPresentationStyleTag"
+        },
+        "figureElementFileLayout": {
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
+        },
+        "tableElementFileLayout": {
+          "$ref": "enums.json#/definitions/MPAuxiliaryElementFileLayout"
+        },
+        "appleHelpBundleTitle": {
+          "type": "string"
+        },
+        "appleHelpBundleIdentifier": {
+          "type": "string"
+        },
+        "abstract": {
+          "$ref": "MPSection.json#"
+        },
+        "keywords": {
+          "$ref": "MPSection.json#"
+        },
+        "pageLayout": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "includeLineNumbering": {
+          "type": "boolean"
+        },
+        "targetBundle": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "bundle": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "parent": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "hideBibliographyNotesInEditor": {
+          "type": "boolean"
+        },
+        "showBibliographyNotesInExports": {
+          "type": "boolean"
+        },
+        "useNativeBiblatexCitations": {
+          "type": "boolean"
+        },
+        "biblatexStyle": {
+          "type": "string"
+        },
+        "contentSummaryMode": {
+          "$ref": "enums.json#/definitions/MPContentSummaryMode"
+        },
+        "footnoteNumberingScheme": {
+          "type": "string"
+        },
+        "endnoteNumberingScheme": {
+          "type": "string"
+        },
+        "figureElementLabel": {
+          "type": "string"
+        },
+        "tableElementLabel": {
+          "type": "string"
+        },
+        "equationElementLabel": {
+          "type": "string"
+        },
+        "listingElementLabel": {
+          "type": "string"
+        },
+        "primaryLanguageCode": {
+          "type": "string"
+        },
+        "citationStyle": {
+          "type": "string",
+          "$comment": "Temporary property for the frontend app until we have all the premade MPBundle documents"
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPManuscript"]
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "submissions": {
+          "type": "array",
+          "items": {
+            "$ref": "MPSubmission.json#"
+          }
+        },
+        "maxCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "headerFigure": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPFigure:"
+            }
+          ]
+        },
+        "DOI": {
+          "type": "string",
+          "pattern": "^10\\.[0-9]+/"
+        },
+        "layoutTheme": {
+          "type": "string"
+        },
+        "paywall": {
+          "type": "boolean"
+        },
+        "authorInstructionsURL": {
+          "type": "string"
+        },
+        "articleType": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  }
+}

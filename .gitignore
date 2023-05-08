@@ -23,12 +23,6 @@ node_modules/
 # typescript
 tsc-dist/
 
-# compiled schemas
-schemas/
-
-# compiled typescript type defs
-definitions/
-
 documentation
 
 # dist
@@ -36,3 +30,6 @@ dist/
 
 junit.xml
 /.idea/
+
+src/lookup.ts
+src/types.ts

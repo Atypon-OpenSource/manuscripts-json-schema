@@ -1,0 +1,104 @@
+{
+  "$id": "MPSection.json",
+  "title": "Section",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" },
+      { "$ref": "mixins/MPHighlightable.json#" },
+      { "$ref": "mixins/MPManageable.json#" }
+    ],
+    "with": {
+      "properties": {
+        "placeholderTitle": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "category": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPSectionCategory:"
+            }
+          ]
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "titleSuppressed": {
+          "type": "boolean"
+        },
+        "elementIDs": {
+          "type": "array",
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSection"]
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          }
+        },
+        "captionStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPCaptionStyle:"
+            }
+          ]
+        },
+        "auxiliaryObjectReferenceStyle": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPAuxiliaryObjectReferenceStyle:"
+            }
+          ]
+        },
+        "pageBreakStyle": {
+          "type": "number"
+        },
+        "numberingParticipation": {
+          "$ref": "enums.json#/definitions/MPNumberingParticipation"
+        },
+        "maxCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "maxWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minCharacterCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "minWordCountRequirement": {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        "generatedLabel": {
+          "type": "boolean"
+        }
+      },
+      "required": ["path", "priority"]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$id": "MPBibliographicDate.json",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPEmbeddedModel.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPBibliographicDate"]
+        },
+        "date-parts": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                }, {
+                  "type": "number"
+                }
+              ]
+            },
+            "maxItems": 3
+          },
+          "maxItems": 2
+        },
+        "season": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 4
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "circa": {
+          "type": "boolean"
+        },
+        "literal": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$id": "MPManuscriptDocument.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "manuscriptID": {
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^MPManuscript:"
+        }
+      ]
+    },
+    "templateID": {
+      "allOf": [
+        {
+          "$ref": "strings.json#/definitions/_id"
+        },
+        {
+          "type": "string",
+          "pattern": "^MPManuscriptTemplate:"
+        }
+      ]
+    }
+  },
+  "required": ["manuscriptID"]
+}
