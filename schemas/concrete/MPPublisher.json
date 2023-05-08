@@ -1,0 +1,35 @@
+{
+  "$id": "MPPublisher.json",
+  "title": "Publisher",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }],
+    "with": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "websiteURL": {
+          "type": "string"
+        },
+        "canArchivePreprint": {
+          "type": "boolean"
+        },
+        "canArchivePostprint": {
+          "type": "boolean"
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPPublisher"]
+        }
+      },
+      "required": ["name"]
+    }
+  }
+}

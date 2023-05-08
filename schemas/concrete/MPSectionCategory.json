@@ -1,0 +1,55 @@
+{
+  "$id": "MPSectionCategory.json",
+  "title": "SectionCategory",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPContainedDocument.json#" },
+      { "$ref": "mixins/MPManuscriptDocument.json#" }
+    ],
+    "with": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "singular": {
+          "type": "boolean"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "uniqueInScope": {
+          "type": "boolean"
+        },
+        "supplementary": {
+          "type": "boolean"
+        },
+        "titleSuppressed": {
+          "type": "boolean"
+        },
+        "pageBreakStyle": {
+          "type": "number"
+        },
+        "numberingParticipation": {
+          "$ref": "enums.json#/definitions/MPNumberingParticipation"
+        },
+        "titles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPSectionCategory"]
+        }
+      },
+      "required": ["titles", "name", "desc", "priority"]
+    }
+  }
+}

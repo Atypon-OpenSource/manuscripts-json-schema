@@ -1,0 +1,20 @@
+{
+  "$id": "MPUserProfileAffiliation.json",
+  "title": "UserProfileAffiliation",
+  "type": "object",
+  "$mash": {
+    "sources": [
+      { "$ref": "abstract/MPModel.json#" },
+      { "$ref": "mixins/MPUserProfileContained.json#" },
+      { "$ref": "mixins/MPAffiliationLike.json#" }
+    ],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPUserProfileAffiliation"]
+        }
+      }
+    }
+  }
+}

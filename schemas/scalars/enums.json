@@ -1,0 +1,38 @@
+{
+  "$id": "enums.json",
+  "definitions": {
+    "MPContributorPresentationStyleTag": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+    "MPAuxiliaryElementFileLayout": {
+      "type": "integer",
+      "enum": [0, 1, 2, 3, 4]
+    },
+    "MPContentSummaryMode": {
+      "type": "integer",
+      "enum": [0, 1, 2, 4, 8, 16, 32]
+    },
+    "MPCitationCollationType": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+    "MPNumberingParticipation": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Item with numbering participation of 0 will take part in numbering schemes regardless of whether the item is numbered. Items with numbering participation of 1 will take part in numbering schemes when the item is itself numbered."
+    },
+    "ContainerRole": {
+      "type": "string",
+      "enum": ["Owner", "Writer", "Editor", "Viewer", "Annotator"]
+    },
+    "NoteSource": {
+      "type": "string",
+      "enum": ["EMAIL", "EDITOR", "DASHBOARD"]
+    },
+    "ExternalFileKind": {
+      "type": "string",
+      "enum": ["imageRepresentation", "interactiveRepresentation", "dataset"]
+    }
+  }
+}

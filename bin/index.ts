@@ -13,14 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { promises as fs } from 'fs';
+import * as path from 'path';
 
-module.exports = {
-  extends: '@manuscripts/eslint-config',
-  ignorePatterns: ['types.ts', 'lookup.ts'],
-  rules: {
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    'react/no-unescaped-entities': 'off',
-    'jsx-a11y/no-autofocus': 'off',
-  },
+import { generateLookup } from './generateLookup';
+import { generateTypes } from './generateTypes';
+import { generateValidators } from './generateValidators';
+
+async function main() {
+  await fs.mkdir('dist', { recursive: true });
+  await fs.mkdir(path.join('dist', 'cjs'));
+  await fs.mkdir(path.join('dist', 'es'));
+  await fs.mkdir(path.join('dist', 'types'));
+  await generateValidators();
+  await generateTypes();
+  await generateLookup();
 }
+
+main().catch((e) => console.log(e));

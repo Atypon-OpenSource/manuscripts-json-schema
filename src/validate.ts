@@ -1,36 +1,49 @@
-import * as Ajv from 'ajv';
-import { generateSchemas } from './schemas';
-import { getBuiltSchemas } from './getSchema';
+/*!
+ * © 2023 Atypon Systems LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+//@ts-ignore
+import * as validators from './validators'; // eslint-disable-line import/no-unresolved
 
-const { supportedObjectTypes } = generateSchemas();
+type ManuscriptsJson = { objectType: string };
 
-const ajv = new Ajv();
-// Use the built schemas for consistency/correctness.
-getBuiltSchemas().forEach((schema) => ajv.addSchema(schema));
-
-// TODO: the return value of this is confusing.
-export function validate(obj: any): Ajv.ErrorObject[] | null {
-  if (!obj || !obj.objectType) {
-    throw 'InvalidOperation';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function validate(object: ManuscriptsJson) {
+  if (!object) {
+    return 'object null or undefined';
   }
 
-  const schemaId = obj.objectType + '.json';
+  const type = object.objectType;
+  const validator = validators[type];
 
-  // Quick lookup
-  if (!supportedObjectTypes.has(schemaId)) {
-    throw 'Unsupported schema: ' + schemaId;
+  if (!validator) {
+    // throw unsupported?
+    return 'unsupported objectType: ' + type;
   }
 
-  // Get schema from ajv.
-  const validate = ajv.getSchema(schemaId);
-  // Run obj against schema in ajv.
-  /* @ts-ignore */
-  const valid = validate(obj);
-
-  if (valid) {
+  const result = validator(object);
+  if (result) {
     return null;
   } else {
-    /* @ts-ignore */
-    return validate.errors || null;
+    const err = validator.errors[0];
+    const msg = err.message;
+    const path = err.instancePath;
+    const keyword = err.keyword;
+    if (keyword === 'additionalProperties') {
+      return `${msg} '${err.params.additionalProperty}'`;
+    } else {
+      return (path ? path + ': ' : '') + msg;
+    }
   }
 }
