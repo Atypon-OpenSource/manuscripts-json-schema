@@ -37,7 +37,7 @@
         "groupIDs": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "strings.json#/definitions/_id"
           }
         },
         "numberingParticipation": {
