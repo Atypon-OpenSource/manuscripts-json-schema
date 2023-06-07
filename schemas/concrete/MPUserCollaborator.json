@@ -57,6 +57,12 @@
               "items": {
                 "$ref": "strings.json#/definitions/containerID"
               }
+            },
+            "proofer": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
             }
           }
         },
@@ -88,6 +94,12 @@
               }
             },
             "annotator": {
+              "type": "array",
+              "items": {
+                "$ref": "strings.json#/definitions/containerID"
+              }
+            },
+            "proofer": {
               "type": "array",
               "items": {
                 "$ref": "strings.json#/definitions/containerID"
