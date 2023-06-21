@@ -6,9 +6,6 @@
     "_id": {
       "$ref": "strings.json#/definitions/_id"
     },
-    "_rev": {
-      "type": "string"
-    },
     "objectType": {
       "type": "string",
       "enum": ["MPPreferences"]
