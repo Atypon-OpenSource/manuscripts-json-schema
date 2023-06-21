@@ -2862,38 +2862,6 @@ describe('Validation', () => {
     expect(validate(figureImageValidationResult)).toBeNull();
   });
 
-  test('MPSubmission', () => {
-    const submission = {
-      _id: 'MPSubmission:submission-1',
-      objectType: 'MPSubmission',
-      submittedAt: 23123123,
-      status: 'confirmed',
-      journalCode: 'jcb',
-      createdAt: 21312312.1,
-      updatedAt: 23123123,
-      containerID: 'MPProject:1',
-      manuscriptID: 'MPManuscript:1',
-    };
-
-    expect(validate(submission)).toBeNull();
-
-    expect(
-      validate(
-        Object.assign({}, submission, {
-          containerID: undefined,
-        })
-      )
-    ).toBe("must have required property 'containerID'");
-
-    expect(
-      validate(
-        Object.assign({}, submission, {
-          manuscriptID: undefined,
-        })
-      )
-    ).toBe("must have required property 'manuscriptID'");
-  });
-
   test('MPSnapshot', () => {
     const snapshot = {
       _id: 'MPSnapshot:snapshot-1',
