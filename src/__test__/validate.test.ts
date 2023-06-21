@@ -41,14 +41,12 @@ describe('Validation', () => {
       updatedAt: 1515494608.245375,
       objectType: 'MPBorderStyle',
       containerID: 'MPProject:foo-bar-baz',
-      _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
       _id: 'MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
       manuscriptID: 'MPManuscript:zorb',
       title: 'Dotted',
       pattern: [1, 1],
       createdAt: 1515417692.476143,
       name: 'dotted',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       priority: 1,
     };
 
@@ -64,7 +62,6 @@ describe('Validation', () => {
       topMargin: 20,
       objectType: 'MPPageLayout',
       defaultParagraphStyle: 'MPParagraphStyle:bodyText',
-      _rev: '1-b534223d2574718313361eca8dfa4466',
       _id: 'MPPageLayout:E6437A5C-849E-417B-B726-F43E2545E597',
       prototype: 'MPPageLayout:defaultA4',
       beginChaptersOnRightHandPages: true,
@@ -73,7 +70,6 @@ describe('Validation', () => {
       bottomMargin: 20,
       manuscriptID: 'MPManuscript:foo',
       containerID: 'MPProject:foo',
-      sessionID: '3213123-123123',
       mirrorPagesHorizontally: true,
       rightMargin: 20,
       createdAt: 1443870579.815809,
@@ -99,7 +95,6 @@ describe('Validation', () => {
       objectType: 'MPContributor',
       manuscriptID: 'MPManuscript:1001',
       containerID: 'MPProject:2002',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       affiliations: ['MPAffiliation:X'],
@@ -112,7 +107,6 @@ describe('Validation', () => {
     const namelessObject = {
       _id: 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
       objectType: 'MPContributor',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       priority: 1,
@@ -122,7 +116,6 @@ describe('Validation', () => {
     const objectWithBadAffiliations = {
       _id: 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
       objectType: 'MPContributor',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       manuscriptID: 'MPManuscript:1001',
@@ -137,7 +130,6 @@ describe('Validation', () => {
     const objectWithBadGrants = {
       _id: 'MPContributor:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
       objectType: 'MPContributor',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       manuscriptID: 'MPManuscript:1001',
@@ -192,7 +184,6 @@ describe('Validation', () => {
   test('preferences', () => {
     const validObject = {
       _id: 'MPPreferences:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       objectType: 'MPPreferences',
@@ -216,7 +207,6 @@ describe('Validation', () => {
       _id: 'MPAffiliation:231123-1233123-12331312',
       objectType: 'MPAffiliation',
       containerID: 'MPProject:foo-bar-baz',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       manuscriptID: 'MPManuscript:23111',
@@ -231,7 +221,6 @@ describe('Validation', () => {
       _id: 'MPUserProfileAffiliation:231123-1233123-12331312',
       objectType: 'MPUserProfileAffiliation',
       containerID: 'MPUserProfile:foo-bar-baz',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       priority: 1,
@@ -245,7 +234,6 @@ describe('Validation', () => {
       _id: 'MPGrant:231123-1233123-12331312',
       objectType: 'MPGrant',
       containerID: 'MPProject:foo-bar-baz',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       manuscriptID: 'MPManuscript:23111',
@@ -259,7 +247,6 @@ describe('Validation', () => {
       _id: 'MPUserProfileGrant:231123-1233123-12331312',
       objectType: 'MPUserProfileGrant',
       containerID: 'MPUserProfile:foo-bar-baz',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       prototype: 'MPUserProfileGrant:231123-1233123-1233131C',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
@@ -272,7 +259,6 @@ describe('Validation', () => {
     const validObject = {
       _id: 'MPBibliographyItem:231123-1233123-12331312',
       objectType: 'MPBibliographyItem',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       containerID: 'MPProject:foo-bar-baz',
@@ -284,11 +270,6 @@ describe('Validation', () => {
     expect(validate(Object.assign({}, validObject, { type: 'foo' }))).toBe(
       '/type: must be equal to one of the allowed values'
     );
-    expect(
-      validate(
-        Object.assign({}, validObject, { keywordIDs: ['MPKeyword:foo'] })
-      )
-    ).toBeNull();
     expect(
       validate(
         Object.assign({}, validObject, {
@@ -482,10 +463,6 @@ describe('Validation', () => {
     expect(
       validate(Object.assign({}, validObject, { updatedAt: 123123123 }))
     ).toBe("must NOT have additional properties 'updatedAt'");
-
-    expect(
-      validate(Object.assign({}, validObject, { sessionID: '12312312-312312' }))
-    ).toBe("must NOT have additional properties 'sessionID'");
   });
 
   test('citation', () => {
@@ -494,7 +471,6 @@ describe('Validation', () => {
       manuscriptID: 'MPManuscript:foo',
       embeddedCitationItems: [],
       containingObject: 'MPParagraphElement:qux',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       containerID: 'MPProject:bar',
@@ -599,7 +575,6 @@ describe('Validation', () => {
       objectType: 'MPSection',
       manuscriptID: 'MPManuscript:zorb',
       containerID: 'MPProject:foobar',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       priority: 3,
@@ -748,7 +723,6 @@ describe('Validation', () => {
       objectType: 'MPStatusLabel',
       containerID: 'MPProject:124123',
       manuscriptID: 'MPManuscript:123',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       name: 'foo',
@@ -762,7 +736,6 @@ describe('Validation', () => {
       _id: 'MPTag:231123-1233123-12331312',
       objectType: 'MPTag',
       containerID: 'MPProject:124123',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       name: 'tag-name',
@@ -776,7 +749,6 @@ describe('Validation', () => {
       _id: 'MPKeyword:231123-1233123-12331312',
       objectType: 'MPKeyword',
       containerID: 'MPProject:124123',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       name: 'foo',
@@ -810,7 +782,6 @@ describe('Validation', () => {
     const validObject = {
       _id: 'MPResearchField:231123-1233123-12331312',
       containerID: 'MPProject:123123123-3122312',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       objectType: 'MPResearchField',
@@ -830,52 +801,11 @@ describe('Validation', () => {
     );
   });
 
-  test('keyword ids', () => {
-    const validObject = {
-      updatedAt: 1515494608.245375,
-      objectType: 'MPBorderStyle',
-      containerID: 'MPProject:foo-bar-baz',
-      _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
-      _id: 'MPBorderStyle:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
-      title: 'Dotted',
-      pattern: [1, 1],
-      manuscriptID: 'MPManuscript:zorb',
-      createdAt: 1515417692.476143,
-      name: 'dotted',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
-      priority: 1,
-    };
-
-    expect(
-      validate(Object.assign({}, validObject, { keywordIDs: [] }))
-    ).toBeNull();
-
-    expect(
-      validate(
-        Object.assign({}, validObject, { keywordIDs: ['MPKeyword:foo'] })
-      )
-    ).toBeNull();
-
-    expect(
-      validate(
-        Object.assign({}, validObject, { keywordIDs: ['MPResearchField:foo'] })
-      )
-    ).toBeNull();
-
-    expect(
-      validate(Object.assign({}, validObject, { keywordIDs: ['MPUhoh:foo'] }))
-    ).toBe(
-      '/keywordIDs/0: must match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"'
-    );
-  });
-
   test('color', () => {
     const validObject = {
       _id: 'MPColor:09070E2C-E142-4AF9-8602-586AF77E508B',
       objectType: 'MPColor',
       containerID: 'MPProject:foo-bar-baz',
-      _rev: '1-ad1185e0dd0e339d830af9c082b2e052',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 1515417692.477127,
       updatedAt: 1515494608.363229,
       title: 'Red',
@@ -914,7 +844,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -928,7 +857,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -940,7 +868,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -954,7 +881,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -968,7 +894,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -982,7 +907,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -996,7 +920,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1010,7 +933,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1024,7 +946,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1038,7 +959,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1052,7 +972,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1066,7 +985,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1081,7 +999,6 @@ describe('Validation', () => {
       validate({
         objectType: 'MPProject',
         _id: 'MPProject:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-        sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
         createdAt: 1515417692.477127,
         updatedAt: 1515494608.363229,
         owners: [],
@@ -1244,8 +1161,6 @@ describe('Validation', () => {
       ],
       objectType: 'MPColorScheme',
       _id: 'MPColorScheme:1E9C939E-B785-40AE-A8A5-9F534D91C754',
-      _rev: '1-611a94e741630034211f64c81b80bdd8',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       containerID: 'MPProject:foo-bar-baz',
       manuscriptID: 'MPManuscript:zorb',
       createdAt: 1515417692.477127,
@@ -1281,7 +1196,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPTOCElement',
       _id: 'MPTOCElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       containerID: 'MPProject:foo-bar-baz',
@@ -1313,7 +1227,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPTOCElement',
       _id: 'MPTOCElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'p',
@@ -1346,7 +1259,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPTOCElement',
       _id: 'MPTOCElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'p',
@@ -1381,8 +1293,6 @@ describe('Validation', () => {
     const validObject = {
       updatedAt: 1454537867.959872,
       objectType: 'MPBibliographyElement',
-      _rev: '3-5a3d94454953b3092e0cc41ed645621a',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       _id: 'MPBibliographyElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
       contents: 'foo',
       elementType: 'table',
@@ -1413,7 +1323,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPTOCElement',
       _id: 'MPTOCElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'p',
@@ -1435,7 +1344,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPListingElement',
       _id: 'MPListingElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'figure',
@@ -1462,7 +1370,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPEquationElement',
       _id: 'MPEquationElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'p',
@@ -1519,7 +1426,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPFootnotesElement',
       _id: 'MPFootnotesElement:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'p',
@@ -1550,7 +1456,6 @@ describe('Validation', () => {
       containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
       figureLayout: 'MPFigureLayout:E173019C-00BB-415E-926A-D0C57ED43303',
       figureStyle: 'MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       objectType: 'MPFigureElement',
@@ -1634,7 +1539,6 @@ describe('Validation', () => {
     const validObject = {
       objectType: 'MPFootnotesOrder',
       _id: 'MPFootnotesOrder:E3391685EDA9',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       footnotesList: [
@@ -1675,7 +1579,6 @@ describe('Validation', () => {
     const validObject = {
       _id: 'MPListElement:3E3C0A32-431A-4E60-AE12-07B1317C952E',
       objectType: 'MPListElement',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       elementType: 'ul',
@@ -1695,9 +1598,7 @@ describe('Validation', () => {
   test('table element', () => {
     const validObject = {
       updatedAt: 1454537867.959872,
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       objectType: 'MPTableElement',
-      _rev: '3-5a3d94454953b3092e0cc41ed645621a',
       suppressFooter: true,
       _id: 'MPTableElement:8C7F2071-29B1-4D2A-F884-E3391685EDA9',
       elementType: 'table',
@@ -1779,11 +1680,9 @@ describe('Validation', () => {
   test('figure style', () => {
     const validObject = {
       _id: 'MPFigureStyle:test',
-      _rev: '1',
       objectType: 'MPFigureStyle',
       updatedAt: 1,
       createdAt: 1,
-      sessionID: 'test',
       captionPosition: 'top',
       innerBorder: {
         _id: 'MPBorder:test',
@@ -1816,11 +1715,9 @@ describe('Validation', () => {
   test('inline style', () => {
     const validObject = {
       _id: 'MPInlineStyle:test',
-      _rev: '1',
       objectType: 'MPInlineStyle',
       updatedAt: 1,
       createdAt: 1,
-      sessionID: 'test',
       manuscriptID: 'MPManuscript:test',
       containerID: 'MPProject:potato',
     };
@@ -1839,11 +1736,9 @@ describe('Validation', () => {
   test('table style', () => {
     const validObject = {
       _id: 'MPTableStyle:test',
-      _rev: '1',
       objectType: 'MPTableStyle',
       updatedAt: 1,
       createdAt: 1,
-      sessionID: 'test',
       manuscriptID: 'MPManuscript:test',
       containerID: 'MPProject:potato',
     };
@@ -1872,7 +1767,6 @@ describe('Validation', () => {
       _id: 'MPEquation:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPEquation',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -1893,7 +1787,6 @@ describe('Validation', () => {
       _id: 'MPFootnote:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPFootnote',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -1916,7 +1809,6 @@ describe('Validation', () => {
       _id: 'MPCorresponding:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPCorresponding',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -1935,7 +1827,6 @@ describe('Validation', () => {
       _id: 'MPListing:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPListing',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -1969,7 +1860,6 @@ describe('Validation', () => {
       _id: 'MPTable:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPTable',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -1988,7 +1878,6 @@ describe('Validation', () => {
       _id: 'MPTable:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPTable',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -2005,7 +1894,6 @@ describe('Validation', () => {
   test('figure', () => {
     const validObject = {
       _id: 'MPFigure:foo',
-      sessionID: '3123123-123123-123DDA',
       updatedAt: 213123123.1,
       createdAt: 213123123.1,
       objectType: 'MPFigure',
@@ -2056,7 +1944,6 @@ describe('Validation', () => {
       elements: ['MPFigureElement:test1', 'MPFigureElement:test2'],
       containerID: 'MPProject:test',
       manuscriptID: 'MPManuscript:test',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       createdAt: 123123123,
       updatedAt: 123123123,
       objectType: 'MPElementsOrder',
@@ -2274,7 +2161,6 @@ describe('Validation', () => {
       priority: 2000,
       containerID: 'MPProject:foo',
       manuscriptID: 'MPManuscript:baz',
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       updatedAt: 1515494608.245375,
       createdAt: 1515417692.476143,
       uniqueInScope: true,
@@ -2511,7 +2397,6 @@ describe('Validation', () => {
         objectType: 'MPManuscript',
         containerID: 'MPProject:bar',
         DOI: '10.0000/foo',
-        keywordIDs: [],
       })
     ).toBeNull();
 
@@ -2523,23 +2408,8 @@ describe('Validation', () => {
         objectType: 'MPManuscript',
         containerID: 'MPProject:bar',
         DOI: '10.0000/foo',
-        keywordIDs: ['MPManuscriptKeyword:test'],
       })
     ).toBeNull();
-
-    expect(
-      validate({
-        _id: 'MPManuscript:foo',
-        createdAt: 12312312.1,
-        updatedAt: 12312312.1,
-        objectType: 'MPManuscript',
-        containerID: 'MPProject:bar',
-        DOI: '100000',
-        keywordIDs: ['MPManuscriptKeywords:test'],
-      })
-    ).toBe(
-      '/keywordIDs/0: must match pattern "^(MPKeyword|MPManuscriptKeyword|MPResearchField|MPLibraryCollection|MPStatusLabel|MPTag):[0-9a-zA-Z\\-]+"'
-    );
   });
 
   test('comment', () => {
@@ -2547,7 +2417,6 @@ describe('Validation', () => {
       _id: 'MPCommentAnnotation:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPCommentAnnotation',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -2663,7 +2532,6 @@ describe('Validation', () => {
       synonyms: ['abc'],
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
     };
 
     expect(validate(validObject)).toBeNull();
@@ -2732,7 +2600,6 @@ describe('Validation', () => {
       _id: 'MPManuscriptTemplate:1',
       objectType: 'MPManuscriptTemplate',
       containerID: 'MPProject:1',
-      sessionID: 'foo',
       category: 'MPManuscriptCategory:1',
       title: 'Foo',
       createdAt: 0,
@@ -2837,7 +2704,6 @@ describe('Validation', () => {
     const common = {
       containerID: 'MPProject:test',
       manuscriptID: 'MPManuscript:test',
-      sessionID: 'foo',
       createdAt: 0,
       updatedAt: 0,
       severity: 0,
@@ -3007,7 +2873,6 @@ describe('Validation', () => {
       updatedAt: 23123123,
       containerID: 'MPProject:1',
       manuscriptID: 'MPManuscript:1',
-      sessionID: 'foo',
     };
 
     expect(validate(submission)).toBeNull();
@@ -3052,7 +2917,6 @@ describe('Validation', () => {
       createdAt: 0,
       updatedAt: 0,
       containerID: 'MPProject:1',
-      sessionID: 'foo',
       title: 'Test Template',
       coverLetterRequirement: 'MPManuscriptCoverLetterRequirement:1',
     };
@@ -3068,7 +2932,6 @@ describe('Validation', () => {
       updatedAt: 23123123,
       containerID: 'MPProject:1',
       manuscriptID: 'MPManuscript:1',
-      sessionID: 'foo',
     };
 
     expect(validate(highlight)).toBeNull();
@@ -3149,7 +3012,6 @@ describe('Validation', () => {
     const keywordsElement = {
       _id: 'MPKeywordsElement:1',
       objectType: 'MPKeywordsElement',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       containerID: 'MPProject:foo-bar-baz',
@@ -3174,7 +3036,6 @@ describe('Validation', () => {
       containedObjectIDs: ['MPFigure:DE6E7B4A-C84D-4DC0-8C2A-2FE71DCF1C5F'],
       figureLayout: '',
       figureStyle: 'MPFigureStyle:E173019C-00BB-415E-926A-D0C57ED43303',
-      sessionID: 'B659C104-C20B-4571-B597-84A6AF85D2BC',
       createdAt: 1454394584,
       updatedAt: 1454537867.959872,
       objectType: 'MPFigureElement',
@@ -3235,7 +3096,6 @@ describe('Validation', () => {
         contents: 'test',
         createdAt: 0,
         updatedAt: 0,
-        sessionID: 'test',
       })
     ).toBeNull();
 
@@ -3251,7 +3111,6 @@ describe('Validation', () => {
         contents: 'test',
         createdAt: 0,
         updatedAt: 0,
-        sessionID: 'test',
       })
     ).toBeNull();
 
@@ -3267,7 +3126,6 @@ describe('Validation', () => {
         contents: 'test',
         createdAt: 0,
         updatedAt: 0,
-        sessionID: 'test',
       })
     ).toBe('/quoteType: must be equal to one of the allowed values');
 
@@ -3282,7 +3140,6 @@ describe('Validation', () => {
         quoteType: 'block',
         createdAt: 0,
         updatedAt: 0,
-        sessionID: 'test',
       })
     ).toBe("must have required property 'contents'");
   });
@@ -3297,7 +3154,6 @@ describe('Validation', () => {
       priority: 1,
       createdAt: 0,
       updatedAt: 0,
-      sessionID: 'test',
     };
 
     // valid object
@@ -3333,7 +3189,6 @@ describe('Validation', () => {
       },
       createdAt: 0,
       updatedAt: 0,
-      sessionID: 'test',
     };
 
     // valid object
@@ -3378,7 +3233,6 @@ describe('Validation', () => {
       topSpacing: 4,
       manuscriptID: 'MPManuscript:test',
       containerID: 'MPProject:test',
-      sessionID: 'test',
       createdAt: 0,
       updatedAt: 0,
     };
@@ -3402,7 +3256,6 @@ describe('Validation', () => {
       _id: 'MPManuscriptNote:foo',
       createdAt: 21312312.1,
       updatedAt: 23123123,
-      sessionID: 'weqq',
       objectType: 'MPManuscriptNote',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
@@ -3429,7 +3282,6 @@ describe('Validation', () => {
       objectType: 'MPRequirementsValidation',
       updatedAt: 1,
       createdAt: 1,
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       results: [
         {
           manuscriptID: 'MPManuscript:1001',
@@ -3459,7 +3311,6 @@ describe('Validation', () => {
       objectType: 'MPJournal',
       updatedAt: 1,
       createdAt: 1,
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       ISSNs: [{ ISSN: '123/45', publicationType: 'print' }],
       abbreviatedTitles: [
         { abbreviatedTitle: 'title', abbrevType: 'publisher' },
@@ -3493,7 +3344,6 @@ describe('Validation', () => {
       objectType: 'MPKeywordGroup',
       updatedAt: 1,
       createdAt: 1,
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
       title: 'keyword title',
       label: 'label',
       type: 'author',
@@ -3566,11 +3416,9 @@ describe('Validation', () => {
       updatedAt: 1515494608.245375,
       objectType: 'MPMetaSection',
       containerID: 'MPProject:foo-bar-baz',
-      _rev: '1-cf3758c6a77c031dcd8f617087c7493d',
       _id: 'MPMetaSection:15326C7B-836D-4D6C-81EB-7E6CA6153E9A',
       manuscriptID: 'MPManuscript:zorb',
       createdAt: 1515417692.476143,
-      sessionID: '4D17753C-AF51-4262-9FBD-88D8EC7E8495',
     };
 
     expect(validate(validObject)).toBeNull();
