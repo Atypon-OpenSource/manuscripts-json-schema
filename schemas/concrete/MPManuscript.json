@@ -230,12 +230,6 @@
         "priority": {
           "type": "integer"
         },
-        "submissions": {
-          "type": "array",
-          "items": {
-            "$ref": "MPSubmission.json#"
-          }
-        },
         "maxCharacterCountRequirement": {
           "$ref": "strings.json#/definitions/_id"
         },
