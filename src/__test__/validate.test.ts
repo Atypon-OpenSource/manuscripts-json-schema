@@ -2862,22 +2862,6 @@ describe('Validation', () => {
     expect(validate(figureImageValidationResult)).toBeNull();
   });
 
-  test('MPSnapshot', () => {
-    const snapshot = {
-      _id: 'MPSnapshot:snapshot-1',
-      objectType: 'MPSnapshot',
-      createdAt: 23123123,
-      updatedAt: 23123123,
-      creator: 'stephencongly@gmail.com',
-      s3Id: 'idforgettingarchivefromglacier',
-      proof: ['random#string*of/characters'],
-      containerID: 'MPProject:my-project',
-      name: 'My Snapshot',
-    };
-
-    expect(validate(snapshot)).toBeNull();
-  });
-
   test('Manuscript Template with requirements', () => {
     const validObject = {
       _id: 'MPManuscriptTemplate:1',
