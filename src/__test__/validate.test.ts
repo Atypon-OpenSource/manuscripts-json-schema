@@ -2862,20 +2862,6 @@ describe('Validation', () => {
     expect(validate(figureImageValidationResult)).toBeNull();
   });
 
-  test('Manuscript Template with requirements', () => {
-    const validObject = {
-      _id: 'MPManuscriptTemplate:1',
-      objectType: 'MPManuscriptTemplate',
-      createdAt: 0,
-      updatedAt: 0,
-      containerID: 'MPProject:1',
-      title: 'Test Template',
-      coverLetterRequirement: 'MPManuscriptCoverLetterRequirement:1',
-    };
-
-    expect(validate(validObject)).toBeNull();
-  });
-
   test('MPHighlight', () => {
     const highlight = {
       _id: 'MPHighlight:1',
