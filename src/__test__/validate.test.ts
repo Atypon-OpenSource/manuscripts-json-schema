@@ -2600,7 +2600,6 @@ describe('Validation', () => {
       _id: 'MPManuscriptTemplate:1',
       objectType: 'MPManuscriptTemplate',
       containerID: 'MPProject:1',
-      category: 'MPManuscriptCategory:1',
       title: 'Foo',
       createdAt: 0,
       updatedAt: 0,
