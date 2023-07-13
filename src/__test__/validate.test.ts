@@ -2649,6 +2649,15 @@ describe('Validation', () => {
     expect(
       validate(
         Object.assign({}, validObject, {
+          maxManuscriptReferenceCountRequirement:
+            'MPMaximumManuscriptReferenceCountRequirement:1',
+        })
+      )
+    ).toBeNull();
+
+    expect(
+      validate(
+        Object.assign({}, validObject, {
           minFigureWidthPixelsRequirement: 'MPMinimumFigurePixelsRequirement:1',
         })
       )

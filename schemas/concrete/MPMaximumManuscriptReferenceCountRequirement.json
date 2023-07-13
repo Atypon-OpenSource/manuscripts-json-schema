@@ -1,0 +1,16 @@
+{
+  "$id": "MPMaximumManuscriptReferenceCountRequirement.json",
+  "title": "MaximumManuscriptReferenceCountRequirement",
+  "type": "object",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPCountRequirement.json#" }],
+    "with": {
+      "properties": {
+        "objectType": {
+          "type": "string",
+          "enum": ["MPMaximumManuscriptReferenceCountRequirement"]
+        }
+      }
+    }
+  }
+}
