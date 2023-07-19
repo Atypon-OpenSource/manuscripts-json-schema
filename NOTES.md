@@ -106,14 +106,8 @@ The resulting JSON Schema looks like this:
     "title": {
       "type": "string"
     },
-    "sessionID": {
-      "type": "string"
-    },
     "_id": {
       "$ref": "strings.json#/definitions/_id"
-    },
-    "_rev": {
-      "type": "string"
     },
     "objectType": {
       "$ref": "strings.json#/definitions/objectType"
@@ -127,7 +121,6 @@ The resulting JSON Schema looks like this:
   },
   "required": [
     "_id",
-    "_rev",
     "objectType",
     "createdAt",
     "updatedAt"

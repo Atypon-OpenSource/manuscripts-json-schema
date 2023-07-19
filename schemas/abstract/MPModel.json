@@ -4,12 +4,6 @@
     "sources": [{ "$ref": "abstract/MPBaseModel.json#" }],
     "with": {
       "properties": {
-        "sessionID": {
-          "type": "string"
-        },
-        "_deleted": {
-          "type": "boolean"
-        },
         "createdAt": {
           "$ref": "numbers.json#/definitions/timestamp"
         },
@@ -18,15 +12,6 @@
         },
         "prototype": {
           "$ref": "strings.json#/definitions/_id"
-        },
-        "bundled": {
-          "type": "boolean"
-        },
-        "keywordIDs": {
-          "type": "array",
-          "items": {
-            "$ref": "strings.json#/definitions/keywordID"
-          }
         }
       },
       "required": ["createdAt", "updatedAt"]

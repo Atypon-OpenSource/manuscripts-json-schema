@@ -14,12 +14,6 @@
         "title": {
           "type": "string"
         },
-        "snapshots": {
-          "type": "array",
-          "items": {
-            "$ref": "MPSnapshot.json#"
-          }
-        },
         "objectType": {
           "type": "string",
           "enum": ["MPProject"]
