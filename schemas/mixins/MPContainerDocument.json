@@ -27,6 +27,12 @@
         "$ref": "strings.json#/definitions/gatewayAccountID"
       }
     },
+    "proofers": {
+      "type": "array",
+      "items": {
+        "$ref": "strings.json#/definitions/gatewayAccountID"
+      }
+    },
     "viewers": {
       "type": "array",
       "items": {
