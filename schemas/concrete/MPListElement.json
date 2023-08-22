@@ -12,6 +12,10 @@
         "elementType": {
           "type": "string",
           "enum": ["ul", "ol"]
+        },
+        "listStyleType": {
+          "type": "string",
+          "enum": ["order", "alpha-lower", "alpha-upper", "roman-lower", "roman-upper", "bullet"]
         }
       },
       "required": []
