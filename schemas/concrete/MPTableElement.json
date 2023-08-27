@@ -19,8 +19,11 @@
         "suppressHeader": {
           "type": "boolean"
         },
-        "containedObjectID": {
-          "$ref": "strings.json#/definitions/_id"
+        "containedObjectIDs": {
+          "type": "array",
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          }
         },
         "tableStyle": {
           "allOf": [
@@ -56,7 +59,7 @@
           ]
         }
       },
-      "required": ["containedObjectID"]
+      "required": ["containedObjectIDs"]
     }
   }
 }

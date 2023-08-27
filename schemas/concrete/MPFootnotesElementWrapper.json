@@ -1,0 +1,23 @@
+{
+  "$id": "MPFootnotesElementWrapper.json",
+  "title": "FootnotesElementWrapper",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "containedObjectIDs": {
+          "type": "array",
+          "items": {
+            "$ref": "strings.json#/definitions/_id"
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["MPFootnotesElementWrapper"]
+        }
+      },
+      "required": ["containedObjectIDs"]
+    }
+  }
+}
