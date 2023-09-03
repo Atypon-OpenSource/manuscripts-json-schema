@@ -1607,7 +1607,7 @@ describe('Validation', () => {
       paragraphStyle: 'MPParagraphStyle:655CA525-623F-40CD-915E-9FB3BDFB833B',
       createdAt: 1454394584,
       containerID: 'MPProject:potato',
-      containedObjectIDs: ['MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864'],
+      containedObjectID: 'MPTable:F40C327C-C02E-4A6E-8222-D9D0287E6864',
     };
 
     expect(validate(validObject)).toBeNull();
@@ -1638,17 +1638,15 @@ describe('Validation', () => {
 
     expect(
       validate(
-        Object.assign({}, validObject, { containedObjectIDs: ['2424-4224'] })
+        Object.assign({}, validObject, { containedObjectID: '2424-4224' })
       )
     ).toBe(
-      '/containedObjectIDs/0: must match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
+      '/containedObjectID: must match pattern "^[A-Z][a-zA-Z]+:[0-9a-zA-Z\\-]+"'
     );
 
     expect(
-      validate(
-        Object.assign({}, validObject, { containedObjectIDs: undefined })
-      )
-    ).toBe("must have required property 'containedObjectIDs'");
+      validate(Object.assign({}, validObject, { containedObjectID: undefined }))
+    ).toBe("must have required property 'containedObjectID'");
 
     expect(
       validate({

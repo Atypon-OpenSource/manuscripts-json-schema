@@ -19,11 +19,8 @@
         "suppressHeader": {
           "type": "boolean"
         },
-        "containedObjectIDs": {
-          "type": "array",
-          "items": {
-            "$ref": "strings.json#/definitions/_id"
-          }
+        "containedObjectID": {
+          "$ref": "strings.json#/definitions/_id"
         },
         "tableStyle": {
           "allOf": [
@@ -57,9 +54,20 @@
               "pattern": "^MPListing:"
             }
           ]
+        },
+        "footnotesElementID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPFootnotesElement:"
+            }
+          ]
         }
       },
-      "required": ["containedObjectIDs"]
+      "required": ["containedObjectID"]
     }
   }
 }
