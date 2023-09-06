@@ -55,14 +55,14 @@
             }
           ]
         },
-        "footnotesElementID": {
+        "tableElementFooterID": {
           "allOf": [
             {
               "$ref": "strings.json#/definitions/_id"
             },
             {
               "type": "string",
-              "pattern": "^MPFootnotesElement:"
+              "pattern": "^MPTableElementFooter:"
             }
           ]
         }

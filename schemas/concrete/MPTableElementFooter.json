@@ -1,0 +1,31 @@
+{
+  "$id": "MPTableElementFooter.json",
+  "title": "TableElementFooter",
+  "$mash": {
+    "sources": [{ "$ref": "abstract/MPModel.json#" }
+    ],
+    "with": {
+      "properties": {
+        "containedObjectIDs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "strings.json#/definitions/_id"
+              },
+              {
+                "type": "string",
+                "pattern": "^(MPFootnotesElement|MPParagraphElement):"
+              }
+            ]
+          }
+        },
+        "objectType": {
+          "type": "string",
+          "enum": ["TableElementFooter"]
+        }
+      },
+      "required": ["containedObjectIDs"]
+    }
+  }
+}
