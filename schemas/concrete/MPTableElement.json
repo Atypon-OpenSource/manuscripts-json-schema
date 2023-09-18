@@ -54,6 +54,17 @@
               "pattern": "^MPListing:"
             }
           ]
+        },
+        "tableElementFooterID": {
+          "allOf": [
+            {
+              "$ref": "strings.json#/definitions/_id"
+            },
+            {
+              "type": "string",
+              "pattern": "^MPTableElementFooter:"
+            }
+          ]
         }
       },
       "required": ["containedObjectID"]
