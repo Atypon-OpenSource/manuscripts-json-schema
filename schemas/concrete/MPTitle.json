@@ -1,0 +1,27 @@
+{
+    "$id": "MPTitle.json",
+    "title": "Title",
+    "$mash": {
+      "sources": [
+        { "$ref": "abstract/MPModel.json#" },
+        { "$ref": "mixins/MPContainedDocument.json#" },
+        { "$ref": "mixins/MPManuscriptDocument.json#" }
+      ],
+      "with": {
+        "properties": {
+          "containedObjectIDs": {
+            "type": "array",
+            "items": {
+              "$ref": "strings.json#/definitions/_id"
+            }
+          },
+          "objectType": {
+            "type": "string",
+            "enum": ["MPTitle"]
+          }
+        },
+        "required": ["containedObjectIDs"]
+      }
+    }
+  }
+  
