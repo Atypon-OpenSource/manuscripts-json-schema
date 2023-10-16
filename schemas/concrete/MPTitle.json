@@ -15,6 +15,9 @@
               "$ref": "strings.json#/definitions/_id"
             }
           },
+          "contents": {
+            "type": "string"
+          },
           "objectType": {
             "type": "string",
             "enum": ["MPTitle"]
