@@ -10,9 +10,6 @@
     ],
     "with": {
       "properties": {
-        "title": {
-          "type": "string"
-        },
         "effectiveTitle": {
           "type": "string"
         },
