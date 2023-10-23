@@ -2325,22 +2325,11 @@ describe('Validation', () => {
     expect(
       validate({
         ...validObject,
-        title: 'The Title',
         subtitle: 'The Subtitle',
         runningTitle: 'The Running Title',
       })
     ).toBeNull();
 
-    expect(
-      validate({
-        _id: 'MPManuscript:foo',
-        createdAt: 12312312.1,
-        updatedAt: 12312312.1,
-        objectType: 'MPManuscript',
-        containerID: 'MPProject:bar',
-        title: 1,
-      })
-    ).toBe('/title: must be string');
   });
 
   test('manuscript keyword', () => {
