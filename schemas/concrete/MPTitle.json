@@ -9,12 +9,6 @@
       ],
       "with": {
         "properties": {
-          "containedObjectIDs": {
-            "type": "array",
-            "items": {
-              "$ref": "strings.json#/definitions/_id"
-            }
-          },
           "contents": {
             "type": "string"
           },
@@ -23,7 +17,7 @@
             "enum": ["MPTitle"]
           }
         },
-        "required": ["containedObjectIDs"]
+        "required": ["content"]
       }
     }
   }
