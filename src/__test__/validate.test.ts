@@ -2329,7 +2329,6 @@ describe('Validation', () => {
         runningTitle: 'The Running Title',
       })
     ).toBeNull();
-
   });
 
   test('manuscript keyword', () => {
