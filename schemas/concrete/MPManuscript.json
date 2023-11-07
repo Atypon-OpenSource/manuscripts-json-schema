@@ -16,9 +16,6 @@
         "plainTextTitle": {
           "type": "string"
         },
-        "runningTitle": {
-          "type": "string"
-        },
         "desc": {
           "type": "string"
         },
@@ -26,9 +23,6 @@
           "type": "string"
         },
         "notes": {
-          "type": "string"
-        },
-        "subtitle": {
           "type": "string"
         },
         "colorScheme": {

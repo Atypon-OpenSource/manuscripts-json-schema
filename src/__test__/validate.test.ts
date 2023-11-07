@@ -2311,13 +2311,15 @@ describe('Validation', () => {
     ).toBe('/DOI: must match pattern "^10\\.[0-9]+/"');
   });
 
-  test('manuscript title', () => {
+  test('Title', () => {
     const validObject = {
-      _id: 'MPManuscript:foo',
-      createdAt: 0,
-      updatedAt: 0,
-      objectType: 'MPManuscript',
-      containerID: 'MPProject:test',
+      _id: 'MPTitle:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPTitle',
+      containerID: 'MPProject:bar',
+      manuscriptID: 'MPManuscript:baz',
+      articleTitle: 'The Article Title',
     };
 
     expect(validate({ ...validObject })).toBeNull();

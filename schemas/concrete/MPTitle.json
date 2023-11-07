@@ -1,6 +1,6 @@
 {
-    "$id": "MPArticleTitle.json",
-    "title": "ArticleTitle",
+    "$id": "MPTitle.json",
+    "title": "Title",
     "$mash": {
       "sources": [
         { "$ref": "abstract/MPModel.json#" },
@@ -9,15 +9,21 @@
       ],
       "with": {
         "properties": {
-          "contents": {
+          "articleTitle": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "runningTitle": {
             "type": "string"
           },
           "objectType": {
             "type": "string",
-            "enum": ["MPArticleTitle"]
+            "enum": ["MPTitle"]
           }
         },
-        "required": ["content"]
+        "required": ["articleTitle"]
       }
     }
   }
