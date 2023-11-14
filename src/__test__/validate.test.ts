@@ -2313,13 +2313,13 @@ describe('Validation', () => {
 
   test('Title', () => {
     const validObject = {
-      _id: 'MPTitle:foo',
+      _id: 'MPTitles:foo',
       createdAt: 12312312.1,
       updatedAt: 12312312.1,
-      objectType: 'MPTitle',
+      objectType: 'MPTitles',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
-      articleTitle: 'The Article Title',
+      title: 'The Article Title',
     };
 
     expect(validate({ ...validObject })).toBeNull();
