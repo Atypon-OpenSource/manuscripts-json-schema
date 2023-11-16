@@ -22,8 +22,7 @@
             "type": "string",
             "enum": ["MPTitles"]
           }
-        },
-        "required": ["title"]
+        }
       }
     }
   }
