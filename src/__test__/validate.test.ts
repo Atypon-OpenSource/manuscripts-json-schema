@@ -2319,7 +2319,7 @@ describe('Validation', () => {
       objectType: 'MPTitles',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
-      title: 'The Article Title',
+      contents: 'The Article Title',
     };
 
     expect(validate({ ...validObject })).toBeNull();
