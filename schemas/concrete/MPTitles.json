@@ -9,7 +9,7 @@
       ],
       "with": {
         "properties": {
-          "title": {
+          "contents": {
             "type": "string"
           },
           "subtitle": {
@@ -23,7 +23,7 @@
             "enum": ["MPTitles"]
           }
         },
-        "required": ["title"]
+        "required": ["contents"]
       }
     }
   }
