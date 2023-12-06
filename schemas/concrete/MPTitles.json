@@ -1,0 +1,30 @@
+{
+    "$id": "MPTitles.json",
+    "title": "Titles",
+    "$mash": {
+      "sources": [
+        { "$ref": "abstract/MPModel.json#" },
+        { "$ref": "mixins/MPContainedDocument.json#" },
+        { "$ref": "mixins/MPManuscriptDocument.json#" }
+      ],
+      "with": {
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "runningTitle": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string",
+            "enum": ["MPTitles"]
+          }
+        },
+        "required": ["title"]
+      }
+    }
+  }
+  

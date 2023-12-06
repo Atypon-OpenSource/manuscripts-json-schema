@@ -2311,13 +2311,15 @@ describe('Validation', () => {
     ).toBe('/DOI: must match pattern "^10\\.[0-9]+/"');
   });
 
-  test('manuscript title', () => {
+  test('Title', () => {
     const validObject = {
-      _id: 'MPManuscript:foo',
-      createdAt: 0,
-      updatedAt: 0,
-      objectType: 'MPManuscript',
-      containerID: 'MPProject:test',
+      _id: 'MPTitles:foo',
+      createdAt: 12312312.1,
+      updatedAt: 12312312.1,
+      objectType: 'MPTitles',
+      containerID: 'MPProject:bar',
+      manuscriptID: 'MPManuscript:baz',
+      title: 'The Article Title',
     };
 
     expect(validate({ ...validObject })).toBeNull();
@@ -2325,22 +2327,10 @@ describe('Validation', () => {
     expect(
       validate({
         ...validObject,
-        title: 'The Title',
         subtitle: 'The Subtitle',
         runningTitle: 'The Running Title',
       })
     ).toBeNull();
-
-    expect(
-      validate({
-        _id: 'MPManuscript:foo',
-        createdAt: 12312312.1,
-        updatedAt: 12312312.1,
-        objectType: 'MPManuscript',
-        containerID: 'MPProject:bar',
-        title: 1,
-      })
-    ).toBe('/title: must be string');
   });
 
   test('manuscript keyword', () => {

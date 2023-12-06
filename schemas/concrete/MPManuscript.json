@@ -10,16 +10,10 @@
     ],
     "with": {
       "properties": {
-        "title": {
-          "type": "string"
-        },
         "effectiveTitle": {
           "type": "string"
         },
         "plainTextTitle": {
-          "type": "string"
-        },
-        "runningTitle": {
           "type": "string"
         },
         "desc": {
@@ -29,9 +23,6 @@
           "type": "string"
         },
         "notes": {
-          "type": "string"
-        },
-        "subtitle": {
           "type": "string"
         },
         "colorScheme": {
