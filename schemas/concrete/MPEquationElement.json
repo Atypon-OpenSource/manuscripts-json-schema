@@ -17,12 +17,11 @@
         "containedObjectID": {
           "$ref": "strings.json#/definitions/_id"
         },
-        "elementType": {
-          "type": "string",
-          "enum": ["div"]
+        "label": {
+          "type": "string"
         }
       },
-      "required": ["caption", "containedObjectID"]
+      "required": ["containedObjectID"]
     }
   }
 }

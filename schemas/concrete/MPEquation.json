@@ -14,26 +14,15 @@
           "type": "string",
           "enum": ["MPEquation"]
         },
-        "TeXRepresentation": {
+        "content": {
           "type": "string"
         },
-        "SVGStringRepresentation": {
-          "type": "string"
-        },
-        "MathMLStringRepresentation": {
-          "type": "string"
-        },
-        "OMMLStringRepresentation": {
-          "type": "string"
-        },
-        "HTMLStringRepresentation": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
+        "format": {
+          "type": "string",
+          "enum": ["tex-math", "mml:math"]
         }
       },
-      "required": ["TeXRepresentation"]
+      "required": ["content", "format"]
     }
   }
 }
