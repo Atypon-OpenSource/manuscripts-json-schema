@@ -1761,15 +1761,15 @@ describe('Validation', () => {
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
       format: 'mml:math',
-      content: '{}',
+      contents: '{}',
     };
 
     expect(validate(validObject)).toBeNull();
 
-    const { content, ...invalidObject } = validObject;
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
-      "must have required property 'content'"
+      "must have required property 'contents'"
     );
   });
 

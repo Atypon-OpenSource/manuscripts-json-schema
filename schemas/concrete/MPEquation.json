@@ -14,7 +14,7 @@
           "type": "string",
           "enum": ["MPEquation"]
         },
-        "content": {
+        "contents": {
           "type": "string"
         },
         "format": {
@@ -22,7 +22,7 @@
           "enum": ["tex-math", "mml:math"]
         }
       },
-      "required": ["content", "format"]
+      "required": ["contents", "format"]
     }
   }
 }
