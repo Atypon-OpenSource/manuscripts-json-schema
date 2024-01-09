@@ -19,7 +19,7 @@
         },
         "format": {
           "type": "string",
-          "enum": ["tex-math", "mml:math"]
+          "enum": ["tex", "mathml"]
         }
       },
       "required": ["contents", "format"]
