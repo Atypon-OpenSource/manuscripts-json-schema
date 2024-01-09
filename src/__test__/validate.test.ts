@@ -1760,7 +1760,7 @@ describe('Validation', () => {
       objectType: 'MPEquation',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
-      format: 'mml:math',
+      format: 'mathml',
       contents: '{}',
     };
 
