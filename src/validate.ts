@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+//@ts-ignore
+import { Model } from './models'; // eslint-disable-line import/no-unresolved
 //@ts-ignore
 import * as validators from './validators'; // eslint-disable-line import/no-unresolved
 
-type ManuscriptsJson = { objectType: string };
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function validate(object: ManuscriptsJson) {
+export function validate(object: Model) {
   if (!object) {
     return 'object null or undefined';
   }

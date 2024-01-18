@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './validate';
-// see bin/generateLookup.ts for how this file is generated.
-export * from './lookup';
-// see bin/generateTypes.ts for how this file is generated.
-export * from './types';
-export * from './builders';
-export * from './models';
+module.exports = {
+    presets: ['@babel/preset-env', '@babel/preset-typescript'],
+}
