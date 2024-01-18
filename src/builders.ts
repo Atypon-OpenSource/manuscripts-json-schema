@@ -32,7 +32,6 @@ import {
   EmbeddedModel,
   Footnote,
   FootnotesOrder,
-  InlineMathFragment,
   Keyword,
   KeywordGroup,
   Manuscript,
@@ -191,16 +190,6 @@ export const buildComment = (
   target,
   selector,
   contents,
-});
-
-export const buildInlineMathFragment = (
-  containingObject: string,
-  TeXRepresentation: string
-): Build<InlineMathFragment> => ({
-  _id: generateID(ObjectTypes.InlineMathFragment),
-  objectType: ObjectTypes.InlineMathFragment,
-  containingObject: containingObject || undefined,
-  TeXRepresentation,
 });
 
 export const buildFootnote = (
