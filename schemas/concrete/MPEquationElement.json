@@ -16,9 +16,6 @@
         },
         "containedObjectID": {
           "$ref": "strings.json#/definitions/_id"
-        },
-        "label": {
-          "type": "string"
         }
       },
       "required": ["containedObjectID"]
