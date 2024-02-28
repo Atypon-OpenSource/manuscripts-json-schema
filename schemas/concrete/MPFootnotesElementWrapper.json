@@ -1,6 +1,6 @@
 {
-  "$id": "MPTableElementFooter.json",
-  "title": "TableElementFooter",
+  "$id": "MPFootnotesElementWrapper.json",
+  "title": "FootnotesElementWrapper",
   "$mash": {
     "sources": [
       { "$ref": "abstract/MPModel.json#" },
@@ -15,12 +15,19 @@
             "$ref": "strings.json#/definitions/_id"
           }
         },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "author_notes",
+            "table_element_footer"
+          ]
+        },
         "objectType": {
           "type": "string",
-          "enum": ["MPTableElementFooter"]
+          "enum": ["MPFootnotesElementWrapper"]
         }
       },
-      "required": ["containedObjectIDs"]
+      "required": ["containedObjectIDs", "kind"]
     }
   }
 }
