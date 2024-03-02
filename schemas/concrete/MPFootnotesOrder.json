@@ -33,7 +33,7 @@
           "enum": ["MPFootnotesOrder"]
         }
       },
-      "required": ["containedObjectID", "footnotesList"]
+      "required": ["footnotesList", "containedObjectID"]
     }
   }
 }

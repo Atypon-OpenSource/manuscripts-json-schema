@@ -257,10 +257,13 @@ export const buildContributorRole = (name: string): Build<ContributorRole> => ({
   name,
 });
 
-export const buildFootnotesOrder = (): Build<FootnotesOrder> => ({
+export const buildFootnotesOrder = (
+  containedObjectID: string
+): Build<FootnotesOrder> => ({
   _id: generateID(ObjectTypes.FootnotesOrder),
   objectType: ObjectTypes.FootnotesOrder,
   footnotesList: [],
+  containedObjectID,
 });
 
 export const buildTitles = (title?: string): Build<Titles> => ({
