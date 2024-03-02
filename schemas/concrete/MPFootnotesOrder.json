@@ -25,12 +25,15 @@
             "required": ["id", "index"]
           }
         },
+        "containedObjectID": {
+          "$ref": "strings.json#/definitions/_id"
+        },
         "objectType": {
           "type": "string",
           "enum": ["MPFootnotesOrder"]
         }
       },
-      "required": ["footnotesList"]
+      "required": ["containedObjectID", "footnotesList"]
     }
   }
 }
