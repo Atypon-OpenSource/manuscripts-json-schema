@@ -1547,6 +1547,7 @@ describe('Validation', () => {
           index: 0,
         },
       ],
+      containedObjectID: 'MPFootnotesElement:E3391685EDA9',
       manuscriptID: 'MPManuscript:zorb',
       containerID: 'MPProject:potato',
     };
