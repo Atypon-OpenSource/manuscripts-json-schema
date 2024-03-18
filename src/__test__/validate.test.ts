@@ -1408,18 +1408,8 @@ describe('Validation', () => {
     ).toBeNull();
 
     expect(
-      validate(Object.assign({}, validObject, { elementType: 'div' }))
-    ).toBeNull();
-
-    expect(
       validate(Object.assign({}, validObject, { elementType: 'foo' }))
     ).toBe('/elementType: must be equal to one of the allowed values');
-
-    const { caption, ...invalidObject } = validObject;
-
-    expect(validate(invalidObject)).toBe(
-      "must have required property 'caption'"
-    );
   });
 
   test('footnotes element', () => {
@@ -1771,15 +1761,16 @@ describe('Validation', () => {
       objectType: 'MPEquation',
       containerID: 'MPProject:bar',
       manuscriptID: 'MPManuscript:baz',
-      TeXRepresentation: '{}',
+      format: 'mathml',
+      contents: '{}',
     };
 
     expect(validate(validObject)).toBeNull();
 
-    const { TeXRepresentation, ...invalidObject } = validObject;
+    const { contents, ...invalidObject } = validObject;
 
     expect(validate(invalidObject)).toBe(
-      "must have required property 'TeXRepresentation'"
+      "must have required property 'contents'"
     );
   });
 
@@ -1996,57 +1987,6 @@ describe('Validation', () => {
     expect(validate(invalidObject)).toBe(
       "must have required property 'elements'"
     );
-  });
-
-  test('inline math fragment', () => {
-    const validObject = {
-      _id: 'MPInlineMathFragment:foo',
-      createdAt: 12312312.1,
-      updatedAt: 12312312.1,
-      objectType: 'MPInlineMathFragment',
-      containerID: 'MPProject:bar',
-      containingObject: 'MPParagraphElement:baz',
-      TeXRepresentation: '{}',
-    };
-
-    expect(validate(validObject)).toBeNull();
-
-    const { TeXRepresentation, ...invalidObject } = validObject;
-    expect(validate(invalidObject)).toBe(
-      "must have required property 'TeXRepresentation'"
-    );
-
-    expect(
-      validate(
-        Object.assign({}, validObject, {
-          SVGRepresentation: '<>',
-        })
-      )
-    ).toBeNull();
-
-    expect(
-      validate(
-        Object.assign({}, validObject, {
-          MathMLRepresentation: '()',
-        })
-      )
-    ).toBeNull();
-
-    expect(
-      validate(
-        Object.assign({}, validObject, {
-          SVGGlyphs: '<>',
-        })
-      )
-    ).toBeNull();
-
-    expect(
-      validate(
-        Object.assign({}, validObject, {
-          OMMLRepresentation: '-',
-        })
-      )
-    ).toBeNull();
   });
 
   test('invitation', () => {
