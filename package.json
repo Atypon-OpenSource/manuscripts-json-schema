@@ -1,6 +1,6 @@
 {
   "name": "@manuscripts/json-schema",
-  "version": "2.2.6-LEAN-3423-0",
+  "version": "2.2.7",
   "description": "The Manuscripts JSON Schema types, and validation functions.",
   "repository": "github:Atypon-OpenSource/manuscripts-json-schema",
   "license": "Apache-2.0",
