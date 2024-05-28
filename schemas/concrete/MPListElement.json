@@ -16,6 +16,10 @@
         "listStyleType": {
           "type": "string",
           "enum": ["order", "alpha-lower", "alpha-upper", "roman-lower", "roman-upper", "bullet", "simple"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["order","bullet"]
         }
       },
       "required": []
