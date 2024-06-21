@@ -21,6 +21,9 @@
           "objectType": {
             "type": "string",
             "enum": ["MPTitles"]
+          },
+          "placeholder":{
+            "type": "string"
           }
         },
         "required": ["title"]
