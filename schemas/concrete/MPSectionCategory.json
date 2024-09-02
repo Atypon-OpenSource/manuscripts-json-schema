@@ -31,6 +31,9 @@
         "titleSuppressed": {
           "type": "boolean"
         },
+        "isDisabled": {
+          "type": "boolean"
+        },
         "pageBreakStyle": {
           "type": "number"
         },
