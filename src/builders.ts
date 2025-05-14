@@ -100,9 +100,8 @@ export const buildBibliographyItem = (
 
 export const buildBibliographicName = (
   data: Partial<BibliographicName>
-): BuildEmbedded<BibliographicName, ObjectTypes.BibliographicName> => ({
+): BibliographicName => ({
   ...data,
-  _id: generateID(ObjectTypes.BibliographicName),
   objectType: ObjectTypes.BibliographicName,
 });
 
