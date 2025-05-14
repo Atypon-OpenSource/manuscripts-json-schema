@@ -91,7 +91,6 @@ describe('commands', () => {
     const bibName = buildBibliographicName(name);
     expect(bibName.given).toBe(name.given);
     expect(bibName.family).toBe(name.family);
-    expect(bibName._id).toMatch(/MPBibliographicName:\S+/);
     expect(bibName.objectType).toBe(ObjectTypes.BibliographicName);
   });
 

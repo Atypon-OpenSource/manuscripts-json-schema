@@ -100,7 +100,6 @@ describe('Validation', () => {
       affiliations: ['MPAffiliation:X'],
       grants: ['MPGrant:X'],
       bibliographicName: {
-        _id: 'MPBibliographicName:DEDDA223',
         objectType: 'MPBibliographicName',
       },
     };
@@ -153,9 +152,7 @@ describe('Validation', () => {
       '/affiliations/0: must be string'
     );
     expect(validate(objectWithBadGrants)).toBe('/grants/0: must be string');
-    expect(
-      validate(Object.assign({}, validObject, { bibliographicName: {} }))
-    ).toBe("/bibliographicName: must have required property '_id'");
+
     expect(
       validate(
         Object.assign({}, validObject, {
@@ -354,9 +351,6 @@ describe('Validation', () => {
     expect(
       validate(Object.assign({}, validObject, { accessed: validDate }))
     ).toBeNull();
-    expect(validate(Object.assign({}, validObject, { composer: [{}] }))).toBe(
-      "/composer/0: must have required property '_id'"
-    );
     expect(
       validate(Object.assign({}, validObject, { originalProperties: 'foo' }))
     ).toBe('/originalProperties: must be object');
