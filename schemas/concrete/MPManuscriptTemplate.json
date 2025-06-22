@@ -270,6 +270,9 @@
         },
         "maxFigureHeightPixelsRequirement": {
           "$ref": "strings.json#/definitions/_id"
+        },
+        "articleType": {
+          "type": "string"        
         }
       },
       "required": ["title"]
