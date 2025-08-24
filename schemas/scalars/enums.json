@@ -24,7 +24,7 @@
     },
     "ContainerRole": {
       "type": "string",
-      "enum": ["Owner", "Writer", "Editor", "Viewer", "Annotator", "Proofer"]
+      "enum": ["Owner", "Writer", "Editor", "Viewer", "Annotator"]
     },
     "NoteSource": {
       "type": "string",
